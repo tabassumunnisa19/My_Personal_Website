@@ -122,4 +122,8 @@ main { padding: 28px 0; }
   .contact-container { flex-direction: column; }
   .contact-form, .contact-details { flex: 1 1 100%; }
 }
-
+.contact h3 {
+  margin-top: 40px;      /* pushes it down */
+  margin-bottom: 20px;   /* adds spacing below */
+  text-align: center;    /* optional: centers the text */
+}
