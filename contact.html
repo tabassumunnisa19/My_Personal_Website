@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact — Nisa</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>
 <header class="site-header">
   <div class="site-container header-inner">
-    <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
+    <a href="index.html" class="logo"><img src="logo.png" alt="Nisa logo" /></a>
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -10,25 +10,56 @@
       <a href="learn.html">Learn</a>
       <a href="blog.html">Blog</a>
       <a href="books.html">Books</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="site-container">
-    <section class="section">
+    <section class="section" id="contact">
       <h2>Contact</h2>
       <p>If you'd like to reach out, use the form below or connect via the social links in the footer.</p>
-      <form class="contact-form" action="#" method="post" onsubmit="alert('Form submit is placeholder. Replace with your backend or Formspree.'); return false;">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" rows="6" placeholder="Message"></textarea>
-        <div style="margin-top:10px;"><button class="btn" type="submit">Send Message</button></div>
-      </form>
+
+      <!-- Two-column contact layout -->
+      <div class="contact-container">
+
+        <!-- LEFT: Form (Formspree) -->
+        <form class="contact-form"
+              action="https://formspree.io/f/mgvljlvl"
+              method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <textarea name="message" rows="6" placeholder="Message" required></textarea>
+
+          <!-- optional: set email subject visible in Formspree dashboard -->
+          <input type="hidden" name="_subject" value="New contact from Nisa website">
+
+          <!-- redirect after successful submit; CHANGE this to your actual site URL if different -->
+          <input type="hidden" name="_next" value="https://tabassumunnisa19.github.io/My_personal_website/thank-you.html">
+
+          <!-- honeypot (anti-bot) -->
+          <input type="text" name="_gotcha" style="display:none">
+
+          <div style="margin-top:10px;">
+            <button class="btn" type="submit">Send Message</button>
+          </div>
+        </form>
+
+        <!-- RIGHT: Contact details (simple & professional) -->
+        <aside class="contact-details">
+          <h3>Get in touch</h3>
+          <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+          <p><strong>Location:</strong> Kochi, India</p>
+          <p><strong>Social:</strong> Connect via the footer icons below</p>
+          <p style="margin-top:12px; color:#6b7280; font-size:14px;">I usually reply within a few days. If it’s urgent, use the email above.</p>
+        </aside>
+
+      </div>
     </section>
   </div>
 </main>
+
 <footer class="site-footer">
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
