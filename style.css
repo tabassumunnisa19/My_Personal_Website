@@ -59,8 +59,8 @@ main { padding: 28px 0; }
 .socials { display: flex; gap: 14px; align-items: center; }
 .social { font-size: 20px; display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 6px; text-decoration: none; }
 .social.linkedin { color: #0A66C2; background: rgba(10,102,194,0.08); }
-.social.github { color: #0e1116; background: rgba(0,0,0,0.06); }
-.social.medium { color: #000000; background: rgba(0,0,0,0.06); }
+.social.github { color: #ffffff; background: rgba(255,255,255,0.06); }
+.social.medium { color: #ffffff; background: rgba(255,255,255,0.06); }
 .social.youtube { color: #FF0000; background: rgba(255,0,0,0.08); }
 .social:hover { transform: translateY(-2px); opacity: 0.95; transition: 120ms ease; }
 
