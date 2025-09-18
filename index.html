@@ -100,6 +100,18 @@
     </div>
   </div>
 </footer>
+<script>
+  const text = "Hi, Nisa";
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typed").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 150); // typing speed (ms)
+    }
+  }
+  window.onload = typeWriter;
+</script>
 
 
 </body>
