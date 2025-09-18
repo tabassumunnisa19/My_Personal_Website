@@ -132,16 +132,20 @@ main { padding: 28px 0; }
   font-size: 48px;
   font-weight: 700;
   text-align: center;
+  margin-top: 50px;
+}
+
+/* Gradient applied directly to typed text */
+#typed {
   background: linear-gradient(90deg, #007BFF, #FF4CCB); /* blue → pink */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 50px; /* adjust if needed */
 }
 
-/* blinking cursor */
+/* Blinking cursor */
 .cursor {
   display: inline-block;
-  color: #007BFF; /* blue cursor */
+  color: #007BFF; /* keep cursor blue */
   animation: blink 0.7s infinite;
 }
 
