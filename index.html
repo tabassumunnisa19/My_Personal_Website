@@ -107,7 +107,9 @@
     if (i < text.length) {
       document.getElementById("typed").innerHTML += text.charAt(i);
       i++;
-      setTimeout(typeWriter, 150); // typing speed (ms)
+      // fallback support for gradient
+      document.getElementById("typed").setAttribute("data-text", document.getElementById("typed").innerText);
+      setTimeout(typeWriter, 200); // typing speed (ms) - 200ms is smooth
     }
   }
   window.onload = typeWriter;
