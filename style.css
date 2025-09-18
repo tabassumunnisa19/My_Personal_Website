@@ -164,3 +164,27 @@ main { padding: 28px 0; }
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+/* Light gradient for About page heading (subtle & professional) */
+.gradient-text-light {
+  background: linear-gradient(90deg, #8ec9ff 0%, #ffc0dd 100%); /* light blue -> light pink */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  display: inline-block;      /* important so gradient clips correctly */
+  line-height: 1;
+}
+
+/* Optional: soft shimmer animation (use only if you want gentle movement) */
+.gradient-text-light.shimmer {
+  background-size: 200% 100%;
+  animation: gradient-shimmer 5s linear infinite;
+}
+
+@keyframes gradient-shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
