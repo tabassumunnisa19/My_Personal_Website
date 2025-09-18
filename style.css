@@ -135,17 +135,28 @@ main { padding: 28px 0; }
   margin-top: 50px;
 }
 
-/* Gradient applied directly to typed text */
 #typed {
   background: linear-gradient(90deg, #007BFF, #FF4CCB); /* blue → pink */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
 }
 
-/* Blinking cursor */
+/* fallback for browsers that ignore background-clip */
+#typed::before {
+  content: attr(data-text);
+  background: linear-gradient(90deg, #007BFF, #FF4CCB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+}
+
 .cursor {
   display: inline-block;
-  color: #007BFF; /* keep cursor blue */
+  color: #007BFF; /* cursor stays blue */
   animation: blink 0.7s infinite;
 }
 
