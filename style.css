@@ -198,7 +198,7 @@ main { padding: 28px 0; }
 
 /* Default link style */
 .navbar a {
-  color: #ddd; /* light gray default */
+  color: #444; /* light gray default */
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-weight: 500;
