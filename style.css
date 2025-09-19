@@ -377,5 +377,55 @@ main { padding: 28px 0; }
   }
   .menu-toggle { display: none; }
 }
+/* ---------- Mobile menu: small stacked dropdown ---------- */
+@media (max-width: 768px) {
+  /* Target the menu list - replace .main-nav ul with your actual selector if needed */
+  .main-nav ul,
+  nav ul,
+  #menu,
+  .menu {               /* fallback selectors in case your class is different */
+    display: none;      /* hidden until toggled */
+    position: absolute;
+    top: calc(100% + 8px); /* appears below the header */
+    right: 16px;           /* align to the right hamburger */
+    background: #ffffff;
+    padding: 10px 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    width: auto;           /* do NOT use 100% */
+    min-width: 160px;
+    max-width: 90vw;
+    z-index: 9999;
+    box-sizing: border-box;
+  }
+
+  /* when JS toggles .show, it becomes visible */
+  .main-nav ul.show,
+  nav ul.show,
+  #menu.show,
+  .menu.show {
+    display: block;
+  }
+
+  /* spacing of items */
+  .main-nav ul li,
+  nav ul li,
+  #menu li,
+  .menu li {
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+  }
+
+  /* make the link fill the line and easier to tap */
+  .main-nav ul li a,
+  nav ul li a,
+  #menu li a,
+  .menu li a {
+    display: block;
+    padding: 6px 8px;
+    text-decoration: none;
+  }
+}
 
 
