@@ -1,4 +1,4 @@
-# Nisa — Personal Website (Final)
+# Nisa — Personal Website
 
 This package contains the full static website for Nisa with updated footer and books buttons.
 
