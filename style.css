@@ -265,5 +265,117 @@ main { padding: 28px 0; }
     font-size: 16px;
   }
 }
+/* ------------------------
+  Hamburger button (base)
+   - 3 bars, hidden on desktop
+-------------------------*/
+.menu-toggle {
+  display: none;               /* shown only on mobile via media query below */
+  width: 36px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+/* bars inside hamburger */
+.menu-toggle .bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #223249;   /* dark color for bars (adjust if you want white) */
+  border-radius: 3px;
+  transition: transform 0.30s ease, opacity 0.25s ease, background-color 0.25s;
+}
+
+/* tiny gap between bars */
+.menu-toggle .bar + .bar {
+  margin-top: 5px;
+}
+
+/* ------------------------
+  Hamburger --> X animation
+-------------------------*/
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ------------------------
+  Mobile navbar slide-down (responsive)
+  - Uses max-height transition so it animates smoothly
+-------------------------*/
+@media (max-width: 768px) {
+
+  /* show hamburger on mobile */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* make header inner layout friendly for mobile */
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* navbar becomes a vertical hidden block with max-height animation */
+  .navbar {
+    display: flex;               /* keep flex so items stack with flex-direction below */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-height: 0;               /* hidden */
+    overflow: hidden;
+    padding: 0;                  /* removed until opened */
+    transition: max-height 350ms ease, padding 350ms ease;
+    background: transparent;     /* change to color if you want background when open */
+  }
+
+  /* visible state when toggled */
+  .navbar.show {
+    max-height: 420px;           /* large enough for your links; adjust if you have many links */
+    padding: 10px 0;
+    background: rgba(255,255,255,0.98); /* slight white background while open (optional) */
+    box-shadow: 0 8px 20px rgba(10,20,30,0.08);
+  }
+
+  /* nav links style on mobile (stacked) */
+  .navbar a {
+    display: block;
+    padding: 10px 14px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: inherit; /* keep link color rules from your navbar CSS */
+  }
+
+  /* optional: slightly bigger clickable target for links */
+  .navbar a:hover {
+    background: rgba(11,99,198,0.06);
+  }
+}
+
+/* Safety: when resizing back to desktop, ensure nav resets */
+@media (min-width: 769px) {
+  .navbar {
+    max-height: none !important;
+    padding: 0 !important;
+    overflow: visible;
+  }
+  .menu-toggle { display: none; }
+}
 
 
