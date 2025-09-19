@@ -348,7 +348,7 @@ main { padding: 28px 0; }
   .navbar.show {
     max-height: 420px;           /* large enough for your links; adjust if you have many links */
     padding: 10px 0;
-    background: rgba(255,255,255,0.98); /* slight white background while open (optional) */
+    background: linear-gradient(180deg, #f5f7fb 0%, #eef3fb 100%); /* slight white background while open (optional) */
     box-shadow: 0 8px 20px rgba(10,20,30,0.08);
   }
 
