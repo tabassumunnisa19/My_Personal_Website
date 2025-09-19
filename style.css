@@ -232,4 +232,38 @@ main { padding: 28px 0; }
   background: linear-gradient(90deg, #ff0080, #ff4da6);
   box-shadow: 0 0 6px #ff0080, 0 0 12px #ff4da6;
 }
+/* Hide nav + show hamburger on small screens */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* hidden by default */
+    flex-direction: column;
+    align-items: center;
+    background: #f8f8f8;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .navbar.show {
+    display: flex; /* visible when active */
+  }
+
+  .menu-toggle {
+    display: block; /* show hamburger */
+  }
+
+  .navbar a {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+}
+
 
