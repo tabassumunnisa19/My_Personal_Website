@@ -7,24 +7,47 @@
 </head>
 <body>
 
-  <!-- Header / Navbar -->
-  <header>
-    <nav>
-      <a href="{{ "/" | relative_url }}">Home</a> |
-      <a href="{{ "/blog.html" | relative_url }}">Blog</a>
-    </nav>
+  <!-- ====== Header (copied style from your site) ====== -->
+  <header class="site-header" style="background: linear-gradient(180deg,#f5f7fb 0%, #eef3fb 100%); border-bottom: 1px solid #e6eef8; position: sticky; top: 0; z-index: 40;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:1rem;">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="{{ "/" | relative_url }}">
+          <img src="{{ "/assets/images/logo.png" | relative_url }}" alt="Nisa Logo" style="height:40px;">
+        </a>
+      </div>
+      <!-- Navigation -->
+      <nav class="site-nav">
+        <a href="{{ "/" | relative_url }}">Home</a>
+        <a href="{{ "/about.html" | relative_url }}">About</a>
+        <a href="{{ "/portfolio.html" | relative_url }}">Portfolio</a>
+        <a href="{{ "/learn.html" | relative_url }}">Learn</a>
+        <a href="{{ "/blog.html" | relative_url }}">Blog</a>
+        <a href="{{ "/books.html" | relative_url }}">Books</a>
+        <a href="{{ "/contact.html" | relative_url }}">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Page Content -->
-  <main>
-    {{ content }}
+  <!-- ====== Page Content ====== -->
+  <main class="site-content" style="padding:2rem;">
+    <div class="container">
+      {{ content }}
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Tabassum Unnisa. All rights reserved.</p>
+  <!-- ====== Footer (copied style from your site) ====== -->
+  <footer class="site-footer" style="background:#0f172a; color:#fff; padding:1rem 0; text-align:center; margin-top:2rem;">
+    <div class="container">
+      <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
+      <div class="social-icons" style="margin-top:0.5rem;">
+        <a href="#" target="_blank"><img src="{{ "/assets/icons/linkedin.svg" | relative_url }}" alt="LinkedIn" style="height:20px; margin:0 5px;"></a>
+        <a href="#" target="_blank"><img src="{{ "/assets/icons/github.svg" | relative_url }}" alt="GitHub" style="height:20px; margin:0 5px;"></a>
+        <a href="#" target="_blank"><img src="{{ "/assets/icons/medium.svg" | relative_url }}" alt="Medium" style="height:20px; margin:0 5px;"></a>
+        <a href="#" target="_blank"><img src="{{ "/assets/icons/youtube.svg" | relative_url }}" alt="YouTube" style="height:20px; margin:0 5px;"></a>
+      </div>
+    </div>
   </footer>
 
 </body>
 </html>
-
