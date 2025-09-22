@@ -43,17 +43,21 @@
 </head>
 <body>
 
-   <div class="card">
-      <h3>
-        <a href="{{ site.baseurl }}{{ post.url }}">
-          {{ post.title }}
-        </a>
-      </h3>
-      {% if post.subtitle %}
-        <p>{{ post.subtitle }}</p>
-      {% endif %}
-    </div>
-
+   <div class="container">
+  <h1>Blog</h1>
+  <div class="blog-list">
+    {% for post in site.posts %}
+      <div class="card">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.subtitle %}
+        <p class="subtitle">{{ post.subtitle }}</p>
+        {% endif %}
+        <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+        <p>{{ post.excerpt }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 
         <div class="card"><h3>How I Optimized Hospital Resources Using ML</h3><p>Summary of model & optimization approach.</p></div>
       </div>
