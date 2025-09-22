@@ -26,40 +26,12 @@
     </nav>
   </div>
 </header>
-
 <main>
   <div class="site-container">
     <section class="section">
       <h2>Blog — Insights & Journey</h2>
       <div class="grid">
-<!-- blog1.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning Data Science in My 30s</title>
-  <link rel="stylesheet" href="style.css"> <!-- link to your main CSS -->
-</head>
-<body>
-
-  {% for post in site.posts %}
-<div class="blog-card">
-  <h3>
-    <a href="{{ site.baseurl }}{{ post.url }}">
-      {{ post.title }}
-    </a>
-  </h3>
-  {% if post.subtitle %}
-  <p>{{ post.subtitle }}</p>
-  {% endif %}
-  <span>📅 {{ post.date | date: "%B %d, %Y" }}</span>
-  <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More →</a>
-</div>
-{% endfor %}
-
-
-
+        <div class="card"><h3>Learning Data Science in My 30s — A Structured Plan</h3><p>Roadmap and practice tips.</p></div>
         <div class="card"><h3>How I Optimized Hospital Resources Using ML</h3><p>Summary of model & optimization approach.</p></div>
       </div>
     </section>
