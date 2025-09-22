@@ -1,5 +1,4 @@
-title: "Tabassum Unnisa"
-description: "My personal website and blogs"
-baseurl: "/My_Personal_Website"   # repo name
+title: "My Personal Website"
+baseurl: "/My_Personal_Website"   # ← must match your repo name exactly
 url: "https://tabassumunnisa19.github.io"
-theme: minima
+
