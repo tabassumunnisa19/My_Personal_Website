@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HR Interview Questions — Nisa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Nisa logo" /></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="learn.html" class="active">Learn</a>
+      <a href="blog.html">Blog</a>
+      <a href="books.html">Books</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="site-container">
+    <section class="section">
+      <h2>HR Interview Questions 📋</h2>
+      <p style="color:#475569; margin-bottom:12px;">
+        Explore common HR questions for IT & Data Science roles. Click a tab to see questions and answers.
+      </p>
+
+      <!-- HR Tabs -->
+      <div class="hr-subcategories" style="margin-bottom:1rem;">
+        <button class="hr-tab active" data-target="general-hr">General</button>
+        <button class="hr-tab" data-target="behavioral-hr">Behavioral</button>
+        <button class="hr-tab" data-target="ds-hr">Data Science HR</button>
+      </div>
+
+      <!-- HR Sections -->
+
+      <!-- General HR Questions -->
+      <div id="general-hr" class="hr-section-content">
+        <div class="question-card">
+          <p><strong>Q1. Tell me about yourself</strong></p>
+          <button class="toggle-btn">Click to view answer</button>
+          <div class="answer">
+            <p>Answer: I am a [Your Qualification] with experience in [Your Field]. I enjoy solving problems and applying my skills to real-world scenarios. I am excited about this role because it aligns with my career goals.</p>
+            <p><em>Tip:</em> Keep a 30–60 second summary focused on achievements relevant to the job.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <p><strong>Q2. Why do you want to join our company?</strong></p>
+          <button class="toggle-btn">Click to view answer</button>
+          <div class="answer">
+            <p>Answer: I admire TCS’s culture of innovation and learning. My skills align with the company’s goals.</p>
+            <p><em>Tip:</em> Mention specific programs, projects, or values after research.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Behavioral HR Questions -->
+      <div id="behavioral-hr" class="hr-section-content" style="display:none;">
+        <div class="question-card">
+          <p><strong>Q1. Tell me about your biggest weakness</strong></p>
+          <button class="toggle-btn">Click to view answer</button>
+          <div class="answer">
+            <p>Answer: One area I am improving is [Weakness]. I take actions to overcome it and turn it into a strength.</p>
+            <p><em>Tip:</em> Be honest but show initiative for self-improvement.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <p><strong>Q2. Describe a challenging situation at work</strong></p>
+          <button class="toggle-btn">Click to view answer</button>
+          <div class="answer">
+            <p>Answer: In a previous project, we faced [Challenge]. I coordinated with the team, identified a solution, and successfully completed the project on time.</p>
+            <p><em>Tip:</em> Use the STAR method (Situation, Task, Action, Result).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Science HR Questions -->
+      <div id="ds-hr" class="hr-section-content" style="display:none;">
+        <div class="question-card">
+          <p><strong>Q1. Why did you choose Data Science as a career path?</strong></p>
+          <button class="toggle-btn">Click to view answer</button>
+          <div class="answer">
+            <p>Answer: I enjoy analyzing data to extract insights and solve problems. It combines programming, statistics, and analytics to make a real impact.</p>
+            <p><em>Tip:</em> Connect your answer to projects or learning experiences.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <p><strong>Q2. How do you handle tight deadlines in data projects?</strong></p>
+          <button class="toggle-btn">Click to view answer</button>
+          <div class="answer">
+            <p>Answer: I prioritize tasks, break projects into smaller steps, and communicate proactively with stakeholders to ensure on-time delivery.</p>
+            <p><em>Tip:</em> Show your planning and communication skills.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+  </div>
+</footer>
+
+<script>
+  // HR Tabs
+  const hrTabs = document.querySelectorAll('.hr-tab');
+  const hrContents = document.querySelectorAll('.hr-section-content');
+  hrTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      hrTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      hrContents.forEach(c => {
+        c.style.display = c.id === tab.dataset.target ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Toggle answers
+  const toggleBtns = document.querySelectorAll('.toggle-btn');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ans = btn.nextElementSibling;
+      if(ans.style.display==='none' || ans.style.display==='') {
+        ans.style.display='block';
+        btn.textContent='Hide answer';
+      } else {
+        ans.style.display='none';
+        btn.textContent='Click to view answer';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
