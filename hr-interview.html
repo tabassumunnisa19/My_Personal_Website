@@ -1,144 +1,353 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>HR Interview Questions — Nisa</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HR Interview — Learn with Me</title>
+
+  <!-- Font Awesome (optional; remove if you don't want icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous"/>
+
+  <style>
+    :root{
+      --bg: #f5f7fb;
+      --card-bg: #ffffff;
+      --muted: #6b7280;
+      --accent-start: #f5f7fb;
+      --accent-end: #eef3fb;
+      --primary: #0f172a;
+      --card-border: #e6eef8;
+      --shadow: 0 6px 18px rgba(12, 32, 60, 0.06);
+      --radius: 12px;
+      --gap: 1.25rem;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg, var(--accent-start) 0%, var(--accent-end) 100%);
+      color:var(--primary);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page {
+      max-width:1100px;
+      margin: 36px auto;
+      padding: 24px;
+    }
+
+    .page-header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .title-group{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.45rem;
+      letter-spacing: -0.2px;
+    }
+    p.lead{
+      margin:0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Filter / search bar */
+    .controls {
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin: 12px 0 20px 0;
+      flex-wrap:wrap;
+    }
+
+    .search {
+      display:flex;
+      align-items:center;
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      padding:8px 12px;
+      border-radius:999px;
+      box-shadow:var(--shadow);
+      min-width:220px;
+      gap:8px;
+    }
+    .search input{
+      border:0;
+      outline:0;
+      font-size:0.95rem;
+      background:transparent;
+      width:180px;
+    }
+
+    .category-filter {
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .chip {
+      background:transparent;
+      border:1px solid var(--card-border);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:0.85rem;
+      cursor:pointer;
+    }
+    .chip.active {
+      background:linear-gradient(90deg,#e6f0ff,#f2f9ff);
+      border-color:#bfe0ff;
+      box-shadow: 0 4px 10px rgba(15, 57, 110, 0.06);
+    }
+
+    /* Grid */
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:var(--gap);
+      align-items:stretch;
+    }
+
+    .card {
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      transition: transform .18s ease, box-shadow .18s ease;
+      min-height:160px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow: 0 18px 40px rgba(12,32,60,0.09);
+    }
+
+    .card .icon {
+      font-size:20px;
+      width:40px;
+      height:40px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      background:linear-gradient(180deg,#f0f6ff,#ffffff);
+      border:1px solid #e6eef8;
+      color:#0b3a66;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:1.02rem;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:0.9rem;
+      line-height:1.35;
+    }
+
+    .tags {
+      margin-top:auto;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .tag {
+      font-size:0.78rem;
+      padding:6px 8px;
+      border-radius:8px;
+      background:#f7fbff;
+      border:1px solid #e7f1ff;
+      color:#0b3a66;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:520px){
+      .page { padding:16px; margin:18px auto; }
+      .search input { width:110px; }
+      h1 { font-size:1.15rem; }
+    }
+
+    /* small footer */
+    .page-footer {
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.85rem;
+      text-align:center;
+    }
+
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="site-container header-inner">
-    <a href="index.html" class="logo"><img src="logo.png" alt="Nisa logo" /></a>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="learn.html" class="active">Learn</a>
-      <a href="blog.html">Blog</a>
-      <a href="books.html">Books</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <main class="page" id="hr-page">
 
-<main>
-  <div class="site-container">
-    <section class="section">
-      <h2>HR Interview Questions 📋</h2>
-      <p style="color:#475569; margin-bottom:12px;">
-        Explore common HR questions for IT & Data Science roles. Click a tab to see questions and answers.
-      </p>
-
-      <!-- HR Tabs -->
-      <div class="hr-subcategories" style="margin-bottom:1rem;">
-        <button class="hr-tab active" data-target="general-hr">General</button>
-        <button class="hr-tab" data-target="behavioral-hr">Behavioral</button>
-        <button class="hr-tab" data-target="ds-hr">Data Science HR</button>
+    <header class="page-header" aria-label="Page header">
+      <div class="title-group">
+        <h1>HR Interview — Learn with Me</h1>
+        <p class="lead">Select a category to explore questions, answers and mock interview prompts.</p>
       </div>
 
-      <!-- HR Sections -->
+      <!-- optional quick action -->
+      <nav aria-label="Quick actions">
+        <a href="/learn" title="Back to Learn" style="text-decoration:none;color:var(--muted);font-size:0.95rem;">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Learn
+        </a>
+      </nav>
+    </header>
 
-      <!-- General HR Questions -->
-      <div id="general-hr" class="hr-section-content">
-        <div class="question-card">
-          <p><strong>Q1. Tell me about yourself</strong></p>
-          <button class="toggle-btn">Click to view answer</button>
-          <div class="answer">
-            <p>Answer: I am a [Your Qualification] with experience in [Your Field]. I enjoy solving problems and applying my skills to real-world scenarios. I am excited about this role because it aligns with my career goals.</p>
-            <p><em>Tip:</em> Keep a 30–60 second summary focused on achievements relevant to the job.</p>
-          </div>
-        </div>
-        <div class="question-card">
-          <p><strong>Q2. Why do you want to join our company?</strong></p>
-          <button class="toggle-btn">Click to view answer</button>
-          <div class="answer">
-            <p>Answer: I admire TCS’s culture of innovation and learning. My skills align with the company’s goals.</p>
-            <p><em>Tip:</em> Mention specific programs, projects, or values after research.</p>
-          </div>
-        </div>
+    <section class="controls" aria-label="Controls">
+      <div class="search" role="search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input id="searchInput" type="search" placeholder="Search cards (e.g., behavioral, salary)" aria-label="Search cards" />
       </div>
 
-      <!-- Behavioral HR Questions -->
-      <div id="behavioral-hr" class="hr-section-content" style="display:none;">
-        <div class="question-card">
-          <p><strong>Q1. Tell me about your biggest weakness</strong></p>
-          <button class="toggle-btn">Click to view answer</button>
-          <div class="answer">
-            <p>Answer: One area I am improving is [Weakness]. I take actions to overcome it and turn it into a strength.</p>
-            <p><em>Tip:</em> Be honest but show initiative for self-improvement.</p>
-          </div>
-        </div>
-        <div class="question-card">
-          <p><strong>Q2. Describe a challenging situation at work</strong></p>
-          <button class="toggle-btn">Click to view answer</button>
-          <div class="answer">
-            <p>Answer: In a previous project, we faced [Challenge]. I coordinated with the team, identified a solution, and successfully completed the project on time.</p>
-            <p><em>Tip:</em> Use the STAR method (Situation, Task, Action, Result).</p>
-          </div>
-        </div>
+      <div class="category-filter" role="tablist" aria-label="Filter by category">
+        <button class="chip active" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="general">General HR</button>
+        <button class="chip" data-filter="behavioral">Behavioral</button>
+        <button class="chip" data-filter="technical">Technical HR</button>
+        <button class="chip" data-filter="datascience">Data Science</button>
+        <button class="chip" data-filter="salary">Salary & Negotiation</button>
+        <button class="chip" data-filter="mock">Mock Interviews</button>
+        <button class="chip" data-filter="resources">Resources</button>
       </div>
+    </section>
 
-      <!-- Data Science HR Questions -->
-      <div id="ds-hr" class="hr-section-content" style="display:none;">
-        <div class="question-card">
-          <p><strong>Q1. Why did you choose Data Science as a career path?</strong></p>
-          <button class="toggle-btn">Click to view answer</button>
-          <div class="answer">
-            <p>Answer: I enjoy analyzing data to extract insights and solve problems. It combines programming, statistics, and analytics to make a real impact.</p>
-            <p><em>Tip:</em> Connect your answer to projects or learning experiences.</p>
+    <section class="grid" id="cardGrid" aria-live="polite">
+
+      <!-- Card: General HR -->
+      <a class="card" href="hr-general.html" data-category="general" title="General HR questions">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="icon" aria-hidden="true"><i class="fa fa-user-tie"></i></div>
+          <div>
+            <h3>General HR</h3>
+            <p>Common HR questions: introductions, strengths & weaknesses, reason for leaving, notice period.</p>
           </div>
         </div>
-        <div class="question-card">
-          <p><strong>Q2. How do you handle tight deadlines in data projects?</strong></p>
-          <button class="toggle-btn">Click to view answer</button>
-          <div class="answer">
-            <p>Answer: I prioritize tasks, break projects into smaller steps, and communicate proactively with stakeholders to ensure on-time delivery.</p>
-            <p><em>Tip:</em> Show your planning and communication skills.</p>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">Intro</span>
+          <span class="tag">Policies</span>
+          <span class="tag">Experience</span>
+        </div>
+      </a>
+
+      <!-- Card: Behavioral HR -->
+      <a class="card" href="hr-behavioral.html" data-category="behavioral" title="Behavioral HR questions and STAR answers">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="icon" aria-hidden="true"><i class="fa fa-lightbulb"></i></div>
+          <div>
+            <h3>Behavioral</h3>
+            <p>STAR-format behavioral questions with sample answers and practice prompts.</p>
           </div>
         </div>
-      </div>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">STAR</span>
+          <span class="tag">Teamwork</span>
+        </div>
+      </a>
+
+      <!-- Card: Data Science Interview -->
+      <a class="card" href="hr-datascience.html" data-category="datascience" title="HR questions specific to data science roles">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="icon" aria-hidden="true"><i class="fa fa-chart-line"></i></div>
+          <div>
+            <h3>Data Science — HR</h3>
+            <p>Role-specific HR questions for DS positions: product fit, project discussion, cross-team collaboration.</p>
+          </div>
+        </div>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">Projects</span>
+          <span class="tag">Collaboration</span>
+        </div>
+      </a>
+
+      <!-- Card: Technical HR -->
+      <a class="card" href="hr-technical.html" data-category="technical" title="Technical HR screening and questions">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="icon" aria-hidden="true"><i class="fa fa-code"></i></div>
+          <div>
+            <h3>Technical HR</h3>
+            <p>Screening questions that bridge HR and technical teams: role expectations, tech-stack comfort.</p>
+          </div>
+        </div>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">Screening</span>
+          <span class="tag">Expectations</span>
+        </div>
+      </a>
+
+      <!-- Card: Salary & Negotiation -->
+      <a class="card" href="hr-salary.html" data-category="salary" title="Salary discussion, CTC breakdown and negotiation tips">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="icon" aria-hidden="true"><i class="fa fa-money-bill-wave"></i></div>
+          <div>
+            <h3>Salary & Negotiation</h3>
+            <p>How to discuss CTC, benefits, notice period clauses and effective negotiation tactics.</p>
+          </div>
+        </div>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">CTC</span>
+          <span class="tag">Offer</span>
+        </div>
+      </a>
+
+      <!-- Card: Mock Interviews -->
+      <a class="card" href="hr-mock.html" data-category="mock" title="Mock interview scripts and scheduling templates">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="icon" aria-hidden="true"><i class="fa fa-headset"></i></div>
+          <div>
+            <h3>Mock Interviews</h3>
+            <p>Scripts, checklists and recordings template to run mock HR interviews and debriefs.</p>
+          </div>
+        </div>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">Practice</span>
+          <span class="tag">Checklist</span>
+        </div>
+      </a>
+
+      <!-- Card: Resources -->
+      <a class="card" href="hr-resources.html" data-category="resources" title="Cheatsheets, PDFs, and external resources">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="icon" aria-hidden="true"><i class="fa fa-book"></i></div>
+          <div>
+            <h3>Resources</h3>
+            <p>Downloadable cheat-sheets, recommended articles, and curated links for HR interview prep.</p>
+          </div>
+        </div>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">PDFs</span>
+          <span class="tag">Links</span>
+        </div>
+      </a>
 
     </section>
-  </div>
-</main>
 
-<footer class="site-footer">
-  <div class="site-container footer-inner">
-    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-  </div>
-</footer>
+    <p class="page-footer">Tip: Click a card to open that category. Use the search or filter chips to quickly narrow results.</p>
+  </main>
 
-<script>
-  // HR Tabs
-  const hrTabs = document.querySelectorAll('.hr-tab');
-  const hrContents = document.querySelectorAll('.hr-section-content');
-  hrTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      hrTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      hrContents.forEach(c => {
-        c.style.display = c.id === tab.dataset.target ? 'block' : 'none';
-      });
-    });
-  });
+  <script>
+    // Simple JS: filter cards by chip and search
+    (function(){
+      const chips = Array.from(document.querySelectorAll('.chip'));
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('searchInput');
 
-  // Toggle answers
-  const toggleBtns = document.querySelectorAll('.toggle-btn');
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const ans = btn.nextElementSibling;
-      if(ans.style.display==='none' || ans.style.display==='') {
-        ans.style.display='block';
-        btn.textContent='Hide answer';
-      } else {
-        ans.style.display='none';
-        btn.textContent='Click to view answer';
-      }
-    });
-  });
-</script>
-
-</body>
-</html>
+      function setActiveChip(activeEl){
+        chips.forEach(c => {
+          const isActive = c === activeEl
