@@ -1,0 +1,5 @@
+title: "Tabassum Unnisa"
+description: "My personal website and blogs"
+baseurl: "/My_Personal_Website"   # repo name
+url: "https://tabassumunnisa19.github.io"
+theme: minima
