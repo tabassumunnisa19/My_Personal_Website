@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ "style.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
 </head>
 <body>
 
-  <!-- ====== Header (copied style from your site) ====== -->
+  <!-- ====== Header ====== -->
   <header class="site-header" style="background: linear-gradient(180deg,#f5f7fb 0%, #eef3fb 100%); border-bottom: 1px solid #e6eef8; position: sticky; top: 0; z-index: 40;">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:1rem;">
       <!-- Logo -->
       <div class="logo">
-        <a href="{{ "post.url" | relative_url }}">
-          <img src="{{ "logo.jpg" | relative_url }}" alt="Nisa Logo" style="height:40px;">
+        <a href="{{ site.baseurl }}/">
+          <img src="{{ "/logo.jpg" | relative_url }}" alt="Nisa Logo" style="height:40px;">
         </a>
       </div>
       <!-- Navigation -->
       <nav class="site-nav">
-        <a href="{{ "post.url" | relative_url }}">Home</a>
-        <a href="{{ "/about.html" | relative_url }}">About</a>
-        <a href="{{ "/portfolio.html" | relative_url }}">Portfolio</a>
-        <a href="{{ "/learn.html" | relative_url }}">Learn</a>
-        <a href="{{ "/blog.html" | relative_url }}">Blog</a>
-        <a href="{{ "/books.html" | relative_url }}">Books</a>
-        <a href="{{ "/contact.html" | relative_url }}">Contact</a>
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/about.html">About</a>
+        <a href="{{ site.baseurl }}/portfolio.html">Portfolio</a>
+        <a href="{{ site.baseurl }}/learn.html">Learn</a>
+        <a href="{{ site.baseurl }}/blog.html">Blog</a>
+        <a href="{{ site.baseurl }}/books.html">Books</a>
+        <a href="{{ site.baseurl }}/contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -36,7 +36,7 @@
     </div>
   </main>
 
-  <!-- ====== Footer (copied style from your site) ====== -->
+  <!-- ====== Footer ====== -->
   <footer class="site-footer" style="background:#0f172a; color:#fff; padding:1rem 0; text-align:center; margin-top:2rem;">
     <div class="container">
       <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
