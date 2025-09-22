@@ -35,14 +35,272 @@
 
       <div class="grid">
 <div class="interview-section">
-
-  
-<div class="card category-card" data-target="interview-section">
-  <h3>Interview Prep</h3>
-  <p>Common questions, mock interviews and templates</p>
-</div>
         <div class="card"><h3>Data Science Roadmap</h3><p>Roadmap from basics to projects to interviews.</p></div>
-        <div class="card"><h3>Interview Prep</h3><p>Common questions, mock interviews and templates.</p></div>
+<div class="grid">
+  <div class="card"><h3>Learn with Me 📚</h3><p>Common questions, mock interviews and templates</p></div>
+  <div class="card"><h3>Data Science Roadmap</h3><p>Roadmap from basics to projects to interviews.</p></div>
+  <div class="card category-card" data-target="interview-section">
+    <h3>Interview Prep</h3>
+    <p>Common questions, mock interviews and templates</p>
+  </div>
+  <div class="card"><h3>Machine Learning Basics</h3><p>Regression, classification & clustering explained.</p></div>
+  <div class="card"><h3>Deep Learning Essentials</h3><p>Neural nets, TensorFlow & PyTorch guides.</p></div>
+  <div class="card"><h3>SQL for Data Science</h3><p>Queries, joins, aggregations and practical tasks.</p></div>
+</div>
+
+<!-- Dynamic Section Appears Here -->
+<div class="dynamic-section" id="interview-section" style="display:none;">
+<!-- Breadcrumb -->
+<div class="breadcrumb" style="color:#475569; margin:1rem 0; font-size:0.95rem;">
+  Learn → Interview Prep
+</div>
+
+<!-- Main Grid of Interview Categories -->
+<div class="grid interview-categories">
+  <div class="card category-card" data-target="python-section">Python Interview Questions</div>
+  <div class="card category-card" data-target="sql-section">SQL Interview Questions</div>
+  <div class="card category-card" data-target="ml-section">Machine Learning Interview Questions</div>
+  <div class="card category-card" data-target="ds-section">Data Science Interview Questions</div>
+  <div class="card category-card" data-target="hr-section">HR Interview Questions</div>
+</div>
+
+<!-- Dynamic Sections -->
+<div class="dynamic-section">
+
+  <!-- Python Section (placeholder) -->
+  <div id="python-section" class="category-section" style="display:none;">
+    <h2>Python Interview Questions</h2>
+    <p>Coming soon: Python questions, coding problems and solutions.</p>
+  </div>
+
+  <!-- SQL Section (placeholder) -->
+  <div id="sql-section" class="category-section" style="display:none;">
+    <h2>SQL Interview Questions</h2>
+    <p>Coming soon: SQL queries, joins, aggregations and real-world problems.</p>
+  </div>
+
+  <!-- Machine Learning Section (placeholder) -->
+  <div id="ml-section" class="category-section" style="display:none;">
+    <h2>Machine Learning Interview Questions</h2>
+    <p>Coming soon: Regression, classification, clustering questions and explanations.</p>
+  </div>
+
+  <!-- Data Science Section (placeholder) -->
+  <div id="ds-section" class="category-section" style="display:none;">
+    <h2>Data Science Interview Questions</h2>
+    <p>Coming soon: Data science questions from projects, statistics, and algorithms.</p>
+  </div>
+
+  <!-- HR Interview Questions -->
+  <div id="hr-section" class="category-section" style="display:none;">
+    <h2>HR Interview Questions</h2>
+
+    <!-- Subcategory Tabs -->
+    <div class="hr-subcategories">
+      <button class="hr-tab active" data-target="general-hr">General</button>
+      <button class="hr-tab" data-target="behavioral-hr">Behavioral</button>
+      <button class="hr-tab" data-target="ds-hr">Data Science HR</button>
+    </div>
+
+    <!-- General HR Questions -->
+    <div id="general-hr" class="hr-section-content">
+      <div class="question-card">
+        <p><strong>Q1. Tell me about yourself</strong></p>
+        <button class="toggle-btn">Click to view answer</button>
+        <div class="answer">
+          <p>Answer: I am a [Your Qualification] with experience in [Your Field]. I enjoy solving problems and applying my skills to real-world scenarios. I am particularly excited about this role at TCS because it aligns with my career goals.</p>
+          <p><em>Tip:</em> Keep a 30–60 second summary. Focus on achievements relevant to the job.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <p><strong>Q2. Why do you want to join our company?</strong></p>
+        <button class="toggle-btn">Click to view answer</button>
+        <div class="answer">
+          <p>Answer: I admire TCS’s culture of innovation and learning. The company offers opportunities to work on diverse projects, and my skills align with the company’s goals.</p>
+          <p><em>Tip:</em> Mention specific programs, projects, or values after research.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <p><strong>Q3. Where do you see yourself in 5 years?</strong></p>
+        <button class="toggle-btn">Click to view answer</button>
+        <div class="answer">
+          <p>Answer: I see myself taking on increasing responsibilities, contributing to challenging projects, and growing into a role combining technical expertise with leadership skills.</p>
+          <p><em>Tip:</em> Show ambition but stay realistic.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Behavioral HR Questions -->
+    <div id="behavioral-hr" class="hr-section-content" style="display:none;">
+      <div class="question-card">
+        <p><strong>Q1. Tell me about your biggest weakness</strong></p>
+        <button class="toggle-btn">Click to view answer</button>
+        <div class="answer">
+          <p>Answer: One area I am improving is [Weakness]. I have been taking steps like [Actions] to overcome it and turn it into a strength.</p>
+          <p><em>Tip:</em> Be honest but show initiative for self-improvement.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <p><strong>Q2. Give an example of a mistake you made and what you learned</strong></p>
+        <button class="toggle-btn">Click to view answer</button>
+        <div class="answer">
+          <p>Answer: In a previous project, I [Describe Mistake]. I learned [Lesson] and now apply that knowledge to avoid similar mistakes.</p>
+          <p><em>Tip:</em> Highlight accountability and learning.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Science HR Questions -->
+    <div id="ds-hr" class="hr-section-content" style="display:none;">
+      <div class="question-card">
+        <p><strong>Q1. Why did you choose Data Science as a career path?</strong></p>
+        <button class="toggle-btn">Click to view answer</button>
+        <div class="answer">
+          <p>Answer: I enjoy analyzing data to extract insights and solve problems. Data Science combines my programming, statistical, and analytical skills to make a real business impact.</p>
+          <p><em>Tip:</em> Connect your answer to projects or learning experiences.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <p><strong>Q2. Tell me about a data science project you worked on and your role</strong></p>
+        <button class="toggle-btn">Click to view answer</button>
+        <div class="answer">
+          <p>Answer: I worked on [Project Name], where the goal was [Project Goal]. My role involved data cleaning, feature engineering, and building predictive models. We achieved [Outcome], improving [Business/Process].</p>
+          <p><em>Tip:</em> Use STAR method: Situation → Task → Action → Result.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CSS -->
+<style>
+/* Category Grid Cards */
+.interview-categories .category-card {
+  background: #f5f7fb;
+  border: 1px solid #e6eef8;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1rem;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.interview-categories .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Dynamic Section */
+.category-section {
+  margin-top: 2rem;
+}
+.category-section h2 {
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+/* HR Tabs */
+.hr-subcategories {
+  margin-bottom: 1rem;
+}
+.hr-tab {
+  background: #e6eef8;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+.hr-tab.active {
+  background: #1e3a8a;
+  color: #fff;
+}
+
+/* Question Cards */
+.question-card {
+  background: #f5f7fb;
+  border: 1px solid #e6eef8;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.toggle-btn {
+  background-color: #1e3a8a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.toggle-btn:hover {
+  background-color: #3b82f6;
+}
+.answer {
+  display: none;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+.answer em {
+  color: #f97316;
+}
+</style>
+
+<!-- JS -->
+<script>
+// Category section toggle
+const categoryCards = document.querySelectorAll('.category-card');
+const sections = document.querySelectorAll('.category-section');
+
+categoryCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const target = card.dataset.target;
+    sections.forEach(sec => {
+      if(sec.id === target) sec.style.display = 'block';
+      else sec.style.display = 'none';
+    });
+    window.scrollTo({ top: document.querySelector(`#${target}`).offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+// HR Tabs
+const hrTabs = document.querySelectorAll('.hr-tab');
+const hrContents = document.querySelectorAll('.hr-section-content');
+
+hrTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    hrTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    hrContents.forEach(content => {
+      content.style.display = content.id === tab.dataset.target ? 'block' : 'none';
+    });
+  });
+});
+
+// Answer toggle
+const toggleBtns = document.querySelectorAll('.toggle-btn');
+toggleBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const ans = btn.nextElementSibling;
+    if(ans.style.display === 'none' || ans.style.display === ''){
+      ans.style.display = 'block';
+      btn.textContent = 'Hide answer';
+    } else {
+      ans.style.display = 'none';
+      btn.textContent = 'Click to view answer';
+    }
+  });
+});
+</script>
+</div>
         <div class="card"><h3>Machine Learning Basics</h3><p>Regression, classification & clustering explained.</p></div>
         <div class="card"><h3>Deep Learning Essentials</h3><p>Neural nets, TensorFlow & PyTorch guides.</p></div>
         <div class="card"><h3>SQL for Data Science</h3><p>Queries, joins, aggregations and practical tasks.</p></div>
