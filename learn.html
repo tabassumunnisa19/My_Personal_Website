@@ -320,4 +320,48 @@ toggleBtns.forEach(btn => {
   </div>
 </footer>
 <script src="script.js"></script>
-</body></html>
+<script>
+const categoryCards = document.querySelectorAll('.category-card');
+const sections = document.querySelectorAll('.category-section, .dynamic-section');
+
+categoryCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const target = card.dataset.target;
+    sections.forEach(sec => {
+      if(sec.id === target) sec.style.display = 'block';
+      else sec.style.display = 'none';
+    });
+    window.scrollTo({ top: document.querySelector(`#${target}`).offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+// HR Tabs
+const hrTabs = document.querySelectorAll('.hr-tab');
+const hrContents = document.querySelectorAll('.hr-section-content');
+hrTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    hrTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    hrContents.forEach(content => {
+      content.style.display = content.id === tab.dataset.target ? 'block' : 'none';
+    });
+  });
+});
+
+// Answer toggle
+const toggleBtns = document.querySelectorAll('.toggle-btn');
+toggleBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const ans = btn.nextElementSibling;
+    if(ans.style.display === 'none' || ans.style.display === ''){
+      ans.style.display = 'block';
+      btn.textContent = 'Hide answer';
+    } else {
+      ans.style.display = 'none';
+      btn.textContent = 'Click to view answer';
+    }
+  });
+});
+</script>
+
+      </body></html>
