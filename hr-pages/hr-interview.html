@@ -1,71 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>HR Interview — Learn with Me</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- 🔹 Header (same style as learn.html) -->
-  <header class="site-header">
-    <div class="container">
-      <h1>HR Interview — Learn with Me</h1>
-      <p>Select a section to explore HR interview questions, answers, and mock interview prompts.</p>
-      <a href="interview.html" class="back-link">← Back to Interview Preparation</a>
+
+<!-- 🔹 Header (same as your website) -->
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
+    <nav class="main-nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../learn.html" class="active">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 🔹 Page Header -->
+<section class="page-header">
+  <div class="site-container">
+    <h1>HR Interview — Learn with Me</h1>
+    <p>Select a section to explore HR interview questions, answers, and mock interview prompts.</p>
+    <a href="../learn.html" class="back-link">← Back to Learn</a>
+  </div>
+</section>
+
+<!-- 🔹 Grid Section -->
+<main class="site-container">
+  <div class="grid">
+    <a class="card" href="general.html">
+      <div class="icon"><i class="fa fa-user-tie"></i></div>
+      <h3>General HR</h3>
+      <p>Common HR questions: introductions, strengths & weaknesses, notice period, etc.</p>
+    </a>
+
+    <a class="card" href="behavior.html">
+      <div class="icon"><i class="fa fa-lightbulb"></i></div>
+      <h3>Behavioral HR</h3>
+      <p>STAR-format behavioral questions with sample answers and practice prompts.</p>
+    </a>
+
+    <a class="card" href="datascience.html">
+      <div class="icon"><i class="fa fa-chart-line"></i></div>
+      <h3>Data Science HR</h3>
+      <p>Role-specific HR questions for Data Science positions.</p>
+    </a>
+
+    <a class="card" href="salary.html">
+      <div class="icon"><i class="fa fa-hand-holding-dollar"></i></div>
+      <h3>Salary & Negotiation</h3>
+      <p>How to discuss CTC, benefits, notice periods, and effective negotiation tactics.</p>
+    </a>
+
+    <a class="card" href="mock.html">
+      <div class="icon"><i class="fa fa-microphone"></i></div>
+      <h3>Mock Interviews</h3>
+      <p>Scripts, checklists, and templates to run mock HR interviews.</p>
+    </a>
+  </div>
+</main>
+
+<!-- 🔹 Footer (same as your website) -->
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
     </div>
-  </header>
+  </div>
+</footer>
 
-  <!-- 🔹 Main Grid -->
-  <main class="container">
-    <div class="grid">
-      <a class="card" href="hr-pages/general.html">
-        <div class="icon">👥</div>
-        <div>
-          <h3>General HR</h3>
-          <p>Common HR questions: introductions, strengths & weaknesses, notice period, etc.</p>
-        </div>
-      </a>
-
-      <a class="card" href="hr-pages/behavior.html">
-        <div class="icon">💡</div>
-        <div>
-          <h3>Behavioral HR</h3>
-          <p>STAR-format behavioral questions with sample answers and practice prompts.</p>
-        </div>
-      </a>
-
-      <a class="card" href="hr-pages/datascience.html">
-        <div class="icon">📊</div>
-        <div>
-          <h3>Data Science — HR</h3>
-          <p>Role-specific HR questions for Data Science positions: projects, teamwork, communication.</p>
-        </div>
-      </a>
-
-      <a class="card" href="hr-pages/salary.html">
-        <div class="icon">💰</div>
-        <div>
-          <h3>Salary & Negotiation</h3>
-          <p>How to discuss CTC, benefits, notice periods, and effective negotiation tactics.</p>
-        </div>
-      </a>
-
-      <a class="card" href="hr-pages/mock.html">
-        <div class="icon">🎤</div>
-        <div>
-          <h3>Mock Interviews</h3>
-          <p>Scripts, checklists, and recordings template to run mock HR interviews and debriefs.</p>
-        </div>
-      </a>
-    </div>
-  </main>
-
-  <!-- 🔹 Footer (same style as learn.html) -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Tabassum Unnisa — Learn with Me</p>
-    </div>
-  </footer>
 </body>
 </html>
