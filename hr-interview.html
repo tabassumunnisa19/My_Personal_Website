@@ -63,53 +63,7 @@
       font-size:0.95rem;
     }
 
-    /* Filter / search bar */
-    .controls {
-      display:flex;
-      gap:10px;
-      align-items:center;
-      margin: 12px 0 20px 0;
-      flex-wrap:wrap;
-    }
-
-    .search {
-      display:flex;
-      align-items:center;
-      background:var(--card-bg);
-      border:1px solid var(--card-border);
-      padding:8px 12px;
-      border-radius:999px;
-      box-shadow:var(--shadow);
-      min-width:220px;
-      gap:8px;
-    }
-    .search input{
-      border:0;
-      outline:0;
-      font-size:0.95rem;
-      background:transparent;
-      width:180px;
-    }
-
-    .category-filter {
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-    .chip {
-      background:transparent;
-      border:1px solid var(--card-border);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:0.85rem;
-      cursor:pointer;
-    }
-    .chip.active {
-      background:linear-gradient(90deg,#e6f0ff,#f2f9ff);
-      border-color:#bfe0ff;
-      box-shadow: 0 4px 10px rgba(15, 57, 110, 0.06);
-    }
-
+    
     /* Grid */
     .grid {
       display:grid;
@@ -199,34 +153,9 @@
     <header class="page-header" aria-label="Page header">
       <div class="title-group">
         <h1>HR Interview — Learn with Me</h1>
-        <p class="lead">Select a category to explore questions, answers and mock interview prompts.</p>
       </div>
 
-      <!-- optional quick action -->
-      <nav aria-label="Quick actions">
-        <a href="/learn" title="Back to Learn" style="text-decoration:none;color:var(--muted);font-size:0.95rem;">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Learn
-        </a>
-      </nav>
-    </header>
-
-    <section class="controls" aria-label="Controls">
-      <div class="search" role="search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input id="searchInput" type="search" placeholder="Search cards (e.g., behavioral, salary)" aria-label="Search cards" />
-      </div>
-
-      <div class="category-filter" role="tablist" aria-label="Filter by category">
-        <button class="chip active" data-filter="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="general">General HR</button>
-        <button class="chip" data-filter="behavioral">Behavioral</button>
-        <button class="chip" data-filter="technical">Technical HR</button>
-        <button class="chip" data-filter="datascience">Data Science</button>
-        <button class="chip" data-filter="salary">Salary & Negotiation</button>
-        <button class="chip" data-filter="mock">Mock Interviews</button>
-        <button class="chip" data-filter="resources">Resources</button>
-      </div>
-    </section>
+     
 
     <section class="grid" id="cardGrid" aria-live="polite">
 
@@ -280,20 +209,6 @@
         </div>
       </a>
 
-      <!-- Card: Technical HR -->
-      <a class="card" href="hr-technical.html" data-category="technical" title="Technical HR screening and questions">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="icon" aria-hidden="true"><i class="fa fa-code"></i></div>
-          <div>
-            <h3>Technical HR</h3>
-            <p>Screening questions that bridge HR and technical teams: role expectations, tech-stack comfort.</p>
-          </div>
-        </div>
-        <div class="tags" aria-hidden="true">
-          <span class="tag">Screening</span>
-          <span class="tag">Expectations</span>
-        </div>
-      </a>
 
       <!-- Card: Salary & Negotiation -->
       <a class="card" href="hr-salary.html" data-category="salary" title="Salary discussion, CTC breakdown and negotiation tips">
@@ -325,20 +240,6 @@
         </div>
       </a>
 
-      <!-- Card: Resources -->
-      <a class="card" href="hr-resources.html" data-category="resources" title="Cheatsheets, PDFs, and external resources">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="icon" aria-hidden="true"><i class="fa fa-book"></i></div>
-          <div>
-            <h3>Resources</h3>
-            <p>Downloadable cheat-sheets, recommended articles, and curated links for HR interview prep.</p>
-          </div>
-        </div>
-        <div class="tags" aria-hidden="true">
-          <span class="tag">PDFs</span>
-          <span class="tag">Links</span>
-        </div>
-      </a>
 
     </section>
 
