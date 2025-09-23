@@ -47,7 +47,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="site-container header-inner">
-      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
+      <a href="../index.html" class="logo"><img src="../logo.png" alt="Nisa logo" /></a>
       <nav class="main-nav">
         <a href="../index.html">Home</a>
         <a href="../about.html">About</a>
@@ -170,4 +170,47 @@
     </div>
 
     <div class="qa-block">
-      <button>Describe a challenge you faced
+      <button>Describe a challenge you faced while working with large datasets and how you overcame it. <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p>Working with a large customer dataset, I faced memory limitations. I used efficient data structures, batch processing, and optimized queries to handle the data and complete analysis on time.</p>
+        <p class="tip"><strong>Tip:</strong> Highlight problem-solving, technical knowledge, and resourcefulness.</p>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <button>What tools and programming languages do you feel most confident using, and why? <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p>I am confident in Python, R, SQL, and tools like Tableau and Power BI. Python and R help with modeling and analysis, SQL is essential for data handling, and visualization tools help communicate insights effectively.</p>
+        <p class="tip"><strong>Tip:</strong> Mention relevant skills and explain how you use them.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+      <div class="socials" aria-label="social links">
+        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const qaBlocks = document.querySelectorAll('.qa-block button');
+    qaBlocks.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        button.querySelector('i').classList.toggle('fa-chevron-up');
+        button.querySelector('i').classList.toggle('fa-chevron-down');
+      });
+    });
+  </script>
+
+</body>
+</html>
