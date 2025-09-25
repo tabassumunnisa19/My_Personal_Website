@@ -1,7 +1,42 @@
----
-layout: default
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title }} — Nisa</title>
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="{{ '/' | relative_url }}" class="logo">
+      <img src="{{ '/logo.jpg' | relative_url }}" alt="Nisa logo" />
+    </a>
+
+    <!-- Hamburger button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="navbar" role="navigation">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/about.html' | relative_url }}">About Me</a>
+      <a href="{{ '/portfolio.html' | relative_url }}">Portfolio</a>
+      <a href="{{ '/blog.html' | relative_url }}" class="active">Blog</a>
+      <a href="{{ '/learn.html' | relative_url }}">Learn</a>
+      <a href="{{ '/books.html' | relative_url }}">Books</a>
+      <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Post Content ===== -->
 <main>
   <div class="site-container">
     <article class="blog-post">
@@ -19,24 +54,24 @@ layout: default
         By {{ page.author }} &nbsp; | &nbsp; 📅 {{ page.date | date: "%B %d, %Y" }}
       </p>
 
-      <!-- Post Image (optional) -->
+      <!-- Featured Image -->
       {% if page.image %}
       <div class="post-image">
         <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
       </div>
       {% endif %}
 
-      <!-- Post Content -->
+      <!-- Post Body -->
       <div class="post-content">
         {{ content }}
       </div>
 
-      <!-- Back to Blog Button -->
+      <!-- Back Button -->
       <div class="back-btn">
         <a href="{{ '/blog.html' | relative_url }}" class="btn">← Back to Blog</a>
       </div>
 
-      <!-- Social Share -->
+      <!-- Share -->
       <div class="social-share">
         <span>Share: </span>
         <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank">LinkedIn</a> |
@@ -47,3 +82,20 @@ layout: default
     </article>
   </div>
 </main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>
