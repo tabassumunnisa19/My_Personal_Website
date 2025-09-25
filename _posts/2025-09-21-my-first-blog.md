@@ -6,7 +6,7 @@ date: 2025-09-22
 author: "Tabassum Unnisa"
 categories: [Data Science, Career, Learning]
 tags: [Data Science, Career Change, Roadmap, 30s]
-image: /assets/images/post11.png
+image: /assets/images/post111.png
 
 
 ---
