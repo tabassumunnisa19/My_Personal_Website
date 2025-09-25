@@ -481,11 +481,3 @@ main { padding: 28px 0; }
   margin-top: 2rem;
   font-size: 0.9rem;
 }
-/* Featured post images */
-.post-image, 
-.post-header img {
-    max-width: 800px;   /* Adjust width as needed */
-    height: auto;       /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto;     /* Center image */
-}
