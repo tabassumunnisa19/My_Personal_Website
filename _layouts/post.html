@@ -4,38 +4,40 @@ layout: default
 
 <main>
   <div class="site-container">
-    <article class="blog-post" style="max-width:800px; margin:2rem auto; padding:1rem;">
-      
+    <article class="blog-post">
+
       <!-- Title -->
-      <h1 style="font-size:2rem; font-weight:700; margin-bottom:0.5rem;">
-        {{ page.title }}
-      </h1>
+      <h1 class="page-title">{{ page.title }}</h1>
 
       <!-- Subtitle -->
       {% if page.subtitle %}
-      <h3 style="font-size:1.2rem; font-weight:400; color:#555; margin-bottom:1rem;">
-        {{ page.subtitle }}
-      </h3>
+      <h3 class="post-subtitle">{{ page.subtitle }}</h3>
       {% endif %}
 
       <!-- Author & Date -->
-      <p style="font-size:0.9rem; color:#777; margin-bottom:2rem;">
-        By {{ page.author }} | 📅 {{ page.date | date: "%B %d, %Y" }}
+      <p class="post-meta">
+        By {{ page.author }} &nbsp; | &nbsp; 📅 {{ page.date | date: "%B %d, %Y" }}
       </p>
 
+      <!-- Post Image (optional) -->
+      {% if page.image %}
+      <div class="post-image">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      </div>
+      {% endif %}
+
       <!-- Post Content -->
-      <div class="post-content" style="line-height:1.8; color:#333;">
+      <div class="post-content">
         {{ content }}
       </div>
 
       <!-- Back to Blog Button -->
-      <a href="{{ site.baseurl }}/blog.html" 
-         style="display:inline-block; margin-top:2rem; background:#2563eb; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">
-        ← Back to Blog
-      </a>
+      <div class="back-btn">
+        <a href="{{ '/blog.html' | relative_url }}" class="btn">← Back to Blog</a>
+      </div>
 
       <!-- Social Share -->
-      <div class="social-share" style="margin-top:2rem;">
+      <div class="social-share">
         <span>Share: </span>
         <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank">LinkedIn</a> |
         <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" target="_blank">Twitter</a> |
