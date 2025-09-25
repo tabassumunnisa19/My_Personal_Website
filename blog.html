@@ -39,29 +39,31 @@
 <!-- ===== Blog Content ===== -->
 <main>
   <div class="site-container">
-    <section class="section">
-      <h2 class="page-title">Blog — Insights & Journey</h2>
+    ---
+layout: default
+title: Blog
+---
 
-      <div class="grid">
-        {% for post in site.posts %}
-        <div class="card blog-card">
-          {% if post.image %}
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-          {% endif %}
+<section class="section">
+  <h2 class="page-title" style="text-align:center; margin-bottom:2rem;">Blog — Insights & Journey</h2>
 
-          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-
-          {% if post.subtitle %}
-          <p>{{ post.subtitle }}</p>
-          {% else %}
-          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
-          {% endif %}
-
-          <span>📅 {{ post.date | date: "%B %d, %Y" }}</span>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
+  <div class="grid">
+    {% for post in site.posts %}
+    <div class="card blog-card">
+      {% if post.image %}
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      {% endif %}
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      {% if post.subtitle %}
+      <p>{{ post.subtitle }}</p>
+      {% else %}
+      <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      {% endif %}
+      <span>📅 {{ post.date | date: "%B %d, %Y" }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
   </div>
 </main>
 
