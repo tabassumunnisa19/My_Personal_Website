@@ -6,7 +6,7 @@ date: 2025-09-22
 author: "Tabassum Unnisa"
 categories: [Data Science, Career, Learning]
 tags: [Data Science, Career Change, Roadmap, 30s]
-image:asset/post1.png
+image:/post1.png
 ---
 
 If you’re reading this, chances are you’re either (a) secretly googling *“Is 30’s too late to start data science?”* or (b) sipping chai/coffee while wondering why your Excel pivot tables don’t make you a data scientist yet.  
