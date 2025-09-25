@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — Nisa</title>
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -11,18 +13,17 @@
   <header class="site-header" style="background: linear-gradient(180deg,#f5f7fb 0%, #eef3fb 100%); border-bottom: 1px solid #e6eef8; position: sticky; top: 0; z-index: 40;">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:1rem;">
       <!-- Logo -->
-      <div class="logo">
-        <a href="{{ site.baseurl }}/">
-          <img src="{{ "/logo.jpg" | relative_url }}" alt="Nisa Logo" style="height:40px;">
-        </a>
-      </div>
+      <a href="{{ site.baseurl }}/" class="logo">
+        <img src="{{ "/logo.jpg" | relative_url }}" alt="Nisa Logo" style="height:40px;">
+      </a>
+
       <!-- Navigation -->
-      <nav class="site-nav">
+      <nav id="main-nav" class="navbar" role="navigation">
         <a href="{{ site.baseurl }}/">Home</a>
         <a href="{{ site.baseurl }}/about.html">About</a>
         <a href="{{ site.baseurl }}/portfolio.html">Portfolio</a>
         <a href="{{ site.baseurl }}/learn.html">Learn</a>
-        <a href="{{ site.baseurl }}/blog.html">Blog</a>
+        <a href="{{ site.baseurl }}/blog.html" class="{% if page.url contains 'blog' %}active{% endif %}">Blog</a>
         <a href="{{ site.baseurl }}/books.html">Books</a>
         <a href="{{ site.baseurl }}/contact.html">Contact</a>
       </nav>
@@ -41,10 +42,10 @@
     <div class="container">
       <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
       <div class="social-icons" style="margin-top:0.5rem;">
-        <a href="#" target="_blank"><img src="{{ "/assets/icons/linkedin.svg" | relative_url }}" alt="LinkedIn" style="height:20px; margin:0 5px;"></a>
-        <a href="#" target="_blank"><img src="{{ "/assets/icons/github.svg" | relative_url }}" alt="GitHub" style="height:20px; margin:0 5px;"></a>
-        <a href="#" target="_blank"><img src="{{ "/assets/icons/medium.svg" | relative_url }}" alt="Medium" style="height:20px; margin:0 5px;"></a>
-        <a href="#" target="_blank"><img src="{{ "/assets/icons/youtube.svg" | relative_url }}" alt="YouTube" style="height:20px; margin:0 5px;"></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin" aria-hidden="true" style="margin:0 5px;"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-github" aria-hidden="true" style="margin:0 5px;"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-medium" aria-hidden="true" style="margin:0 5px;"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-youtube" aria-hidden="true" style="margin:0 5px;"></i></a>
       </div>
     </div>
   </footer>
