@@ -481,3 +481,43 @@ main { padding: 28px 0; }
   margin-top: 2rem;
   font-size: 0.9rem;
 }
+/* Explore Portfolio Button Styles */
+.explore-btn {
+  display: inline-block; /* Allows padding/margin and text alignment */
+  padding: 12px 30px; /* Vertical and horizontal spacing inside button */
+  font-size: 16px; /* Text size */
+  font-weight: 600; /* Slightly bold text */
+  text-decoration: none; /* Remove underline from link */
+  border-radius: 8px; /* Rounded corners */
+  background: linear-gradient(135deg, #007BFF, #FF4CCB); /* Gradient background (blue → pink) */
+  color: transparent; /* Text color transparent to show gradient */
+  -webkit-background-clip: text; /* Make gradient visible on text (Safari/Chrome) */
+  background-clip: text; /* Make gradient visible on text (standard) */
+  text-align: center; /* Center the text inside button */
+  position: relative; /* Needed for ::before pseudo-element */
+  overflow: hidden; /* Keep pseudo-element inside button */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for hover */
+}
+
+/* Pseudo-element for gradient background layer */
+.explore-btn::before {
+  content: ''; /* Empty content for decorative layer */
+  position: absolute; /* Position absolutely inside button */
+  inset: 0; /* Fill the entire button */
+  background: linear-gradient(135deg, #007BFF, #FF4CCB); /* Same gradient as button */
+  z-index: -1; /* Behind the text */
+  border-radius: 8px; /* Match button corners */
+  transition: filter 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
+}
+
+/* Hover effect: lift and shadow */
+.explore-btn:hover {
+  transform: translateY(-3px); /* Slightly lift button */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Add shadow for depth */
+}
+
+/* Hover effect: glow/brightness on background pseudo-element */
+.explore-btn:hover::before {
+  filter: brightness(1.2); /* Make button appear brighter */
+  transform: scale(1.05); /* Slightly enlarge for glowing effect */
+}
