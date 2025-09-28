@@ -498,23 +498,21 @@ main { padding: 28px 0; }
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Decorative pseudo-element for glow on hover */
-.explore-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #007BFF, #FF4CCB); /* gradient overlay */
-  z-index: -1; /* behind text */
+.explore-btn {
+  display: inline-block; /* allows padding and alignment */
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none; /* remove underline */
   border-radius: 8px;
-  transition: filter 0.3s ease, transform 0.3s ease;
+  color: transparent; /* text becomes transparent to show gradient */
+  background: linear-gradient(135deg, #007BFF, #FF4CCB); /* gradient for text */
+  -webkit-background-clip: text; /* show gradient on text in Webkit browsers */
+  background-clip: text; /* standard browsers */
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .explore-btn:hover {
-  transform: translateY(-3px); /* lift effect */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-}
-
-.explore-btn:hover::before {
-  filter: brightness(1.2); /* glow effect */
-  transform: scale(1.05);
+  transform: translateY(-2px); /* slight lift on hover */
 }
