@@ -9,11 +9,22 @@
 </head>
 <body>
 
-<!-- 🔹 Header (same as your website) -->
+<!-- 🔹 Header (with Hamburger) -->
 <header class="site-header">
   <div class="site-container header-inner">
+
+    <!-- Logo -->
     <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
-    <nav class="main-nav">
+
+    <!-- Hamburger button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="navbar" role="navigation">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
       <a href="../portfolio.html">Portfolio</a>
@@ -22,6 +33,7 @@
       <a href="../books.html">Books</a>
       <a href="../contact.html">Contact</a>
     </nav>
+
   </div>
 </header>
 
@@ -60,12 +72,14 @@
       <h3>Salary & Negotiation</h3>
       <p>How to discuss CTC, benefits, notice periods, and effective negotiation tactics.</p>
     </a>
-<a class="card" href="Freshers.html">
+
+    <a class="card" href="Freshers.html">
       <div class="icon"><i class="fas fa-user-graduate"></i></div>
       <h3>Freshers</h3>
       <p>General, Behavioral, and HR Questions for Freshers.</p>
     </a>
-    <a class="card" href="hr-pages/mock.html">
+
+    <a class="card" href="mock.html">
       <div class="icon"><i class="fa fa-microphone"></i></div>
       <h3>Mock Interviews</h3>
       <p>Scripts, checklists, and templates to run mock HR interviews.</p>
@@ -73,7 +87,7 @@
   </div>
 </main>
 
-<!-- 🔹 Footer (same as your website) -->
+<!-- 🔹 Footer -->
 <footer class="site-footer">
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
@@ -86,5 +100,6 @@
   </div>
 </footer>
 
+<script src="../script.js"></script>
 </body>
 </html>
