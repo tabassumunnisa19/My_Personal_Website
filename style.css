@@ -516,3 +516,10 @@ main { padding: 28px 0; }
 .explore-btn:hover {
   transform: translateY(-2px); /* slight lift on hover */
 }
+.books-subheading {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 40px auto; /* 40px bottom space */
+  line-height: 1.6;
+}
