@@ -10,12 +10,23 @@
 <body>
 <header class="site-header">
   <div class="site-container header-inner">
+
+    <!-- Logo -->
     <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
-    <nav class="main-nav">
+
+    <!-- Hamburger button (visible on mobile) -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="navbar" role="navigation">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+      <a href="about.html">About Me</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="learn.html" class="active">Learn</a>
+      <a href="learn.html">Learn</a>
       <a href="blog.html">Blog</a>
       <a href="books.html">Books</a>
       <a href="contact.html">Contact</a>
@@ -47,5 +58,6 @@
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
