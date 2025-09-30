@@ -555,27 +555,59 @@ main { padding: 28px 0; }
   transform: translateY(-4px);
 }
 
-/* Blog title */
-.blog-title {
-  font-size: 20px;      /* bigger title */
-  font-weight: 700;     /* bold */
-  margin: 0 0 10px;     /* space below */
-  text-align: center;   /* centered */
+/* Blog Section */
+.section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.blog-title a {
-  color: #000;          /* black text */
-  text-decoration: none;
-}
-
-.blog-title a:hover {
-  color: #0077cc;       /* optional hover color */
-}
-
-/* Blog excerpt/subtitle */
-.blog-excerpt {
-  font-size: 14px;
-  color: #555;
+/* Page title */
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
   text-align: center;
-  margin: 0;
+  margin-bottom: 2rem;
+}
+
+/* Blog Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Blog Card */
+.blog-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effect */
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Blog Title */
+.blog-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Blog Excerpt */
+.blog-excerpt {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Blog Date */
+.blog-date {
+  font-size: 0.9rem;
+  color: #999;
 }
