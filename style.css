@@ -611,3 +611,11 @@ main { padding: 28px 0; }
   font-size: 0.9rem;
   color: #999;
 }
+/* Blog post images */
+.blog-card img {
+  width: 100%;        /* Makes the image fit the card width */
+  height: auto;       /* Maintains aspect ratio */
+  border-radius: 8px; /* Optional: rounded corners */
+  margin-bottom: 15px; /* Space below image */
+  object-fit: cover;  /* Ensures it fills container nicely */
+}
