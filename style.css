@@ -619,3 +619,67 @@ main { padding: 28px 0; }
   margin-bottom: 15px; /* Space below image */
   object-fit: cover;  /* Ensures it fills container nicely */
 }
+/* Blog Section */
+.section {
+  padding: 50px 20px;
+  background-color: #f4f4f4; /* light gray background for entire section */
+}
+
+/* Page title */
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Blog Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Blog Card */
+.blog-card {
+  background-color: #ffffff;  /* white card */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Blog Card Hover effect */
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Blog Image */
+.blog-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+/* Blog Title */
+.blog-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+/* Blog Excerpt */
+.blog-excerpt {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom
