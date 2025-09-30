@@ -534,3 +534,48 @@ main { padding: 28px 0; }
   margin-bottom: 1rem;
 }
 
+/* Blog grid layout */
+.grid.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Each blog card */
+.card.blog-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card.blog-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Blog title */
+.blog-title {
+  font-size: 20px;      /* bigger title */
+  font-weight: 700;     /* bold */
+  margin: 0 0 10px;     /* space below */
+  text-align: center;   /* centered */
+}
+
+.blog-title a {
+  color: #000;          /* black text */
+  text-decoration: none;
+}
+
+.blog-title a:hover {
+  color: #0077cc;       /* optional hover color */
+}
+
+/* Blog excerpt/subtitle */
+.blog-excerpt {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  margin: 0;
+}
