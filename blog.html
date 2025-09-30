@@ -10,7 +10,10 @@ title: Blog
     {% for post in site.posts %}
     <div class="card blog-card">
       {% if post.image %}
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      {% if post.image %}
+<img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="blog-thumb">
+{% endif %}
+
       {% endif %}
 
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
