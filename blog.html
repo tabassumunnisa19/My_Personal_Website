@@ -4,27 +4,27 @@ title: Blog
 ---
 
 <section class="section">
-  <h2 class="page-title" style="text-align:center; margin-bottom:2rem;">Blog — Insights & Journey</h2>
+  <h2 class="page-title" style="text-align:center; margin-bottom:2rem;">
+    Blog — Insights & Journey
+  </h2>
 
-  <div class="grid">
+  <div class="grid blog-grid">
     {% for post in site.posts %}
     <div class="card blog-card">
-      {% if post.image %}
-      {% if post.image %}
-<img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="blog-thumb">
-{% endif %}
+      <!-- Title -->
+      <h3 class="blog-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
 
-      {% endif %}
-
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-
+      <!-- Subtitle or excerpt -->
       {% if post.subtitle %}
-      <p>{{ post.subtitle }}</p>
+      <p class="blog-excerpt">{{ post.subtitle }}</p>
       {% else %}
-      <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
       {% endif %}
 
-      <span>📅 {{ post.date | date: "%B %d, %Y" }}</span>
+      <!-- Date -->
+      <span class="blog-date">📅 {{ post.date | date: "%B %d, %Y" }}</span>
     </div>
     {% endfor %}
   </div>
