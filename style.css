@@ -526,27 +526,11 @@ main { padding: 28px 0; }
   margin: 0 auto 40px auto; /* 40px bottom space */
   line-height: 1.6;
 }
-
-/* Blog listing images */
-.blog-card img {
-  width: 100%;       /* makes the image fit the card width */
-  height: 200px;     /* fixes height for uniformity */
-  object-fit: cover; /* crops the image nicely without stretching */
+.blog-card img.blog-thumb {
+  width: 100%;
+  max-height: 200px;   /* keeps it from getting too tall */
+  object-fit: cover;   /* crops without distortion */
   border-radius: 8px;
-  display: block;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
-/* Blog listing titles */
-.blog-card h3 {
-  font-size: 1.2rem;  /* slightly bigger than default */
-  margin-top: 0;       /* remove extra spacing */
-  color: #073a63;
-}
-
-/* Optional: responsive tweak */
-@media (max-width: 768px) {
-  .blog-card img {
-    height: 150px;
-  }
-}
