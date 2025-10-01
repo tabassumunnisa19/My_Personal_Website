@@ -1,1 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Python Interview Questions</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .qa-block {
+      border: 1px solid #e6eef8;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #fff;
+      overflow: hidden;
+    }
+    .qa-block button {
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      border: none;
+      background: #f5f8fa;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .qa-block button:hover {
+      background: #e0ebf8;
+    }
+    .qa-block .content {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid #e6eef8;
+      background: #fff;
+    }
+    .qa-block .tip {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .subtopic {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem 0;
+      color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+
+ <!-- 🔹 Header (with Hamburger) -->
+<header class="site-header">
+  <div class="site-container header-inner">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
+
+    <!-- Hamburger button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="navbar" role="navigation">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../learn.html" class="active">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <main class="site-container" style="padding:2rem; background:var(--background-color);">
+    <h1>Coding Challenge Q&A</h1>
+    <p style="color:#475569; margin-bottom:1.5rem;">Comprehensive questions and answers to help beginners understand Python features and data types.</p>
 
