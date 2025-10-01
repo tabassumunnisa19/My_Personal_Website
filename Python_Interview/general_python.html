@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Python Interview Questions — Features & Data Types — Nisa</title>
+  <title>Python Interview Questions</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -263,6 +263,167 @@ print(x)  # 15</pre>
   <button>Why use functions in Python? <i class="fas fa-chevron-down"></i></button>
   <div class="content">
     <p>Functions make code reusable, modular, and easier to read. They allow breaking complex problems into smaller tasks, reduce duplication, and improve maintainability. Using functions also supports testing and debugging in isolation.</p>
+  </div>
+</div>
+<!-- Subtopic: Identifiers & Operators -->
+<div class="subtopic">Identifiers & Operators</div>
+
+<div class="qa-block">
+  <button>What is an identifier in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>An identifier is a name used to identify a variable, function, class, module, or object in Python. It helps the interpreter recognize and reference the entity. Identifiers must start with a letter (A-Z, a-z) or underscore (_), followed by letters, digits, or underscores.</p>
+    <p class="tip"><strong>Example:</strong> <code>my_var = 10</code> (valid identifier), <code>2var = 5</code> (invalid)</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are the rules for naming identifiers? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Rules for identifiers in Python:</p>
+    <ul>
+      <li>Must begin with a letter or underscore (_).</li>
+      <li>Can contain letters, digits, and underscores.</li>
+      <li>Cannot be a reserved keyword.</li>
+      <li>Case-sensitive (e.g., <code>Var</code> and <code>var</code> are different).</li>
+      <li>No special characters or spaces allowed.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong> Valid: <code>myName, _count</code>, Invalid: <code>my-name, 123var</code></p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are operators in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Operators are symbols or special characters used to perform operations on variables and values. Python has several types of operators to perform arithmetic, comparison, logical, bitwise, membership, and identity operations.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are arithmetic operators? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Arithmetic operators are used to perform basic mathematical operations like addition, subtraction, multiplication, division, modulus, exponentiation, and floor division.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>a = 10
+b = 3
+print(a + b)  # 13
+print(a - b)  # 7
+print(a * b)  # 30
+print(a / b)  # 3.3333
+print(a % b)  # 1
+print(a ** b) # 1000
+print(a // b) # 3</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are comparison operators? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Comparison operators compare two values and return a Boolean result (True or False). Common comparison operators include:</p>
+    <ul>
+      <li><code>==</code> : equals</li>
+      <li><code>!=</code> : not equal</li>
+      <li><code>&gt;</code> : greater than</li>
+      <li><code>&lt;</code> : less than</li>
+      <li><code>&gt;=</code> : greater than or equal to</li>
+      <li><code>&lt;=</code> : less than or equal to</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong> <code>5 &gt; 3  # True, 2 == 4 # False</code></p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are logical operators? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Logical operators are used to combine conditional statements and return a Boolean value. They include:</p>
+    <ul>
+      <li><code>and</code> : True if both operands are True</li>
+      <li><code>or</code>  : True if at least one operand is True</li>
+      <li><code>not</code> : Negates the Boolean value</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>a = True
+b = False
+print(a and b)  # False
+print(a or b)   # True
+print(not a)    # False</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are assignment operators? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Assignment operators assign values to variables. Common operators include:</p>
+    <ul>
+      <li><code>=</code> : assigns value</li>
+      <li><code>+=</code> : adds and assigns</li>
+      <li><code>-=</code> : subtracts and assigns</li>
+      <li><code>*=</code> : multiplies and assigns</li>
+      <li><code>/=</code> : divides and assigns</li>
+      <li><code>%=</code> : modulus and assigns</li>
+      <li><code>**=</code> : exponent and assigns</li>
+      <li><code>//=</code> : floor division and assigns</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>a = 5
+a += 3  # a = 8
+a *= 2  # a = 16</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are bitwise operators? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Bitwise operators perform operations on binary representations of integers. They include:</p>
+    <ul>
+      <li><code>&</code> : AND</li>
+      <li><code>|</code> : OR</li>
+      <li><code>^</code> : XOR</li>
+      <li><code>~</code> : NOT</li>
+      <li><code>&lt;&lt;</code> : Left shift</li>
+      <li><code>&gt;&gt;</code> : Right shift</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>a = 5   # 0101 in binary
+b = 3   # 0011 in binary
+print(a & b)  # 1
+print(a | b)  # 7
+print(a ^ b)  # 6
+print(~a)     # -6</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are membership operators? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Membership operators check for existence of a value in a sequence like list, tuple, or string. They include:</p>
+    <ul>
+      <li><code>in</code> : True if value exists in sequence</li>
+      <li><code>not in</code> : True if value does not exist in sequence</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong> <code>5 in [1,2,5]  # True, 9 not in [1,2,5] # True</code></p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are identity operators? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Identity operators compare whether two objects are the same in memory (object identity). They include:</p>
+    <ul>
+      <li><code>is</code> : True if both variables point to the same object</li>
+      <li><code>is not</code> : True if variables point to different objects</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>a = [1,2]
+b = a
+c = [1,2]
+print(a is b)     # True
+print(a is c)     # False
+print(a == c)     # True</pre>
+    </p>
   </div>
 </div>
 
