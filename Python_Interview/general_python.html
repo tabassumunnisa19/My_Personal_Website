@@ -565,6 +565,180 @@ while count &lt; 5:
     <p class="tip"><strong>Example:</strong> Choosing which discount to apply based on purchase amount or iterating over user inputs.</p>
   </div>
 </div>
+<!-- Subtopic: Data Structure Methods & Functions -->
+<div class="subtopic">Data Structure Methods & Functions (List, Tuple, Set, Dict, String & String Formatting)</div>
+
+<!-- LIST -->
+<div class="qa-block">
+  <button>What is a list in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>list</strong> is a mutable, ordered collection in Python that can store different data types. Mutable means we can change, add, or remove items after the list is created.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")  
+print(fruits)  
+# Output: ['apple', 'banana', 'cherry', 'orange']</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are common list methods in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Some commonly used list methods:</p>
+    <ul>
+      <li><code>append(x)</code> – Add an item at the end.</li>
+      <li><code>insert(i, x)</code> – Insert item at a specific position.</li>
+      <li><code>remove(x)</code> – Remove the first occurrence of item.</li>
+      <li><code>pop(i)</code> – Remove and return item at index (default last).</li>
+      <li><code>sort()</code> – Sorts the list.</li>
+      <li><code>reverse()</code> – Reverses the order of the list.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>numbers = [3, 1, 4, 2]
+numbers.sort()
+print(numbers)   # Output: [1, 2, 3, 4]</pre>
+    </p>
+  </div>
+</div>
+
+<!-- TUPLE -->
+<div class="qa-block">
+  <button>What is a tuple in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>tuple</strong> is an ordered, immutable collection in Python. Once created, you cannot modify its items.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>dimensions = (10, 20, 30)
+print(dimensions[1])  
+# Output: 20</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Why use a tuple instead of a list? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Tuples are used when:</p>
+    <ul>
+      <li>You want a collection of items that should not be changed (immutable).</li>
+      <li>They are faster than lists in iteration.</li>
+      <li>They can be used as dictionary keys (because they are hashable).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SET -->
+<div class="qa-block">
+  <button>What is a set in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>set</strong> is an unordered collection of unique elements. Sets automatically remove duplicates.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>unique_nums = {1, 2, 2, 3, 4}
+print(unique_nums)  
+# Output: {1, 2, 3, 4}</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are common set operations in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><code>union()</code> – Combines elements from sets.</li>
+      <li><code>intersection()</code> – Finds common elements.</li>
+      <li><code>difference()</code> – Finds elements in one set but not another.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>A = {1, 2, 3}
+B = {2, 3, 4}
+print(A.union(B))         # {1, 2, 3, 4}
+print(A.intersection(B))  # {2, 3}
+print(A.difference(B))    # {1}</pre>
+    </p>
+  </div>
+</div>
+
+<!-- DICTIONARY -->
+<div class="qa-block">
+  <button>What is a dictionary in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>dictionary</strong> is a collection of key-value pairs. Keys are unique and immutable, values can be of any type.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>student = {"name": "Alice", "age": 20}
+print(student["name"])  
+# Output: Alice</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are some common dictionary methods? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><code>keys()</code> – Returns all keys.</li>
+      <li><code>values()</code> – Returns all values.</li>
+      <li><code>items()</code> – Returns key-value pairs.</li>
+      <li><code>get(key)</code> – Returns value for key (safe access).</li>
+      <li><code>update()</code> – Updates dictionary with another dict.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>student = {"name": "Alice", "age": 20}
+print(student.get("age"))    # 20
+student.update({"grade": "A"})
+print(student)               # {'name': 'Alice', 'age': 20, 'grade': 'A'}</pre>
+    </p>
+  </div>
+</div>
+
+<!-- STRING -->
+<div class="qa-block">
+  <button>What is a string in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>string</strong> is a sequence of characters enclosed in single quotes, double quotes, or triple quotes.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>message = "Hello World"
+print(message[0])   # H</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are common string operations in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><code>len(s)</code> – Returns length.</li>
+      <li><code>s.lower()</code> / <code>s.upper()</code> – Converts case.</li>
+      <li><code>s.strip()</code> – Removes spaces.</li>
+      <li><code>s.replace(a, b)</code> – Replaces substring.</li>
+      <li><code>s.split()</code> – Splits into list.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>text = " Hello Python "
+print(len(text))         # 14
+print(text.strip())      # "Hello Python"
+print(text.upper())      # " HELLO PYTHON "</pre>
+    </p>
+  </div>
+</div>
+
+<!-- STRING FORMATTING -->
+<div class="qa-block">
+  <button>What is string formatting in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>String formatting allows inserting values into strings dynamically. Python provides several ways:</p>
+    <ol>
+      <li><strong>Old Style (% formatting):</strong></li>
+      <pre>name = "Alice"
+print("Hello %s" % name)   # Hello Alice</pre>
+      <li><strong>str.format() method:</strong></li>
+      <pre>age = 25
+print("I am {} years old".format(age))   # I am 25 years old</pre>
+      <li><strong>F-strings (Python 3.6+):</strong></li>
+      <pre>score = 95
+print(f"My score is {score}")   # My score is 95</pre>
+    </ol>
+  </div>
+</div>
 
   </main>
 
