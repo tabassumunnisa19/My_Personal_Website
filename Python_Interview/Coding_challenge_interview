@@ -182,5 +182,138 @@ print(reversed_text)   # nohtyP
     </p>
   </div>
 </div>
+<!-- Subtopic: Coding Challenges - Functions & Scope -->
+<div class="subtopic">Coding Challenges: Functions & Scope</div>
+
+<!-- Q1: Fibonacci series using recursion -->
+<div class="qa-block">
+  <button>How to generate a Fibonacci series using recursion in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Recursion is a technique where a function calls itself. Fibonacci series can be generated recursively by defining the base cases and recursive formula.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Print first 7 Fibonacci numbers
+for i in range(7):
+    print(fibonacci(i), end=" ")   # 0 1 1 2 3 5 8
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q2: Sum of arbitrary number of arguments using *args -->
+<div class="qa-block">
+  <button>How to calculate the sum of any number of arguments using <code>*args</code>? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <code>*args</code> allows a function to accept a variable number of positional arguments.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+def sum_numbers(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+
+print(sum_numbers(1, 2, 3, 4))   # 10
+print(sum_numbers(5, 10))        # 15
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q3: Keyword arguments using **kwargs -->
+<div class="qa-block">
+  <button>How to print a user's details using <code>**kwargs</code> in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <code>**kwargs</code> allows a function to accept variable number of keyword arguments (dictionary format).</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+def user_details(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+user_details(name="Alice", age=25, city="London")
+# Output:
+# name: Alice
+# age: 25
+# city: London
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q4: Factorial using recursion -->
+<div class="qa-block">
+  <button>How to find the factorial of a number using recursion? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Factorial of a number n (n!) is the product of all positive integers less than or equal to n. Recursion makes it easy to implement.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n-1)
+
+print(factorial(5))   # 120
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q5: Scope demonstration (local vs global) -->
+<div class="qa-block">
+  <button>How to demonstrate the difference between local and global variables? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Global variables are defined outside functions, whereas local variables are defined inside functions. Python follows the LEGB rule (Local, Enclosing, Global, Built-in).</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+x = 10   # global variable
+
+def demo():
+    x = 5  # local variable
+    print("Inside function:", x)
+
+demo()                 # Inside function: 5
+print("Outside function:", x)   # Outside function: 10
+      </pre>
+    </p>
+  </div>
+</div>
+
+
+</main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+      <div class="socials" aria-label="social links">
+        <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+        <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for accordion -->
+  <script>
+    const qaBlocks = document.querySelectorAll('.qa-block button');
+    qaBlocks.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        button.querySelector('i').classList.toggle('fa-chevron-up');
+        button.querySelector('i').classList.toggle('fa-chevron-down');
+      });
+    });
+  </script>
+
+</body>
+</html>
 
 
