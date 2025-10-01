@@ -739,6 +739,187 @@ print(f"My score is {score}")   # My score is 95</pre>
     </ol>
   </div>
 </div>
+    <!-- Subtopic: Object-Oriented Programming -->
+<div class="subtopic">Object-Oriented Programming (OOP) in Python</div>
+
+<!-- CLASSES & OBJECTS -->
+<div class="qa-block">
+  <button>What is a class in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>class</strong> is a blueprint for creating objects. It groups related variables (attributes) and functions (methods) together.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>class Car:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+my_car = Car("Toyota", "Corolla")
+print(my_car.brand)   # Toyota</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is an object in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>An <strong>object</strong> is an instance of a class. Each object has its own data stored in attributes defined by the class.</p>
+    <p class="tip"><strong>Example:</strong>  
+      <pre>car1 = Car("Honda", "City")
+car2 = Car("Tesla", "Model 3")
+print(car1.model)   # City
+print(car2.model)   # Model 3</pre>
+    </p>
+  </div>
+</div>
+
+<!-- SELF & INIT -->
+<div class="qa-block">
+  <button>What is the role of <code>self</code> in Python classes? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><code>self</code> represents the current object (instance) of the class. It is used to access variables and methods within the class.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>class Student:
+    def __init__(self, name):
+        self.name = name   # self refers to the current object
+
+s1 = Student("Alice")
+print(s1.name)   # Alice</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is <code>__init__</code> in Python classes? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><code>__init__</code> is a special constructor method that is automatically called when an object is created. It initializes object attributes.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p = Person("John", 25)
+print(p.name, p.age)   # John 25</pre>
+    </p>
+  </div>
+</div>
+
+<!-- VARIABLES -->
+<div class="qa-block">
+  <button>What are instance, static, and global variables in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><strong>Instance variables</strong> → unique to each object, defined with <code>self</code>.</li>
+      <li><strong>Static/Class variables</strong> → shared by all objects of the class.</li>
+      <li><strong>Global variables</strong> → defined outside any class/function and can be accessed globally.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>class Demo:
+    static_var = "I am static"   # class variable
+    def __init__(self, name):
+        self.name = name         # instance variable
+
+print(Demo.static_var)  
+obj = Demo("Alice")
+print(obj.name)   # Alice</pre>
+    </p>
+  </div>
+</div>
+
+<!-- INHERITANCE -->
+<div class="qa-block">
+  <button>What is inheritance in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Inheritance</strong> allows a class (child/derived) to reuse the properties and methods of another class (parent/base).</p>
+    <p><strong>Types of Inheritance:</strong></p>
+    <ul>
+      <li><strong>Single</strong> – One child inherits from one parent.</li>
+      <li><strong>Multiple</strong> – One child inherits from multiple parents.</li>
+      <li><strong>Multilevel</strong> – Child inherits from parent, which inherits from another parent.</li>
+      <li><strong>Hierarchical</strong> – Multiple children inherit from one parent.</li>
+    </ul>
+    <p class="tip"><strong>Example (Single Inheritance):</strong>
+      <pre>class Animal:
+    def sound(self):
+        print("Makes sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Barks")
+
+d = Dog()
+d.sound()   # Barks</pre>
+    </p>
+  </div>
+</div>
+
+<!-- POLYMORPHISM -->
+<div class="qa-block">
+  <button>What is polymorphism in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Polymorphism</strong> means "many forms." In Python, it allows the same method name to work differently depending on the object.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>class Cat:
+    def sound(self): print("Meows")
+
+class Dog:
+    def sound(self): print("Barks")
+
+for animal in (Cat(), Dog()):
+    animal.sound()
+# Output:
+# Meows
+# Barks</pre>
+    </p>
+  </div>
+</div>
+
+<!-- ENCAPSULATION -->
+<div class="qa-block">
+  <button>What is encapsulation in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Encapsulation</strong> means restricting direct access to data and methods. In Python, we use:</p>
+    <ul>
+      <li><strong>Public</strong> – accessible everywhere.</li>
+      <li><strong>Protected (_var)</strong> – should not be accessed directly outside the class.</li>
+      <li><strong>Private (__var)</strong> – not accessible directly outside class.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>class Account:
+    def __init__(self, balance):
+        self.__balance = balance   # private
+
+    def get_balance(self):
+        return self.__balance
+
+acc = Account(1000)
+print(acc.get_balance())   # 1000</pre>
+    </p>
+  </div>
+</div>
+
+<!-- ABSTRACTION -->
+<div class="qa-block">
+  <button>What is abstraction in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Abstraction</strong> hides implementation details and only shows the essential features. It can be implemented using the <code>abc</code> module (abstract base classes).</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self): pass
+
+class Square(Shape):
+    def __init__(self, side): self.side = side
+    def area(self): return self.side * self.side
+
+s = Square(4)
+print(s.area())   # 16</pre>
+    </p>
+  </div>
+</div>
+
 <!-- Subtopic: Regular Expressions -->
 <div class="subtopic">Regular Expressions (Regex) in Python</div>
 
