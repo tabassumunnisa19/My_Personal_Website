@@ -739,122 +739,855 @@ print(f"My score is {score}")   # My score is 95</pre>
     </ol>
   </div>
 </div>
-<section class="section">
-  <h2 class="section-title">Regular Expressions in Python</h2>
+<!-- Subtopic: Regular Expressions -->
+<div class="subtopic">Regular Expressions (Regex) in Python</div>
 
-  <div class="qa">
-    <h3>Q1: What is a Regular Expression (Regex) in Python?</h3>
-    <p>A <b>Regular Expression (Regex)</b> is a sequence of characters that forms a search pattern. 
-       It is mainly used for <b>searching, matching, and manipulating strings</b>.</p>
-    <pre><code class="language-python">
+<!-- INTRODUCTION -->
+<div class="qa-block">
+  <button>What are Regular Expressions in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Regular Expressions (Regex)</strong> are patterns used to match, search, or manipulate strings. Python provides the <code>re</code> module to work with regex.</p>
+    <p><strong>Example:</strong> Check if a string contains digits:</p>
+    <pre>
 import re
-pattern = r"\d+"   # Matches one or more digits
-text = "My number is 12345"
-result = re.findall(pattern, text)
-print(result)   # ['12345']
-    </code></pre>
+pattern = r"\d+"   # matches one or more digits
+text = "I have 2 cats"
+match = re.search(pattern, text)
+print(match.group())   # 2
+    </pre>
   </div>
+</div>
 
-  <div class="qa">
-    <h3>Q2: Why are Regular Expressions used in Python?</h3>
-    <p>Regex is used because it:</p>
+<!-- USE CASE -->
+<div class="qa-block">
+  <button>Why are Regular Expressions used? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Regex is used for:</p>
     <ul>
-      <li>Helps search for patterns in text efficiently</li>
-      <li>Validates inputs like email or phone number</li>
-      <li>Replaces parts of text with something else</li>
-      <li>Extracts useful data like numbers, dates, or words</li>
+      <li>Validating inputs (like emails, phone numbers, passwords)</li>
+      <li>Searching text inside documents or logs</li>
+      <li>Replacing or formatting strings</li>
+      <li>Extracting useful information from text</li>
     </ul>
   </div>
+</div>
 
-  <div class="qa">
-    <h3>Q3: Which Python module is used for Regular Expressions?</h3>
-    <p>Python provides the <b>re</b> module to work with regex. Common functions:</p>
+<!-- FUNCTIONS -->
+<div class="qa-block">
+  <button>What functions does the <code>re</code> module provide? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
     <ul>
-      <li><b>re.match()</b> → Checks only at the start of the string</li>
-      <li><b>re.search()</b> → Searches the entire string</li>
-      <li><b>re.findall()</b> → Returns all matching substrings</li>
-      <li><b>re.sub()</b> → Replaces matching patterns</li>
+      <li><code>re.search()</code> → finds the <em>first match</em>.</li>
+      <li><code>re.match()</code> → checks for a match only at the <em>start</em> of the string.</li>
+      <li><code>re.findall()</code> → returns <em>all matches</em> as a list.</li>
+      <li><code>re.finditer()</code> → returns an iterator with match objects.</li>
+      <li><code>re.sub()</code> → replaces matched patterns with new text.</li>
+      <li><code>re.split()</code> → splits a string using regex.</li>
     </ul>
-  </div>
-
-  <div class="qa">
-    <h3>Q4: What is the difference between <code>re.match()</code> and <code>re.search()</code>?</h3>
-    <p>
-      <b>re.match()</b> → Checks for a match only at the beginning of the string.<br>
-      <b>re.search()</b> → Searches the entire string for a match.
-    </p>
-    <pre><code class="language-python">
+    <p><strong>Example:</strong></p>
+    <pre>
 import re
-text = "Hello 123 World"
-print(re.match(r"\d+", text))   # None
-print(re.search(r"\d+", text))  # Match object for '123'
-    </code></pre>
+text = "My phone is 123-456-7890"
+result = re.findall(r"\d+", text)
+print(result)   # ['123', '456', '7890']
+    </pre>
   </div>
+</div>
 
-  <div class="qa">
-    <h3>Q5: What are some commonly used metacharacters in Regex?</h3>
-    <p>Some useful regex metacharacters:</p>
+<!-- META CHARACTERS -->
+<div class="qa-block">
+  <button>What are common regex metacharacters? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
     <ul>
-      <li><b>.</b> → Matches any character except newline</li>
-      <li><b>^</b> → Matches start of string</li>
-      <li><b>$</b> → Matches end of string</li>
-      <li><b>\d</b> → Matches digits (0–9)</li>
-      <li><b>\w</b> → Matches word characters</li>
-      <li><b>\s</b> → Matches whitespace</li>
-      <li><b>*</b> → 0 or more repetitions</li>
-      <li><b>+</b> → 1 or more repetitions</li>
-      <li><b>?</b> → 0 or 1 repetition</li>
-      <li><b>[]</b> → Set of characters</li>
+      <li><code>.</code> → matches any character except newline</li>
+      <li><code>^</code> → matches the start of the string</li>
+      <li><code>$</code> → matches the end of the string</li>
+      <li><code>*</code> → 0 or more repetitions</li>
+      <li><code>+</code> → 1 or more repetitions</li>
+      <li><code>?</code> → 0 or 1 repetition</li>
+      <li><code>{n}</code> → exactly n repetitions</li>
+      <li><code>[]</code> → matches characters inside brackets</li>
+      <li><code>\d</code> → digit (0–9)</li>
+      <li><code>\w</code> → word characters (a-z, A-Z, 0-9, _)</li>
+      <li><code>\s</code> → whitespace</li>
     </ul>
-    <pre><code class="language-python">
+    <p><strong>Example:</strong></p>
+    <pre>
 import re
-text = "Python 3.10"
-pattern = r"\d+\.\d+"
-print(re.findall(pattern, text))  # ['3.10']
-    </code></pre>
+pattern = r"[A-Za-z]+"
+text = "Python 3 is awesome"
+print(re.findall(pattern, text))  
+# ['Python', 'is', 'awesome']
+    </pre>
   </div>
+</div>
 
-  <div class="qa">
-    <h3>Q6: How do you validate an email using Regex in Python?</h3>
-    <pre><code class="language-python">
+<!-- VALIDATION EXAMPLES -->
+<div class="qa-block">
+  <button>How do you validate an email using regex? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can create a pattern that ensures the email has a valid structure.</p>
+    <p><strong>Example:</strong></p>
+    <pre>
 import re
-email = "user@example.com"
-pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+email = "test@example.com"
+pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$"
 if re.match(pattern, email):
     print("Valid Email")
 else:
     print("Invalid Email")
-    </code></pre>
-    <p><b>Output:</b> Valid Email</p>
+    </pre>
   </div>
+</div>
 
-  <div class="qa">
-    <h3>Q7: How do you replace text using Regex?</h3>
-    <pre><code class="language-python">
+<div class="qa-block">
+  <button>How do you replace text using regex? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>re.sub()</code> to replace matches with another string.</p>
+    <p><strong>Example:</strong></p>
+    <pre>
 import re
-text = "My number is 12345"
-new_text = re.sub(r"\d+", "XXXXX", text)
-print(new_text)   # My number is XXXXX
-    </code></pre>
+text = "I love Java"
+new_text = re.sub(r"Java", "Python", text)
+print(new_text)   # I love Python
+    </pre>
   </div>
+</div>
 
-  <div class="qa">
-    <h3>Q8: What is the difference between <code>findall()</code>, <code>finditer()</code>, and <code>split()</code>?</h3>
+<!-- INTERVIEW STYLE -->
+<div class="qa-block">
+  <button>What is the difference between <code>re.match()</code> and <code>re.search()</code>? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><code>re.match()</code> → checks only at the <strong>beginning</strong> of the string.</li>
+      <li><code>re.search()</code> → scans the <strong>entire</strong> string for a match.</li>
+    </ul>
+    <p><strong>Example:</strong></p>
+    <pre>
+import re
+print(re.match(r"cat", "catfish"))   # Match
+print(re.search(r"cat", "fishcat"))  # Match
+    </pre>
+  </div>
+</div>
+<!-- Subtopic: File Handling & Exceptions -->
+<div class="subtopic">File Handling & Exceptions in Python</div>
+
+<!-- FILE HANDLING BASICS -->
+<div class="qa-block">
+  <button>What is file handling in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>File handling in Python allows us to <strong>create, read, write, and manage files</strong>. It is useful for saving and retrieving data from files.</p>
+    <p>We use the built-in <code>open()</code> function for file operations.</p>
+    <pre>f = open("sample.txt", "r")   # open for reading
+print(f.read())
+f.close()</pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are different file modes in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><code>"r"</code> → Read (default, error if file does not exist)</li>
+      <li><code>"w"</code> → Write (creates new or overwrites existing file)</li>
+      <li><code>"a"</code> → Append (adds new data at the end of file)</li>
+      <li><code>"x"</code> → Create (creates a file, error if exists)</li>
+      <li><code>"t"</code> → Text mode (default)</li>
+      <li><code>"b"</code> → Binary mode</li>
+    </ul>
+  </div>
+</div>
+
+<!-- READING & WRITING -->
+<div class="qa-block">
+  <button>How do you read from a file in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>We use <code>read()</code>, <code>readline()</code>, and <code>readlines()</code> to read data.</p>
+    <pre>f = open("sample.txt", "r")
+print(f.read())        # entire file
+f.seek(0)
+print(f.readline())    # one line
+f.seek(0)
+print(f.readlines())   # list of lines
+f.close()</pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>How do you write into a file in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>We use <code>write()</code> or <code>writelines()</code> to add content.</p>
+    <pre>f = open("sample.txt", "w")
+f.write("Hello, Python!")
+f.close()</pre>
+    <p>Now the file contains: <code>Hello, Python!</code></p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the append mode in file handling? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Append mode ("a")</strong> adds new content at the end of the file without deleting existing content.</p>
+    <pre>f = open("sample.txt", "a")
+f.write("\nThis is appended text.")
+f.close()</pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Why is the <code>with</code> statement preferred in file handling? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><code>with open()</code> is preferred because it automatically <strong>closes the file</strong> after use, even if an exception occurs.</p>
+    <pre>with open("sample.txt", "r") as f:
+    data = f.read()
+    print(data)   # file auto-closed here</pre>
+  </div>
+</div>
+
+<!-- EXCEPTIONS BASICS -->
+<div class="qa-block">
+  <button>What are exceptions in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Exceptions are <strong>runtime errors</strong> that occur during execution. They can be handled to prevent program crashes.</p>
+    <p>Examples: <code>ZeroDivisionError</code>, <code>FileNotFoundError</code>, <code>IndexError</code>.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>How do you handle exceptions in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>We use <code>try-except</code> blocks.</p>
+    <pre>try:
+    f = open("missing.txt", "r")
+except FileNotFoundError:
+    print("File not found!")</pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the role of <code>finally</code> in exception handling? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <code>finally</code> block always runs, whether an exception occurs or not. It is useful for cleanup tasks like closing files.</p>
+    <pre>try:
+    f = open("sample.txt")
+    print(f.read())
+except FileNotFoundError:
+    print("File not found")
+finally:
+    print("Execution finished")</pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the difference between Errors and Exceptions? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><strong>Errors</strong> → problems in code syntax (cannot be handled at runtime).</li>
+      <li><strong>Exceptions</strong> → runtime issues that can be handled with try-except.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BUILT-IN & CUSTOM EXCEPTIONS -->
+<div class="qa-block">
+  <button>What are some common built-in exceptions in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><code>ZeroDivisionError</code> – division by zero</li>
+      <li><code>TypeError</code> – operation on invalid data type</li>
+      <li><code>IndexError</code> – accessing invalid list index</li>
+      <li><code>KeyError</code> – accessing missing dictionary key</li>
+      <li><code>ValueError</code> – invalid value for operation</li>
+      <li><code>FileNotFoundError</code> – file does not exist</li>
+    </ul>
+    <pre>try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")</pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>How do you raise custom exceptions in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>We use the <code>raise</code> keyword to create our own exceptions.</p>
+    <pre>age = -5
+if age < 0:
+    raise ValueError("Age cannot be negative!")</pre>
+  </div>
+</div>
+<!-- Subtopic: Iterators, Generators, Decorators, Context Managers -->
+<div class="subtopic">Iterators, Generators, Decorators, and Context Managers in Python</div>
+
+<!-- ITERATORS -->
+<div class="qa-block">
+  <button>What is an iterator in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>An <strong>iterator</strong> is an object that allows you to traverse through all the elements of a collection (like a list or tuple) one by one. It uses the methods <code>iter()</code> and <code>next()</code>.</p>
+    <p><strong>Example:</strong></p>
+    <pre>
+nums = [1, 2, 3]
+it = iter(nums)
+
+print(next(it))   # 1
+print(next(it))   # 2
+print(next(it))   # 3
+    </pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the difference between iterable and iterator? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><strong>Iterable</strong> → an object that can return an iterator (like list, tuple, set).</li>
+      <li><strong>Iterator</strong> → the object that actually produces elements one at a time using <code>next()</code>.</li>
+    </ul>
+    <p><strong>Example:</strong></p>
+    <pre>
+nums = [1, 2, 3]       # Iterable
+it = iter(nums)        # Iterator
+print(next(it))        # 1
+    </pre>
+  </div>
+</div>
+
+<!-- GENERATORS -->
+<div class="qa-block">
+  <button>What is a generator in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>generator</strong> is a simpler way to create iterators using the <code>yield</code> keyword instead of returning all values at once. They are memory efficient.</p>
+    <p><strong>Example:</strong></p>
+    <pre>
+def count_up_to(n):
+    i = 1
+    while i <= n:
+        yield i
+        i += 1
+
+for num in count_up_to(3):
+    print(num)
+
+# Output: 1 2 3
+    </pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the difference between <code>return</code> and <code>yield</code>? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><code>return</code> → ends the function and gives a value back.</li>
+      <li><code>yield</code> → pauses the function, saves its state, and resumes later (used in generators).</li>
+    </ul>
+    <p><strong>Example:</strong></p>
+    <pre>
+def demo():
+    yield 1
+    yield 2
+print(list(demo()))   # [1, 2]
+    </pre>
+  </div>
+</div>
+
+<!-- DECORATORS -->
+<div class="qa-block">
+  <button>What is a decorator in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>decorator</strong> is a special function that modifies the behavior of another function without changing its code. It uses the <code>@</code> symbol.</p>
+    <p><strong>Example:</strong></p>
+    <pre>
+def greet(func):
+    def wrapper():
+        print("Hello!")
+        func()
+        print("Goodbye!")
+    return wrapper
+
+@greet
+def say_name():
+    print("My name is Alice")
+
+say_name()
+# Output:
+# Hello!
+# My name is Alice
+# Goodbye!
+    </pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Why are decorators used in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Decorators are useful for:</p>
+    <ul>
+      <li>Logging</li>
+      <li>Authentication</li>
+      <li>Performance measurement</li>
+      <li>Access control</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CONTEXT MANAGERS -->
+<div class="qa-block">
+  <button>What is a context manager in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>context manager</strong> is used to manage resources like files or database connections. The most common way is using the <code>with</code> statement.</p>
+    <p><strong>Example:</strong></p>
+    <pre>
+with open("example.txt", "w") as f:
+    f.write("Hello World!")
+# File is automatically closed after this block
+    </pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>How do you create a custom context manager? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can create a custom context manager using the <code>__enter__</code> and <code>__exit__</code> methods or the <code>contextlib</code> module.</p>
+    <p><strong>Example:</strong></p>
+    <pre>
+class MyContext:
+    def __enter__(self):
+        print("Enter context")
+        return self
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Exit context")
+
+with MyContext():
+    print("Inside context")
+    </pre>
+  </div>
+</div>
+<!-- Subtopic: Functional Programming -->
+<div class="subtopic">Functional Programming (Lambda, map, filter, reduce, comprehensions)</div>
+
+<!-- WHAT IS FP -->
+<div class="qa-block">
+  <button>What is Functional Programming (FP) and why use it? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
     <p>
-      <b>re.findall()</b> → Returns all matches as a list.<br>
-      <b>re.finditer()</b> → Returns an iterator with match objects.<br>
-      <b>re.split()</b> → Splits a string by the regex pattern.
+      <strong>Functional Programming</strong> is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. In Python we use FP-style tools (functions as first-class citizens, lambdas, map/filter/reduce, comprehensions, generator expressions) to write concise, declarative code.
     </p>
-    <pre><code class="language-python">
-import re
-text = "one two three"
-print(re.findall(r"\w+", text))        # ['one', 'two', 'three']
-print([m.group() for m in re.finditer(r"\w+", text)])  # ['one', 'two', 'three']
-print(re.split(r"\s+", text))          # ['one', 'two', 'three']
-    </code></pre>
+    <p><strong>Why use FP?</strong></p>
+    <ul>
+      <li>Leads to <strong>shorter, clearer</strong> transformations on collections.</li>
+      <li><strong>Pure functions</strong> (no side effects) are easier to test and reason about.</li>
+      <li>Generator expressions and lazy evaluation can improve memory usage.</li>
+    </ul>
+    <p class="tip"><strong>Tip:</strong> FP is great for data pipelines (transform → filter → reduce). For complex logic prefer readable functions over clever one-liners.</p>
   </div>
+</div>
 
-</section>
+<!-- PURE FUNCTIONS -->
+<div class="qa-block">
+  <button>What is a pure function? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      A <strong>pure function</strong> always returns the same output for the same inputs and has <strong>no side effects</strong> (it does not modify external state, I/O, or its arguments).
+    </p>
+    <pre>
+# Pure function example
+def square(x):
+    return x * x
+
+# Impure function (side effect)
+counter = 0
+def inc():
+    global counter
+    counter += 1
+    return counter
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Favor pure functions for easier testing and parallelization.</p>
+  </div>
+</div>
+
+<!-- LAMBDA -->
+<div class="qa-block">
+  <button>What is a lambda function? How is it different from a regular function? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      A <code>lambda</code> creates a small anonymous function in one expression. Syntax: <code>lambda args: expression</code>. Use lambdas for simple, short functions passed to higher-order functions.
+    </p>
+    <pre>
+# Lambda example
+square = lambda x: x * x
+print(square(5))  # 25
+
+# Equivalent regular function
+def square2(x):
+    return x * x
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Prefer named functions for complex logic — lambdas are for short inline usage only.</p>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="qa-block">
+  <button>What does <code>map()</code> do and how to use it? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      <code>map(function, iterable)</code> applies <em>function</em> to each item of <em>iterable</em> and returns an iterator (in Python 3). Convert to <code>list()</code> if you need the results immediately.
+    </p>
+    <pre>
+# Double every element
+nums = [1, 2, 3, 4]
+doubled = map(lambda x: x * 2, nums)   # returns iterator
+print(list(doubled))                    # [2, 4, 6, 8]
+
+# Using a regular function
+def double(x): return x * 2
+print(list(map(double, nums)))          # [2, 4, 6, 8]
+    </pre>
+    <p class="tip"><strong>Tip:</strong> map is concise, but list comprehensions are often clearer in Python.</p>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="qa-block">
+  <button>What does <code>filter()</code> do and how to use it? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      <code>filter(function, iterable)</code> returns those items of <em>iterable</em> for which <em>function(item)</em> is True. It returns an iterator.
+    </p>
+    <pre>
+# Keep only even numbers
+nums = [1,2,3,4,5,6]
+evens = filter(lambda x: x % 2 == 0, nums)
+print(list(evens))  # [2, 4, 6]
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Use filter for boolean selection; list comprehensions often read better: <code>[x for x in nums if x%2==0]</code>.</p>
+  </div>
+</div>
+
+<!-- REDUCE -->
+<div class="qa-block">
+  <button>What does <code>reduce()</code> do and when to use it? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      <code>functools.reduce(function, iterable [, initializer])</code> cumulatively applies <em>function</em> to items of <em>iterable</em>, reducing it to a single value. Useful for sums, products, or other fold operations.
+    </p>
+    <pre>
+from functools import reduce
+
+nums = [1,2,3,4]
+sum_all = reduce(lambda a, b: a + b, nums)   # 10
+product = reduce(lambda a, b: a * b, nums)   # 24
+
+# Note: use built-in sum(nums) for summation (clearer and faster)
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Prefer built-ins (like <code>sum()</code>) when they exist; use <code>reduce</code> for non-standard folds.</p>
+  </div>
+</div>
+
+<!-- MAP + FILTER + REDUCE COMBO -->
+<div class="qa-block">
+  <button>Can you show a combined map+filter+reduce example? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Example: sum of squares of even numbers from 1..10</p>
+    <pre>
+from functools import reduce
+
+nums = range(1, 11)
+even_squares = map(lambda x: x*x, filter(lambda x: x%2==0, nums))
+result = reduce(lambda a, b: a + b, even_squares)
+print(result)  # 220  (i.e. 2^2 + 4^2 + 6^2 + 8^2 + 10^2)
+    </pre>
+    <p class="tip"><strong>Tip:</strong> The same can be written more readably with a comprehension: <code>sum(x*x for x in nums if x%2==0)</code>.</p>
+  </div>
+</div>
+
+<!-- LIST COMPREHENSION -->
+<div class="qa-block">
+  <button>What are list comprehensions and how do they compare to map/filter? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      A <strong>list comprehension</strong> is a compact syntax for creating lists. It is usually more readable than chained map/filter calls in Python.
+    </p>
+    <pre>
+# Using map/filter
+nums = [1,2,3,4,5]
+squared_evens = list(map(lambda x: x*x, filter(lambda x: x%2==0, nums)))
+
+# Using list comprehension (preferred)
+squared_evens2 = [x*x for x in nums if x%2==0]
+print(squared_evens2)  # [4, 16]
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Favor comprehensions for readability; use map/filter when you want to pass existing functions directly.</p>
+  </div>
+</div>
+
+<!-- GENERATOR EXPRESSIONS -->
+<div class="qa-block">
+  <button>What is a generator expression and when should you use it? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      A <strong>generator expression</strong> looks like a list comprehension but uses parentheses and produces values lazily (one by one) — saving memory for large datasets.
+    </p>
+    <pre>
+# List comprehension (creates full list)
+squares = [x*x for x in range(1000000)]
+
+# Generator expression (lazy, memory-friendly)
+squares_gen = (x*x for x in range(1000000))
+print(next(squares_gen))   # 0
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Use generator expressions for pipelines and when working with large or infinite streams.</p>
+  </div>
+</div>
+
+<!-- WHEN TO USE FP -->
+<div class="qa-block">
+  <button>When should I use functional tools vs normal loops? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      <strong>Use FP tools when:</strong> you have clear data transformations (map/filter/fold) and want concise, declarative code. Use generator expressions for memory efficiency.
+    </p>
+    <p>
+      <strong>Prefer loops or named functions when:</strong> the logic is complex, has many branches, or readability would suffer with nested lambdas.
+    </p>
+    <p class="tip"><strong>Tip:</strong> Readability > cleverness. Write code your team can maintain.</p>
+  </div>
+</div>
+<!-- Subtopic: Advanced Topics -->
+<div class="subtopic">Advanced Topics in Python</div>
+
+<!-- GIL -->
+<div class="qa-block">
+  <button>What is the Global Interpreter Lock (GIL) in Python and why does it exist? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      The <strong>Global Interpreter Lock (GIL)</strong> is a mutex in CPython (the standard Python interpreter) that allows only one thread to execute Python bytecode at a time. 
+    </p>
+    <p><strong>Why does it exist?</strong></p>
+    <ul>
+      <li>CPython’s memory management is not thread-safe; GIL prevents race conditions.</li>
+      <li>Simplifies implementation of CPython and avoids certain low-level bugs.</li>
+    </ul>
+    <p class="tip"><strong>Note:</strong> Because of GIL, Python threads cannot achieve true parallel CPU-bound execution. For I/O-bound tasks, threads still provide concurrency.</p>
+  </div>
+</div>
+
+<!-- MEMORY MANAGEMENT -->
+<div class="qa-block">
+  <button>How does Python manage memory? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      Python uses <strong>automatic memory management</strong> with reference counting and garbage collection to free unused memory.
+    </p>
+    <ul>
+      <li><strong>Reference counting:</strong> Every object keeps a count of references pointing to it. When count reaches 0, memory is freed.</li>
+      <li><strong>Garbage collector:</strong> Detects and cleans cyclic references that reference counting cannot free.</li>
+      <li><strong>Memory pools:</strong> Python uses the <code>pymalloc</code> allocator for small objects to reduce system allocation overhead.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong> Deleting objects manually or using <code>del obj</code> can reduce memory usage in long-running programs, but garbage collector usually handles it automatically.</p>
+  </div>
+</div>
+
+<!-- MULTITHREADING VS MULTIPROCESSING -->
+<div class="qa-block">
+  <button>What is the difference between Multithreading and Multiprocessing in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      Python provides both threads and processes to achieve concurrency. Their differences:
+    </p>
+    <table>
+      <tr><th>Feature</th><th>Multithreading</th><th>Multiprocessing</th></tr>
+      <tr><td>Execution</td><td>Runs in same process, shares memory.</td><td>Runs in separate processes, separate memory.</td></tr>
+      <tr><td>GIL Impact</td><td>Limited CPU-bound parallelism due to GIL, fine for I/O-bound tasks.</td><td>No GIL restriction, true parallel execution possible.</td></tr>
+      <tr><td>Memory</td><td>Shared memory space, less overhead.</td><td>Separate memory space, higher overhead.</td></tr>
+      <tr><td>Use Cases</td><td>I/O-bound tasks (file/network operations).</td><td>CPU-bound tasks (heavy computation, data processing).</td></tr>
+    </table>
+    <p class="tip"><strong>Example:</strong> Using <code>threading</code> for downloading files and <code>multiprocessing</code> for image processing in parallel.</p>
+  </div>
+</div>
+
+<!-- OPTIMIZE PYTHON PERFORMANCE -->
+<div class="qa-block">
+  <button>How can you optimize Python performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      Several ways to improve Python performance:
+    </p>
+    <ul>
+      <li>Use built-in functions and libraries (they are implemented in C, faster).</li>
+      <li>Use list/set/dict comprehensions instead of loops.</li>
+      <li>Avoid global variables inside loops (local variable lookup is faster).</li>
+      <li>Use generators for large data to save memory.</li>
+      <li>Use <code>multiprocessing</code> for CPU-bound tasks to bypass GIL.</li>
+      <li>Profile your code using <code>cProfile</code> or <code>timeit</code> to find bottlenecks.</li>
+      <li>Use third-party tools like <code>NumPy</code>, <code>Cython</code>, or <code>PyPy</code> for speed.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong> Summing a large list:
+      <pre># Slow
+sum = 0
+for i in range(1000000):
+    sum += i
+
+# Faster
+sum = sum(range(1000000))
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- COMMON LIBRARIES -->
+<div class="qa-block">
+  <button>What are some common Python libraries and when are they used? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Python has a rich ecosystem of libraries:</p>
+    <ul>
+      <li><strong>Data Analysis:</strong> <code>pandas</code>, <code>numpy</code></li>
+      <li><strong>Visualization:</strong> <code>matplotlib</code>, <code>seaborn</code>, <code>plotly</code></li>
+      <li><strong>Machine Learning:</strong> <code>scikit-learn</code>, <code>tensorflow</code>, <code>pytorch</code></li>
+      <li><strong>Web Development:</strong> <code>flask</code>, <code>django</code></li>
+      <li><strong>HTTP Requests:</strong> <code>requests</code></li>
+      <li><strong>Testing:</strong> <code>unittest</code>, <code>pytest</code></li>
+    </ul>
+    <p class="tip"><strong>Tip:</strong> Always check if a built-in module or library solves your problem before implementing manually.</p>
+  </div>
+</div>
+<!-- Subtopic: Modules, Packages, Libraries, Import, pip -->
+<div class="subtopic">Modules, Packages, Libraries, Import & pip in Python</div>
+
+<!-- MODULE -->
+<div class="qa-block">
+  <button>What is a module in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      A <strong>module</strong> is a single Python file (.py) that contains functions, classes, or variables which can be reused in other programs.
+    </p>
+    <p class="tip"><strong>Example:</strong>
+      <pre># mymodule.py
+def greet(name):
+    return f"Hello, {name}"
+
+# main.py
+import mymodule
+print(mymodule.greet("Alice"))   # Hello, Alice</pre>
+    </p>
+  </div>
+</div>
+
+<!-- PACKAGE -->
+<div class="qa-block">
+  <button>What is a package in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      A <strong>package</strong> is a collection of modules organized in directories with an <code>__init__.py</code> file. Packages help in structuring large projects.
+    </p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>myproject/
+│
+├─ mypackage/
+│   ├─ __init__.py
+│   ├─ module1.py
+│   └─ module2.py
+└─ main.py
+
+# main.py
+from mypackage import module1
+module1.function()</pre>
+    </p>
+  </div>
+</div>
+
+<!-- LIBRARY -->
+<div class="qa-block">
+  <button>What is a library in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      A <strong>library</strong> is a collection of packages and modules that provide pre-written code for common tasks. Python has built-in libraries and third-party libraries.
+    </p>
+    <p class="tip"><strong>Example:</strong> <code>math</code> is a built-in library containing modules for mathematical operations:
+      <pre>import math
+print(math.sqrt(16))   # 4.0</pre>
+    </p>
+  </div>
+</div>
+
+<!-- IMPORT -->
+<div class="qa-block">
+  <button>How and why do we use <code>import</code> in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      The <code>import</code> statement allows you to bring modules or packages into your current program so you can reuse code without rewriting it.
+    </p>
+    <ul>
+      <li><strong>Import entire module:</strong> <code>import module_name</code></li>
+      <li><strong>Import specific function:</strong> <code>from module_name import func_name</code></li>
+      <li><strong>Import with alias:</strong> <code>import module_name as alias</code></li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>import math
+print(math.factorial(5))   # 120
+
+from math import factorial
+print(factorial(5))       # 120
+
+import math as m
+print(m.sqrt(25))          # 5.0</pre>
+    </p>
+  </div>
+</div>
+
+<!-- PIP -->
+<div class="qa-block">
+  <button>What is pip and why do we use it? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      <strong>pip</strong> is Python’s package installer. It is used to download and install third-party libraries and packages from the Python Package Index (PyPI).
+    </p>
+    <ul>
+      <li>Install a package: <code>pip install package_name</code></li>
+      <li>Upgrade a package: <code>pip install --upgrade package_name</code></li>
+      <li>Uninstall a package: <code>pip uninstall package_name</code></li>
+      <li>List installed packages: <code>pip list</code></li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>pip install requests   # Installs the 'requests' library for HTTP requests</pre>
+    </p>
+  </div>
+</div>
+
+<!-- IMPORTING FROM INSTALLED PACKAGE -->
+<div class="qa-block">
+  <button>How do you use a library installed via pip in your program? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>
+      After installing a library using pip, you can import its modules or functions using <code>import</code> statements.
+    </p>
+    <p class="tip"><strong>Example:</strong>
+      <pre># Install library first
+pip install requests
+
+# Use in program
+import requests
+response = requests.get("https://api.github.com")
+print(response.status_code)</pre>
+    </p>
+  </div>
+</div>
+
+<!-- INTERVIEW TIP -->
+<div class="qa-block">
+  <button>Interview Tips: Questions related to modules, packages, libraries, pip, and import <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Common interview questions might include:</p>
+    <ul>
+      <li>What is the difference between a module, package, and library?</li>
+      <li>How do you install and use third-party packages?</li>
+      <li>What are built-in Python libraries you commonly use?</li>
+      <li>Explain <code>import</code> vs <code>from…import</code> vs <code>import as</code>.</li>
+      <li>How do you check installed packages and their versions?</li>
+    </ul>
+    <p class="tip"><strong>Tip:</strong> Prepare real examples from your projects where you installed and used third-party packages with pip.</p>
+  </div>
+</div>
 
   </main>
 
