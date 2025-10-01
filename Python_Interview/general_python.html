@@ -426,6 +426,133 @@ print(a == c)     # True</pre>
     </p>
   </div>
 </div>
+<!-- Subtopic: Conditional Statements & Loops -->
+<div class="subtopic">Conditional Statements & Loops (Flow Control)</div>
+
+<div class="qa-block">
+  <button>What are conditional statements in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Conditional statements are used to execute certain blocks of code only when specific conditions are met. They help in decision making within a program.</p>
+    <p>Python provides <code>if</code>, <code>if-else</code>, and <code>if-elif-else</code> statements for conditional execution.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>x = 10
+if x &gt; 5:
+    print("x is greater than 5")
+else:
+    print("x is 5 or less")</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the difference between if, if-else, and if-elif-else? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <ul>
+      <li><strong>if:</strong> Executes a block if a condition is True.</li>
+      <li><strong>if-else:</strong> Executes one block if True, another if False.</li>
+      <li><strong>if-elif-else:</strong> Checks multiple conditions in sequence, executes the first True block, else executes the final else block.</li>
+    </ul>
+    <p class="tip"><strong>Example:</strong>
+      <pre>marks = 75
+if marks &gt;= 90:
+    print("Grade A")
+elif marks &gt;= 75:
+    print("Grade B")
+else:
+    print("Grade C")</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are loops in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Loops are used to execute a block of code repeatedly until a condition is met or for a fixed number of times. Python has two main loops:</p>
+    <ul>
+      <li><strong>for loop:</strong> Iterates over a sequence (list, tuple, string, range, etc.).</li>
+      <li><strong>while loop:</strong> Executes repeatedly while a condition is True.</li>
+    </ul>
+    <p class="tip"><strong>Example (for loop):</strong>
+      <pre>for i in range(5):
+    print(i)  # Prints 0 to 4</pre>
+    <strong>Example (while loop):</strong>
+      <pre>count = 0
+while count &lt; 5:
+    print(count)
+    count += 1</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the break statement in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <code>break</code> statement is used to **exit a loop prematurely**, even if the loop condition is still True. It stops the loop and moves the control to the next statement after the loop.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>for i in range(10):
+    if i == 5:
+        break   # Loop stops when i equals 5
+    print(i)
+# Output: 0 1 2 3 4</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the continue statement in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <code>continue</code> statement **skips the current iteration** of a loop and moves to the next iteration without executing the remaining code in that iteration.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>for i in range(5):
+    if i == 2:
+        continue  # Skip printing 2
+    print(i)
+# Output: 0 1 3 4</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is the pass statement in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <code>pass</code> statement is a **placeholder**. It does nothing and is used when a statement is syntactically required but you don’t want to execute any code.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>for i in range(5):
+    if i &lt; 3:
+        pass  # Do nothing for i=0,1,2
+    else:
+        print(i)
+# Output: 3 4</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Can you have nested loops in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Yes, Python allows **loops inside loops**. This is called nested loops. Useful for multidimensional data processing.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>for i in range(3):
+    for j in range(2):
+        print(i, j)
+# Output:
+# 0 0
+# 0 1
+# 1 0
+# 1 1
+# 2 0
+# 2 1</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Why do we need control flow in programs? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Control flow statements (conditional statements and loops) are essential because they allow programs to make decisions and repeat actions. Without control flow, a program would execute statements sequentially and cannot handle dynamic scenarios.</p>
+    <p class="tip"><strong>Example:</strong> Choosing which discount to apply based on purchase amount or iterating over user inputs.</p>
+  </div>
+</div>
 
   </main>
 
