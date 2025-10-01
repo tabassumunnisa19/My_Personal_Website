@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Python Interview Questions</title>
+  <title>Coding Challenge Q&A</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -82,8 +82,8 @@
   <main class="site-container" style="padding:2rem; background:var(--background-color);">
     <h1>Coding Challenge Q&A</h1>
     <p style="color:#475569; margin-bottom:1.5rem;">Comprehensive questions and answers to help beginners understand Python features and data types.</p>
-<!-- Subtopic: Coding Challenges - Features of Python & Data Types -->
-<div class="subtopic">Coding Challenges: Features of Python & Data Types</div>
+<!-- Subtopic: Coding Challenges -->
+<div class="subtopic">Coding Challenges</div>
 
 <!-- Q1: Identify type of number -->
 <div class="qa-block">
