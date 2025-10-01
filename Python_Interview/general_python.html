@@ -169,6 +169,102 @@
         <p class="tip"><strong>Tip:</strong> Show examples for clarity.</p>
       </div>
     </div>
+<!-- Subtopic: Functions & Scope -->
+<div class="subtopic">Functions & Scope</div>
+
+<div class="qa-block">
+  <button>What is a function in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A function is a reusable block of code that performs a specific task. Functions help organize code, reduce repetition, and improve readability. They can take inputs (parameters) and return outputs (return values).</p>
+    <p class="tip"><strong>Tip:</strong> Give a simple example: <code>def greet(name): return "Hello " + name</code></p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are *args and **kwargs? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><code>*args</code> allows a function to accept any number of positional arguments, while <code>**kwargs</code> allows a function to accept any number of keyword arguments. They are useful when the number of inputs is unknown or flexible.</p>
+    <p class="tip"><strong>Tip:</strong> Example: 
+      <pre>def demo(*args, **kwargs):
+    print(args)
+    print(kwargs)
+demo(1,2,3, a=10, b=20)</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What is recursion? Provide an example. <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Recursion is when a function calls itself to solve a problem. It is used in tasks that can be broken down into smaller subproblems. A base case is required to avoid infinite recursion.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n-1)
+
+factorial(5)  # Output: 120</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Explain the LEGB rule in Python. <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>LEGB stands for Local → Enclosed → Global → Built-in, which is the order Python follows to resolve variable names. Python first looks in the local scope, then in enclosing functions (if nested), then global variables, and finally built-in names.</p>
+    <p class="tip"><strong>Tip:</strong> Understanding LEGB helps prevent variable shadowing and scope errors.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are default arguments, keyword arguments, and positional arguments? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Positional arguments are passed in order, keyword arguments are passed with parameter names, and default arguments have predefined values if not provided. Example:</p>
+    <pre>def greet(name, msg="Hello"):
+    print(msg, name)
+
+greet("Alice")          # Hello Alice
+greet("Bob", msg="Hi")  # Hi Bob</pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are lambda functions? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Lambda functions are small anonymous functions defined using the <code>lambda</code> keyword. They are used for short, one-line operations and can take any number of arguments but return a single expression.</p>
+    <p class="tip"><strong>Example:</strong> <code>square = lambda x: x*x; square(5) # 25</code></p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>What are Python’s built-in functions commonly used with functions? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Common built-in functions include <code>len()</code>, <code>type()</code>, <code>max()</code>, <code>min()</code>, <code>sum()</code>, <code>sorted()</code>, <code>enumerate()</code>, <code>any()</code>, <code>all()</code>, <code>zip()</code>. These help manipulate data and iterate efficiently.</p>
+    <p class="tip"><strong>Tip:</strong> Provide small examples for each function.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Explain variable scope in Python. <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Variable scope determines where a variable can be accessed. Local variables exist inside functions, global variables exist throughout the file, and nonlocal variables refer to enclosing function scopes. Using the <code>global</code> and <code>nonlocal</code> keywords, we can modify variables in outer scopes.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre>x = 10
+def func():
+    global x
+    x += 5
+func()
+print(x)  # 15</pre>
+    </p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Why use functions in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Functions make code reusable, modular, and easier to read. They allow breaking complex problems into smaller tasks, reduce duplication, and improve maintainability. Using functions also supports testing and debugging in isolation.</p>
+  </div>
+</div>
 
   </main>
 
