@@ -3,20 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>General Python Interview Questions — Nisa</title>
+  <title>Python Interview Questions — Features & Data Types — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <style>
-    body { font-family: Arial, sans-serif; background: #f5f7fa; margin:0; padding:0;}
-    .site-container { max-width: 900px; margin: 0 auto; padding: 2rem;}
-    .qa-block { border: 1px solid #e6eef8; border-radius: 8px; margin-bottom: 1rem; background: #fff; overflow: hidden;}
-    .qa-block button { width: 100%; text-align: left; padding: 1rem; border: none; background: #f5f8fa; cursor: pointer; font-size: 1rem; display: flex; justify-content: space-between; align-items: center;}
-    .qa-block button:hover { background: #e0ebf8;}
-    .qa-block .content { display: none; padding: 1rem; border-top: 1px solid #e6eef8; background: #fff;}
-    .qa-block .tip { font-size: 0.9rem; color: #555; margin-top: 0.5rem;}
-    .subtopic { font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem 0; color: #1e40af;}
-    pre { background: #2d2d2d; padding: 1rem; border-radius: 5px; overflow-x:auto; }
+    .qa-block {
+      border: 1px solid #e6eef8;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #fff;
+      overflow: hidden;
+    }
+    .qa-block button {
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      border: none;
+      background: #f5f8fa;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .qa-block button:hover {
+      background: #e0ebf8;
+    }
+    .qa-block .content {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid #e6eef8;
+      background: #fff;
+    }
+    .qa-block .tip {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .subtopic {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem 0;
+      color: #1e40af;
+    }
   </style>
 </head>
 <body>
@@ -38,470 +67,108 @@
   </header>
 
   <!-- Main Content -->
-  <main class="site-container">
-    <h1>General Python Interview Questions</h1>
-    <p style="color:#475569; margin-bottom:1.5rem;">All realistic Q&A covering basics to advanced Python concepts for interviews.</p>
+  <main class="site-container" style="padding:2rem; background:var(--background-color);">
+    <h1>Python Interview Questions — Features & Data Types</h1>
+    <p style="color:#475569; margin-bottom:1.5rem;">Comprehensive questions and answers to help beginners understand Python features and data types.</p>
 
-    <!-- Subtopic: Features of Python & Data Types -->
-    <div class="subtopic">Features of Python & Data Types</div>
+    <!-- Subtopic: Features & Data Types -->
+    <div class="subtopic">Features & Data Types</div>
 
     <div class="qa-block">
-      <button>What are Python's key features? <i class="fas fa-chevron-down"></i></button>
+      <button>What are the main features of Python? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Python is interpreted, dynamically typed, high-level, object-oriented, easy to learn, supports multiple paradigms (OOP, functional, procedural), has rich libraries, and is portable.</p>
-        <p class="tip"><strong>Tip:</strong> Emphasize simplicity, readability, and versatility.</p>
+        <p>Python is a high-level, interpreted programming language designed to be easy to read and write. Its main features include being interpreted, dynamically typed, high-level, object-oriented, simple, cross-platform, having extensive libraries, and supporting multiple programming paradigms.</p>
+        <p class="tip"><strong>Tip:</strong> Mention readability, simplicity, and versatility with examples if possible.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>What are Python's built-in data types? <i class="fas fa-chevron-down"></i></button>
+      <button>What are Python’s built-in data types? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Numeric: int, float, complex; Sequence: list, tuple, range; Text: str; Set: set, frozenset; Mapping: dict; Boolean: bool; Binary: bytes, bytearray, memoryview.</p>
-        <p class="tip"><strong>Tip:</strong> Give examples for each type for clarity.</p>
+        <p>Python has numeric types (int, float, complex), sequence types (list, tuple, range), text type (str), set types (set, frozenset), mapping type (dict), boolean type (bool), and binary types (bytes, bytearray, memoryview).</p>
+        <p class="tip"><strong>Tip:</strong> Give examples of each for clarity.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Difference between is and ==? <i class="fas fa-chevron-down"></i></button>
+      <button>Difference between <code>is</code> and <code>==</code>? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p><code>is</code> checks object identity (memory location). <code>==</code> checks value equality.</p>
-        <p class="tip"><strong>Tip:</strong> Mention practical usage in comparing objects vs values.</p>
+        <p><code>is</code> checks if two variables point to the same object in memory, while <code>==</code> checks if their values are equal. Example: <code>a = [1,2]; b = [1,2]; a == b → True, a is b → False</code></p>
+        <p class="tip"><strong>Tip:</strong> Explain with a practical example.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Difference between a list and a tuple? <i class="fas fa-chevron-down"></i></button>
+      <button>Difference between list and tuple? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>List is mutable ([]), tuple is immutable (()). Tuples are faster and can be dict keys.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight mutability, speed, and use cases.</p>
+        <p>List is mutable (can be changed), whereas tuple is immutable (cannot be changed). Tuples are faster and can be used as dictionary keys. Example: <code>my_list = [1,2,3]; my_tuple = (1,2,3)</code></p>
+        <p class="tip"><strong>Tip:</strong> Highlight mutability and use cases.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Set vs Dict? <i class="fas fa-chevron-down"></i></button>
+      <button>Set vs Dictionary? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Set: unordered collection of unique elements. Dict: key-value mapping.</p>
-        <p class="tip"><strong>Tip:</strong> Mention uniqueness and mapping properties.</p>
+        <p>A set is an unordered collection of unique elements, while a dictionary stores data in key-value pairs. Example: <code>my_set = {1,2,3}; my_dict = {"a":1, "b":2}</code></p>
+        <p class="tip"><strong>Tip:</strong> Mention uniqueness vs mapping.</p>
       </div>
     </div>
 
     <div class="qa-block">
       <button>Shallow copy vs Deep copy? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Shallow copy copies references; deep copy duplicates nested objects. Use <code>copy.copy()</code> vs <code>copy.deepcopy()</code>.</p>
-        <p class="tip"><strong>Tip:</strong> Show example using nested list or dict.</p>
-      </div>
-    </div>
-
-    <!-- Subtopic: Functions & Scope -->
-    <div class="subtopic">Functions & Scope</div>
-
-    <div class="qa-block">
-      <button>Explain *args and **kwargs. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>*args allows variable-length positional arguments; **kwargs allows variable-length keyword arguments.</p>
-        <pre><code class="language-python">
-def demo_args(*args, **kwargs):
-    print(args)
-    print(kwargs)
-
-demo_args(1,2,3, name="Nisa", age=25)
-        </code></pre>
-        <p class="tip"><strong>Tip:</strong> Show example for flexibility in functions.</p>
+        <p>Shallow copy duplicates the top-level object but references nested objects. Deep copy duplicates all objects recursively. Example: <code>import copy; shallow = copy.copy(obj); deep = copy.deepcopy(obj)</code></p>
+        <p class="tip"><strong>Tip:</strong> Use nested lists or dicts for demonstration.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Recursion example? <i class="fas fa-chevron-down"></i></button>
+      <button>What is dynamic typing in Python? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <pre><code class="language-python">
-def factorial(n):
-    if n == 1:
-        return 1
-    return n * factorial(n-1)
-print(factorial(5)) # 120
-        </code></pre>
-        <p class="tip"><strong>Tip:</strong> Explain base case and recursion depth.</p>
+        <p>Dynamic typing means you do not need to declare a variable’s type. Python determines it at runtime. Example: <code>x = 10; x = "Hello"</code></p>
+        <p class="tip"><strong>Tip:</strong> Show flexibility but caution with type errors.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>LEGB rule? <i class="fas fa-chevron-down"></i></button>
+      <button>Why is Python considered interpreted? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Python's scope resolution: Local → Enclosed → Global → Built-in.</p>
-        <p class="tip"><strong>Tip:</strong> Mention importance for variable resolution.</p>
+        <p>Python code is executed line by line, which allows quick testing and debugging. Unlike compiled languages, there is no separate compilation step.</p>
+        <p class="tip"><strong>Tip:</strong> Emphasize debugging advantages.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Common built-in functions? <i class="fas fa-chevron-down"></i></button>
+      <button>Why is Python high-level? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>len(), sum(), min(), max(), type(), id(), sorted(), zip(), enumerate(), any(), all()</p>
-        <p class="tip"><strong>Tip:</strong> Show examples for practical use.</p>
-      </div>
-    </div>
-
-    <!-- Subtopic: Identifiers & Operators -->
-    <div class="subtopic">Identifiers & Operators</div>
-
-    <div class="qa-block">
-      <button>What are identifiers in Python? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Names given to variables, functions, classes, etc. Must start with a letter or underscore, and contain letters, digits, or underscores.</p>
+        <p>Python abstracts low-level details such as memory management and CPU instructions, allowing the programmer to focus on logic and algorithms.</p>
+        <p class="tip"><strong>Tip:</strong> Mention readability and ease of coding.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>What are Python operators? <i class="fas fa-chevron-down"></i></button>
+      <button>What are the advantages of using Python? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Arithmetic: +, -, *, /, %, //, **</p>
-        <p>Comparison: ==, !=, &lt;, &gt;, &lt;=, &gt;=</p>
-        <p>Logical: and, or, not</p>
-        <p>Assignment: =, +=, -=, *=, /=</p>
-        <p>Bitwise: &, |, ^, ~, &lt;&lt;, &gt;&gt;</p>
+        <p>Python is easy to learn, has readable syntax, extensive libraries, multi-paradigm support, interpreted nature for quick testing, and is cross-platform. This makes development faster and beginner-friendly.</p>
+        <p class="tip"><strong>Tip:</strong> Mention examples from data science, web development, automation, etc.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Operator precedence? <i class="fas fa-chevron-down"></i></button>
+      <button>What are some common built-in functions for data types? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Parentheses &gt; Exponentiation &gt; Unary +,- &gt; *, /, //, % &gt; +,- &gt; Comparison &gt; Logical</p>
-      </div>
-    </div>
-
-    <!-- Subtopic: Conditional Statements & Loops -->
-    <div class="subtopic">Conditional Statements & Loops (Flow Control)</div>
-
-    <div class="qa-block">
-      <button>What are conditional statements in Python? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>if, elif, else statements are used to control the flow based on conditions.</p>
+        <p>Functions like <code>len()</code>, <code>type()</code>, <code>max()</code>, <code>min()</code>, <code>sum()</code>, <code>sorted()</code> can be used with lists, tuples, sets, and dictionaries. Type conversion functions include <code>str()</code>, <code>int()</code>, <code>float()</code>, <code>bool()</code>.</p>
+        <p class="tip"><strong>Tip:</strong> Provide examples when asked.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Python loops? <i class="fas fa-chevron-down"></i></button>
+      <button>What is the difference between mutable and immutable data types? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>for loop, while loop, used to iterate over sequences or conditions.</p>
+        <p>Mutable data types can be changed after creation (e.g., lists, dictionaries, sets). Immutable data types cannot be changed (e.g., tuples, strings, frozenset). This affects memory usage, performance, and dictionary key usability.</p>
+        <p class="tip"><strong>Tip:</strong> Show examples for clarity.</p>
       </div>
     </div>
-
-    <div class="qa-block">
-      <button>Break, Continue, Pass? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>break: exit loop, continue: skip current iteration, pass: do nothing.</p>
-      </div>
-    </div>
-
-    <!-- Subtopic: Data Structure Methods & Functions -->
-    <div class="subtopic">Data Structure Methods & Functions</div>
-
-    <div class="qa-block">
-      <button>List methods? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>append(), extend(), insert(), remove(), pop(), clear(), index(), count(), sort(), reverse(), copy()</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Tuple methods? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>count(), index()</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Set methods? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>add(), update(), remove(), discard(), pop(), clear(), union(), intersection(), difference(), symmetric_difference()</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Dictionary methods? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>get(), keys(), values(), items(), update(), pop(), popitem(), clear(), setdefault()</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>String methods? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>len(), lower(), upper(), strip(), split(), join(), replace(), find(), count(), startswith(), endswith()</p>
-        <p><strong>String Formatting:</strong> Old style: % operator, str.format(), f-strings (Python 3.6+)</p>
-      </div>
-    </div>
-
-    <!-- Remaining topics will continue similarly ... -->
-    <!-- Object-Oriented Programming -->
-    <div class="subtopic">Object-Oriented Programming (OOP)</div>
-    <div class="qa-block">
-      <button>What is a class and object in Python? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Class: blueprint; Object: instance of class.</p>
-        <pre><code class="language-python">
-class Dog:
-    def __init__(self, name):
-        self.name = name
-
-my_dog = Dog("Tommy")
-print(my_dog.name) # Tommy
-        </code></pre>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>What is self in Python? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Self refers to the instance of the class and allows access to attributes and methods.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Constructor (__init__)? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Special method called when an object is created. Used to initialize attributes.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Inheritance types? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Single, Multiple, Multi-level, Hierarchical. Allows reuse of code from parent class.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Access modifiers? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Public: accessible everywhere; Protected (_): accessible in class and subclasses; Private (__): accessible only inside class.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Polymorphism? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Same method name, different behavior in different classes (method overriding).</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Abstraction? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Hiding implementation using abstract base classes (ABC).</p>
-      </div>
-    </div>
-
-   <!-- Subtopic: Regular Expressions -->
-<div class="subtopic">Regular Expressions</div>
-
-<div class="qa-block">
-  <button>What is a regular expression in Python? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Regex allows pattern matching in strings. Python provides the <code>re</code> module for this.</p>
-    <pre><code class="language-python">
-import re
-
-pattern = r'\d+'
-text = "I have 2 apples and 3 bananas"
-matches = re.findall(pattern, text)
-print(matches)  # ['2', '3']
-    </code></pre>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Common regex functions? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>re.match(), re.search(), re.findall(), re.sub(), re.split()</p>
-  </div>
-</div>
-
-<!-- Subtopic: File Handling & Exceptions -->
-<div class="subtopic">File Handling & Exceptions</div>
-
-<div class="qa-block">
-  <button>How to open and read a file? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-with open('file.txt', 'r') as f:
-    data = f.read()
-    print(data)
-    </code></pre>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Exception handling in Python? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-try:
-    x = 10 / 0
-except ZeroDivisionError:
-    print("Cannot divide by zero")
-finally:
-    print("Execution done")
-    </code></pre>
-  </div>
-</div>
-
-<!-- Subtopic: Iterators, Generators, Decorators, Context Managers -->
-<div class="subtopic">Iterators, Generators, Decorators, Context Managers</div>
-
-<div class="qa-block">
-  <button>What is an iterator? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>An object with <code>__iter__()</code> and <code>__next__()</code> methods. Example:</p>
-    <pre><code class="language-python">
-my_list = [1,2,3]
-it = iter(my_list)
-print(next(it)) # 1
-    </code></pre>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Generator example? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-def gen_numbers(n):
-    for i in range(n):
-        yield i
-
-for num in gen_numbers(5):
-    print(num)
-    </code></pre>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Decorator example? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-def decorator(func):
-    def wrapper():
-        print("Before function")
-        func()
-        print("After function")
-    return wrapper
-
-@decorator
-def say_hello():
-    print("Hello!")
-
-say_hello()
-    </code></pre>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Context manager example? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-with open('file.txt', 'w') as f:
-    f.write("Hello World")
-# Automatically closes file
-    </code></pre>
-  </div>
-</div>
-
-<!-- Subtopic: Functional Programming -->
-<div class="subtopic">Functional Programming (Lambda, map, filter, reduce)</div>
-
-<div class="qa-block">
-  <button>Lambda function example? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-square = lambda x: x**2
-print(square(5)) # 25
-    </code></pre>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Map, Filter, Reduce example? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-from functools import reduce
-
-nums = [1,2,3,4,5]
-
-squared = list(map(lambda x: x**2, nums))
-evens = list(filter(lambda x: x%2==0, nums))
-sum_all = reduce(lambda a,b: a+b, nums)
-
-print(squared, evens, sum_all)
-    </code></pre>
-  </div>
-</div>
-
-<!-- Subtopic: Advanced Topics -->
-<div class="subtopic">Advanced Topics</div>
-
-<div class="qa-block">
-  <button>What is GIL in Python? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Global Interpreter Lock (GIL) allows only one thread to execute Python bytecode at a time. Limits multi-threading in CPU-bound tasks.</p>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Memory management in Python? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Automatic garbage collection, reference counting, memory pool (PyMalloc), and dynamic allocation.</p>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Multithreading vs Multiprocessing? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Multithreading: threads share memory, limited by GIL. Multiprocessing: separate memory, true parallelism.</p>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Optimize Python performance? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Use built-in functions, list comprehensions, generator expressions, avoid global variables, use C extensions or PyPy.</p>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>Common Python libraries? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Numpy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Requests, BeautifulSoup, Flask, Django</p>
-  </div>
-</div>
-
-<!-- Subtopic: Modules, Packages, Libraries, Import, pip -->
-<div class="subtopic">Modules, Packages, Libraries, Import, pip</div>
-
-<div class="qa-block">
-  <button>What is a module, package, library? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Module: Python file (.py) containing functions, classes.</p>
-    <p>Package: folder containing modules + <code>__init__.py</code>.</p>
-    <p>Library: collection of packages or modules.</p>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>How to import modules? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <pre><code class="language-python">
-import math
-from math import sqrt, pi
-import mymodule as mm
-    </code></pre>
-  </div>
-</div>
-
-<div class="qa-block">
-  <button>pip usage? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <p>Python package installer. Install libraries via <code>pip install library_name</code>.</p>
-  </div>
-</div>
 
   </main>
 
@@ -518,9 +185,7 @@ import mymodule as mm
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <!-- JavaScript for accordion -->
   <script>
     const qaBlocks = document.querySelectorAll('.qa-block button');
     qaBlocks.forEach(button => {
