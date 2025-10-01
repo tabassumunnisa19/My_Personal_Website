@@ -739,6 +739,122 @@ print(f"My score is {score}")   # My score is 95</pre>
     </ol>
   </div>
 </div>
+<section class="section">
+  <h2 class="section-title">Regular Expressions in Python</h2>
+
+  <div class="qa">
+    <h3>Q1: What is a Regular Expression (Regex) in Python?</h3>
+    <p>A <b>Regular Expression (Regex)</b> is a sequence of characters that forms a search pattern. 
+       It is mainly used for <b>searching, matching, and manipulating strings</b>.</p>
+    <pre><code class="language-python">
+import re
+pattern = r"\d+"   # Matches one or more digits
+text = "My number is 12345"
+result = re.findall(pattern, text)
+print(result)   # ['12345']
+    </code></pre>
+  </div>
+
+  <div class="qa">
+    <h3>Q2: Why are Regular Expressions used in Python?</h3>
+    <p>Regex is used because it:</p>
+    <ul>
+      <li>Helps search for patterns in text efficiently</li>
+      <li>Validates inputs like email or phone number</li>
+      <li>Replaces parts of text with something else</li>
+      <li>Extracts useful data like numbers, dates, or words</li>
+    </ul>
+  </div>
+
+  <div class="qa">
+    <h3>Q3: Which Python module is used for Regular Expressions?</h3>
+    <p>Python provides the <b>re</b> module to work with regex. Common functions:</p>
+    <ul>
+      <li><b>re.match()</b> → Checks only at the start of the string</li>
+      <li><b>re.search()</b> → Searches the entire string</li>
+      <li><b>re.findall()</b> → Returns all matching substrings</li>
+      <li><b>re.sub()</b> → Replaces matching patterns</li>
+    </ul>
+  </div>
+
+  <div class="qa">
+    <h3>Q4: What is the difference between <code>re.match()</code> and <code>re.search()</code>?</h3>
+    <p>
+      <b>re.match()</b> → Checks for a match only at the beginning of the string.<br>
+      <b>re.search()</b> → Searches the entire string for a match.
+    </p>
+    <pre><code class="language-python">
+import re
+text = "Hello 123 World"
+print(re.match(r"\d+", text))   # None
+print(re.search(r"\d+", text))  # Match object for '123'
+    </code></pre>
+  </div>
+
+  <div class="qa">
+    <h3>Q5: What are some commonly used metacharacters in Regex?</h3>
+    <p>Some useful regex metacharacters:</p>
+    <ul>
+      <li><b>.</b> → Matches any character except newline</li>
+      <li><b>^</b> → Matches start of string</li>
+      <li><b>$</b> → Matches end of string</li>
+      <li><b>\d</b> → Matches digits (0–9)</li>
+      <li><b>\w</b> → Matches word characters</li>
+      <li><b>\s</b> → Matches whitespace</li>
+      <li><b>*</b> → 0 or more repetitions</li>
+      <li><b>+</b> → 1 or more repetitions</li>
+      <li><b>?</b> → 0 or 1 repetition</li>
+      <li><b>[]</b> → Set of characters</li>
+    </ul>
+    <pre><code class="language-python">
+import re
+text = "Python 3.10"
+pattern = r"\d+\.\d+"
+print(re.findall(pattern, text))  # ['3.10']
+    </code></pre>
+  </div>
+
+  <div class="qa">
+    <h3>Q6: How do you validate an email using Regex in Python?</h3>
+    <pre><code class="language-python">
+import re
+email = "user@example.com"
+pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+if re.match(pattern, email):
+    print("Valid Email")
+else:
+    print("Invalid Email")
+    </code></pre>
+    <p><b>Output:</b> Valid Email</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q7: How do you replace text using Regex?</h3>
+    <pre><code class="language-python">
+import re
+text = "My number is 12345"
+new_text = re.sub(r"\d+", "XXXXX", text)
+print(new_text)   # My number is XXXXX
+    </code></pre>
+  </div>
+
+  <div class="qa">
+    <h3>Q8: What is the difference between <code>findall()</code>, <code>finditer()</code>, and <code>split()</code>?</h3>
+    <p>
+      <b>re.findall()</b> → Returns all matches as a list.<br>
+      <b>re.finditer()</b> → Returns an iterator with match objects.<br>
+      <b>re.split()</b> → Splits a string by the regex pattern.
+    </p>
+    <pre><code class="language-python">
+import re
+text = "one two three"
+print(re.findall(r"\w+", text))        # ['one', 'two', 'three']
+print([m.group() for m in re.finditer(r"\w+", text)])  # ['one', 'two', 'three']
+print(re.split(r"\s+", text))          # ['one', 'two', 'three']
+    </code></pre>
+  </div>
+
+</section>
 
   </main>
 
