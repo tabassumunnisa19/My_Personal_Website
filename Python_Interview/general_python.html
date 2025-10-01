@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,46 +6,17 @@
   <title>General Python Interview Questions — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <style>
-    .qa-block {
-      border: 1px solid #e6eef8;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background: #fff;
-      overflow: hidden;
-    }
-    .qa-block button {
-      width: 100%;
-      text-align: left;
-      padding: 1rem;
-      border: none;
-      background: #f5f8fa;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .qa-block button:hover {
-      background: #e0ebf8;
-    }
-    .qa-block .content {
-      display: none;
-      padding: 1rem;
-      border-top: 1px solid #e6eef8;
-      background: #fff;
-    }
-    .qa-block .tip {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
-    }
-    .subtopic {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 2rem 0 1rem 0;
-      color: #1e40af;
-    }
+    body { font-family: Arial, sans-serif; background: #f5f7fa; margin:0; padding:0;}
+    .site-container { max-width: 900px; margin: 0 auto; padding: 2rem;}
+    .qa-block { border: 1px solid #e6eef8; border-radius: 8px; margin-bottom: 1rem; background: #fff; overflow: hidden;}
+    .qa-block button { width: 100%; text-align: left; padding: 1rem; border: none; background: #f5f8fa; cursor: pointer; font-size: 1rem; display: flex; justify-content: space-between; align-items: center;}
+    .qa-block button:hover { background: #e0ebf8;}
+    .qa-block .content { display: none; padding: 1rem; border-top: 1px solid #e6eef8; background: #fff;}
+    .qa-block .tip { font-size: 0.9rem; color: #555; margin-top: 0.5rem;}
+    .subtopic { font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem 0; color: #1e40af;}
+    pre { background: #2d2d2d; padding: 1rem; border-radius: 5px; overflow-x:auto; }
   </style>
 </head>
 <body>
@@ -68,12 +38,12 @@
   </header>
 
   <!-- Main Content -->
-  <main class="site-container" style="padding:2rem; background:var(--background-color);">
+  <main class="site-container">
     <h1>General Python Interview Questions</h1>
-    <p style="color:#475569; margin-bottom:1.5rem;">36+ Realistic Q&A covering basics to advanced Python concepts.</p>
+    <p style="color:#475569; margin-bottom:1.5rem;">All realistic Q&A covering basics to advanced Python concepts for interviews.</p>
 
-    <!-- Subtopic: Basics, Data Types, Operators -->
-    <div class="subtopic">Basics, Data Types, Operators</div>
+    <!-- Subtopic: Features of Python & Data Types -->
+    <div class="subtopic">Features of Python & Data Types</div>
 
     <div class="qa-block">
       <button>What are Python's key features? <i class="fas fa-chevron-down"></i></button>
@@ -123,14 +93,6 @@
       </div>
     </div>
 
-    <div class="qa-block">
-      <button>Python 2 vs Python 3? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Python 3 uses print(), float division, Unicode str, improved libraries compared to Python 2.</p>
-        <p class="tip"><strong>Tip:</strong> Always emphasize Python 3 for modern development.</p>
-      </div>
-    </div>
-
     <!-- Subtopic: Functions & Scope -->
     <div class="subtopic">Functions & Scope</div>
 
@@ -138,6 +100,13 @@
       <button>Explain *args and **kwargs. <i class="fas fa-chevron-down"></i></button>
       <div class="content">
         <p>*args allows variable-length positional arguments; **kwargs allows variable-length keyword arguments.</p>
+        <pre><code class="language-python">
+def demo_args(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+demo_args(1,2,3, name="Nisa", age=25)
+        </code></pre>
         <p class="tip"><strong>Tip:</strong> Show example for flexibility in functions.</p>
       </div>
     </div>
@@ -145,11 +114,13 @@
     <div class="qa-block">
       <button>Recursion example? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Function calling itself, e.g., factorial function:</p>
-        <pre>def factorial(n):
+        <pre><code class="language-python">
+def factorial(n):
     if n == 1:
         return 1
-    return n * factorial(n-1)</pre>
+    return n * factorial(n-1)
+print(factorial(5)) # 120
+        </code></pre>
         <p class="tip"><strong>Tip:</strong> Explain base case and recursion depth.</p>
       </div>
     </div>
@@ -170,227 +141,367 @@
       </div>
     </div>
 
-    <!-- Subtopic: Strings, Regex, Sequences -->
-    <div class="subtopic">Strings, Regex, Sequences</div>
+    <!-- Subtopic: Identifiers & Operators -->
+    <div class="subtopic">Identifiers & Operators</div>
 
     <div class="qa-block">
-      <button>Reverse a string? <i class="fas fa-chevron-down"></i></button>
+      <button>What are identifiers in Python? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>s[::-1]</p>
-        <p class="tip"><strong>Tip:</strong> Quick and pythonic way.</p>
+        <p>Names given to variables, functions, classes, etc. Must start with a letter or underscore, and contain letters, digits, or underscores.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Check if string has only digits? <i class="fas fa-chevron-down"></i></button>
+      <button>What are Python operators? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>s.isdigit() or using regex: re.fullmatch(r"\d+", s)</p>
-        <p class="tip"><strong>Tip:</strong> Mention both methods.</p>
+        <p>Arithmetic: +, -, *, /, %, //, **</p>
+        <p>Comparison: ==, !=, &lt;, &gt;, &lt;=, &gt;=</p>
+        <p>Logical: and, or, not</p>
+        <p>Assignment: =, +=, -=, *=, /=</p>
+        <p>Bitwise: &, |, ^, ~, &lt;&lt;, &gt;&gt;</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Extract emails using regex? <i class="fas fa-chevron-down"></i></button>
+      <button>Operator precedence? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}", text)</p>
-        <p class="tip"><strong>Tip:</strong> Useful for text parsing tasks.</p>
+        <p>Parentheses &gt; Exponentiation &gt; Unary +,- &gt; *, /, //, % &gt; +,- &gt; Comparison &gt; Logical</p>
+      </div>
+    </div>
+
+    <!-- Subtopic: Conditional Statements & Loops -->
+    <div class="subtopic">Conditional Statements & Loops (Flow Control)</div>
+
+    <div class="qa-block">
+      <button>What are conditional statements in Python? <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p>if, elif, else statements are used to control the flow based on conditions.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Remove duplicates from a list? <i class="fas fa-chevron-down"></i></button>
+      <button>Python loops? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>list(set(mylist)) or list(dict.fromkeys(mylist))</p>
-        <p class="tip"><strong>Tip:</strong> Explain pros and cons of both.</p>
-      </div>
-    </div>
-
-    <!-- Subtopic: OOP Concepts -->
-    <div class="subtopic">OOP Concepts</div>
-
-    <div class="qa-block">
-      <button>Explain classes and objects. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Class is a blueprint; object is an instance with attributes and methods.</p>
-        <p class="tip"><strong>Tip:</strong> Give simple example: class Dog and object my_dog.</p>
+        <p>for loop, while loop, used to iterate over sequences or conditions.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Instance, Class, Static methods? <i class="fas fa-chevron-down"></i></button>
+      <button>Break, Continue, Pass? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Instance: self; Class: cls + @classmethod; Static: utility function + @staticmethod.</p>
-        <p class="tip"><strong>Tip:</strong> Mention difference in usage and context.</p>
+        <p>break: exit loop, continue: skip current iteration, pass: do nothing.</p>
+      </div>
+    </div>
+
+    <!-- Subtopic: Data Structure Methods & Functions -->
+    <div class="subtopic">Data Structure Methods & Functions</div>
+
+    <div class="qa-block">
+      <button>List methods? <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p>append(), extend(), insert(), remove(), pop(), clear(), index(), count(), sort(), reverse(), copy()</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Dunder methods? <i class="fas fa-chevron-down"></i></button>
+      <button>Tuple methods? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Special methods like __init__, __str__, __len__, __add__.</p>
-        <p class="tip"><strong>Tip:</strong> Show example for operator overloading.</p>
+        <p>count(), index()</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Encapsulation? <i class="fas fa-chevron-down"></i></button>
+      <button>Set methods? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Restrict access to object attributes using _protected or __private.</p>
-        <p class="tip"><strong>Tip:</strong> Explain why it helps maintain code integrity.</p>
+        <p>add(), update(), remove(), discard(), pop(), clear(), union(), intersection(), difference(), symmetric_difference()</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Polymorphism example? <i class="fas fa-chevron-down"></i></button>
+      <button>Dictionary methods? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Same method, different behavior. Dog.sound() -> Bark, Cat.sound() -> Meow.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight method overriding and flexibility.</p>
+        <p>get(), keys(), values(), items(), update(), pop(), popitem(), clear(), setdefault()</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Multiple inheritance and MRO? <i class="fas fa-chevron-down"></i></button>
+      <button>String methods? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Method Resolution Order (C3 linearization) resolves conflicts when multiple inheritance occurs.</p>
-        <p class="tip"><strong>Tip:</strong> Explain MRO using class diagram if asked.</p>
+        <p>len(), lower(), upper(), strip(), split(), join(), replace(), find(), count(), startswith(), endswith()</p>
+        <p><strong>String Formatting:</strong> Old style: % operator, str.format(), f-strings (Python 3.6+)</p>
+      </div>
+    </div>
+
+    <!-- Remaining topics will continue similarly ... -->
+    <!-- Object-Oriented Programming -->
+    <div class="subtopic">Object-Oriented Programming (OOP)</div>
+    <div class="qa-block">
+      <button>What is a class and object in Python? <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p>Class: blueprint; Object: instance of class.</p>
+        <pre><code class="language-python">
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+my_dog = Dog("Tommy")
+print(my_dog.name) # Tommy
+        </code></pre>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Metaclass? <i class="fas fa-chevron-down"></i></button>
+      <button>What is self in Python? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Class of a class; defines how classes behave. Default metaclass is type.</p>
-        <p class="tip"><strong>Tip:</strong> Advanced concept, mention only if asked.</p>
-      </div>
-    </div>
-
-    <!-- Subtopic: File Handling & Exceptions -->
-    <div class="subtopic">File Handling & Exceptions</div>
-
-    <div class="qa-block">
-      <button>Open and read file? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>with open('file.txt','r') as f: data=f.read()</p>
-        <p class="tip"><strong>Tip:</strong> Always use 'with' to avoid forgetting to close file.</p>
+        <p>Self refers to the instance of the class and allows access to attributes and methods.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>read() vs readline() vs readlines()? <i class="fas fa-chevron-down"></i></button>
+      <button>Constructor (__init__)? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>read(): all content; readline(): one line; readlines(): list of lines.</p>
-        <p class="tip"><strong>Tip:</strong> Choose based on file size and usage.</p>
+        <p>Special method called when an object is created. Used to initialize attributes.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Exception handling? <i class="fas fa-chevron-down"></i></button>
+      <button>Inheritance types? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>try-except-else-finally blocks.</p>
-        <p class="tip"><strong>Tip:</strong> Show simple example for clarity.</p>
+        <p>Single, Multiple, Multi-level, Hierarchical. Allows reuse of code from parent class.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Pass, continue, break? <i class="fas fa-chevron-down"></i></button>
+      <button>Access modifiers? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>pass: do nothing; continue: skip iteration; break: exit loop.</p>
-        <p class="tip"><strong>Tip:</strong> Give example in loops for clarity.</p>
-      </div>
-    </div>
-
-    <!-- Subtopic: Iterators, Generators, Decorators, Context Managers -->
-    <div class="subtopic">Iterators, Generators, Decorators, Context Managers</div>
-
-    <div class="qa-block">
-      <button>Iterator vs Generator? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Iterator implements __iter__/__next__; Generator uses yield for lazy evaluation.</p>
-        <p class="tip"><strong>Tip:</strong> Explain memory efficiency of generators.</p>
+        <p>Public: accessible everywhere; Protected (_): accessible in class and subclasses; Private (__): accessible only inside class.</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Decorators? <i class="fas fa-chevron-down"></i></button>
+      <button>Polymorphism? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Functions that modify behavior of other functions/classes using @decorator.</p>
-        <p class="tip"><strong>Tip:</strong> Show simple logging decorator example.</p>
+        <p>Same method name, different behavior in different classes (method overriding).</p>
       </div>
     </div>
 
     <div class="qa-block">
-      <button>Context managers? <i class="fas fa-chevron-down"></i></button>
+      <button>Abstraction? <i class="fas fa-chevron-down"></i></button>
       <div class="content">
-        <p>Handle setup/cleanup, e.g., <code>with open() as f:</code> closes file automatically.</p>
-        <p class="tip"><strong>Tip:</strong> Mention __enter__ and __exit__ methods.</p>
+        <p>Hiding implementation using abstract base classes (ABC).</p>
       </div>
     </div>
 
-    <div class="qa-block">
-      <button>Monkey patching? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Dynamically modify module/class at runtime.</p>
-        <p class="tip"><strong>Tip:</strong> Mention risk and advanced usage.</p>
-      </div>
-    </div>
+   <!-- Subtopic: Regular Expressions -->
+<div class="subtopic">Regular Expressions</div>
 
-    <!-- Subtopic: Functional Programming -->
-    <div class="subtopic">Functional Programming</div>
+<div class="qa-block">
+  <button>What is a regular expression in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Regex allows pattern matching in strings. Python provides the <code>re</code> module for this.</p>
+    <pre><code class="language-python">
+import re
 
-    <div class="qa-block">
-      <button>Lambda, map, filter, reduce example? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <pre>from functools import reduce
-nums=[1,2,3,4]
-list(map(lambda x:x*2,nums))   # [2,4,6,8]
-list(filter(lambda x:x%2==0,nums)) # [2,4]
-reduce(lambda x,y:x+y,nums) #10</pre>
-        <p class="tip"><strong>Tip:</strong> Show difference in purpose of each function.</p>
-      </div>
-    </div>
+pattern = r'\d+'
+text = "I have 2 apples and 3 bananas"
+matches = re.findall(pattern, text)
+print(matches)  # ['2', '3']
+    </code></pre>
+  </div>
+</div>
 
-    <!-- Subtopic: Advanced Topics -->
-    <div class="subtopic">Advanced Topics</div>
+<div class="qa-block">
+  <button>Common regex functions? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>re.match(), re.search(), re.findall(), re.sub(), re.split()</p>
+  </div>
+</div>
 
-    <div class="qa-block">
-      <button>GIL? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Global Interpreter Lock (GIL): only one thread executes Python bytecode at a time.</p>
-        <p class="tip"><strong>Tip:</strong> Mention impact on multithreading performance.</p>
-      </div>
-    </div>
+<!-- Subtopic: File Handling & Exceptions -->
+<div class="subtopic">File Handling & Exceptions</div>
 
-    <div class="qa-block">
-      <button>Memory management? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Reference counting + garbage collection.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight importance of avoiding memory leaks.</p>
-      </div>
-    </div>
+<div class="qa-block">
+  <button>How to open and read a file? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+with open('file.txt', 'r') as f:
+    data = f.read()
+    print(data)
+    </code></pre>
+  </div>
+</div>
 
-    <div class="qa-block">
-      <button>Multithreading vs Multiprocessing? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Threading: I/O-bound tasks; Multiprocessing: CPU-bound tasks.</p>
-        <p class="tip"><strong>Tip:</strong> Give examples for practical use.</p>
-      </div>
-    </div>
+<div class="qa-block">
+  <button>Exception handling in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+finally:
+    print("Execution done")
+    </code></pre>
+  </div>
+</div>
 
-    <div class="qa-block">
-      <button>Optimize Python performance? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Use built-ins, list comprehensions, generators, NumPy, profiling.</p>
-        <p class="tip"><strong>Tip:</strong> Mention tradeoff between readability and speed.</p>
-      </div>
-    </div>
+<!-- Subtopic: Iterators, Generators, Decorators, Context Managers -->
+<div class="subtopic">Iterators, Generators, Decorators, Context Managers</div>
 
-    <div class="qa-block">
-      <button>Common libraries? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Data: NumPy, Pandas; Web: Django, Flask; ML: Scikit-learn, TensorFlow, PyTorch; Scripting: Requests, BeautifulSoup, Regex.</p>
-        <p class="tip"><strong>Tip:</strong> Mention libraries relevant to job role.</p>
-      </div>
-    </div>
+<div class="qa-block">
+  <button>What is an iterator? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>An object with <code>__iter__()</code> and <code>__next__()</code> methods. Example:</p>
+    <pre><code class="language-python">
+my_list = [1,2,3]
+it = iter(my_list)
+print(next(it)) # 1
+    </code></pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Generator example? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+def gen_numbers(n):
+    for i in range(n):
+        yield i
+
+for num in gen_numbers(5):
+    print(num)
+    </code></pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Decorator example? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+def decorator(func):
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+    return wrapper
+
+@decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+    </code></pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Context manager example? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+with open('file.txt', 'w') as f:
+    f.write("Hello World")
+# Automatically closes file
+    </code></pre>
+  </div>
+</div>
+
+<!-- Subtopic: Functional Programming -->
+<div class="subtopic">Functional Programming (Lambda, map, filter, reduce)</div>
+
+<div class="qa-block">
+  <button>Lambda function example? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+square = lambda x: x**2
+print(square(5)) # 25
+    </code></pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Map, Filter, Reduce example? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+from functools import reduce
+
+nums = [1,2,3,4,5]
+
+squared = list(map(lambda x: x**2, nums))
+evens = list(filter(lambda x: x%2==0, nums))
+sum_all = reduce(lambda a,b: a+b, nums)
+
+print(squared, evens, sum_all)
+    </code></pre>
+  </div>
+</div>
+
+<!-- Subtopic: Advanced Topics -->
+<div class="subtopic">Advanced Topics</div>
+
+<div class="qa-block">
+  <button>What is GIL in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Global Interpreter Lock (GIL) allows only one thread to execute Python bytecode at a time. Limits multi-threading in CPU-bound tasks.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Memory management in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Automatic garbage collection, reference counting, memory pool (PyMalloc), and dynamic allocation.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Multithreading vs Multiprocessing? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Multithreading: threads share memory, limited by GIL. Multiprocessing: separate memory, true parallelism.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Optimize Python performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use built-in functions, list comprehensions, generator expressions, avoid global variables, use C extensions or PyPy.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Common Python libraries? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Numpy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Requests, BeautifulSoup, Flask, Django</p>
+  </div>
+</div>
+
+<!-- Subtopic: Modules, Packages, Libraries, Import, pip -->
+<div class="subtopic">Modules, Packages, Libraries, Import, pip</div>
+
+<div class="qa-block">
+  <button>What is a module, package, library? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Module: Python file (.py) containing functions, classes.</p>
+    <p>Package: folder containing modules + <code>__init__.py</code>.</p>
+    <p>Library: collection of packages or modules.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>How to import modules? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre><code class="language-python">
+import math
+from math import sqrt, pi
+import mymodule as mm
+    </code></pre>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>pip usage? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Python package installer. Install libraries via <code>pip install library_name</code>.</p>
+  </div>
+</div>
 
   </main>
 
@@ -407,6 +518,9 @@ reduce(lambda x,y:x+y,nums) #10</pre>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
   <script>
     const qaBlocks = document.querySelectorAll('.qa-block button');
     qaBlocks.forEach(button => {
