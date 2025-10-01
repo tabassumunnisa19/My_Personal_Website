@@ -50,9 +50,18 @@
       {% endif %}
 
       <!-- Author & Date -->
-      <p class="post-meta">
-        By {{ page.author }} &nbsp; | &nbsp; 📅 {{ page.date | date: "%B %d, %Y" }}
-      </p>
+      <div class="post-meta">
+  <span>By {{ page.author }}</span>
+  
+  <!-- Calendar Badge -->
+  <div class="blog-date">
+    <div class="calendar">
+      <div class="calendar-day">{{ page.date | date: "%d" }}</div>
+      <div class="calendar-month">{{ page.date | date: "%b" }}</div>
+    </div>
+    <div class="calendar-year">{{ page.date | date: "%Y" }}</div>
+  </div>
+</div>
 
       <!-- Featured Image -->
       {% if page.image %}
