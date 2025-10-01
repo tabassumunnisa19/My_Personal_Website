@@ -1,1 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Python Interview Questions</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .qa-block {
+      border: 1px solid #e6eef8;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #fff;
+      overflow: hidden;
+    }
+    .qa-block button {
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      border: none;
+      background: #f5f8fa;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .qa-block button:hover {
+      background: #e0ebf8;
+    }
+    .qa-block .content {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid #e6eef8;
+      background: #fff;
+    }
+    .qa-block .tip {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .subtopic {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem 0;
+      color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+
+ <!-- 🔹 Header (with Hamburger) -->
+<header class="site-header">
+  <div class="site-container header-inner">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
+
+    <!-- Hamburger button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="navbar" role="navigation">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../learn.html" class="active">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <main class="site-container" style="padding:2rem; background:var(--background-color);">
+    <h1>Coding Challenge Q&A</h1>
+    <p style="color:#475569; margin-bottom:1.5rem;">Comprehensive questions and answers to help beginners understand Python features and data types.</p>
+<!-- Subtopic: Coding Challenges - Features of Python & Data Types -->
+<div class="subtopic">Coding Challenges: Features of Python & Data Types</div>
+
+<!-- Q1: Identify type of number -->
+<div class="qa-block">
+  <button>How to check whether a number is integer, float, or complex in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Python provides built-in types like <code>int</code>, <code>float</code>, and <code>complex</code>. We can use <code>type()</code> function to identify the type of any number.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+num1 = 10
+num2 = 3.14
+num3 = 2 + 3j
+
+print(type(num1))  # &lt;class 'int'&gt;
+print(type(num2))  # &lt;class 'float'&gt;
+print(type(num3))  # &lt;class 'complex'&gt;
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q2: Swap two numbers -->
+<div class="qa-block">
+  <button>How to swap two numbers without using a temporary variable in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Python supports tuple unpacking which allows swapping in a single line without an extra variable.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+a = 5
+b = 10
+
+a, b = b, a   # swap
+
+print(a)   # 10
+print(b)   # 5
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q3: Count letters, digits, special characters -->
+<div class="qa-block">
+  <button>How to count letters, digits, and special characters in a string? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>We can iterate over each character and use <code>isalpha()</code>, <code>isdigit()</code>, and <code>isalnum()</code> checks to classify.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+text = "Hello123!@#"
+letters = digits = specials = 0
+
+for ch in text:
+    if ch.isalpha():
+        letters += 1
+    elif ch.isdigit():
+        digits += 1
+    else:
+        specials += 1
+
+print("Letters:", letters)   # 5
+print("Digits:", digits)     # 3
+print("Specials:", specials) # 3
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q4: Largest and smallest number in a list -->
+<div class="qa-block">
+  <button>How to find the largest and smallest number in a list? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Python provides built-in functions <code>max()</code> and <code>min()</code> to find largest and smallest elements.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+numbers = [10, 3, 56, 23, 7]
+
+largest = max(numbers)
+smallest = min(numbers)
+
+print("Largest:", largest)   # 56
+print("Smallest:", smallest) # 3
+      </pre>
+    </p>
+  </div>
+</div>
+
+<!-- Q5: Reverse a string without slicing -->
+<div class="qa-block">
+  <button>How to reverse a string without using slicing? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>We can reverse a string using a loop or <code>reversed()</code> function combined with <code>join()</code>.</p>
+    <p class="tip"><strong>Example:</strong>
+      <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+text = "Python"
+reversed_text = "".join(reversed(text))
+print(reversed_text)   # nohtyP
+      </pre>
+    </p>
+  </div>
+</div>
+
 
