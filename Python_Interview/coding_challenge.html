@@ -826,6 +826,652 @@ e1.display()                               # Output → Employee: Alice, Salary:
     </pre>
   </div>
 </div>
+<!-- Subtopic: Regular Expressions – Coding Challenges -->
+<div class="subtopic">Regular Expressions – Coding Challenges</div>
+
+<!-- Q1: Extract all email addresses -->
+<div class="qa-block">
+  <button>How to extract all email addresses from a given text? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import re
+
+text = "Contact us at info@example.com or support@test.org"
+emails = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', text)
+print(emails)   # Output → ['info@example.com', 'support@test.org']
+    </pre>
+  </div>
+</div>
+
+<!-- Q2: Validate 10-digit phone number -->
+<div class="qa-block">
+  <button>How to validate a 10-digit phone number (optional +91)? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import re
+
+pattern = r'(\+91)?[6-9]\d{9}$'          # Regex: optional +91, starts with 6-9, 10 digits
+numbers = ["9876543210", "+919876543210", "1234567890"]
+
+for num in numbers:
+    if re.match(pattern, num):
+        print(f"{num} is valid")
+    else:
+        print(f"{num} is invalid")
+# Output → 9876543210 is valid
+#          +919876543210 is valid
+#          1234567890 is invalid
+    </pre>
+  </div>
+</div>
+
+<!-- Q3: Find words starting with capital letters -->
+<div class="qa-block">
+  <button>How to find all words starting with a capital letter in a string? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import re
+
+text = "Alice went to Wonderland and met the Cheshire Cat"
+capital_words = re.findall(r'\b[A-Z][a-z]*\b', text)  # Word boundary + Capital letter
+print(capital_words)   # Output → ['Alice', 'Wonderland', 'Cheshire', 'Cat']
+    </pre>
+  </div>
+</div>
+
+<!-- Q4: Replace multiple spaces with single space -->
+<div class="qa-block">
+  <button>How to replace all multiple spaces with a single space? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import re
+
+text = "This   is   a    text  with  multiple spaces"
+cleaned_text = re.sub(r'\s+', ' ', text)  # Replace 1 or more whitespace with single space
+print(cleaned_text)  # Output → This is a text with multiple spaces
+    </pre>
+  </div>
+</div>
+
+<!-- Q5: Extract hashtags from a tweet -->
+<div class="qa-block">
+  <button>How to extract all hashtags from a tweet? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import re
+
+tweet = "Loving the #sunshine and #vacation vibes! #fun"
+hashtags = re.findall(r'#\w+', tweet)  # Find all words starting with #
+print(hashtags)  # Output → ['#sunshine', '#vacation', '#fun']
+    </pre>
+  </div>
+</div>
+
+<!-- Q6: Tricky/realistic question -->
+<div class="qa-block">
+  <button>Validate an email but ensure domain is only .com or .org <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import re
+
+pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|org)$'
+emails = ["user@gmail.com", "admin@test.org", "info@domain.net"]
+
+for email in emails:
+    if re.match(pattern, email):
+        print(f"{email} is valid")
+    else:
+        print(f"{email} is invalid")
+# Output → user@gmail.com is valid
+#          admin@test.org is valid
+#          info@domain.net is invalid
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Regex can be restrictive by adding conditions for allowed domains or patterns.</p>
+  </div>
+</div>
+
+<!-- Q7: Realistic coding question -->
+<div class="qa-block">
+  <button>Extract dates in format DD-MM-YYYY or DD/MM/YYYY from a text <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import re
+
+text = "Important dates are 12-05-2025, 23/06/2024 and 31-12-2023"
+dates = re.findall(r'\b\d{2}[-/]\d{2}[-/]\d{4}\b', text)
+print(dates)   # Output → ['12-05-2025', '23/06/2024', '31-12-2023']
+    </pre>
+  </div>
+</div>
+<!-- Subtopic: File Handling & Exceptions – Coding Challenges -->
+<div class="subtopic">File Handling & Exceptions – Coding Challenges</div>
+
+<!-- Q1: Read a file and count words -->
+<div class="qa-block">
+  <button>How to read a file and count the number of words? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+# Open file in read mode
+with open("sample.txt", "r") as file:
+    text = file.read()                   # Read entire content
+    word_count = len(text.split())       # Split by spaces and count words
+print("Number of words:", word_count)
+    </pre>
+  </div>
+</div>
+
+<!-- Q2: Append text to a file -->
+<div class="qa-block">
+  <button>How to append new text to an existing file and read all lines? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+# Append text to file
+with open("sample.txt", "a") as file:
+    file.write("\nThis is a new line")  # Add new line
+
+# Read all lines
+with open("sample.txt", "r") as file:
+    lines = file.readlines()            # Read all lines as list
+print(lines)
+    </pre>
+  </div>
+</div>
+
+<!-- Q3: Handle division by zero -->
+<div class="qa-block">
+  <button>How to handle division by zero using exception handling? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+try:
+    a = 10
+    b = 0
+    result = a / b
+except ZeroDivisionError:                   # Catch division by zero
+    print("Error: Division by zero is not allowed")
+else:
+    print("Result:", result)
+    </pre>
+  </div>
+</div>
+
+<!-- Q4: Handle file not found error -->
+<div class="qa-block">
+  <button>How to open a file that does not exist and handle FileNotFoundError gracefully? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+try:
+    with open("nonexistent.txt", "r") as file:
+        data = file.read()
+except FileNotFoundError:                  # Handle missing file
+    print("File not found. Please check the filename.")
+    </pre>
+  </div>
+</div>
+
+<!-- Q5: Multiple exceptions -->
+<div class="qa-block">
+  <button>How to handle multiple exceptions in a single block? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+except ValueError:                         # Invalid input
+    print("Please enter a valid integer.")
+except ZeroDivisionError:                  # Division by zero
+    print("Cannot divide by zero.")
+else:
+    print("Result:", result)
+    </pre>
+  </div>
+</div>
+
+<!-- Q6: Finally block -->
+<div class="qa-block">
+  <button>How to use finally block in exception handling? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+try:
+    file = open("sample.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found")
+finally:
+    print("This block executes no matter what")
+    </pre>
+    <p class="tip"><strong>Tip:</strong> The <code>finally</code> block always executes, whether an exception occurs or not. It is useful for cleanup tasks like closing files or releasing resources.</p>
+  </div>
+</div>
+
+<!-- Q7: Realistic coding question -->
+<div class="qa-block">
+  <button>Count how many times each word appears in a file <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+from collections import Counter
+
+with open("sample.txt", "r") as file:
+    text = file.read().lower().split()     # Read and split words
+
+word_count = Counter(text)                 # Count occurrences
+print(word_count)                          # Output → {'this': 2, 'is': 3, ...}
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Use <code>Counter</code> for quick frequency analysis of words in a file.</p>
+  </div>
+</div>
+<!-- Subtopic: Iterators, Generators, Decorators, Context Managers – Coding Challenges -->
+<div class="subtopic">Iterators, Generators, Decorators, Context Managers – Coding Challenges</div>
+
+<!-- Q1: Custom Iterator -->
+<div class="qa-block">
+  <button>How to create a custom iterator to iterate over even numbers in a list? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+class EvenIterator:
+    def __init__(self, numbers):
+        self.numbers = numbers
+        self.index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        while self.index &lt; len(self.numbers):
+            num = self.numbers[self.index]
+            self.index += 1
+            if num % 2 == 0:
+                return num
+        raise StopIteration
+
+nums = [1, 2, 3, 4, 5, 6]
+for n in EvenIterator(nums):
+    print(n, end=" ")   # Output → 2 4 6
+    </pre>
+  </div>
+</div>
+
+<!-- Q2: Generator for Fibonacci -->
+<div class="qa-block">
+  <button>How to create a generator to yield Fibonacci numbers up to n? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+def fibonacci_gen(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci_gen(7):
+    print(num, end=" ")   # Output → 0 1 1 2 3 5 8
+    </pre>
+  </div>
+</div>
+
+<!-- Q3: Decorator to log execution time -->
+<div class="qa-block">
+  <button>How to write a decorator that logs the function execution time? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"Execution time: {end - start:.4f} seconds")
+        return result
+    return wrapper
+
+@timer
+def compute_sum(n):
+    return sum(range(n+1))
+
+compute_sum(1000000)
+    </pre>
+  </div>
+</div>
+
+<!-- Q4: Context manager for file writing -->
+<div class="qa-block">
+  <button>How to use a context manager to write to a file safely? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+with open("output.txt", "w") as file:   # Context manager handles closing
+    file.write("Hello World!\n")
+    file.write("Writing safely using with statement.")
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Context managers ensure proper resource cleanup even if exceptions occur.</p>
+  </div>
+</div>
+
+<!-- Q5: Realistic iterator + generator -->
+<div class="qa-block">
+  <button>Filter odd numbers from a list using generator expression <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+odd_gen = (n for n in numbers if n % 2 != 0)   # Generator expression
+
+for n in odd_gen:
+    print(n, end=" ")   # Output → 1 3 5 7
+    </pre>
+  </div>
+</div>
+
+<!-- Q6: Decorator for authentication (tricky question) -->
+<div class="qa-block">
+  <button>Implement a decorator to check if a user is admin before executing a function <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+def admin_required(func):
+    def wrapper(user, *args, **kwargs):
+        if user != "admin":
+            print("Access denied! Admins only.")
+            return
+        return func(user, *args, **kwargs)
+    return wrapper
+
+@admin_required
+def delete_file(user, filename):
+    print(f"{filename} deleted successfully.")
+
+delete_file("guest", "data.txt")   # Access denied! Admins only.
+delete_file("admin", "data.txt")   # data.txt deleted successfully.
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Decorators can add additional logic like authentication, logging, or timing without modifying the original function.</p>
+  </div>
+</div>
+<!-- Subtopic: Functional Programming – Coding Challenges -->
+<div class="subtopic">Functional Programming – Coding Challenges</div>
+
+<!-- Q1: Use map() to square each element -->
+<div class="qa-block">
+  <button>How to use <code>map()</code> to square each element of a list? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))   # Map applies function to each element
+print(squared)                                 # Output → [1, 4, 9, 16, 25]
+    </pre>
+  </div>
+</div>
+
+<!-- Q2: Use filter() to get even numbers -->
+<div class="qa-block">
+  <button>How to use <code>filter()</code> to get all even numbers from a list? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+numbers = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, numbers))   # Filter keeps only elements where condition is True
+print(evens)                                         # Output → [2, 4, 6]
+    </pre>
+  </div>
+</div>
+
+<!-- Q3: Use reduce() to compute product -->
+<div class="qa-block">
+  <button>How to use <code>reduce()</code> to compute the product of all numbers in a list? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+product = reduce(lambda x, y: x * y, numbers)   # Reduce applies function cumulatively
+print(product)                                 # Output → 120
+    </pre>
+  </div>
+</div>
+
+<!-- Q4: Use lambda to sort a list of tuples -->
+<div class="qa-block">
+  <button>How to use <code>lambda</code> to sort a list of tuples by the second element? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+data = [("Alice", 25), ("Bob", 20), ("Charlie", 30)]
+sorted_data = sorted(data, key=lambda x: x[1])   # Sort by second element in tuple
+print(sorted_data)                               # Output → [('Bob', 20), ('Alice', 25), ('Charlie', 30)]
+    </pre>
+  </div>
+</div>
+
+<!-- Q5: Realistic functional programming example -->
+<div class="qa-block">
+  <button>Filter and square numbers greater than 5 using functional programming <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+numbers = [2, 4, 6, 8, 10]
+result = list(map(lambda x: x**2, filter(lambda x: x &gt; 5, numbers)))   # Filter first, then square
+print(result)                                                           # Output → [36, 64, 100]
+    </pre>
+  </div>
+</div>
+
+<!-- Q6: Tricky question – combine map, filter, reduce -->
+<div class="qa-block">
+  <button>Compute sum of squares of odd numbers from a list using map, filter, and reduce <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5, 6, 7]
+sum_squares = reduce(lambda x, y: x + y, map(lambda x: x**2, filter(lambda x: x % 2 != 0, numbers)))
+print(sum_squares)   # Output → 84 (1² + 3² + 5² + 7²)
+    </pre>
+    <p class="tip"><strong>Tip:</strong> This is a realistic interview-level question combining multiple functional programming concepts.</p>
+  </div>
+</div>
+<!-- Subtopic: Advanced Topics – Coding Challenges -->
+<div class="subtopic">Advanced Topics – Coding Challenges</div>
+
+<!-- Q1: Multithreading example -->
+<div class="qa-block">
+  <button>How to demonstrate multithreading in Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import threading
+import time
+
+def print_numbers(start, end):
+    for i in range(start, end + 1):
+        print(i, end=" ", flush=True)
+        time.sleep(0.1)
+
+# Thread A → 1 to 5
+t1 = threading.Thread(target=print_numbers, args=(1, 5))
+# Thread B → 6 to 10
+t2 = threading.Thread(target=print_numbers, args=(6, 10))
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+print("\nDone")
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Threads run concurrently, so output may interleave numbers from both threads.</p>
+  </div>
+</div>
+
+<!-- Q2: NumPy for large sums -->
+<div class="qa-block">
+  <button>How to efficiently compute sum of large numbers using NumPy? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import numpy as np
+
+numbers = np.arange(1, 10000001)   # Array from 1 to 10 million
+total = np.sum(numbers)
+print(total)                       # Output → 50000005000000
+    </pre>
+    <p class="tip"><strong>Tip:</strong> NumPy operations are much faster than Python loops for large data.</p>
+  </div>
+</div>
+
+<!-- Q3: Memory usage comparison -->
+<div class="qa-block">
+  <button>Compare memory usage of list vs generator for large numbers <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import sys
+
+numbers_list = list(range(1, 1000000))
+numbers_gen = (x for x in range(1, 1000000))
+
+print(sys.getsizeof(numbers_list))   # Memory for list
+print(sys.getsizeof(numbers_gen))    # Memory for generator (much smaller)
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Generators are memory-efficient for large sequences as they yield one item at a time.</p>
+  </div>
+</div>
+
+<!-- Q4: Performance timing with timeit -->
+<div class="qa-block">
+  <button>How to measure performance difference between list comprehension and for-loop? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import timeit
+
+# List comprehension
+lc_time = timeit.timeit('[x**2 for x in range(10000)]', number=1000)
+
+# For-loop
+loop_time = timeit.timeit('''
+result = []
+for x in range(10000):
+    result.append(x**2)
+''', number=1000)
+
+print(f"List comprehension: {lc_time:.4f}s")
+print(f"For-loop: {loop_time:.4f}s")
+    </pre>
+    <p class="tip"><strong>Tip:</strong> List comprehensions are generally faster than equivalent for-loops.</p>
+  </div>
+</div>
+
+<!-- Q5: Tricky advanced question – Thread-safe counter -->
+<div class="qa-block">
+  <button>How to implement a thread-safe counter using threading.Lock? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import threading
+
+counter = 0
+lock = threading.Lock()
+
+def increment(n):
+    global counter
+    for _ in range(n):
+        with lock:          # Ensure only one thread updates at a time
+            counter += 1
+
+t1 = threading.Thread(target=increment, args=(100000,))
+t2 = threading.Thread(target=increment, args=(100000,))
+
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+print("Counter:", counter)   # Output → 200000
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Without the lock, threads may overwrite each other's increments (race condition).</p>
+  </div>
+</div>
+<!-- Subtopic: Modules, Packages & Libraries – Coding Challenges -->
+<div class="subtopic">Modules, Packages & Libraries – Coding Challenges</div>
+
+<!-- Q1: Using math module -->
+<div class="qa-block">
+  <button>How to use the math module to calculate factorial, gcd, and power? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import math
+
+# Factorial
+print(math.factorial(5))   # 120
+
+# Greatest common divisor
+print(math.gcd(36, 60))    # 12
+
+# Power
+print(math.pow(2, 3))      # 8.0
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Use <code>math.</code> functions for efficient calculations instead of writing custom logic.</p>
+  </div>
+</div>
+
+<!-- Q2: Install and use requests package -->
+<div class="qa-block">
+  <button>How to fetch data from a website using requests? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+# First, install using: pip install requests
+import requests
+
+response = requests.get("https://jsonplaceholder.typicode.com/posts/1")
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print("Failed to fetch data")
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Always check <code>status_code</code> to handle failed requests.</p>
+  </div>
+</div>
+
+<!-- Q3: Create and import custom module -->
+<div class="qa-block">
+  <button>How to create a custom module and import it in another file? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+# File: my_module.py
+def greet(name):
+    return f"Hello, {name}!"
+
+# File: main.py
+import my_module
+
+print(my_module.greet("Alice"))   # Hello, Alice!
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Keep module files in the same directory or use PYTHONPATH to import from other locations.</p>
+  </div>
+</div>
+
+<!-- Q4: import module vs from module import function -->
+<div class="qa-block">
+  <button>What is the difference between <code>import module</code> vs <code>from module import function</code>? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+# import module → access using module.function()
+import math
+print(math.sqrt(16))    # 4.0
+
+# from module import function → access directly
+from math import sqrt
+print(sqrt(16))         # 4.0
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Use <code>from module import *</code> sparingly to avoid namespace pollution.</p>
+  </div>
+</div>
+
+<!-- Q5: Tricky question – reload a module -->
+<div class="qa-block">
+  <button>How to reload a module after making changes without restarting Python? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <pre style="background-color:#1e1e1e; color:#d4d4d4; padding:10px;">
+import importlib
+import my_module
+
+print(my_module.greet("Alice"))    # Original output
+
+# After modifying my_module.py
+importlib.reload(my_module)
+print(my_module.greet("Alice"))    # Updated output
+    </pre>
+    <p class="tip"><strong>Tip:</strong> Useful in long-running scripts or interactive sessions like Jupyter Notebook.</p>
+  </div>
+</div>
 
 </main>
 
