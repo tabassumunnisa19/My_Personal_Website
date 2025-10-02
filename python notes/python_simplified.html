@@ -1,1 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Python Tutorial — Nisa</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Q&A block styles */
+    .qa-block {
+      border: 1px solid #e6eef8;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #fff;
+      overflow: hidden;
+    }
+    .qa-block button {
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      border: none;
+      background: #f5f8fa;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .qa-block button:hover {
+      background: #e0ebf8;
+    }
+    .qa-block .content {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid #e6eef8;
+      background: #fff;
+    }
+    .qa-block .tip {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .code-block {
+      background: #000;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-family: monospace;
+    }
+    .exercise {
+      background: #f0f4f8;
+      padding: 1rem;
+      border-left: 4px solid #007bff;
+      margin-bottom: 1rem;
+    }
+    .exercise h4 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-container header-inner">
+      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
+      <!-- Hamburger button (mobile) -->
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Navigation -->
+      <nav id="main-nav" class="navbar" role="navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../learn.html" class="active">Learn</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../books.html">Books</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-container" style="padding:2rem; background:var(--background-color);">
+
+    <!-- Topic 1: Introduction to Python -->
+    <div class="qa-block">
+      <button>Topic 1: Introduction to Python <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p><strong>Python</strong> is a high-level, interpreted, general-purpose programming language. It is widely used for web development, data science, artificial intelligence, automation, and more.</p>
+        <p><strong>Key Features of Python:</strong></p>
+        <ul>
+          <li>Easy to read and write with simple syntax.</li>
+          <li>Interpreted language (no compilation needed).</li>
+          <li>Object-oriented and supports functional programming.</li>
+          <li>Extensive standard library and third-party modules.</li>
+          <li>Cross-platform compatibility.</li>
+          <li>Dynamic typing and memory management.</li>
+        </ul>
+
+        <h4>Example: Hello World in Python</h4>
+        <div class="code-block">
+<pre>
+# Print "Hello, World!" to the console
+print("Hello, World!")  # Output: Hello, World!
+</pre>
+        </div>
+
+        <h4>Python Installation & Running Programs</h4>
+        <p>You can install Python from <a href="https://www.python.org/downloads/">python.org</a>. Run programs using:</p>
+        <ul>
+          <li><code>python filename.py</code> — Run script in terminal/command prompt</li>
+          <li><code>python -i filename.py</code> — Run interactively</li>
+          <li>IDEs: VSCode, PyCharm, Jupyter Notebook</li>
+        </ul>
+
+        <h4>Python Modules and pip</h4>
+        <p>Modules allow code reuse. Use <code>import module_name</code> to include modules.</p>
+        <p><strong>pip</strong> is Python’s package manager to install external libraries:</p>
+        <div class="code-block">
+<pre>
+# Install a library
+pip install numpy
+
+# Import and use it
+import numpy as np
+arr = np.array([1, 2, 3])
+print(arr)  # Output: [1 2 3]
+</pre>
+        </div>
+
+        <h4>Exercises</h4>
+        <div class="exercise">
+          <h4>Exercise 1: Print your name</h4>
+          <div class="code-block">
+<pre>
+# Print your name
+print("Nisa")  # Output: Nisa
+</pre>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <h4>Exercise 2: Add two numbers</h4>
+          <div class="code-block">
+<pre>
+# Add two numbers
+a = 5  # first number
+b = 7  # second number
+sum = a + b  # calculate sum
+print("Sum:", sum)  # Output: Sum: 12
+</pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Go Back Button -->
+    <div style="text-align:center; margin:2rem 0;">
+      <button onclick="history.back()" 
+              style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
+                     background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
+        ← Go Back
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+      <div class="socials" aria-label="social links">
+        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Q&A toggle
+    const qaBlocks = document.querySelectorAll('.qa-block button');
+    qaBlocks.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        button.querySelector('i').classList.toggle('fa-chevron-up');
+        button.querySelector('i').classList.toggle('fa-chevron-down');
+      });
+    });
+
+    // Hamburger toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#main-nav');
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
 
