@@ -716,6 +716,1625 @@ print(matrix[1][2])  # 6
 
   </div>
 </div>
+<!-- Topic 6: Tuples & Sets -->
+<div class="qa-block">
+  <button>Topic 6: Tuples & Sets <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Tuples</strong> and <strong>Sets</strong> are two important collection types in Python. Tuples are ordered and immutable, while sets are unordered collections of unique elements.</p>
+
+    <h4>1. Tuples</h4>
+    <p>Tuples are similar to lists but <strong>immutable</strong> — once created, their elements cannot be changed. Use parentheses <code>()</code> to define a tuple.</p>
+    <div class="code-block"><pre>
+# Creating tuples
+empty_tuple = ()
+numbers = (1, 2, 3, 4)
+mixed = (1, "apple", 3.5, True)
+
+# Accessing elements
+print(numbers[0])      # 1
+print(mixed[-1])       # True
+
+# Nested tuple
+nested = ((1,2), (3,4))
+print(nested[1][0])    # 3
+
+# Tuple unpacking
+a, b, c, d = mixed
+print(a, b, c, d)      # 1 apple 3.5 True</pre></div>
+
+    <h4>Tuple Methods</h4>
+    <p>Tuples have limited methods because they are immutable:</p>
+    <div class="code-block"><pre>
+numbers = (1, 2, 3, 2, 2)
+
+print(numbers.count(2))  # 3 — counts occurrences
+print(numbers.index(3))  # 2 — index of first occurrence</pre></div>
+
+    <h4>2. Sets</h4>
+    <p>Sets are unordered collections of unique items. Use <code>{}</code> or <code>set()</code> to define a set.</p>
+    <div class="code-block"><pre>
+# Creating sets
+A = {1, 2, 3, 3}        # duplicates removed -> {1,2,3}
+B = set([2, 4, 5])
+print(A)                # {1, 2, 3}
+print(B)                # {2, 4, 5}
+
+# Adding and removing elements
+A.add(4)
+A.remove(1)
+print(A)                # {2, 3, 4}
+
+# Membership test
+print(3 in A)           # True
+print(10 in B)          # False</pre></div>
+
+    <h4>Set Operations</h4>
+    <div class="code-block"><pre>
+X = {1, 2, 3}
+Y = {3, 4, 5}
+
+print(X | Y)   # Union -> {1,2,3,4,5}
+print(X & Y)   # Intersection -> {3}
+print(X - Y)   # Difference -> {1,2}
+print(X ^ Y)   # Symmetric difference -> {1,2,4,5}</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Tuple basics</h4>
+      <div class="code-block"><pre>
+# Create a tuple with 5 elements of your choice
+# Access the first and last elements
+# Unpack elements into variables</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+my_tuple = (10, "apple", 3.5, True, "banana")
+print(my_tuple[0])    # 10
+print(my_tuple[-1])   # banana
+
+a, b, c, d, e = my_tuple
+print(a, b, c, d, e)  # 10 apple 3.5 True banana</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Set operations</h4>
+      <div class="code-block"><pre>
+# Create two sets: {1,2,3,4} and {3,4,5,6}
+# Perform union, intersection, difference, symmetric difference</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+A = {1,2,3,4}
+B = {3,4,5,6}
+
+print(A | B)   # {1,2,3,4,5,6} — union
+print(A & B)   # {3,4} — intersection
+print(A - B)   # {1,2} — difference
+print(A ^ B)   # {1,2,5,6} — symmetric difference</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Set membership & add/remove</h4>
+      <div class="code-block"><pre>
+# Create a set of numbers {10, 20, 30}
+# Add 40, remove 20, check if 10 exists</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+numbers = {10,20,30}
+numbers.add(40)
+numbers.remove(20)
+print(10 in numbers)   # True
+print(numbers)         # {10,30,40}</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Tuples are immutable — good for fixed collections or dictionary keys.</li>
+        <li>Sets automatically remove duplicates and allow fast membership tests.</li>
+        <li>Use set operations (union, intersection, difference) for mathematical tasks.</li>
+        <li>Remember: sets are unordered, so indexing is not allowed.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 7: Dictionaries -->
+<div class="qa-block">
+  <button>Topic 7: Dictionaries <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Dictionaries</strong> are Python’s built-in mapping type. They store data as <strong>key-value pairs</strong>, allowing fast lookups, insertion, and deletion by key. Dictionaries are unordered (Python ≥3.7 maintains insertion order), mutable, and keys must be immutable.</p>
+
+    <h4>1. Creating Dictionaries</h4>
+    <div class="code-block"><pre>
+# Empty dictionary
+my_dict = {}
+
+# Dictionary with initial values
+person = {"name": "Nisa", "age": 25, "city": "Kochi"}
+
+print(person)
+print(type(person))   # &lt;class 'dict'&gt;</pre></div>
+
+    <h4>2. Accessing Values</h4>
+    <div class="code-block"><pre>
+# Access by key
+print(person["name"])     # Nisa
+print(person.get("age"))  # 25
+
+# Safe access with default
+print(person.get("email", "Not available"))  # Not available</pre></div>
+
+    <h4>3. Adding & Updating Items</h4>
+    <div class="code-block"><pre>
+# Adding new key-value
+person["email"] = "nisa@example.com"
+
+# Updating existing key
+person["age"] = 26
+
+print(person)
+# Output: {'name': 'Nisa', 'age': 26, 'city': 'Kochi', 'email': 'nisa@example.com'}</pre></div>
+
+    <h4>4. Removing Items</h4>
+    <div class="code-block"><pre>
+# Using del
+del person["city"]
+
+# Using pop (returns value)
+email = person.pop("email")
+
+# Clear all items
+# person.clear()
+
+print(person)  # {'name': 'Nisa', 'age': 26}</pre></div>
+
+    <h4>5. Dictionary Methods</h4>
+    <div class="code-block"><pre>
+person = {"name": "Nisa", "age": 25, "city": "Kochi"}
+
+print(person.keys())    # dict_keys(['name', 'age', 'city'])
+print(person.values())  # dict_values(['Nisa', 25, 'Kochi'])
+print(person.items())   # dict_items([('name', 'Nisa'), ('age', 25), ('city', 'Kochi')])
+
+# Iterating
+for key, value in person.items():
+    print(key, "->", value)</pre></div>
+
+    <h4>6. Nested Dictionaries</h4>
+    <div class="code-block"><pre>
+students = {
+    "student1": {"name": "Alice", "age": 20},
+    "student2": {"name": "Bob", "age": 22}
+}
+
+print(students["student1"]["name"])  # Alice</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Create & Access</h4>
+      <div class="code-block"><pre>
+# Create a dictionary for a book with keys: title, author, year
+# Access and print each value</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+book = {"title": "The Alchemist", "author": "Paulo Coelho", "year": 1988}
+print(book["title"])
+print(book["author"])
+print(book.get("year"))</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Add & Update</h4>
+      <div class="code-block"><pre>
+# Add a new key 'price' with value 500
+# Update 'year' to 1993
+# Print final dictionary</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+book["price"] = 500
+book["year"] = 1993
+print(book)
+# Output: {'title': 'The Alchemist', 'author': 'Paulo Coelho', 'year': 1993, 'price': 500}</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Iterating & Nested Dict</h4>
+      <div class="code-block"><pre>
+# Create nested dictionary of 2 students with name and age
+# Print each student's name and age</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+students = {
+    "student1": {"name": "Alice", "age": 20},
+    "student2": {"name": "Bob", "age": 22}
+}
+
+for s in students:
+    print(students[s]["name"], "is", students[s]["age"], "years old")
+
+# Output:
+# Alice is 20 years old
+# Bob is 22 years old</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Dictionaries are mutable and can contain any data type as value (including lists or dicts).</li>
+        <li>Keys must be immutable (string, number, tuple, etc.)</li>
+        <li>Use <code>.get()</code> for safe access without KeyError.</li>
+        <li>Nested dictionaries are useful for structured data (like JSON).</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 8: Conditional Statements -->
+<div class="qa-block">
+  <button>Topic 8: Conditional Statements <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Conditional statements</strong> in Python allow your program to make decisions based on conditions. You can execute certain blocks of code only if a condition is True. The main statements are <code>if</code>, <code>elif</code>, and <code>else</code>.</p>
+
+    <h4>1. The <code>if</code> Statement</h4>
+    <p>Use <code>if</code> to execute a block when a condition is True.</p>
+    <div class="code-block"><pre>
+x = 10
+if x &gt; 5:
+    print("x is greater than 5")
+# Output: x is greater than 5</pre></div>
+
+    <h4>2. The <code>if-else</code> Statement</h4>
+    <p>Use <code>else</code> to execute a block when the condition is False.</p>
+    <div class="code-block"><pre>
+x = 3
+if x &gt; 5:
+    print("x is greater than 5")
+else:
+    print("x is 5 or less")
+# Output: x is 5 or less</pre></div>
+
+    <h4>3. The <code>if-elif-else</code> Statement</h4>
+    <p>Use <code>elif</code> to check multiple conditions sequentially.</p>
+    <div class="code-block"><pre>
+marks = 85
+
+if marks &gt;= 90:
+    grade = "A"
+elif marks &gt;= 75:
+    grade = "B"
+elif marks &gt;= 60:
+    grade = "C"
+else:
+    grade = "D"
+
+print("Grade:", grade)
+# Output: Grade: B</pre></div>
+
+    <h4>4. Nested Conditions</h4>
+    <p>You can put an <code>if</code> inside another <code>if</code> to check additional conditions.</p>
+    <div class="code-block"><pre>
+x = 15
+if x &gt; 0:
+    if x % 2 == 0:
+        print("Positive even number")
+    else:
+        print("Positive odd number")
+# Output: Positive odd number</pre></div>
+
+    <h4>5. Conditional Expressions (Ternary Operator)</h4>
+    <div class="code-block"><pre>
+age = 18
+status = "Adult" if age &gt;= 18 else "Minor"
+print(status)
+# Output: Adult</pre></div>
+
+    <h4>6. Boolean Contexts in Conditions</h4>
+    <p>Python treats certain values as False in conditions: <code>0, 0.0, "", [], {}, set(), None</code>. Everything else is True.</p>
+    <div class="code-block"><pre>
+items = []
+if not items:
+    print("List is empty")
+# Output: List is empty</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Check Positive/Negative/Zero</h4>
+      <div class="code-block"><pre>
+# Ask user for a number and print whether it's positive, negative, or zero</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+n = int(input("Enter a number: "))
+if n &gt; 0:
+    print("Positive")
+elif n &lt; 0:
+    print("Negative")
+else:
+    print("Zero")</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Grading System</h4>
+      <div class="code-block"><pre>
+# Ask user for marks and print grade
+# A: 90+, B: 75-89, C: 60-74, D: below 60</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+marks = int(input("Enter marks: "))
+if marks &gt;= 90:
+    grade = "A"
+elif marks &gt;= 75:
+    grade = "B"
+elif marks &gt;= 60:
+    grade = "C"
+else:
+    grade = "D"
+
+print("Grade:", grade)</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Nested Condition</h4>
+      <div class="code-block"><pre>
+# Ask user for a number and print:
+# "Positive even", "Positive odd", "Negative", "Zero"</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+n = int(input("Enter a number: "))
+if n &gt; 0:
+    if n % 2 == 0:
+        print("Positive even")
+    else:
+        print("Positive odd")
+elif n &lt; 0:
+    print("Negative")
+else:
+    print("Zero")</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Use <code>elif</code> instead of multiple <code>if</code> to avoid unnecessary checks.</li>
+        <li>Remember that indentation is critical — Python uses it to define code blocks.</li>
+        <li>Boolean expressions like <code>n &gt; 0</code> or <code>not items</code> control the flow.</li>
+        <li>Ternary expressions are useful for short conditional assignments.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 9: Loops -->
+<div class="qa-block">
+  <button>Topic 9: Loops <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Loops</strong> in Python allow you to repeatedly execute a block of code until a condition is met. Loops help avoid repetitive code and make programs more efficient.</p>
+
+    <h4>1. The <code>for</code> Loop</h4>
+    <p>The <code>for</code> loop iterates over a sequence (like a list, tuple, string, or range).</p>
+    <div class="code-block"><pre>
+# Loop through a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+# Output:
+# apple
+# banana
+# cherry
+
+# Loop using range
+for i in range(5):
+    print(i)
+# Output: 0 1 2 3 4</pre></div>
+
+    <h4>2. The <code>while</code> Loop</h4>
+    <p>The <code>while</code> loop executes as long as a condition is True.</p>
+    <div class="code-block"><pre>
+count = 0
+while count &lt; 5:
+    print(count)
+    count += 1
+# Output: 0 1 2 3 4</pre></div>
+
+    <h4>3. <code>break</code> and <code>continue</code></h4>
+    <p><code>break</code> stops the loop completely. <code>continue</code> skips the current iteration and moves to the next.</p>
+    <div class="code-block"><pre>
+# break example
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+# Output: 0 1 2 3 4
+
+# continue example
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+# Output: 0 1 3 4</pre></div>
+
+    <h4>4. Nested Loops</h4>
+    <p>Loops inside loops are called nested loops. Useful for matrices, tables, and patterns.</p>
+    <div class="code-block"><pre>
+# Print a 3x3 grid
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"({i},{j})", end=" ")
+    print()
+# Output:
+# (1,1) (1,2) (1,3)
+# (2,1) (2,2) (2,3)
+# (3,1) (3,2) (3,3)</pre></div>
+
+    <h4>5. <code>else</code> with loops</h4>
+    <p>Python allows <code>else</code> after loops, which executes when the loop ends naturally (not via <code>break</code>).</p>
+    <div class="code-block"><pre>
+for i in range(3):
+    print(i)
+else:
+    print("Loop finished without break")
+# Output:
+# 0
+# 1
+# 2
+# Loop finished without break</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Sum of first n numbers</h4>
+      <div class="code-block"><pre>
+# Task: Ask user for a number n and print the sum of 1 to n</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+n = int(input("Enter a number: "))
+sum = 0
+for i in range(1, n+1):
+    sum += i
+print("Sum =", sum)</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Print even numbers using while</h4>
+      <div class="code-block"><pre>
+# Task: Print all even numbers from 1 to 20 using while loop</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+i = 1
+while i &lt;= 20:
+    if i % 2 == 0:
+        print(i, end=" ")
+    i += 1
+# Output: 2 4 6 8 10 12 14 16 18 20</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Multiplication Table (Nested Loop)</h4>
+      <div class="code-block"><pre>
+# Task: Print 1 to 5 multiplication table</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+for i in range(1, 6):
+    for j in range(1, 6):
+        print(f"{i*j}", end="\t")
+    print()
+# Output:
+# 1   2   3   4   5
+# 2   4   6   8   10
+# 3   6   9   12  15
+# 4   8   12  16  20
+# 5   10  15  20  25</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Use <code>range(start, end, step)</code> to customize loops.</li>
+        <li>Remember: <code>break</code> stops the loop completely; <code>continue</code> skips current iteration.</li>
+        <li>Nested loops can generate patterns, tables, and matrices.</li>
+        <li>Using <code>else</code> with loops can help check if a loop completed without interruption.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 10: Functions -->
+<div class="qa-block">
+  <button>Topic 10: Functions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Functions</strong> are reusable blocks of code that perform a specific task. They help in organizing code, reducing repetition, and improving readability.</p>
+
+    <h4>1. Defining and Calling Functions</h4>
+    <p>Use the <code>def</code> keyword to define a function and call it by its name.</p>
+    <div class="code-block"><pre>
+# Define a function
+def greet():
+    print("Hello, welcome to Python!")
+
+# Call the function
+greet()
+# Output: Hello, welcome to Python!</pre></div>
+
+    <h4>2. Function Arguments</h4>
+    <p>Functions can take inputs called <strong>arguments</strong>.</p>
+
+    <h5>a) Positional Arguments</h5>
+    <div class="code-block"><pre>
+def add(a, b):
+    return a + b
+
+print(add(5, 3))  # Output: 8</pre></div>
+
+    <h5>b) Keyword Arguments</h5>
+    <div class="code-block"><pre>
+def greet(name, msg):
+    print(f"Hello {name}, {msg}")
+
+greet(msg="Good Morning!", name="Nisa")
+# Output: Hello Nisa, Good Morning!</pre></div>
+
+    <h5>c) Default Arguments</h5>
+    <div class="code-block"><pre>
+def greet(name="Guest"):
+    print(f"Hello {name}!")
+
+greet()        # Hello Guest!
+greet("Nisa")  # Hello Nisa!</pre></div>
+
+    <h5>d) Arbitrary Arguments (<code>*args</code> & <code>**kwargs</code>)</h5>
+    <div class="code-block"><pre>
+def add_numbers(*nums):
+    return sum(nums)
+
+print(add_numbers(1,2,3,4))  # Output: 10
+
+def print_info(**info):
+    for key, value in info.items():
+        print(key, ":", value)
+
+print_info(name="Nisa", age=25)
+# Output:
+# name : Nisa
+# age : 25</pre></div>
+
+    <h4>3. Return Statement</h4>
+    <p>Use <code>return</code> to send a value back to the caller.</p>
+    <div class="code-block"><pre>
+def square(x):
+    return x**2
+
+result = square(5)
+print(result)  # Output: 25</pre></div>
+
+    <h4>4. Variable Scope</h4>
+    <p>Variables defined inside a function are <strong>local</strong>, outside are <strong>global</strong>.</p>
+    <div class="code-block"><pre>
+x = 10  # global
+
+def demo():
+    x = 5  # local
+    print("Inside function:", x)
+
+demo()               # Inside function: 5
+print("Outside function:", x)  # Outside function: 10</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Calculator Function</h4>
+      <div class="code-block"><pre>
+# Task: Write a function to add, subtract, multiply, divide two numbers</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+def calculator(a, b):
+    print("Addition:", a + b)
+    print("Subtraction:", a - b)
+    print("Multiplication:", a * b)
+    print("Division:", a / b)
+
+calculator(10, 5)
+# Output:
+# Addition: 15
+# Subtraction: 5
+# Multiplication: 50
+# Division: 2.0</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Factorial Function</h4>
+      <div class="code-block"><pre>
+# Task: Create a function to calculate factorial of a number</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+def factorial(n):
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+
+print(factorial(5))  # Output: 120</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Check Prime</h4>
+      <div class="code-block"><pre>
+# Task: Write a function to check if a number is prime</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+def is_prime(n):
+    if n &lt; 2:
+        return False
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0:
+            return False
+    return True
+
+# Test the function
+for num in [1,2,3,4,5,16,17]:
+    print(num, "is prime?", is_prime(num))
+
+# Output:
+# 1 is prime? False
+# 2 is prime? True
+# 3 is prime? True
+# 4 is prime? False
+# 5 is prime? True
+# 16 is prime? False
+# 17 is prime? True</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Use functions to organize code and avoid repetition.</li>
+        <li>Default arguments help make functions flexible.</li>
+        <li>Use <code>*args</code> for multiple positional arguments and <code>**kwargs</code> for multiple keyword arguments.</li>
+        <li>Always use <code>return</code> if you want to use the result outside the function.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 11: Modules & Packages -->
+<div class="qa-block">
+  <button>Topic 11: Modules & Packages <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Modules</strong> are files containing Python code (functions, variables, classes) that you can reuse in other programs. <strong>Packages</strong> are collections of modules organized in directories with an <code>__init__.py</code> file.</p>
+
+    <h4>1. Importing Modules</h4>
+    <p>You can use <code>import</code> to access built-in or custom modules.</p>
+
+    <div class="code-block"><pre>
+# Import the math module
+import math
+
+print(math.sqrt(16))    # Output: 4.0
+print(math.pi)          # Output: 3.141592653589793
+
+# Import specific function
+from math import factorial
+print(factorial(5))     # Output: 120</pre></div>
+
+    <h4>2. Creating Your Own Module</h4>
+    <p>Create a Python file (e.g., <code>my_module.py</code>) and define functions/variables inside it.</p>
+
+    <div class="code-block"><pre>
+# my_module.py
+def greet(name):
+    return f"Hello, {name}!"
+
+PI = 3.14
+</pre></div>
+
+    <p>Use it in another file:</p>
+
+    <div class="code-block"><pre>
+# main.py
+import my_module
+
+print(my_module.greet("Nisa"))  # Output: Hello, Nisa!
+print(my_module.PI)              # Output: 3.14</pre></div>
+
+    <h4>3. Using Built-in Modules</h4>
+    <p>Python provides many built-in modules:</p>
+
+    <div class="code-block"><pre>
+# Random numbers
+import random
+print(random.randint(1,10))  # Random integer between 1 and 10
+
+# Date and Time
+import datetime
+now = datetime.datetime.now()
+print("Current date and time:", now)
+
+# OS operations
+import os
+print("Current working directory:", os.getcwd())</pre></div>
+
+    <h4>4. Installing and Using External Packages</h4>
+    <p>Use <strong>pip</strong> to install packages from PyPI.</p>
+
+    <div class="code-block"><pre>
+# Install requests package
+# pip install requests
+
+import requests
+response = requests.get("https://api.github.com")
+print(response.status_code)  # Output: 200</pre></div>
+
+    <h4>5. The <code>__name__</code> Variable</h4>
+    <p>Check if the module is run directly or imported:</p>
+
+    <div class="code-block"><pre>
+# my_module.py
+def hello():
+    print("Hello!")
+
+if __name__ == "__main__":
+    print("This runs only when the file is executed directly")</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Create & Import a Custom Module</h4>
+      <div class="code-block"><pre>
+# Task: Create a module with a function that squares a number and a variable storing your name. Import and use them in another file.</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+# my_module.py
+def square(n):
+    return n**2
+
+name = "Nisa"
+
+# main.py
+import my_module
+
+print(my_module.square(6))  # Output: 36
+print(my_module.name)       # Output: Nisa</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Use Random Module</h4>
+      <div class="code-block"><pre>
+# Task: Generate a random number between 50 and 100 and pick a random item from a list</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+import random
+
+num = random.randint(50,100)
+print("Random number:", num)
+
+fruits = ["apple", "banana", "mango"]
+print("Random fruit:", random.choice(fruits))</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Date & Time Module</h4>
+      <div class="code-block"><pre>
+# Task: Print current date and time, and also print just the year, month, day</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+import datetime
+
+now = datetime.datetime.now()
+print("Current date and time:", now)
+print("Year:", now.year)
+print("Month:", now.month)
+print("Day:", now.day)</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Modules help organize code and reuse functionality.</li>
+        <li>Packages are directories containing modules and an <code>__init__.py</code> file.</li>
+        <li>Use built-in modules before installing external packages.</li>
+        <li>Check <code>__name__</code> to see if a file is run directly or imported.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 12: File Handling -->
+<div class="qa-block">
+  <button>Topic 12: File Handling <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>File handling</strong> allows Python programs to read from and write to files on your computer. This is essential for storing data, logs, or any persistent information.</p>
+
+    <h4>1. Opening a File</h4>
+    <p>Use the <code>open()</code> function with a filename and mode.</p>
+
+    <div class="code-block"><pre>
+# Open a file for reading
+f = open("example.txt", "r")
+
+# Modes:
+# 'r' -> read (default)
+# 'w' -> write (creates or overwrites)
+# 'a' -> append
+# 'x' -> create new file, fails if exists
+# 'b' -> binary mode
+# 't' -> text mode (default)
+</pre></div>
+
+    <h4>2. Reading Files</h4>
+    <p>Use <code>read()</code>, <code>readline()</code>, or <code>readlines()</code> to read content.</p>
+
+    <div class="code-block"><pre>
+# Read entire file
+with open("example.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+# Read line by line
+with open("example.txt", "r") as f:
+    for line in f:
+        print(line.strip())  # remove newline characters</pre></div>
+
+    <h4>3. Writing to Files</h4>
+    <p>Use <code>write()</code> to add content. Use 'w' mode to overwrite or 'a' mode to append.</p>
+
+    <div class="code-block"><pre>
+# Write to a file
+with open("example.txt", "w") as f:
+    f.write("Hello, Python!\n")
+    f.write("This is a tutorial.\n")
+
+# Append to file
+with open("example.txt", "a") as f:
+    f.write("Appending a new line.\n")</pre></div>
+
+    <h4>4. File Handling Best Practice: Using <code>with</code></h4>
+    <p>The <code>with</code> statement automatically closes the file after use.</p>
+
+    <div class="code-block"><pre>
+with open("example.txt", "r") as f:
+    data = f.read()
+# No need to call f.close()</pre></div>
+
+    <h4>5. Working with CSV Files</h4>
+    <p>Use the <code>csv</code> module to handle CSV files easily.</p>
+
+    <div class="code-block"><pre>
+import csv
+
+# Writing CSV
+with open("data.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Name", "Age", "City"])
+    writer.writerow(["Nisa", 25, "Kochi"])
+
+# Reading CSV
+with open("data.csv", "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)</pre></div>
+
+    <h4>6. Common File Operations (OS module)</h4>
+    <div class="code-block"><pre>
+import os
+
+# Check if file exists
+print(os.path.exists("example.txt"))  # True or False
+
+# Rename a file
+# os.rename("example.txt", "new_example.txt")
+
+# Delete a file
+# os.remove("new_example.txt")</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Write & Read File</h4>
+      <div class="code-block"><pre>
+# Task: Write 3 lines of text to a file and then read & print them</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+lines = ["Python is fun.\n", "File handling is important.\n", "Always close files or use with.\n"]
+
+# Writing to file
+with open("exercise1.txt", "w") as f:
+    f.writelines(lines)
+
+# Reading from file
+with open("exercise1.txt", "r") as f:
+    content = f.read()
+    print(content)</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Append Data</h4>
+      <div class="code-block"><pre>
+# Task: Append your name to a file and print all lines</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+with open("exercise2.txt", "a") as f:
+    f.write("Nisa\n")
+
+with open("exercise2.txt", "r") as f:
+    for line in f:
+        print(line.strip())</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — CSV File Handling</h4>
+      <div class="code-block"><pre>
+# Task: Create CSV file with Name, Age; Read and print rows</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+import csv
+
+# Write CSV
+with open("exercise3.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Name", "Age"])
+    writer.writerow(["Nisa", 25])
+    writer.writerow(["Ali", 30])
+
+# Read CSV
+with open("exercise3.csv", "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Always use <code>with</code> to handle files safely.</li>
+        <li>Use 'r' for reading, 'w' for writing (overwrite), 'a' for appending.</li>
+        <li>Use modules like <code>csv</code> and <code>os</code> for easier file management.</li>
+        <li>Remember to strip newline characters when reading lines.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 13: Exception Handling -->
+<div class="qa-block">
+  <button>Topic 13: Exception Handling <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Exception Handling</strong> allows your Python programs to handle errors gracefully without crashing. Exceptions occur when the program encounters unexpected situations, such as division by zero, file not found, or invalid input.</p>
+
+    <h4>1. Basics of Exceptions</h4>
+    <p>Python raises built-in exceptions for common errors:</p>
+    <ul>
+      <li><strong>ZeroDivisionError</strong> – dividing by zero</li>
+      <li><strong>ValueError</strong> – invalid value for a function (e.g., int("abc"))</li>
+      <li><strong>FileNotFoundError</strong> – file does not exist</li>
+      <li><strong>TypeError</strong> – operation on incompatible types</li>
+    </ul>
+    <div class="code-block"><pre>
+# Example of exception
+a = 10
+b = 0
+# print(a / b)  # ZeroDivisionError: division by zero</pre></div>
+
+    <h4>2. try and except</h4>
+    <p>Use <code>try</code> block to wrap code that may raise an exception, and <code>except</code> block to handle it.</p>
+    <div class="code-block"><pre>
+try:
+    a = int(input("Enter a number: "))
+    b = int(input("Enter another number: "))
+    result = a / b
+    print("Result:", result)
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError:
+    print("Invalid input! Please enter a number.")</pre></div>
+
+    <h4>3. Handling Multiple Exceptions</h4>
+    <p>You can handle multiple exceptions in a single <code>try</code> block.</p>
+    <div class="code-block"><pre>
+try:
+    num = int(input("Enter a number: "))
+    print(10 / num)
+except (ValueError, ZeroDivisionError) as e:
+    print("Error occurred:", e)</pre></div>
+
+    <h4>4. else and finally</h4>
+    <p>
+      <ul>
+        <li><code>else</code> – runs if no exception occurs</li>
+        <li><code>finally</code> – runs no matter what (useful for cleanup like closing files)</li>
+      </ul>
+    </p>
+    <div class="code-block"><pre>
+try:
+    x = int(input("Enter a number: "))
+    print("10 / x =", 10 / x)
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+else:
+    print("No errors occurred!")
+finally:
+    print("Execution finished.")</pre></div>
+
+    <h4>5. Raising Exceptions</h4>
+    <p>You can raise exceptions manually using <code>raise</code>.</p>
+    <div class="code-block"><pre>
+def check_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative!")
+    else:
+        print("Valid age:", age)
+
+check_age(25)  # Valid
+# check_age(-5)  # ValueError: Age cannot be negative!</pre></div>
+
+    <h4>6. Custom Exceptions</h4>
+    <p>You can define your own exception classes by inheriting from <code>Exception</code>.</p>
+    <div class="code-block"><pre>
+class MyError(Exception):
+    pass
+
+try:
+    raise MyError("This is a custom error!")
+except MyError as e:
+    print(e)</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Handle Division</h4>
+      <div class="code-block"><pre>
+# Task: Ask user for two numbers and divide them. Handle zero division and invalid input</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+try:
+    a = int(input("Enter numerator: "))
+    b = int(input("Enter denominator: "))
+    print("Result:", a / b)
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+except ValueError:
+    print("Error: Invalid input! Enter numbers only.")</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — File Handling with Exceptions</h4>
+      <div class="code-block"><pre>
+# Task: Try to open a file. Handle if file does not exist.</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+try:
+    with open("nonexistent.txt", "r") as f:
+        data = f.read()
+        print(data)
+except FileNotFoundError:
+    print("File not found. Please check the filename.")</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Raise Custom Exception</h4>
+      <div class="code-block"><pre>
+# Task: Raise an exception if input number is negative</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+num = int(input("Enter a number: "))
+if num &lt; 0:
+    raise ValueError("Negative number not allowed!")
+else:
+    print("You entered:", num)</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Always handle exceptions to prevent program crashes.</li>
+        <li>Use <code>finally</code> to perform cleanup tasks.</li>
+        <li>Custom exceptions make your code more readable and maintainable.</li>
+        <li>Group multiple exceptions in a tuple when handling similar errors.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 14: Object-Oriented Programming (OOP) -->
+<div class="qa-block">
+  <button>Topic 14: Object-Oriented Programming (OOP) <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Object-Oriented Programming (OOP)</strong> is a programming paradigm that uses <strong>objects</strong> and <strong>classes</strong> to structure code. Python supports OOP concepts like classes, objects, inheritance, encapsulation, and polymorphism.</p>
+
+    <h4>1. Classes and Objects</h4>
+    <p>A <strong>class</strong> is a blueprint for creating objects. An <strong>object</strong> is an instance of a class.</p>
+    <div class="code-block"><pre>
+# Define a class
+class Person:
+    def __init__(self, name, age):
+        self.name = name  # attribute
+        self.age = age
+
+    def greet(self):
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+
+# Create objects
+p1 = Person("Alice", 25)
+p2 = Person("Bob", 30)
+
+p1.greet()  # Hello, my name is Alice and I am 25 years old.
+p2.greet()  # Hello, my name is Bob and I am 30 years old.</pre></div>
+
+    <h4>2. Attributes and Methods</h4>
+    <p>Attributes store object data. Methods are functions inside a class that operate on its attributes.</p>
+    <div class="code-block"><pre>
+class Circle:
+    pi = 3.14159  # class attribute
+
+    def __init__(self, radius):
+        self.radius = radius  # instance attribute
+
+    def area(self):
+        return Circle.pi * self.radius ** 2
+
+c = Circle(5)
+print("Area:", c.area())  # Area: 78.53975</pre></div>
+
+    <h4>3. Inheritance</h4>
+    <p>Inheritance allows a class (<strong>child/subclass</strong>) to reuse attributes and methods from another class (<strong>parent/superclass</strong>).</p>
+
+    <h5>Single Inheritance</h5>
+    <div class="code-block"><pre>
+class Animal:
+    def speak(self):
+        print("Some sound")
+
+class Dog(Animal):
+    def bark(self):
+        print("Woof!")
+
+d = Dog()
+d.speak()  # Some sound
+d.bark()   # Woof!</pre></div>
+
+    <h5>Multiple Inheritance</h5>
+    <div class="code-block"><pre>
+class Flyer:
+    def fly(self):
+        print("Flying high")
+
+class Swimmer:
+    def swim(self):
+        print("Swimming in water")
+
+class Duck(Flyer, Swimmer):
+    pass
+
+d = Duck()
+d.fly()   # Flying high
+d.swim()  # Swimming in water</pre></div>
+
+    <h5>Multilevel Inheritance</h5>
+    <div class="code-block"><pre>
+class Grandparent:
+    def skill(self):
+        print("Gardening")
+
+class Parent(Grandparent):
+    def hobby(self):
+        print("Painting")
+
+class Child(Parent):
+    def game(self):
+        print("Playing football")
+
+c = Child()
+c.skill()  # Gardening
+c.hobby()  # Painting
+c.game()   # Playing football</pre></div>
+
+    <h5>Hierarchical Inheritance</h5>
+    <div class="code-block"><pre>
+class Vehicle:
+    def move(self):
+        print("Moving")
+
+class Car(Vehicle):
+    def wheels(self):
+        print("4 wheels")
+
+class Bike(Vehicle):
+    def wheels(self):
+        print("2 wheels")
+
+c = Car()
+b = Bike()
+c.move(); c.wheels()  # Moving, 4 wheels
+b.move(); b.wheels()  # Moving, 2 wheels</pre></div>
+
+    <h4>4. Encapsulation</h4>
+    <p>Encapsulation hides the internal state of objects. Use <strong>private attributes</strong> with a leading underscore <code>_</code> or double underscore <code>__</code>.</p>
+    <div class="code-block"><pre>
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if amount &lt;= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def get_balance(self):
+        return self.__balance
+
+acct = BankAccount(1000)
+acct.deposit(500)
+acct.withdraw(300)
+print("Balance:", acct.get_balance())  # Balance: 1200</pre></div>
+
+    <h4>5. Polymorphism</h4>
+    <p>Polymorphism allows different objects to respond to the same method differently.</p>
+    <div class="code-block"><pre>
+class Cat:
+    def speak(self):
+        print("Meow!")
+
+class Dog:
+    def speak(self):
+        print("Woof!")
+
+def animal_sound(animal):
+    animal.speak()
+
+c = Cat()
+d = Dog()
+animal_sound(c)  # Meow!
+animal_sound(d)  # Woof!</pre></div>
+
+    <h4>6. Special (Magic/Dunder) Methods</h4>
+    <p>Python classes have special methods like <code>__init__</code>, <code>__str__</code>, <code>__add__</code> to customize behavior.</p>
+    <div class="code-block"><pre>
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+p1 = Point(2,3)
+p2 = Point(4,5)
+print(p1)        # Point(2, 3)
+p3 = p1 + p2
+print(p3)        # Point(6, 8)</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Create a Class</h4>
+      <div class="code-block"><pre>
+# Task: Create a class Student with attributes name, age, grade. Add method display_info()</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+class Student:
+    def __init__(self, name, age, grade):
+        self.name = name
+        self.age = age
+        self.grade = grade
+
+    def display_info(self):
+        print(f"{self.name}, Age: {self.age}, Grade: {self.grade}")
+
+s = Student("Alice", 16, "10th")
+s.display_info()  # Alice, Age: 16, Grade: 10th</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Inheritance</h4>
+      <div class="code-block"><pre>
+# Task: Create Parent class Animal with method sound(), and Child class Dog that inherits and adds method bark()</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+class Animal:
+    def sound(self):
+        print("Some sound")
+
+class Dog(Animal):
+    def bark(self):
+        print("Woof!")
+
+d = Dog()
+d.sound()  # Some sound
+d.bark()   # Woof!</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Polymorphism</h4>
+      <div class="code-block"><pre>
+# Task: Create classes Cat and Dog with method speak(), and a function that calls speak() for any animal</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+class Cat:
+    def speak(self):
+        print("Meow!")
+
+class Dog:
+    def speak(self):
+        print("Woof!")
+
+animals = [Cat(), Dog()]
+for a in animals:
+    a.speak()
+# Output:
+# Meow!
+# Woof!</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 4 — Private Attributes</h4>
+      <div class="code-block"><pre>
+# Task: Create class Account with private balance attribute, deposit() and withdraw() methods</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+class Account:
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if amount &lt;= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def get_balance(self):
+        return self.__balance
+
+a = Account(1000)
+a.deposit(500)
+a.withdraw(200)
+print(a.get_balance())  # 1300</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Use classes to structure your code and group related data and functions.</li>
+        <li>Inheritance helps reuse code and implement hierarchical relationships.</li>
+        <li>Encapsulation protects sensitive data in objects.</li>
+        <li>Polymorphism allows flexible code by using common interfaces.</li>
+        <li>Special methods can make your classes behave like built-in types.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 15: Python Advanced Concepts -->
+<div class="qa-block">
+  <button>Topic 15: Python Advanced Concepts <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Python Advanced Concepts</strong> help write cleaner, efficient, and more Pythonic code. This topic covers <strong>list comprehensions</strong>, <strong>generators & iterators</strong>, <strong>lambda functions</strong>, and <strong>decorators</strong>.</p>
+
+    <h4>1. List Comprehensions</h4>
+    <p>List comprehension provides a concise way to create lists using a single line of code. Syntax: <code>[expression for item in iterable if condition]</code></p>
+    <div class="code-block"><pre>
+# Create a list of squares from 1 to 5
+squares = [x**2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]
+
+# List of even numbers only
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)  # [0, 2, 4, 6, 8]</pre></div>
+
+    <h4>2. Iterators</h4>
+    <p>An <strong>iterator</strong> is an object that can be iterated (one item at a time). Use <code>iter()</code> and <code>next()</code> to access items.</p>
+    <div class="code-block"><pre>
+my_list = [1, 2, 3]
+it = iter(my_list)
+
+print(next(it))  # 1
+print(next(it))  # 2
+print(next(it))  # 3
+# next(it)  # StopIteration error if exceeded</pre></div>
+
+    <h4>3. Generators</h4>
+    <p>Generators are special iterators created with <code>yield</code> that generate values on-the-fly (lazy evaluation).</p>
+    <div class="code-block"><pre>
+def my_generator(n):
+    for i in range(n):
+        yield i**2
+
+gen = my_generator(5)
+for val in gen:
+    print(val)
+# Output: 0 1 4 9 16</pre></div>
+
+    <h4>4. Lambda Functions</h4>
+    <p><strong>Lambda functions</strong> are anonymous (unnamed) functions for small tasks. Syntax: <code>lambda arguments: expression</code></p>
+    <div class="code-block"><pre>
+# Add two numbers
+add = lambda x, y: x + y
+print(add(3, 5))  # 8
+
+# Sort a list of tuples by second element
+data = [(1, 'b'), (2, 'a'), (3, 'c')]
+data.sort(key=lambda x: x[1])
+print(data)  # [(2, 'a'), (1, 'b'), (3, 'c')]</pre></div>
+
+    <h4>5. Decorators</h4>
+    <p>Decorators allow you to modify the behavior of a function without changing its code. Syntax: <code>@decorator</code></p>
+    <div class="code-block"><pre>
+def decorator(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper
+
+@decorator
+def greet():
+    print("Hello, World!")
+
+greet()
+# Output:
+# Before function call
+# Hello, World!
+# After function call</pre></div>
+
+    <h4>6. Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — List Comprehension</h4>
+      <div class="code-block"><pre>
+# Task: Create a list of squares of even numbers from 1 to 10</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+squares_even = [x**2 for x in range(1, 11) if x % 2 == 0]
+print(squares_even)  # [4, 16, 36, 64, 100]</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Generator</h4>
+      <div class="code-block"><pre>
+# Task: Write a generator that yields first n Fibonacci numbers</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(7):
+    print(num)
+# Output: 0 1 1 2 3 5 8</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Lambda Function</h4>
+      <div class="code-block"><pre>
+# Task: Use lambda to filter out odd numbers from a list
+nums = [1,2,3,4,5,6,7,8,9]</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)  # [2, 4, 6, 8]</pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 4 — Decorator</h4>
+      <div class="code-block"><pre>
+# Task: Create a decorator that prints "Starting" before and "Ending" after a function</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+def log_decorator(func):
+    def wrapper():
+        print("Starting")
+        func()
+        print("Ending")
+    return wrapper
+
+@log_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Output:
+# Starting
+# Hello!
+# Ending</pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Use list comprehensions for concise and readable list creation.</li>
+        <li>Generators save memory by producing items on demand.</li>
+        <li>Lambda functions are best for small, single-use functions.</li>
+        <li>Decorators help modify or enhance function behavior without changing its code.</li>
+        <li>Always test iterators and generators carefully to avoid StopIteration errors.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
 
 
     
