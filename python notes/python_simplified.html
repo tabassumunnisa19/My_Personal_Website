@@ -137,233 +137,607 @@ print("Sum:", sum)  # Output: Sum: 12
     </div>
 
 
-    <!-- Topic 2: Python Basics -->
-    <div class="qa-block">
-      <button>Topic 2: Python Basics <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
+    <!-- Topic 2: Python Basics (Redefined) -->
+<div class="qa-block">
+  <button>Topic 2: Python Basics <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
 
-        <p><strong>Python Basics</strong> forms the foundation of programming in Python. In this topic we cover variables, built-in data types (detailed), type conversion, input/output and comments — with clear examples and exercises (solutions included).</p>
+    <p><strong>Python Basics</strong> forms the foundation of programming. In this topic, we cover keywords, identifiers, variables, data types, type conversion, input/output, comments, and include examples and exercises.</p>
 
-        <h4>1. Variables</h4>
-        <p>A <strong>variable</strong> is a name that refers to a value stored in memory. Use the <code>=</code> operator to assign values.</p>
-        <div class="code-block"><pre># Creating variables
+    <h4>1. Keywords</h4>
+    <p>Keywords are predefined reserved words in Python that cannot be used as variable names.</p>
+    <div class="code-block"><pre>
+import keyword
+print(keyword.kwlist)
+# Example output: ['False', 'None', 'True', 'and', 'as', ...]
+    </pre></div>
+
+    <h4>2. Identifiers</h4>
+    <p>Identifiers are names you give to variables, functions, classes, etc. Rules:</p>
+    <ul>
+      <li>Can contain letters, digits, and underscores</li>
+      <li>Cannot start with a digit</li>
+      <li>Case-sensitive</li>
+    </ul>
+
+    <h4>3. Variables</h4>
+    <p>Variables store values in memory and are referenced by identifiers. Python is dynamically typed.</p>
+    <div class="code-block"><pre>
 name = "Nisa"
 age = 25
 height = 5.4
 
 print(name)    # Output: Nisa
 print(age)     # Output: 25
-print(height)  # Output: 5.4</pre></div>
+print(height)  # Output: 5.4
+    </pre></div>
 
-        <h4>2. What are Python's built-in data types? (detailed)</h4>
-        <p><strong>Data type</strong> tells Python what kind of value is stored and what operations are allowed. Python is dynamically typed — types are determined at runtime.</p>
+    <h4>4. Data Types</h4>
+    <p><strong>Numeric types:</strong> int, float, complex</p>
+    <div class="code-block"><pre>
+x = 10       # int
+y = 3.14     # float
+z = 2 + 5j   # complex
+print(type(x), type(y), type(z))
+# Output: <class 'int'> <class 'float'> <class 'complex'>
+    </pre></div>
 
-        <h5>Numeric types</h5>
-        <p><strong>int</strong> — whole numbers. <strong>float</strong> — decimal numbers. <strong>complex</strong> — complex numbers with imaginary parts.</p>
-        <div class="code-block"><pre># Numeric examples
-x = 10        # int
-y = 3.14      # float
-z = 2 + 5j    # complex
+    <p><strong>Sequence types:</strong> str (text), list, tuple, range</p>
+    <div class="code-block"><pre>
+text = "Hello"             # str
+fruits = ["apple","banana"] # list
+coords = (10,20)           # tuple
+print(text[0])  # H
+fruits[1] = "mango"        # list can change
+    </pre></div>
 
-print(type(x))  # &lt;class 'int'&gt;
-print(type(y))  # &lt;class 'float'&gt;
-print(type(z))  # &lt;class 'complex'&gt;</pre></div>
+    <p><strong>Mapping type:</strong> dict</p>
+    <div class="code-block"><pre>
+person = {"name":"Nisa","age":25}
+print(person["name"])      # Nisa
+    </pre></div>
 
-        <h5>Text and sequence types</h5>
-        <p><strong>str</strong> — text (immutable). Sequences are ordered collections: <strong>list</strong> (mutable), <strong>tuple</strong> (immutable), and <strong>range</strong> (immutable, used for iteration).</p>
-        <div class="code-block"><pre># Sequences
-text = "Hello"               # str
-fruits = ["apple", "banana"] # list
-coords = (10, 20)            # tuple
-
-print(text[0])    # H
-fruits[1] = "mango"  # lists can change
-#print(coords[0] = 5)  # error: tuples are immutable</pre></div>
-
-        <h5>Mapping type</h5>
-        <p><strong>dict</strong> — key &rarr; value mapping. Use for records and fast lookup by key. Keys must be hashable (immutable).</p>
-        <div class="code-block"><pre># Dictionary example
-person = {"name": "Nisa", "age": 25}
-print(person["name"])   # Nisa
-print(person.get("email"))  # None (safe access)</pre></div>
-
-        <h5>Set types</h5>
-        <p><strong>set</strong> — unordered unique items. <strong>frozenset</strong> — immutable set. Good for membership tests and removing duplicates.</p>
-        <div class="code-block"><pre># Set example
-A = {1, 2, 3, 3}  # duplicates removed -> {1,2,3}
+    <p><strong>Set types:</strong> set, frozenset</p>
+    <div class="code-block"><pre>
+A = {1,2,2,3}  # duplicates removed -> {1,2,3}
 B = set([2,4])
 print(A & B)  # intersection
-print(A | B)  # union</pre></div>
+print(A | B)  # union
+    </pre></div>
 
-        <h5>Binary types</h5>
-        <p><strong>bytes</strong>, <strong>bytearray</strong>, <strong>memoryview</strong> — used for raw binary data (files, network I/O).</p>
-        <div class="code-block"><pre>b = b"hello"            # bytes literal
-ba = bytearray(b"abc")  # mutable bytes
-ba[0] = 120
-print(b, ba)</pre></div>
-
-        <h5>Boolean and None</h5>
-        <p><strong>bool</strong> — True or False. <strong>None</strong> — absence of value (NoneType).</p>
-        <div class="code-block"><pre>print(type(True))    # &lt;class 'bool'&gt;
-print(True + 1)      # 2 (bools are subclass of int)
-
+    <p><strong>Boolean & None:</strong> bool, NoneType</p>
+    <div class="code-block"><pre>
+flag = True
 x = None
-print(type(x))       # &lt;class 'NoneType'&gt;</pre></div>
+print(type(flag))  # <class 'bool'>
+print(type(x))     # <class 'NoneType'>
+    </pre></div>
 
-        <h4>3. Type conversion (casting)</h4>
-        <p>Convert between types using <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>list()</code>, <code>tuple()</code>, <code>set()</code>, <code>dict()</code>. Be careful: <code>int("3.14")</code> raises an error — convert to float first.</p>
-        <div class="code-block"><pre># Conversions
+    <h4>5. Type Conversion (Casting)</h4>
+    <div class="code-block"><pre>
 s = "15"
-print(int(s) + 5)   # 20
-print(float("3.14") + 1)  # 4.14
+print(int(s) + 5)        # 20
+print(float("3.14") + 1) # 4.14
+# int("3.14") would raise ValueError
+    </pre></div>
 
-# bad conversion -> ValueError
-# int("3.14")  # ValueError: invalid literal</pre></div>
+    <h4>6. Input & Output</h4>
+    <div class="code-block"><pre>
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+print("Hello,", name, "Age:", age)
+    </pre></div>
 
-        <h4>4. Input & Output</h4>
-        <p><strong>input()</strong> reads a string from user; use <code>int()</code> or <code>float()</code> to convert. <strong>print()</strong> displays values.</p>
-        <div class="code-block"><pre>name = input("Enter your name: ")
-print("Hello,", name)</pre></div>
-
-        <h4>5. Comments</h4>
-        <p>Use <code>#</code> for single-line comments and triple quotes for multi-line comments.</p>
-        <div class="code-block"><pre># single-line comment
+    <h4>7. Comments</h4>
+    <div class="code-block"><pre>
+# This is a single-line comment
 '''
-Multi-line comment
+This is a 
+multi-line comment
 '''
-</pre></div>
+    </pre></div>
 
-        <h4>Common pitfalls (short)</h4>
-        <ul>
-          <li>Floating-point precision — compare floats with tolerance.</li>
-          <li>Mutable default arguments — avoid using mutable objects as default function arguments.</li>
-          <li>Dict keys must be hashable — mutable types (list, set, dict) cannot be keys.</li>
-          <li>Use <code>is None</code> to test for None.</li>
-        </ul>
+    <h4>Exercises (Solutions Included)</h4>
 
-        <h4>Exercises (solutions included)</h4>
-
-        <div class="exercise">
-          <h4>Exercise 1 — Identify types</h4>
-          <div class="code-block"><pre># Variables
+    <div class="exercise">
+      <h4>Exercise 1 — Identify Types</h4>
+      <div class="code-block"><pre>
 a = 42
 b = 3.14
 c = "Python"
-d = [1, 2, 3]
-e = (4, 5, 6)
-f = {"name": "John", "age": 30}
-g = {1, 2, 2, 3}
+d = [1,2,3]
+e = (4,5,6)
+f = {"name":"John","age":30}
+g = {1,2,2,3}
 h = True
 i = None
-
-# 👉 Print types (solution below)</pre></div>
-          <details style="margin-top:6px;">
-            <summary><strong>Solution — code and expected output</strong></summary>
-            <div class="code-block"><pre># Solution
+# Print type of each variable
+      </pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
 variables = [a,b,c,d,e,f,g,h,i]
 for v in variables:
     print(v, "->", type(v))
-
-# Expected output (each line shows value -> type):
-# 42 -> &lt;class 'int'&gt;
-# 3.14 -> &lt;class 'float'&gt;
-# Python -> &lt;class 'str'&gt;
-# [1, 2, 3] -> &lt;class 'list'&gt;
-# (4, 5, 6) -> &lt;class 'tuple'&gt;
-# {'name': 'John', 'age': 30} -> &lt;class 'dict'&gt;
-# {1, 2, 3} -> &lt;class 'set'&gt;
-# True -> &lt;class 'bool'&gt;
-# None -> &lt;class 'NoneType'&gt;</pre></div>
-          </details>
-        </div>
-
-        <div class="exercise">
-          <h4>Exercise 2 — Create dict & set (and see behavior)</h4>
-          <div class="code-block"><pre># Task:
-# 1) Create a dict for your favorite book (title, author, year)
-# 2) Create a set of 5 numbers with duplicates
-
-# Solution:
-book = {"title": "The Alchemist", "author": "Paulo Coelho", "year": 1988}
-print(book)
-
-numbers = {1, 2, 2, 3, 4}
-print(numbers)  # duplicates are removed — set holds unique values</pre></div>
-          <details style="margin-top:6px;">
-            <summary><strong>Explanation</strong></summary>
-            <div class="code-block"><pre># book is a dict with keys title, author, year
-# numbers is a set; duplicates (the second 2) are ignored
-
-# Expected output example:
-# {'title': 'The Alchemist', 'author': 'Paulo Coelho', 'year': 1988}
-# {1, 2, 3, 4}</pre></div>
-          </details>
-        </div>
-
-        <div class="exercise">
-          <h4>Exercise 3 — Check Positive or Negative (use boolean)</h4>
-          <div class="code-block"><pre># Task: Ask user for a number and print whether it's positive, negative or zero
-
-# Solution (example program):
-def check_number(n):
-    if n &gt; 0:
-        return True  # positive
-    elif n &lt; 0:
-        return False # negative
-    else:
-        return None  # zero
-
-# Example usage:
-for test in [10, -5, 0]:
-    result = check_number(test)
-    if result is True:
-        print(test, "is positive")
-    elif result is False:
-        print(test, "is negative")
-    else:
-        print(test, "is zero")
-
-# Expected output:
-# 10 is positive
-# -5 is negative
-# 0 is zero</pre></div>
-          <details style="margin-top:6px;">
-            <summary><strong>Alternate simpler solution (direct print)</strong></summary>
-            <div class="code-block"><pre>n = int(input("Enter a number: "))
-if n &gt; 0:
-    print("Positive")
-elif n &lt; 0:
-    print("Negative")
-else:
-    print("Zero")</pre></div>
-          </details>
-        </div>
-
-        <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
-          <strong>Tips:</strong>
-          <ul>
-            <li>Use <code>type(x)</code> and <code>isinstance(x, T)</code> to inspect data.
-            <li>Remember that empty containers ("", [], {}, set()) are falsy in boolean contexts.</li>
-            <li>Convert strings to numbers carefully: <code>int("3.14")</code> fails — do <code>float()</code> first.</li>
-          </ul>
-        </div>
-
-      </div>
+        </pre></div>
+      </details>
     </div>
 
+    <div class="exercise">
+      <h4>Exercise 2 — Create dict & set</h4>
+      <div class="code-block"><pre>
+# Create dict for a book and set of numbers
+book = {"title":"Alchemist","author":"Paulo Coelho","year":1988}
+print(book)
+numbers = {1,2,2,3,4}
+print(numbers)  # duplicates removed
+      </pre></div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Even or Odd Check</h4>
+      <div class="code-block"><pre>
+n = int(input("Enter a number: "))
+if n % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+      </pre></div>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Use <code>type(x)</code> or <code>isinstance(x, T)</code> to check types</li>
+        <li>Empty containers ("", [], {}, set()) are falsy in boolean context</li>
+        <li>Convert strings carefully: <code>int("3.14")</code> fails, do <code>float()</code> first</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 3: Operators -->
+<div class="qa-block">
+  <button>Topic 3: Operators <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Operators</strong> are symbols used to perform operations on values or variables. Python has several types of operators: arithmetic, comparison, logical, assignment, bitwise, membership, and identity.</p>
+
+    <h4>1. Arithmetic Operators</h4>
+    <p>Used to perform mathematical operations.</p>
+    <div class="code-block"><pre>
+a = 10
+b = 3
+
+print(a + b)   # Addition -> 13
+print(a - b)   # Subtraction -> 7
+print(a * b)   # Multiplication -> 30
+print(a / b)   # Division -> 3.3333...
+print(a // b)  # Floor division -> 3
+print(a % b)   # Modulus -> 1
+print(a ** b)  # Exponent -> 1000
+    </pre></div>
+
+    <h4>2. Comparison Operators</h4>
+    <p>Compare two values and return <code>True</code> or <code>False</code>.</p>
+    <div class="code-block"><pre>
+x = 5
+y = 10
+
+print(x == y)  # False
+print(x != y)  # True
+print(x > y)   # False
+print(x < y)   # True
+print(x >= y)  # False
+print(x <= y)  # True
+    </pre></div>
+
+    <h4>3. Logical Operators</h4>
+    <p>Combine boolean values.</p>
+    <div class="code-block"><pre>
+p = True
+q = False
+
+print(p and q)  # False
+print(p or q)   # True
+print(not p)    # False
+    </pre></div>
+
+    <h4>4. Assignment Operators</h4>
+    <p>Used to assign values to variables, optionally combined with arithmetic.</p>
+    <div class="code-block"><pre>
+x = 5
+x += 3  # x = x + 3 -> 8
+x -= 2  # x = x - 2 -> 6
+x *= 2  # x = x * 2 -> 12
+x /= 4  # x = x / 4 -> 3.0
+x %= 2  # x = x % 2 -> 1.0
+    </pre></div>
+
+    <h4>5. Bitwise Operators</h4>
+    <p>Operate on bits of integers.</p>
+    <div class="code-block"><pre>
+a = 5   # 0b0101
+b = 3   # 0b0011
+
+print(a & b)   # AND -> 1 (0b0001)
+print(a | b)   # OR -> 7 (0b0111)
+print(a ^ b)   # XOR -> 6 (0b0110)
+print(~a)      # NOT -> -6
+print(a << 1)  # Left shift -> 10 (0b1010)
+print(a >> 1)  # Right shift -> 2 (0b0010)
+    </pre></div>
+
+    <h4>6. Membership Operators</h4>
+    <p>Check if a value exists in a sequence.</p>
+    <div class="code-block"><pre>
+fruits = ["apple", "banana", "mango"]
+print("apple" in fruits)      # True
+print("orange" not in fruits) # True
+    </pre></div>
+
+    <h4>7. Identity Operators</h4>
+    <p>Check if two variables refer to the same object in memory.</p>
+    <div class="code-block"><pre>
+x = [1,2,3]
+y = x
+z = [1,2,3]
+
+print(x is y)  # True
+print(x is z)  # False
+print(x == z)  # True (values equal)
+    </pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Arithmetic Practice</h4>
+      <div class="code-block"><pre>
+# Calculate and print:
+# 1. Sum of 12 and 8
+# 2. 15 raised to 3
+# 3. Floor division of 17 by 4
+      </pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+print(12 + 8)   # 20
+print(15 ** 3)  # 3375
+print(17 // 4)  # 4
+        </pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Logical & Comparison</h4>
+      <div class="code-block"><pre>
+# Check if 10 is greater than 5 AND less than 20
+# Check if 15 is NOT equal to 15
+      </pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+print(10 > 5 and 10 < 20)  # True
+print(not 15 != 15)         # True
+        </pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Membership & Identity</h4>
+      <div class="code-block"><pre>
+# Check if 'Python' is in a list
+# Compare two lists for identity and equality
+      </pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+languages = ["Python", "Java", "C++"]
+print("Python" in languages)  # True
+
+list1 = [1,2,3]
+list2 = list1
+list3 = [1,2,3]
+
+print(list1 is list2)  # True
+print(list1 is list3)  # False
+print(list1 == list3)  # True
+        </pre></div>
+      </details>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 4: Strings -->
+<div class="qa-block">
+  <button>Topic 4: Strings <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Strings</strong> are sequences of characters enclosed in quotes. Python supports single (' '), double (" "), and triple quotes (''' ''' or """ """). Strings are immutable, meaning once created, their content cannot be changed directly.</p>
+
+    <h4>1. String Indexing</h4>
+    <p>Each character in a string has an index, starting from 0. Negative indexing starts from -1 (last character).</p>
+    <div class="code-block"><pre>
+text = "Python"
+print(text[0])   # P
+print(text[3])   # h
+print(text[-1])  # n (last character)
+print(text[-3])  # h
+    </pre></div>
+
+    <h4>2. String Slicing</h4>
+    <p>Extract a substring using <code>text[start:end:step]</code>. <code>start</code> is inclusive, <code>end</code> is exclusive.</p>
+    <div class="code-block"><pre>
+text = "Python"
+
+print(text[0:4])   # Pyth (0 to 3)
+print(text[2:])    # thon (from index 2 to end)
+print(text[:4])    # Pyth (start to index 3)
+print(text[::2])   # Pto (every 2nd character)
+print(text[::-1])  # nohtyP (reverse string)
+    </pre></div>
+
+    <h4>3. Common String Methods</h4>
+    <p>Python provides many built-in methods for strings.</p>
+    <div class="code-block"><pre>
+s = "  Python Programming  "
+
+print(len(s))           # 20
+print(s.upper())        # '  PYTHON PROGRAMMING  '
+print(s.lower())        # '  python programming  '
+print(s.strip())        # 'Python Programming' (removes spaces)
+print(s.replace("Python","Java"))  # '  Java Programming  '
+print(s.split())        # ['Python', 'Programming']
+print(s.startswith("  Py"))  # True
+print(s.endswith("ing  "))    # True
+print(s.count("o"))     # 2
+print(s.find("Pro"))    # 7 (first index)
+print(s.isalpha())      # False (spaces present)
+print(s.isdigit())      # False</pre></div>
+
+    <h4>4. f-Strings & String Formatting</h4>
+    <p>f-Strings (formatted string literals) make it easy to insert variables into strings.</p>
+    <div class="code-block"><pre>
+name = "Nisa"
+age = 25
+
+print(f"My name is {name} and I am {age} years old.")
+
+# Older formatting
+print("My name is {} and I am {} years old.".format(name, age))
+print("Name: %s, Age: %d" % (name, age))
+    </pre></div>
+
+    <h4>5. String Concatenation & Repetition</h4>
+    <div class="code-block"><pre>
+s1 = "Hello"
+s2 = "World"
+
+print(s1 + " " + s2)  # Hello World
+print(s1 * 3)         # HelloHelloHello
+    </pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Indexing & Slicing</h4>
+      <div class="code-block"><pre>
+# Extract 'thon' from "Python"
+# Reverse the string "Python"
+# Extract every 2nd character from "Python Programming"
+      </pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+text = "Python"
+print(text[2:])       # 'thon'
+print(text[::-1])     # 'nohtyP'
+
+text2 = "Python Programming"
+print(text2[::2])     # 'Pto rgamn'
+        </pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — String Methods</h4>
+      <div class="code-block"><pre>
+# Remove spaces from "   Hello World  "
+# Replace "World" with "Python"
+# Count occurrences of 'l'
+      </pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+s = "   Hello World  "
+print(s.strip())                 # 'Hello World'
+print(s.replace("World","Python"))  # '   Hello Python  '
+print(s.count("l"))              # 3
+        </pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — f-Strings & Concatenation</h4>
+      <div class="code-block"><pre>
+# Create variables: name="Alice", age=30
+# Print: "My name is Alice and I am 30 years old." using f-string
+# Concatenate "Hello" and "Python" with a space
+      </pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+name = "Alice"
+age = 30
+print(f"My name is {name} and I am {age} years old.")  # f-string
+
+s1 = "Hello"
+s2 = "Python"
+print(s1 + " " + s2)  # Concatenation -> 'Hello Python'
+        </pre></div>
+      </details>
+    </div>
+
+  </div>
+</div>
+<!-- Topic 5: Lists -->
+<div class="qa-block">
+  <button>Topic 5: Lists <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <p><strong>Lists</strong> are ordered, mutable collections of items. They can hold elements of any data type, including numbers, strings, other lists, or mixed types. Lists are defined using square brackets <code>[]</code>.</p>
+
+    <h4>1. Creating & Accessing Lists</h4>
+    <div class="code-block"><pre>
+# Creating lists
+numbers = [1, 2, 3, 4, 5]
+fruits = ["apple", "banana", "cherry"]
+mixed = [1, "apple", 3.5, True]
+
+# Accessing elements
+print(numbers[0])     # 1
+print(fruits[1])      # banana
+print(mixed[-1])      # True (last element)
+
+# Nested list
+nested = [[1,2],[3,4]]
+print(nested[0][1])   # 2</pre></div>
+
+    <h4>2. List Methods</h4>
+    <p>Python lists provide many built-in methods for common operations.</p>
+    <div class="code-block"><pre>
+fruits = ["apple", "banana", "cherry"]
+
+fruits.append("orange")    # Add to end
+fruits.insert(1, "kiwi")   # Insert at index 1
+fruits.extend(["mango","grape"]) # Add multiple items
+print(fruits)
+
+fruits.remove("banana")    # Remove by value
+popped = fruits.pop()      # Remove last item
+print(popped)
+print(fruits)
+
+fruits.sort()              # Sort ascending (alphabetical)
+fruits.reverse()           # Reverse order
+print(fruits)
+
+print(len(fruits))         # Number of items
+print(fruits.count("apple")) # Count occurrences</pre></div>
+
+    <h4>3. List Slicing</h4>
+    <div class="code-block"><pre>
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[1:4])   # [20, 30, 40] (index 1 to 3)
+print(numbers[:3])    # [10, 20, 30] (start to index 2)
+print(numbers[::2])   # [10, 30, 50] (every 2nd element)
+print(numbers[::-1])  # [50, 40, 30, 20, 10] (reverse)</pre></div>
+
+    <h4>4. Nested Lists</h4>
+    <p>Lists can contain other lists (nested), which can be accessed using multiple indices.</p>
+    <div class="code-block"><pre>
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+print(matrix[0][1])   # 2
+print(matrix[2][0])   # 7</pre></div>
+
+    <h4>Exercises (Solutions Included)</h4>
+
+    <div class="exercise">
+      <h4>Exercise 1 — Basic list operations</h4>
+      <div class="code-block"><pre>
+# Create a list of 5 colors
+# Add one color at the end
+# Insert a color at index 2
+# Remove a color by name
+# Print final list</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+colors = ["red", "blue", "green", "yellow", "pink"]
+colors.append("orange")
+colors.insert(2, "purple")
+colors.remove("blue")
+print(colors)  # ['red', 'purple', 'green', 'yellow', 'pink', 'orange']
+        </pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — List slicing & reverse</h4>
+      <div class="code-block"><pre>
+# Given numbers = [10,20,30,40,50]
+# Extract [20,30,40]
+# Reverse the list
+# Get every second element</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+numbers = [10,20,30,40,50]
+
+print(numbers[1:4])   # [20,30,40]
+print(numbers[::-1])  # [50,40,30,20,10]
+print(numbers[::2])   # [10,30,50]
+        </pre></div>
+      </details>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Nested list access</h4>
+      <div class="code-block"><pre>
+# Access the element 6 in the nested list below
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]</pre></div>
+      <details style="margin-top:6px;">
+        <summary><strong>Solution</strong></summary>
+        <div class="code-block"><pre>
+print(matrix[1][2])  # 6
+        </pre></div>
+      </details>
+    </div>
+
+    <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+      <strong>Tips:</strong>
+      <ul>
+        <li>Lists are mutable — you can change elements, unlike strings or tuples.</li>
+        <li>You can mix different data types in a list, but it’s recommended to keep them consistent for clarity.</li>
+        <li>Use <code>len(list)</code> to find the number of elements and <code>list.count(item)</code> to count occurrences.</li>
+        <li>Nested lists can be used to represent matrices or grids.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+    
     <!-- Go Back Button -->
     <div class="go-back">
       <button onclick="history.back()">← Go Back</button>
     </div>
 
+    
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-container footer-inner">
-      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+ <footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <script>
     // Q&A toggle
