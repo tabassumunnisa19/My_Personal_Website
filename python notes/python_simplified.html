@@ -3,78 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Python Tutorial — Nisa</title>
+  <title>Python Basics</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Q&A block styles */
-    .qa-block {
-      border: 1px solid #e6eef8;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background: #fff;
-      overflow: hidden;
-    }
-    .qa-block button {
-      width: 100%;
-      text-align: left;
-      padding: 1rem;
-      border: none;
-      background: #f5f8fa;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .qa-block button:hover {
-      background: #e0ebf8;
-    }
-    .qa-block .content {
-      display: none;
-      padding: 1rem;
-      border-top: 1px solid #e6eef8;
-      background: #fff;
-    }
-    .qa-block .tip {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
-    }
-    .code-block {
-      background: #000;
-      color: #fff;
-      padding: 1rem;
-      border-radius: 6px;
-      overflow-x: auto;
-      margin: 1rem 0;
-      font-family: monospace;
-    }
-    .exercise {
-      background: #f0f4f8;
-      padding: 1rem;
-      border-left: 4px solid #007bff;
-      margin-bottom: 1rem;
-    }
-    .exercise h4 {
-      margin-top: 0;
+    /* Page-specific styles */
+    body { line-height:1.7; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    .qa-block { border: 1px solid #e6eef8; border-radius: 8px; margin-bottom: 1rem; background: #fff; overflow: hidden; }
+    .qa-block button { width: 100%; text-align: left; padding: 1rem; border: none; background: #f5f8fa; cursor: pointer; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .qa-block button:hover { background: #e0ebf8; }
+    .qa-block .content { display: none; padding: 1.25rem; border-top: 1px solid #e6eef8; background: #fff; }
+    .qa-block .content p, .qa-block .content ul, .qa-block .content ol { margin-bottom: 0.9rem; }
+    .qa-block h4 { margin-top: 0.25rem; }
+
+    /* Code blocks (examples) */
+    .code-block { background: #0b0b0b; color: #e6eef8; padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-family: monospace; font-size: 0.95rem; }
+    .code-block pre { margin: 0; color: inherit; }
+
+    /* Exercises (lighter background but code stays black) */
+    .exercise { background: #f6fbff; padding: 1rem; border-left: 4px solid #007bff; margin-bottom: 1rem; }
+    .exercise h4 { margin-top: 0; }
+
+    details .code-block { margin-top: 0.75rem; }
+
+    /* Go Back button */
+    .go-back { text-align:center; margin:2rem 0; }
+    .go-back button { padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer; }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .qa-block button { font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header (reused structure) -->
   <header class="site-header">
     <div class="site-container header-inner">
-      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
-      <!-- Hamburger button (mobile) -->
+      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" style="height:36px; object-fit:cover;"/></a>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-
-      <!-- Navigation -->
       <nav id="main-nav" class="navbar" role="navigation">
         <a href="../index.html">Home</a>
         <a href="../about.html">About</a>
@@ -87,7 +59,8 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <main class="site-container" style="padding:2rem; background:var(--background-color);">
+<!-- Main Content -->
   <main class="site-container" style="padding:2rem; background:var(--background-color);">
 
     <!-- Topic 1: Introduction to Python -->
@@ -163,13 +136,224 @@ print("Sum:", sum)  # Output: Sum: 12
       </div>
     </div>
 
+
+    <!-- Topic 2: Python Basics -->
+    <div class="qa-block">
+      <button>Topic 2: Python Basics <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+
+        <p><strong>Python Basics</strong> forms the foundation of programming in Python. In this topic we cover variables, built-in data types (detailed), type conversion, input/output and comments — with clear examples and exercises (solutions included).</p>
+
+        <h4>1. Variables</h4>
+        <p>A <strong>variable</strong> is a name that refers to a value stored in memory. Use the <code>=</code> operator to assign values.</p>
+        <div class="code-block"><pre># Creating variables
+name = "Nisa"
+age = 25
+height = 5.4
+
+print(name)    # Output: Nisa
+print(age)     # Output: 25
+print(height)  # Output: 5.4</pre></div>
+
+        <h4>2. What are Python's built-in data types? (detailed)</h4>
+        <p><strong>Data type</strong> tells Python what kind of value is stored and what operations are allowed. Python is dynamically typed — types are determined at runtime.</p>
+
+        <h5>Numeric types</h5>
+        <p><strong>int</strong> — whole numbers. <strong>float</strong> — decimal numbers. <strong>complex</strong> — complex numbers with imaginary parts.</p>
+        <div class="code-block"><pre># Numeric examples
+x = 10        # int
+y = 3.14      # float
+z = 2 + 5j    # complex
+
+print(type(x))  # &lt;class 'int'&gt;
+print(type(y))  # &lt;class 'float'&gt;
+print(type(z))  # &lt;class 'complex'&gt;</pre></div>
+
+        <h5>Text and sequence types</h5>
+        <p><strong>str</strong> — text (immutable). Sequences are ordered collections: <strong>list</strong> (mutable), <strong>tuple</strong> (immutable), and <strong>range</strong> (immutable, used for iteration).</p>
+        <div class="code-block"><pre># Sequences
+text = "Hello"               # str
+fruits = ["apple", "banana"] # list
+coords = (10, 20)            # tuple
+
+print(text[0])    # H
+fruits[1] = "mango"  # lists can change
+#print(coords[0] = 5)  # error: tuples are immutable</pre></div>
+
+        <h5>Mapping type</h5>
+        <p><strong>dict</strong> — key &rarr; value mapping. Use for records and fast lookup by key. Keys must be hashable (immutable).</p>
+        <div class="code-block"><pre># Dictionary example
+person = {"name": "Nisa", "age": 25}
+print(person["name"])   # Nisa
+print(person.get("email"))  # None (safe access)</pre></div>
+
+        <h5>Set types</h5>
+        <p><strong>set</strong> — unordered unique items. <strong>frozenset</strong> — immutable set. Good for membership tests and removing duplicates.</p>
+        <div class="code-block"><pre># Set example
+A = {1, 2, 3, 3}  # duplicates removed -> {1,2,3}
+B = set([2,4])
+print(A & B)  # intersection
+print(A | B)  # union</pre></div>
+
+        <h5>Binary types</h5>
+        <p><strong>bytes</strong>, <strong>bytearray</strong>, <strong>memoryview</strong> — used for raw binary data (files, network I/O).</p>
+        <div class="code-block"><pre>b = b"hello"            # bytes literal
+ba = bytearray(b"abc")  # mutable bytes
+ba[0] = 120
+print(b, ba)</pre></div>
+
+        <h5>Boolean and None</h5>
+        <p><strong>bool</strong> — True or False. <strong>None</strong> — absence of value (NoneType).</p>
+        <div class="code-block"><pre>print(type(True))    # &lt;class 'bool'&gt;
+print(True + 1)      # 2 (bools are subclass of int)
+
+x = None
+print(type(x))       # &lt;class 'NoneType'&gt;</pre></div>
+
+        <h4>3. Type conversion (casting)</h4>
+        <p>Convert between types using <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>list()</code>, <code>tuple()</code>, <code>set()</code>, <code>dict()</code>. Be careful: <code>int("3.14")</code> raises an error — convert to float first.</p>
+        <div class="code-block"><pre># Conversions
+s = "15"
+print(int(s) + 5)   # 20
+print(float("3.14") + 1)  # 4.14
+
+# bad conversion -> ValueError
+# int("3.14")  # ValueError: invalid literal</pre></div>
+
+        <h4>4. Input & Output</h4>
+        <p><strong>input()</strong> reads a string from user; use <code>int()</code> or <code>float()</code> to convert. <strong>print()</strong> displays values.</p>
+        <div class="code-block"><pre>name = input("Enter your name: ")
+print("Hello,", name)</pre></div>
+
+        <h4>5. Comments</h4>
+        <p>Use <code>#</code> for single-line comments and triple quotes for multi-line comments.</p>
+        <div class="code-block"><pre># single-line comment
+'''
+Multi-line comment
+'''
+</pre></div>
+
+        <h4>Common pitfalls (short)</h4>
+        <ul>
+          <li>Floating-point precision — compare floats with tolerance.</li>
+          <li>Mutable default arguments — avoid using mutable objects as default function arguments.</li>
+          <li>Dict keys must be hashable — mutable types (list, set, dict) cannot be keys.</li>
+          <li>Use <code>is None</code> to test for None.</li>
+        </ul>
+
+        <h4>Exercises (solutions included)</h4>
+
+        <div class="exercise">
+          <h4>Exercise 1 — Identify types</h4>
+          <div class="code-block"><pre># Variables
+a = 42
+b = 3.14
+c = "Python"
+d = [1, 2, 3]
+e = (4, 5, 6)
+f = {"name": "John", "age": 30}
+g = {1, 2, 2, 3}
+h = True
+i = None
+
+# 👉 Print types (solution below)</pre></div>
+          <details style="margin-top:6px;">
+            <summary><strong>Solution — code and expected output</strong></summary>
+            <div class="code-block"><pre># Solution
+variables = [a,b,c,d,e,f,g,h,i]
+for v in variables:
+    print(v, "->", type(v))
+
+# Expected output (each line shows value -> type):
+# 42 -> &lt;class 'int'&gt;
+# 3.14 -> &lt;class 'float'&gt;
+# Python -> &lt;class 'str'&gt;
+# [1, 2, 3] -> &lt;class 'list'&gt;
+# (4, 5, 6) -> &lt;class 'tuple'&gt;
+# {'name': 'John', 'age': 30} -> &lt;class 'dict'&gt;
+# {1, 2, 3} -> &lt;class 'set'&gt;
+# True -> &lt;class 'bool'&gt;
+# None -> &lt;class 'NoneType'&gt;</pre></div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <h4>Exercise 2 — Create dict & set (and see behavior)</h4>
+          <div class="code-block"><pre># Task:
+# 1) Create a dict for your favorite book (title, author, year)
+# 2) Create a set of 5 numbers with duplicates
+
+# Solution:
+book = {"title": "The Alchemist", "author": "Paulo Coelho", "year": 1988}
+print(book)
+
+numbers = {1, 2, 2, 3, 4}
+print(numbers)  # duplicates are removed — set holds unique values</pre></div>
+          <details style="margin-top:6px;">
+            <summary><strong>Explanation</strong></summary>
+            <div class="code-block"><pre># book is a dict with keys title, author, year
+# numbers is a set; duplicates (the second 2) are ignored
+
+# Expected output example:
+# {'title': 'The Alchemist', 'author': 'Paulo Coelho', 'year': 1988}
+# {1, 2, 3, 4}</pre></div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <h4>Exercise 3 — Check Positive or Negative (use boolean)</h4>
+          <div class="code-block"><pre># Task: Ask user for a number and print whether it's positive, negative or zero
+
+# Solution (example program):
+def check_number(n):
+    if n &gt; 0:
+        return True  # positive
+    elif n &lt; 0:
+        return False # negative
+    else:
+        return None  # zero
+
+# Example usage:
+for test in [10, -5, 0]:
+    result = check_number(test)
+    if result is True:
+        print(test, "is positive")
+    elif result is False:
+        print(test, "is negative")
+    else:
+        print(test, "is zero")
+
+# Expected output:
+# 10 is positive
+# -5 is negative
+# 0 is zero</pre></div>
+          <details style="margin-top:6px;">
+            <summary><strong>Alternate simpler solution (direct print)</strong></summary>
+            <div class="code-block"><pre>n = int(input("Enter a number: "))
+if n &gt; 0:
+    print("Positive")
+elif n &lt; 0:
+    print("Negative")
+else:
+    print("Zero")</pre></div>
+          </details>
+        </div>
+
+        <div style="margin-top:1rem; font-size:0.95rem; color:#333;">
+          <strong>Tips:</strong>
+          <ul>
+            <li>Use <code>type(x)</code> and <code>isinstance(x, T)</code> to inspect data.
+            <li>Remember that empty containers ("", [], {}, set()) are falsy in boolean contexts.</li>
+            <li>Convert strings to numbers carefully: <code>int("3.14")</code> fails — do <code>float()</code> first.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
     <!-- Go Back Button -->
-    <div style="text-align:center; margin:2rem 0;">
-      <button onclick="history.back()" 
-              style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
-                     background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
-        ← Go Back
-      </button>
+    <div class="go-back">
+      <button onclick="history.back()">← Go Back</button>
     </div>
 
   </main>
@@ -178,12 +362,6 @@ print("Sum:", sum)  # Output: Sum: 12
   <footer class="site-footer">
     <div class="site-container footer-inner">
       <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-      <div class="socials" aria-label="social links">
-        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      </div>
     </div>
   </footer>
 
@@ -210,3 +388,5 @@ print("Sum:", sum)  # Output: Sum: 12
 </body>
 </html>
 
+
+      
