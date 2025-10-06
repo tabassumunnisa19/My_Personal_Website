@@ -25,9 +25,14 @@ roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content im
   <p>So, instead of sinking in that quicksand, I built my own structured plan—a roadmap that balances theory, tools, and sanity.</p>
   
   <h3>📌 This is the roadmap I followed:</h3>
- <a href="{{ '/assets/images/My_data_Science_roadmap.png' | relative_url }}" target="_blank">
-  <img src="{{ '/assets/images/My_data_Science_roadmap.png' | relative_url }}" alt="My Data Science Roadmap">
-</a>
+ {% if page.roadmap_image %}
+  <div class="post-image">
+    <a href="{{ page.roadmap_image | relative_url }}" target="_blank">
+      <img src="{{ page.roadmap_image | relative_url }}" alt="Data Science Roadmap">
+    </a>
+  </div>
+{% endif %}
+
 
   <h2>Breaking Down the Roadmap (Explained Like a Data Scientist)</h2>
   <p>As someone who’s been through this journey and now mentors beginners, here’s the order I recommend:</p>
