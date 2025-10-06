@@ -28,8 +28,8 @@ image: /assets/images/post111.png
   <!-- Roadmap image section -->
 <div style="text-align: center; margin-top: 30px;">
   <figure style="display: inline-block; margin: 0; transition: transform 0.3s ease;">
-    <a href="assets/images/My_data_Science_roadmap.png" target="_blank" style="text-decoration: none;">
-      <img src="assets/images/My_data_Science_roadmap.png" 
+    <a href="../assets/images/My_data_Science_roadmap.png" target="_blank" style="text-decoration: none;">
+      <img src="../assets/images/My_data_Science_roadmap.png" 
            alt="My Data Science Roadmap" 
            style="max-width: 90%; height: auto; border-radius: 12px; box-shadow: 0 6px 14px rgba(0,0,0,0.25); transition: transform 0.3s ease;">
     </a>
