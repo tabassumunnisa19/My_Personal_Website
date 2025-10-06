@@ -25,7 +25,7 @@ roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content im
   <p>So, instead of sinking in that quicksand, I built my own structured plan—a roadmap that balances theory, tools, and sanity.</p>
   
   <h3>📌 This is the roadmap I followed:</h3>
- {% if page.roadmap_image %}
+ 
 <div style="text-align:center; margin:2rem 0;">
   <a href="{{ '/assets/images/My_data_Science_roadmap.png' | relative_url }}" target="_blank">
     <img src="{{ '/assets/images/My_data_Science_roadmap.png' | relative_url }}" 
