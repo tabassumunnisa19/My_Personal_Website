@@ -26,12 +26,13 @@ roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content im
   
   <h3>📌 This is the roadmap I followed:</h3>
  {% if page.roadmap_image %}
-  <div class="post-image">
-    <a href="{{ page.roadmap_image | relative_url }}" target="_blank">
-      <img src="{{ page.roadmap_image | relative_url }}" alt="Data Science Roadmap">
-    </a>
-  </div>
+<div class="post-image" style="text-align:center; margin:2rem 0;">
+  <a href="{{ page.roadmap_image | relative_url }}" target="_blank">
+    <img src="{{ page.roadmap_image | relative_url }}" alt="Data Science Roadmap" style="max-width:100%; height:auto;">
+  </a>
+</div>
 {% endif %}
+
 
 
   <h2>Breaking Down the Roadmap (Explained Like a Data Scientist)</h2>
