@@ -27,11 +27,12 @@ roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content im
   <h3>📌 This is the roadmap I followed:</h3>
  
 <div style="text-align:center; margin:2rem 0;">
-  <a href="/My_Personal_Website/assets/images/My_data_Science_roadmap.png" target="_blank">
-    <img src="/My_Personal_Website/assets/images/My_data_Science_roadmap.png" 
+  <a href="{{ site.baseurl }}/assets/images/My_data_Science_roadmap.png" target="_blank">
+    <img src="{{ site.baseurl }}/assets/images/My_data_Science_roadmap.png"
          alt="Data Science Roadmap" style="max-width:100%; height:auto;">
   </a>
 </div>
+
 
 
 
