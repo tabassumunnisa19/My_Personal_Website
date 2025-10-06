@@ -25,11 +25,10 @@ image: /assets/images/post111.png
   <p>So, instead of sinking in that quicksand, I built my own structured plan—a roadmap that balances theory, tools, and sanity.</p>
   
   <h3>📌 This is the roadmap I followed:</h3>
-  <!-- Roadmap image section -->
-<div style="text-align: center; margin-top: 30px;">
+  <div style="text-align: center; margin-top: 30px;">
   <figure style="display: inline-block; margin: 0; transition: transform 0.3s ease;">
-    <a href="../../assets/images/My_data_Science_roadmap.png" target="_blank" style="text-decoration: none;">
-      <img src="../../assets/images/My_data_Science_roadmap.png" 
+    <a href="../assets/images/My_data_Science_roadmap.png" target="_blank" style="text-decoration: none;">
+      <img src="../assets/images/My_data_Science_roadmap.png" 
            alt="My Data Science Roadmap" 
            style="max-width: 90%; height: auto; border-radius: 12px; box-shadow: 0 6px 14px rgba(0,0,0,0.25); transition: transform 0.3s ease;">
     </a>
@@ -39,12 +38,12 @@ image: /assets/images/post111.png
   </figure>
 </div>
 
-<!-- Hover animation -->
 <style>
 figure:hover img {
   transform: scale(1.03);
 }
 </style>
+
   <h2>Breaking Down the Roadmap (Explained Like a Data Scientist)</h2>
   <p>As someone who’s been through this journey and now mentors beginners, here’s the order I recommend:</p>
   
