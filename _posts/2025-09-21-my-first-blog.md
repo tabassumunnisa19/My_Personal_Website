@@ -29,7 +29,6 @@ roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content im
   <img src="{{ '/assets/images/My_data_Science_roadmap.png' | relative_url }}" alt="My Data Science Roadmap">
 </a>
 
-
   <h2>Breaking Down the Roadmap (Explained Like a Data Scientist)</h2>
   <p>As someone who’s been through this journey and now mentors beginners, here’s the order I recommend:</p>
   
