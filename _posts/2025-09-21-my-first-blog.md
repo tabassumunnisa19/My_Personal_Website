@@ -2,7 +2,7 @@
 layout: post
 title: "Learning Data Science in My 30s — A Structured Plan"
 subtitle: "How I’m learning step by step, staying consistent, and preparing for opportunities"
-date: 2025-06-20
+date: 2025-09-22
 author: "Tabassum Unnisa"
 categories: [Data Science, Career, Learning]
 tags: [Data Science, Career Change, Roadmap, 30s]
