@@ -25,10 +25,8 @@ roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content im
   <p>So, instead of sinking in that quicksand, I built my own structured plan—a roadmap that balances theory, tools, and sanity.</p>
   
   <h3>📌 This is the roadmap I followed:</h3>
- <a href="../../assets/images/My_data_Science_roadmap.png" target="_blank">
-  <img src="../../assets/images/My_data_Science_roadmap.png" 
-       alt="My Data Science Roadmap" 
-       style="max-width:90%; height:auto; border-radius:12px; box-shadow:0 6px 14px rgba(0,0,0,0.25);">
+ <a href="{{ '/assets/images/My_data_Science_roadmap.png' | relative_url }}" target="_blank">
+  <img src="{{ '/assets/images/My_data_Science_roadmap.png' | relative_url }}" alt="My Data Science Roadmap">
 </a>
 
 
