@@ -722,3 +722,22 @@ main { padding: 28px 0; }
   font-size: 0.85rem;
   color: #555;
 }
+.btn {
+  background-color: #0078d7;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: #005fa3;
+}
