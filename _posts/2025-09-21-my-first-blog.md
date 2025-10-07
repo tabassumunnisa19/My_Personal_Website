@@ -25,8 +25,7 @@ roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content im
   <p>So, instead of sinking in that quicksand, I built my own structured plan—a roadmap that balances theory, tools, and sanity.</p>
   
   <h3>📌 This is the roadmap I followed:</h3>
- 
-<<div style="text-align: center; margin-top: 30px;">
+<div style="text-align: center; margin-top: 20px;">
   <figure style="display: inline-block; margin: 0; transition: transform 0.3s ease;">
     <a href="{{ page.roadmap_image | relative_url }}" target="_blank" style="text-decoration: none;">
       <img src="{{ page.roadmap_image | relative_url }}" 
@@ -49,8 +48,13 @@ figure:hover img {
 
 
 
-  <h2>Breaking Down the Roadmap (Explained Like a Data Scientist)</h2>
-  <p>As someone who’s been through this journey and now mentors beginners, here’s the order I recommend:</p>
+  <p style="color:#475569; margin-bottom:16px;">
+    I’m still on my own journey of learning Data Science, and while exploring different courses and projects, 
+    I created this roadmap to keep myself consistent and clear about what to learn next. 
+    It’s a structured plan I personally follow — and I’m sharing it here for anyone who’s walking the same path 
+    and wants a clear direction to begin.
+  </p>
+
   
   <h3>1. Programming Languages & Tools (Foundation)</h3>
   <p>Start with Python—it will cover 90% of your needs. Learn how to manipulate data with Pandas, NumPy, and move into visualization. Later, you can explore R (great for statistics), or even Java/JavaScript for specific domains.</p>
