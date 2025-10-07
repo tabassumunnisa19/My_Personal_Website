@@ -802,4 +802,12 @@ main { padding: 28px 0; }
   background-color: #888;
   color: #fff;
   border-radius: 6px;
-  padding: 6px 12px
+  padding: 6px 12px;
+  margin-right: 10px;
+  font-size: 0.85rem;
+  cursor: default;
+}
+
+.btn.status.planned { background-color: #f0ad4e; }      /* yellow/orange */
+.btn.status.in-progress { background-color: #5bc0de; }  /* blue */
+.btn.status.working { background-color: #5cb85c; }      /* green */
