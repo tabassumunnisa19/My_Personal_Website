@@ -32,20 +32,44 @@
       </nav>
     </div>
   </header>
+  /* Feature image styling */
+.feature-image {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  overflow: hidden;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 280px; /* adjust for desired banner height */
+  object-fit: cover;
+  display: block;
+}
+
+.feature-image figcaption {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
 <section class="roadmap-section" style="max-width: 950px; margin: 0 auto; padding: 40px 20px; font-family: 'Inter', sans-serif; line-height: 1.8; color: #334155;">
 
   <!-- Featured Roadmap Image -->
-  <div style="width: 100vw; position: relative; left: 50%; margin-left: -50vw;">
-        <img src="../assets/images/Data_science_roadmap.png" 
-             alt="A Bird’s-Eye View of the Data Science Journey"
-             style="width: 100%; height: 50%; object-fit: cover; display: block;">
-        <figcaption>📊 A Bird’s-Eye View of the Data Science Journey</figcaption>
-      </div>
+  <div class="feature-image">
+  <img src="../assets/images/Data_science_roadmap.png" 
+       alt="A Bird’s-Eye View of the Data Science Journey">
+  <figcaption>📊 A Bird’s-Eye View of the Data Science Journey</figcaption>
+</div>
+
 
   <h1 style="text-align: center; color: #1e293b; margin-bottom: 20px;">Your Complete Data Science Roadmap</h1>
-  <p style="font-size: 17px;">
-    As a senior data scientist who has guided many beginners, I can confidently say this: learning data science is not about mastering everything at once — it’s about mastering the right things in the right order. This roadmap is a clear, structured path for anyone starting from scratch and aiming to become a job-ready data scientist.
-  </p>
+ <p style="font-size: 17px;">
+  I’m still on my own journey of learning Data Science, and while exploring different courses and projects, I created this roadmap to keep myself consistent and clear about what to learn next. It’s a structured plan I personally follow — and I’m sharing it here for anyone who’s walking the same path and wants a clear direction to begin.
+</p>
+
 
   <h2 style="color:#0f172a; margin-top: 40px;">1. Programming Languages & Tools (Foundation)</h2>
   <p>Start with <strong>Python</strong> — it will cover almost 90% of your data science needs. Learn to manipulate and analyze data using <strong>Pandas</strong> and <strong>NumPy</strong>. Once confident, move into visualization libraries and eventually explore <strong>R</strong> (great for statistics) or <strong>Java/JavaScript</strong> for domain-specific use cases.</p>
