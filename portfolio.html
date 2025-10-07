@@ -1,5 +1,14 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio — Nisa</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio — Nisa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="logo">
@@ -7,11 +16,11 @@
     </a>
 
     <!-- Hamburger button -->
-<button class="menu-toggle" aria-label="Toggle menu">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -26,19 +35,52 @@
   </div>
 </header>
 
-
 <main>
   <div class="site-container">
     <section class="section">
       <h2>Portfolio — Selected Projects</h2>
       <div class="grid">
-        <div class="card"><h3>Hospital Resource Optimization</h3><p><strong>Problem:</strong> Reduce patient wait times by optimizing beds, ventilators, and staff allocation. <strong>Approach:</strong> Predictive modeling + linear programming.</p></div>
-        <div class="card"><h3>Data Visualization Dashboards</h3><p>Interactive dashboards with Power BI & Tableau for stakeholder reporting.</p></div>
-        <div class="card"><h3>AI Learning Playground</h3><p>Deep learning experiments and mini-tutorials.</p></div>
+
+        <!-- 1️⃣ Social Media Sentiment Intelligence -->
+        <div class="card">
+          <h3>Social Media Sentiment Intelligence</h3>
+          <p>Developed a sentiment analysis and trend forecasting system using NLP and topic modeling to analyze brand perception and public opinion on X (Twitter).</p>
+          <button class="btn"><a href="#" target="_blank">View on GitHub</a></button>
+        </div>
+
+        <!-- 2️⃣ AI-Powered Resume Screener -->
+        <div class="card">
+          <h3>AI-Powered Resume Screener</h3>
+          <p>Built an NLP-based system using BERT and NER to classify resumes, extract skills, and identify key gaps relative to job descriptions for automated candidate screening.</p>
+          <button class="btn"><a href="#" target="_blank">View on GitHub</a></button>
+        </div>
+
+        <!-- 3️⃣ Climate Intelligence Dashboard -->
+        <div class="card">
+          <h3>Climate Intelligence Dashboard</h3>
+          <p>Designed an interactive dashboard predicting Air Quality Index (AQI) using geospatial and time series data to visualize environmental trends and pollution patterns.</p>
+          <button class="btn"><a href="#" target="_blank">View on GitHub</a></button>
+        </div>
+
+        <!-- 4️⃣ Healthcare Resource Optimization -->
+        <div class="card">
+          <h3>Healthcare Resource Optimization</h3>
+          <p>Developed a predictive analytics model to optimize hospital resource allocation — forecasting bed, ventilator, and staff demand to reduce patient wait times.</p>
+          <button class="btn"><a href="#" target="_blank">View on GitHub</a></button>
+        </div>
+
+        <!-- 5️⃣ Dynamic Pricing Engine for E-Commerce -->
+        <div class="card">
+          <h3>Dynamic Pricing Engine for E-Commerce</h3>
+          <p>Created an AI-driven pricing engine using regression and reinforcement learning to adjust product prices dynamically based on demand, seasonality, and competition.</p>
+          <button class="btn"><a href="#" target="_blank">View on GitHub</a></button>
+        </div>
+
       </div>
     </section>
   </div>
 </main>
+
 <footer class="site-footer">
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
@@ -50,5 +92,7 @@
     </div>
   </div>
 </footer>
+
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
