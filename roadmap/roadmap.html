@@ -33,8 +33,9 @@
   <!-- Main Section with Left Fixed Image & Right Scrollable Content -->
   <section class="roadmap-container">
     
-    <!-- Left Featured Image (Fixed) -->
+    <!-- Left Featured Image (Fixed with Overlay) -->
     <div class="roadmap-image">
+      <div class="image-overlay"></div>
       <img src="../assets/images/Data_science_roadmap.png" alt="A Bird’s-Eye View of the Data Science Journey">
       <figcaption style="text-align:center; font-size:0.6rem; color:#555;margin-bottom:6px; margin-top:6px;">
         📊 A Bird’s-Eye View of the Data Science Journey
@@ -153,22 +154,39 @@
     /* Two-column layout with left fixed image */
     .roadmap-container {
       display: flex;
-      min-height: calc(100vh - 80px - 100px); /* header + footer approx */
+      min-height: calc(100vh - 80px - 100px); /* header + footer */
     }
 
-    /* Left Image Fixed */
+    /* Left Image Fixed with Overlay */
     .roadmap-image {
-      flex: 1;
+      flex: 0 0 35%; /* width reduced */
       position: sticky;
       top: 80px; /* header height */
-      height: calc(100vh - 80px);
+      height: calc(100vh - 80px - 100px); /* header + footer */
       overflow: hidden;
+      padding-right: 10px;
     }
 
     .roadmap-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .roadmap-image .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(200,200,200,0.3); /* subtle gray overlay */
+      border-radius: 12px;
+      z-index: 2;
+      pointer-events: none;
     }
 
     /* Right Content Scrollable */
@@ -213,10 +231,14 @@
         position: relative;
         height: 300px;
         top: 0;
+        flex: 1;
       }
       .roadmap-content {
         max-width: 100%;
         padding: 20px;
+      }
+      .roadmap-image .image-overlay {
+        display: none;
       }
     }
   </style>
