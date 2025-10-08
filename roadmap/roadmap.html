@@ -234,9 +234,14 @@
         flex: 1;
       }
       .roadmap-content {
-        max-width: 100%;
-        padding: 20px;
-      }
+  flex: 1;
+  padding: 40px 50px;
+  /* max-width removed */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+      
       .roadmap-image .image-overlay {
         display: none;
       }
