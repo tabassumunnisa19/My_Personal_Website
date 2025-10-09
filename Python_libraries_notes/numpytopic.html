@@ -327,7 +327,6 @@ print("Highest salary month:", max_month)
 <!-- ──────────────── Topic 2: Array Creation Methods ──────────────── -->
 <div class="topic-head" style="margin-top:2rem;">
   <h2>Topic 2: Array Creation Methods</h2>
-  <span class="badge">Beginner • Data Science</span>
 </div>
 
 <div class="qa-block">
@@ -532,6 +531,1249 @@ print("Highest salary month:", max_month)
   </div>
 </div>
 <!-- ──────────────── End of Topic 2 ──────────────── -->
+<!-- ──────────────── Topic 3: Array Dimensions & Indexing ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 3: Array Dimensions &amp; Indexing</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Array Dimensions &amp; Indexing <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>NumPy arrays can be one-dimensional (1-D), two-dimensional (2-D), three-dimensional (3-D), or higher.  
+    Indexing and slicing help you access or modify data efficiently.</p>
+    <ul>
+      <li><strong>1-D:</strong> Linear list of elements.</li>
+      <li><strong>2-D:</strong> Table (rows × columns).</li>
+      <li><strong>3-D:</strong> Stack of 2-D arrays (like color channels or time slices).</li>
+      <li><strong>Slicing:</strong> Extract sub-arrays using <code>[start:stop:step]</code>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>1-D Array Indexing &amp; Slicing <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import numpy as np
+
+a = np.array([10, 20, 30, 40, 50, 60, 70])
+print(a[0])        # first element
+print(a[-1])       # last element
+print(a[1:5])      # elements from index 1 to 4
+print(a[::2])      # every 2nd element
+print(a[::-1])     # reversed array
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>2-D Array Indexing &amp; Slicing <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+b = np.array([[11,12,13,14],
+              [21,22,23,24],
+              [31,32,33,34]])
+
+print(b[0, 2])      # element row0,col2 → 13
+print(b[1, :])      # 2nd row
+print(b[:, 1])      # 2nd column
+print(b[0:2, 1:3])  # subarray rows0-1, cols1-2
+print(b[::-1])      # reverse rows
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>3-D Array Indexing <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+arr3d = np.array([
+  [[1,2,3],[4,5,6]],
+  [[7,8,9],[10,11,12]]
+])
+
+print(arr3d.shape)      # (2, 2, 3)
+print(arr3d[0,1,2])     # value 6
+print(arr3d[1])         # 2nd matrix
+print(arr3d[:,0,:])     # first row from each matrix
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Fancy &amp; Boolean Indexing <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+x = np.array([10, 20, 30, 40, 50])
+
+# fancy indexing
+indices = [0, 2, 4]
+print(x[indices])       # [10 30 50]
+
+# boolean indexing
+mask = x > 25
+print(x[mask])          # [30 40 50]
+
+# combined condition
+print(x[(x > 15) & (x < 45)])  # [20 30 40]
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Copy vs View <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Slicing returns a <strong>view</strong> (changes affect the original array).  
+    Use <code>.copy()</code> to create an independent copy.</p>
+    <div class="code-block">
+<pre>
+a = np.array([1, 2, 3, 4, 5])
+b = a[1:4]        # view
+b[0] = 99
+print(a)          # original changed
+
+c = a.copy()      # independent copy
+c[0] = 100
+print(a)          # unchanged
+print(c)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Temperature Matrix <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>3 cities × 5 days temperature dataset.  
+    Retrieve various slices and sub-sets.</p>
+    <div class="code-block">
+<pre>
+temps = np.array([
+  [30, 32, 31, 33, 35],  # City A
+  [28, 29, 31, 30, 32],  # City B
+  [25, 26, 27, 28, 29]   # City C
+])
+
+print("City A temps:", temps[0])
+print("Day 3 temps:", temps[:, 2])
+print("Last 2 days:\n", temps[:, 3:])
+print("Cities A &amp; B, first 3 days:\n", temps[0:2, :3])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. Difference between indexing and slicing?</h4>
+    <p><strong>A:</strong> Indexing retrieves a single element; slicing retrieves a range (sub-array).</p>
+
+    <h4>Q2. How to reverse rows or columns of a 2-D array?</h4>
+    <p><strong>A:</strong> Use negative steps → <code>a[::-1]</code> reverses rows, <code>a[:, ::-1]</code> reverses columns.</p>
+
+    <h4>Q3. Does slicing return a copy or a view?</h4>
+    <p><strong>A:</strong> A view (same memory). Use <code>.copy()</code> for an independent array.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Select Odd Numbers</h4>
+      <div class="code-block">
+<pre>
+arr = np.arange(1, 21)
+odd = arr[arr % 2 != 0]
+print(odd)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Extract Middle Row &amp; Column</h4>
+      <div class="code-block">
+<pre>
+m = np.arange(1, 26).reshape(5, 5)
+mid_row = m[2, :]
+mid_col = m[:, 2]
+print("Middle row:", mid_row)
+print("Middle col:", mid_col)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Replace Values Using Boolean Indexing</h4>
+      <div class="code-block">
+<pre>
+x = np.array([12, 25, 7, 30, 18])
+x[x &lt; 15] = 0
+print(x)   # values below 15 replaced with 0
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Image Pixel Slicing Simulation</h4>
+    <div class="exercise">
+      <p>Simulate a grayscale image (10×10 pixels).  
+      Extract the top-left 5×5 region and find its mean intensity.</p>
+      <div class="code-block">
+<pre>
+image = np.random.randint(0, 256, (10, 10))
+region = image[0:5, 0:5]
+print("Region Mean Intensity:", np.mean(region))
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 3 ──────────────── -->
+<!-- ──────────────── Topic 4: Mathematical Operations & Broadcasting ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 4: Mathematical Operations &amp; Broadcasting</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Mathematical Operations <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>NumPy allows fast mathematical operations on entire arrays without explicit loops.  
+    You can perform addition, subtraction, multiplication, division, square roots, powers, and more using vectorized operations.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Element-Wise Arithmetic Operations <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import numpy as np
+
+a = np.array([10, 20, 30, 40])
+b = np.array([1, 2, 3, 4])
+
+print(np.add(a, b))        # addition
+print(np.subtract(a, b))   # subtraction
+print(np.multiply(a, b))   # multiplication
+print(np.divide(a, b))     # division
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Square Root, Exponent &amp; Power Functions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+a = np.array([4, 9, 16, 25])
+print(np.sqrt(a))      # square roots
+print(np.power(a, 2))  # each element squared
+print(np.exp([1, 2, 3]))   # exponential (e^x)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Statistical Functions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+data = np.array([10, 20, 30, 40, 50])
+print("Sum:", np.sum(data))
+print("Mean:", np.mean(data))
+print("Median:", np.median(data))
+print("Standard deviation:", np.std(data))
+print("Variance:", np.var(data))
+print("Max:", np.max(data))
+print("Min:", np.min(data))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Matrix Operations <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+A = np.array([[1,2,3],
+              [4,5,6]])
+B = np.array([[1,2],
+              [3,4],
+              [5,6]])
+
+print("Matrix multiplication:\n", np.dot(A, B))
+print("Transpose:\n", A.T)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Understanding Broadcasting <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Broadcasting</strong> lets NumPy apply operations on arrays of different shapes without explicit loops by “stretching” smaller arrays to match larger ones.</p>
+    <div class="code-block">
+<pre>
+a = np.array([1, 2, 3])
+b = 5
+print(a + b)        # scalar broadcast
+
+A = np.array([[1,2,3],
+              [4,5,6],
+              [7,8,9]])
+B = np.array([10,20,30])
+print(A + B)        # vector broadcast across rows
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Sales Analysis <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Simulate sales of three products over four months and apply broadcasting to compute growth.</p>
+    <div class="code-block">
+<pre>
+sales = np.array([
+  [120, 130, 125, 140],
+  [200, 210, 220, 230],
+  [150, 160, 155, 165]
+])
+
+growth = np.array([1.05, 1.1, 1.0, 1.08])  # 5–10 % growth
+new_sales = sales * growth                 # broadcasted multiplication
+print("New sales after growth:\n", new_sales)
+print("Average per product:", np.mean(new_sales, axis=1))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is vectorization in NumPy?</h4>
+    <p><strong>A:</strong> Performing operations on entire arrays without explicit Python loops — makes computation faster.</p>
+
+    <h4>Q2. What is broadcasting?</h4>
+    <p><strong>A:</strong> Automatic expansion of smaller array dimensions to match larger ones during arithmetic operations.</p>
+
+    <h4>Q3. When will broadcasting fail?</h4>
+    <p><strong>A:</strong> When array dimensions are not compatible — sizes differ and neither is 1 for alignment.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Temperature Conversion</h4>
+      <div class="code-block">
+<pre>
+celsius = np.array([0, 20, 37, 100])
+fahrenheit = (celsius * 9/5) + 32
+print(fahrenheit)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Normalize an Array</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([10, 15, 20, 25])
+norm = (arr - np.min(arr)) / (np.max(arr) - np.min(arr))
+print(norm)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Row-Wise Sum Using Axis</h4>
+      <div class="code-block">
+<pre>
+A = np.array([[1,2,3],
+              [4,5,6],
+              [7,8,9]])
+row_sum = np.sum(A, axis=1)
+print(row_sum)
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Profit Analysis with Broadcasting</h4>
+    <div class="exercise">
+      <p>Given product prices and cost, compute profit %, then broadcast a 10 % increase in selling price and recalculate.</p>
+      <div class="code-block">
+<pre>
+price = np.array([200, 250, 300, 350])
+cost  = np.array([150, 180, 200, 280])
+
+profit = price - cost
+profit_percent = (profit / cost) * 100
+print("Profit %:", profit_percent)
+
+# 10 % price hike
+new_price = price * 1.10
+new_profit_percent = ((new_price - cost) / cost) * 100
+print("New Profit %:", new_profit_percent)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 4 ──────────────── -->
+<!-- ──────────────── Topic 5: Statistical & Aggregation Functions ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 5: Statistical &amp; Aggregation Functions</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Statistical &amp; Aggregation Functions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>NumPy provides a rich set of statistical and aggregation functions to summarize data efficiently.  
+    These are frequently used in data analysis to compute metrics like mean, median, variance, standard deviation, and cumulative sums.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Basic Statistical Measures <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import numpy as np
+
+data = np.array([12, 15, 20, 25, 30, 35, 40])
+
+print("Sum:", np.sum(data))
+print("Mean:", np.mean(data))
+print("Median:", np.median(data))
+print("Standard Deviation:", np.std(data))
+print("Variance:", np.var(data))
+print("Minimum:", np.min(data))
+print("Maximum:", np.max(data))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Aggregation Along Axes <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Aggregate values along specific axes using the <code>axis</code> parameter.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([[10, 20, 30],
+                [40, 50, 60],
+                [70, 80, 90]])
+
+print("Column-wise sum:", np.sum(arr, axis=0))
+print("Row-wise mean:", np.mean(arr, axis=1))
+print("Column-wise max:", np.max(arr, axis=0))
+print("Row-wise min:", np.min(arr, axis=1))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Advanced Statistical Functions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+x = np.array([10, 12, 23, 23, 16, 23, 21, 16])
+print("Unique values:", np.unique(x))
+print("Percentile (50%):", np.percentile(x, 50))
+print("Correlation coefficient matrix:\n", np.corrcoef(x))
+print("Cumulative sum:", np.cumsum(x))
+print("Cumulative product:", np.cumprod(x))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Student Marks Analysis <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Suppose we have marks of 4 students in 3 subjects. Let’s calculate performance metrics.</p>
+    <div class="code-block">
+<pre>
+marks = np.array([
+  [78, 82, 88],
+  [92, 90, 95],
+  [70, 68, 72],
+  [85, 80, 82]
+])
+
+print("Average marks per subject:", np.mean(marks, axis=0))
+print("Average marks per student:", np.mean(marks, axis=1))
+print("Highest mark per subject:", np.max(marks, axis=0))
+print("Overall class average:", np.mean(marks))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Handling Missing or Invalid Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>np.nan*</code> versions of functions to ignore NaN values in your data.</p>
+    <div class="code-block">
+<pre>
+data = np.array([10, 20, np.nan, 30, np.nan, 40])
+
+print("Ignoring NaN - Mean:", np.nanmean(data))
+print("Ignoring NaN - Sum:", np.nansum(data))
+print("Count of NaN:", np.count_nonzero(np.isnan(data)))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is the difference between <code>mean()</code> and <code>average()</code> in NumPy?</h4>
+    <p><strong>A:</strong> Both return arithmetic mean, but <code>average()</code> allows weighted mean using the <code>weights</code> parameter.</p>
+
+    <h4>Q2. How does NumPy handle NaN values in aggregation?</h4>
+    <p><strong>A:</strong> Standard functions return NaN if any NaN exists. Use <code>np.nanmean()</code>, <code>np.nansum()</code>, etc., to ignore them.</p>
+
+    <h4>Q3. What is the difference between <code>sum()</code> and <code>cumsum()</code>?</h4>
+    <p><strong>A:</strong> <code>sum()</code> gives total of all elements; <code>cumsum()</code> gives cumulative totals step-by-step.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Compute Basic Stats</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([5, 10, 15, 20, 25])
+print("Mean:", np.mean(arr))
+print("Variance:", np.var(arr))
+print("Std Dev:", np.std(arr))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Axis-Based Aggregation</h4>
+      <div class="code-block">
+<pre>
+matrix = np.arange(1, 13).reshape(3, 4)
+print("Sum along columns:", np.sum(matrix, axis=0))
+print("Sum along rows:", np.sum(matrix, axis=1))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Handling NaN Values</h4>
+      <div class="code-block">
+<pre>
+values = np.array([3, np.nan, 9, 12, np.nan, 15])
+clean_mean = np.nanmean(values)
+print("Mean ignoring NaN:", clean_mean)
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Company Revenue Analysis</h4>
+    <div class="exercise">
+      <p>Analyze quarterly revenues of 3 branches and compute key metrics like total, average, and growth percentage.</p>
+      <div class="code-block">
+<pre>
+revenue = np.array([
+  [150, 160, 170, 180],
+  [200, 220, 210, 230],
+  [120, 140, 150, 160]
+])
+
+total = np.sum(revenue, axis=1)
+avg = np.mean(revenue, axis=1)
+growth = ((revenue[:, -1] - revenue[:, 0]) / revenue[:, 0]) * 100
+
+print("Total Revenue per Branch:", total)
+print("Average Revenue per Branch:", avg)
+print("Growth % per Branch:", growth)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 5 ──────────────── -->
+<!-- ──────────────── Topic 6: Array Manipulation (Reshape, Flatten, Concatenate, Split) ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 6: Array Manipulation (Reshape, Flatten, Concatenate, Split)</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Array Manipulation <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Array manipulation involves changing the structure or layout of data without altering the actual elements.  
+    NumPy provides powerful methods for reshaping, flattening, concatenating, splitting, stacking, and transposing arrays — essential for preprocessing data in machine learning and analytics.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>reshape()</code> – Change Array Shape <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Reshape changes the dimensions of an array without changing its data.</p>
+    <div class="code-block">
+<pre>
+import numpy as np
+
+a = np.arange(1, 13)
+b = a.reshape(3, 4)   # 3 rows, 4 columns
+c = a.reshape(2, 2, 3) # 3D array
+print(b)
+print(c)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>flatten()</code> and <code>ravel()</code> <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Both convert multi-dimensional arrays into 1-D.  
+    <code>flatten()</code> returns a copy, <code>ravel()</code> returns a view (faster).</p>
+    <div class="code-block">
+<pre>
+arr = np.array([[1,2,3],
+                [4,5,6]])
+
+flat1 = arr.flatten()
+flat2 = arr.ravel()
+
+print(flat1)
+print(flat2)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>concatenate()</code> and <code>stack()</code> <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Join multiple arrays together using different stacking techniques.</p>
+    <div class="code-block">
+<pre>
+x = np.array([[1,2],[3,4]])
+y = np.array([[5,6],[7,8]])
+
+# concatenate along rows (axis=0)
+concat_row = np.concatenate((x, y), axis=0)
+
+# concatenate along columns (axis=1)
+concat_col = np.concatenate((x, y), axis=1)
+
+# stack vertically and horizontally
+v_stack = np.vstack((x, y))
+h_stack = np.hstack((x, y))
+
+print("Row-wise concat:\n", concat_row)
+print("Column-wise concat:\n", concat_col)
+print("Vertical stack:\n", v_stack)
+print("Horizontal stack:\n", h_stack)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>split()</code>, <code>hsplit()</code>, <code>vsplit()</code> <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Split arrays into smaller sub-arrays.</p>
+    <div class="code-block">
+<pre>
+a = np.arange(1, 13).reshape(3, 4)
+print("Original Array:\n", a)
+
+# split into 2 equal parts along columns
+h_parts = np.hsplit(a, 2)
+
+# split into 3 equal parts along rows
+v_parts = np.vsplit(a, 3)
+
+print("Horizontal Split:")
+for p in h_parts: print(p)
+
+print("Vertical Split:")
+for p in v_parts: print(p)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>transpose()</code> and <code>swapaxes()</code> <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Transpose flips rows and columns; swapaxes exchanges any two dimensions of an array.</p>
+    <div class="code-block">
+<pre>
+A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+print("Transpose:\n", A.T)
+
+B = np.arange(8).reshape(2,2,2)
+print("Swapaxes (0,2):\n", np.swapaxes(B, 0, 2))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Employee Data Transformation <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Suppose each row represents an employee and columns represent salaries over 4 quarters.  
+    Let’s analyze and reshape the data for better insights.</p>
+    <div class="code-block">
+<pre>
+data = np.array([
+  [40000, 42000, 44000, 46000],
+  [50000, 52000, 53000, 54000],
+  [60000, 61000, 63000, 65000]
+])
+
+print("Shape:", data.shape)
+
+# reshape into 1-D array for flat analysis
+flat = data.flatten()
+print("Flattened:", flat)
+
+# concatenate bonus data for each quarter
+bonus = np.array([[2000, 2000, 2000, 2000],
+                  [2500, 2500, 2500, 2500],
+                  [3000, 3000, 3000, 3000]])
+
+new_data = np.add(data, bonus)
+print("With Bonuses:\n", new_data)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What’s the difference between <code>reshape()</code> and <code>resize()</code>?</h4>
+    <p><strong>A:</strong> <code>reshape()</code> returns a new array without changing the original, while <code>resize()</code> modifies the array in-place.</p>
+
+    <h4>Q2. What’s the difference between <code>flatten()</code> and <code>ravel()</code>?</h4>
+    <p><strong>A:</strong> <code>flatten()</code> makes a copy; <code>ravel()</code> returns a view whenever possible.</p>
+
+    <h4>Q3. Can <code>reshape()</code> always succeed?</h4>
+    <p><strong>A:</strong> Only if the total number of elements remains the same (rows × columns must match original size).</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Reshape Practice</h4>
+      <div class="code-block">
+<pre>
+arr = np.arange(1, 10)
+reshaped = arr.reshape(3, 3)
+print(reshaped)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Concatenate and Split</h4>
+      <div class="code-block">
+<pre>
+a = np.array([1,2,3])
+b = np.array([4,5,6])
+combined = np.concatenate((a, b))
+split_arrays = np.split(combined, 2)
+
+print("Combined:", combined)
+print("Split Parts:", split_arrays)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Transpose Matrix</h4>
+      <div class="code-block">
+<pre>
+matrix = np.array([[2, 4, 6],
+                   [1, 3, 5]])
+print("Transpose:\n", matrix.T)
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Product Data Reshaping</h4>
+    <div class="exercise">
+      <p>Given product sales of 6 products for 2 regions, reshape data and compute region-wise totals.</p>
+      <div class="code-block">
+<pre>
+sales = np.arange(1, 13)  # 12 entries
+sales_matrix = sales.reshape(2, 6)
+print("Sales matrix:\n", sales_matrix)
+
+# Split into two regions
+region1, region2 = np.vsplit(sales_matrix, 2)
+print("Region 1:", region1)
+print("Region 2:", region2)
+
+# Concatenate both regions vertically again
+combined = np.vstack((region1, region2))
+print("Combined again:\n", combined)
+
+# Region-wise total sales
+print("Region totals:", np.sum(combined, axis=1))
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 6 ──────────────── -->
+<!-- ──────────────── Topic 7: Sorting, Searching & Counting Functions ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 7: Sorting, Searching &amp; Counting Functions</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Sorting, Searching &amp; Counting in NumPy <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>NumPy offers efficient methods to sort arrays, search for specific elements, and count or locate occurrences.  
+    These operations are optimized for speed and commonly used in data preprocessing, filtering, and analysis workflows.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.sort()</code> – Sorting Arrays <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><code>np.sort()</code> returns a sorted copy of an array. Sorting can be performed along any axis.</p>
+    <div class="code-block">
+<pre>
+import numpy as np
+
+a = np.array([5, 2, 9, 1, 7])
+print("Original:", a)
+print("Sorted:", np.sort(a))
+print("Descending:", np.sort(a)[::-1])
+</pre>
+
+<pre>
+# Sorting a 2-D array
+b = np.array([[5, 1, 6],
+              [4, 0, 3]])
+
+print("Sort along rows:\n", np.sort(b, axis=1))
+print("Sort along columns:\n", np.sort(b, axis=0))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.argsort()</code> – Indices of Sorted Elements <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Returns the indices that would sort an array.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([40, 10, 30, 20])
+indices = np.argsort(arr)
+print("Indices:", indices)
+print("Sorted values using indices:", arr[indices])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.searchsorted()</code> – Binary Search Index <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Finds index positions where new values should be inserted to maintain order.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([10, 20, 30, 40, 50])
+idx = np.searchsorted(arr, 35)
+print("Index to insert 35:", idx)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.where()</code> – Conditional Search <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Returns indices where conditions are True.  
+    Commonly used to filter or locate specific values.</p>
+    <div class="code-block">
+<pre>
+data = np.array([5, 10, 15, 20, 25, 30])
+indices = np.where(data > 15)
+print("Indices where data > 15:", indices)
+print("Values:", data[indices])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.count_nonzero()</code> &amp; <code>np.unique()</code> <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Count elements meeting certain conditions or find unique elements.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([1, 2, 2, 3, 3, 3, 0, 0])
+print("Non-zero count:", np.count_nonzero(arr))
+print("Unique elements:", np.unique(arr))
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Exam Scores Analysis <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Analyze student exam scores using sorting and searching techniques.</p>
+    <div class="code-block">
+<pre>
+scores = np.array([78, 85, 62, 90, 56, 80, 95])
+
+# Sort ascending and descending
+sorted_scores = np.sort(scores)
+top_scores = sorted_scores[::-1]
+
+# Find students who scored above 80
+above_80 = np.where(scores > 80)
+
+print("Sorted Scores:", sorted_scores)
+print("Top Scores:", top_scores)
+print("Indices above 80:", above_80)
+print("Scores above 80:", scores[above_80])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. Difference between <code>np.sort()</code> and <code>sort()</code> method of ndarray?</h4>
+    <p><strong>A:</strong> <code>np.sort()</code> returns a sorted copy, while <code>arr.sort()</code> sorts the array in-place (modifies original).</p>
+
+    <h4>Q2. What does <code>np.argsort()</code> return?</h4>
+    <p><strong>A:</strong> The indices that would sort the array. Useful for indirect sorting.</p>
+
+    <h4>Q3. How is <code>np.where()</code> different from <code>np.searchsorted()</code>?</h4>
+    <p><strong>A:</strong> <code>where()</code> finds indices matching a condition,  
+    <code>searchsorted()</code> finds insert positions in sorted arrays.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Sort Random Array</h4>
+      <div class="code-block">
+<pre>
+arr = np.random.randint(1, 100, 10)
+print("Original:", arr)
+print("Sorted:", np.sort(arr))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Find Specific Elements</h4>
+      <div class="code-block">
+<pre>
+a = np.array([10, 20, 30, 40, 50, 60])
+indices = np.where(a % 20 == 0)
+print("Indices divisible by 20:", indices)
+print("Values:", a[indices])
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Unique &amp; Frequency Count</h4>
+      <div class="code-block">
+<pre>
+vals = np.array([2, 3, 3, 5, 5, 5, 2])
+unique, counts = np.unique(vals, return_counts=True)
+print("Unique:", unique)
+print("Counts:", counts)
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Movie Ratings Analytics</h4>
+    <div class="exercise">
+      <p>Analyze movie ratings using NumPy searching and counting.</p>
+      <div class="code-block">
+<pre>
+ratings = np.array([3, 4, 5, 2, 5, 4, 3, 5, 4, 1])
+
+# Sort ratings
+sorted_ratings = np.sort(ratings)
+# Find all 5-star ratings
+five_star_idx = np.where(ratings == 5)
+# Count of each rating
+unique, count = np.unique(ratings, return_counts=True)
+
+print("Sorted Ratings:", sorted_ratings)
+print("5-Star indices:", five_star_idx)
+print("Ratings Summary:")
+for r, c in zip(unique, count):
+    print(f"Rating {r}: {c} times")
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 7 ──────────────── -->
+<!-- ──────────────── Topic 8: Random Module & Data Generation ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 8: Random Module &amp; Data Generation</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of NumPy Random Module <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>NumPy provides a <code>random</code> module to generate random numbers and arrays.  
+    It is widely used in simulations, sampling, data augmentation, and initializing weights in machine learning models.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.random.rand()</code> – Uniform Distribution <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Generates random numbers in the range [0, 1) with uniform distribution.</p>
+    <div class="code-block">
+<pre>
+import numpy as np
+
+# Single number
+num = np.random.rand()
+print("Random number:", num)
+
+# 1D array of size 5
+arr = np.random.rand(5)
+print("Random array:", arr)
+
+# 2D array 3x4
+arr2d = np.random.rand(3,4)
+print("2D Random Array:\n", arr2d)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.random.randn()</code> – Standard Normal Distribution <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Generates samples from the standard normal distribution (mean 0, std 1).</p>
+    <div class="code-block">
+<pre>
+# 1D array of size 5
+arr = np.random.randn(5)
+print("Normal distribution array:", arr)
+
+# 2D array 2x3
+arr2d = np.random.randn(2,3)
+print("2D Normal Distribution Array:\n", arr2d)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.random.randint()</code> – Random Integers <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Generates random integers from a specified range.</p>
+    <div class="code-block">
+<pre>
+# Single integer between 1 and 10 (inclusive lower, exclusive upper)
+n = np.random.randint(1, 10)
+print("Random integer:", n)
+
+# 1D array of size 5
+arr = np.random.randint(10, 50, size=5)
+print("Random integer array:", arr)
+
+# 2D array 2x4
+arr2d = np.random.randint(0, 100, size=(2,4))
+print("2D Random Integers:\n", arr2d)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.random.choice()</code> – Random Sampling <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Select random elements from an array with or without replacement.</p>
+    <div class="code-block">
+<pre>
+elements = np.array(['apple','banana','cherry','date'])
+
+# Random single selection
+item = np.random.choice(elements)
+print("Random item:", item)
+
+# Random sample of 3 items without replacement
+sample = np.random.choice(elements, size=3, replace=False)
+print("Random sample:", sample)
+
+# Random sample with probability weights
+weights = [0.1, 0.2, 0.3, 0.4]
+sample_weighted = np.random.choice(elements, size=3, p=weights)
+print("Weighted sample:", sample_weighted)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.random.shuffle()</code> &amp; <code>np.random.permutation()</code> <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Randomly reorder elements of an array.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([1, 2, 3, 4, 5])
+np.random.shuffle(arr)  # Shuffles in-place
+print("Shuffled array:", arr)
+
+arr2 = np.array([10, 20, 30, 40])
+permuted = np.random.permutation(arr2)  # Returns a new array
+print("Permuted array:", permuted)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Simulated Sales Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Simulate monthly sales for 5 stores.</p>
+    <div class="code-block">
+<pre>
+# Random monthly sales between 1000 and 5000
+sales = np.random.randint(1000, 5000, size=(5,12))
+print("Simulated Sales Data:\n", sales)
+
+# Shuffle store order
+np.random.shuffle(sales)
+print("Shuffled Stores Sales:\n", sales)
+
+# Sample 3 months randomly for analysis
+months_sample = np.random.choice(np.arange(1,13), size=3, replace=False)
+print("Random months sampled:", months_sample)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. Difference between <code>rand()</code> and <code>randn()</code>?</h4>
+    <p><strong>A:</strong> <code>rand()</code> produces uniform distribution [0,1), while <code>randn()</code> produces standard normal distribution (mean=0, std=1).</p>
+
+    <h4>Q2. Difference between <code>shuffle()</code> and <code>permutation()</code>?</h4>
+    <p><strong>A:</strong> <code>shuffle()</code> modifies array in-place, <code>permutation()</code> returns a new shuffled array.</p>
+
+    <h4>Q3. How to sample with custom probabilities?</h4>
+    <p><strong>A:</strong> Use <code>np.random.choice()</code> with <code>p=</code> argument specifying weights for each element.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Generate Random Array</h4>
+      <div class="code-block">
+<pre>
+arr = np.random.rand(5)
+print("Random array:", arr)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Random Integers &amp; Sampling</h4>
+      <div class="code-block">
+<pre>
+arr = np.random.randint(10, 50, size=10)
+sample = np.random.choice(arr, size=3, replace=False)
+print("Original array:", arr)
+print("Random sample:", sample)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Shuffle and Permute</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([1,2,3,4,5,6])
+np.random.shuffle(arr)
+print("Shuffled in-place:", arr)
+
+permuted = np.random.permutation(arr)
+print("Permuted new array:", permuted)
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Simulate Dice Rolls</h4>
+    <div class="exercise">
+      <p>Simulate 10 rolls of a dice and count frequency of each face.</p>
+      <div class="code-block">
+<pre>
+dice = np.random.randint(1,7, size=10)
+print("Dice rolls:", dice)
+
+faces, counts = np.unique(dice, return_counts=True)
+for f, c in zip(faces, counts):
+    print(f"Face {f} appeared {c} times")
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 8 ──────────────── -->
 
     
     <!-- Go Back -->
