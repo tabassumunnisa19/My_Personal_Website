@@ -1,1 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Topic 1: Introduction</title>
 
+  <!-- reuse main site stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Page-specific styles (kept consistent with python_simplified.html) */
+    body { line-height:1.7; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    .qa-block { border: 1px solid #e6eef8; border-radius: 8px; margin-bottom: 1rem; background: #fff; overflow: hidden; }
+    .qa-block button { width: 100%; text-align: left; padding: 1rem; border: none; background: #f5f8fa; cursor: pointer; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .qa-block button:hover { background: #e0ebf8; }
+    .qa-block .content { display: none; padding: 1.25rem; border-top: 1px solid #e6eef8; background: #fff; }
+    .qa-block .content p, .qa-block .content ul, .qa-block .content ol { margin-bottom: 0.9rem; }
+    .qa-block h4 { margin-top: 0.25rem; }
+
+    /* Code blocks (examples) — black background as requested */
+    .code-block { background: #0b0b0b; color: #e6eef8; padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-family: monospace; font-size: 0.95rem; }
+    .code-block pre { margin: 0; color: inherit; white-space: pre-wrap; word-break: break-word; }
+
+    /* Exercises (lighter background but code stays black) */
+    .exercise { background: #f6fbff; padding: 1rem; border-left: 4px solid #007bff; margin-bottom: 1rem; }
+    .exercise h4 { margin-top: 0; }
+
+    details .code-block { margin-top: 0.75rem; }
+
+    /* Go Back button */
+    .go-back { text-align:center; margin:2rem 0; }
+    .go-back button { padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer; }
+
+    /* Small visual tweak for NumPy headings */
+    .topic-head { margin-bottom: 0.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .topic-head h2 { margin: 0; font-size:1.35rem; }
+    .badge { font-size:0.85rem; color:#fff; background:#2d7ef7; padding:0.25rem 0.6rem; border-radius:5px; }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .qa-block button { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header (same structure as python_simplified.html) -->
+  <header class="site-header">
+    <div class="site-container header-inner">
+      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" style="height:36px; object-fit:cover;"></a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="main-nav" class="navbar" role="navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../learn.html" class="active">Learn</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../books.html">Books</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
