@@ -66,3 +66,231 @@
       </nav>
     </div>
   </header>
+
+<!-- ──────────────── Topic 1: Introduction to Pandas & Series ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 1: Introduction to Pandas &amp; Series</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Pandas <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Pandas is a powerful Python library used for data manipulation and analysis.  
+    It provides two primary data structures: <strong>Series</strong> (1D) and <strong>DataFrame</strong> (2D tabular data).  
+    Series can be created from lists, tuples, dictionaries, or NumPy arrays.  
+    DataFrames are ideal for representing structured data like CSV files or Excel sheets.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Creating a Series <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Series are one-dimensional labeled arrays. They can hold any data type.</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# From list
+list1 = [2, 3, 4]
+s1 = pd.Series(list1)
+print(s1)
+
+# From tuple
+tup1 = (10, 20, 30)
+s2 = pd.Series(tup1)
+
+# From dictionary
+dic = {'id': 4, 'Name': "Anna", 'Place': "Eklm", 'Age': 45}
+s3 = pd.Series(dic, index=['Name', 'Age', 'id', 'Place'])
+
+# Using range
+s4 = pd.Series([i for i in range(6)])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Series Attributes <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Useful attributes to inspect Series:</p>
+    <div class="code-block">
+<pre>
+s = pd.Series([4, 5, 5, 3, 2, 5, 7])
+print("Shape:", s.shape)
+print("Size:", s.size)
+print("Data type:", s.dtype)
+print("Number of dimensions:", s.ndim)
+print("First 5 elements:", s.head())
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Series Operations <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Perform arithmetic operations element-wise:</p>
+    <div class="code-block">
+<pre>
+a = pd.Series([4, 3, 2])
+b = pd.Series([1, 2, 3])
+
+c_add = a.add(b)      # Addition
+c_sub = a.sub(b)      # Subtraction
+c_mul = a.mul(b)      # Multiplication
+c_div = a.div(b)      # Division
+
+print("Addition:", c_add)
+print("Subtraction:", c_sub)
+print("Multiplication:", c_mul)
+print("Division:", c_div)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Sales Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Creating a Series of monthly sales and performing basic operations:</p>
+    <div class="code-block">
+<pre>
+sales = pd.Series([2500, 3000, 2800, 3500, 4000], 
+                  index=['Jan','Feb','Mar','Apr','May'])
+
+# Basic attributes
+print("Total months:", sales.size)
+print("Months:", sales.index)
+print("Values:", sales.values)
+
+# Arithmetic operations
+increase = sales + 500
+print("Sales after increase:\n", increase)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Create a Series</h4>
+      <div class="code-block">
+<pre>
+# Create a Series from a list of your choice and print first 3 elements
+import pandas as pd
+data = [12, 24, 36, 48, 60]
+s = pd.Series(data)
+print(s.head(3))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Series Operations</h4>
+      <div class="code-block">
+<pre>
+# Create two Series and perform addition, subtraction, multiplication, division
+s1 = pd.Series([5, 10, 15])
+s2 = pd.Series([2, 4, 6])
+print("Addition:", s1 + s2)
+print("Multiplication:", s1 * s2)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Temperature Data</h4>
+      <div class="code-block">
+<pre>
+# Create a Series of daily temperatures and calculate:
+# 1. Max temperature
+# 2. Min temperature
+# 3. Mean temperature
+temps = pd.Series([22, 25, 21, 23, 24, 26, 22])
+print("Max temp:", temps.max())
+print("Min temp:", temps.min())
+print("Mean temp:", temps.mean())
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is a Pandas Series?</h4>
+    <p><strong>A:</strong> A Series is a one-dimensional labeled array capable of holding any data type.</p>
+
+    <h4>Q2. Difference between Series and DataFrame?</h4>
+    <p><strong>A:</strong> Series is 1D, DataFrame is 2D (tabular data with rows and columns).</p>
+
+    <h4>Q3. How to create a Series from a dictionary?</h4>
+    <p><strong>A:</strong> Use <code>pd.Series(dictionary)</code>. You can also specify custom index labels.</p>
+
+    <h4>Q4. How to perform element-wise arithmetic operations on Series?</h4>
+    <p><strong>A:</strong> Use operators (`+`, `-`, `*`, `/`) or methods like <code>add()</code>, <code>sub()</code>.</p>
+
+    <h4>Q5. How to get the first few elements of a Series?</h4>
+    <p><strong>A:</strong> Use <code>head(n)</code> method; by default <code>head()</code> returns the first 5 elements.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 1 ──────────────── -->
+
+
+
+
+
+
+
+
+
+      <!-- Go Back -->
+    <div class="go-back">
+      <button onclick="history.back()">← Go Back</button>
+    </div>
+
+  </main>
+
+  <!-- Footer (same structure as the original file) -->
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+      <div class="socials" aria-label="social links">
+        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Q&A toggle (same logic as the source file)
+    const qaBlocks = document.querySelectorAll('.qa-block button');
+    qaBlocks.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        button.querySelector('i').classList.toggle('fa-chevron-up');
+        button.querySelector('i').classList.toggle('fa-chevron-down');
+      });
+    });
+
+    // Hamburger toggle (same as source)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#main-nav');
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  </script>
+
+</body>
+</html>
