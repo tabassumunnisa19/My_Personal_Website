@@ -943,6 +943,1764 @@ print(filtered)
   </div>
 </div>
 <!-- ──────────────── End of Topic 5 ──────────────── -->
+<!-- ──────────────── Topic 6: GroupBy, Aggregations & Joins ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 6: GroupBy, Aggregations & Joins</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Pandas provides <strong>GroupBy</strong> functionality to group data based on one or more columns and perform aggregations such as <code>sum</code>, <code>mean</code>, <code>count</code>, <code>max</code>, <code>min</code>.  
+    Additionally, Pandas supports <strong>joins/merges</strong> to combine multiple DataFrames using common columns.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>GroupBy Basics <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample DataFrame
+data = {
+    'ID':[101,102,103,104,105,106],
+    'Name':['Alice','Bob','Charlie','Diana','Eve','Frank'],
+    'Age':[25,30,28,32,28,30],
+    'Profession':['Engineer','Doctor','Engineer','Nurse','Doctor','Nurse'],
+    'Salary':[50000,70000,55000,60000,72000,58000]
+}
+df = pd.DataFrame(data)
+
+# Group by Profession and count number of people
+profession_count = df.groupby('Profession')['Name'].count()
+print(profession_count)
+
+# Group by Profession and calculate mean salary
+mean_salary = df.groupby('Profession')['Salary'].mean()
+print(mean_salary)
+
+# Multiple aggregations
+agg_df = df.groupby('Profession')['Salary'].agg(['mean','max','min'])
+print(agg_df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Joins / Merges <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Pandas supports <strong>inner, left, right, and outer joins</strong> to combine two DataFrames based on a common column.</p>
+    <div class="code-block">
+<pre>
+# DataFrames to merge
+df1 = pd.DataFrame({
+    'ID':[101,102,103],
+    'Name':['Alice','Bob','Charlie']
+})
+
+df2 = pd.DataFrame({
+    'ID':[102,103,104],
+    'Salary':[70000,55000,60000]
+})
+
+# Inner join (only matching IDs)
+inner_join = pd.merge(df1, df2, on='ID', how='inner')
+print(inner_join)
+
+# Left join (all rows from left + matching from right)
+left_join = pd.merge(df1, df2, on='ID', how='left')
+print(left_join)
+
+# Right join (all rows from right + matching from left)
+right_join = pd.merge(df1, df2, on='ID', how='right')
+print(right_join)
+
+# Outer join (all rows from both)
+outer_join = pd.merge(df1, df2, on='ID', how='outer')
+print(outer_join)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises & Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – GroupBy</h4>
+      <div class="code-block">
+<pre>
+# Group a DataFrame of students by 'Class' and count students per class
+import pandas as pd
+
+data = {
+    'Student':['Tom','Jerry','Spike','Tyke','Nibbles'],
+    'Class':['A','A','B','B','A'],
+    'Score':[85,90,78,92,88]
+}
+df = pd.DataFrame(data)
+
+grouped = df.groupby('Class')['Student'].count()
+print(grouped)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Aggregation</h4>
+      <div class="code-block">
+<pre>
+# Calculate mean, max, and min scores per class
+agg_scores = df.groupby('Class')['Score'].agg(['mean','max','min'])
+print(agg_scores)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Merge</h4>
+      <div class="code-block">
+<pre>
+# Merge two DataFrames: student names and their scores
+df_names = pd.DataFrame({
+    'ID':[1,2,3,4],
+    'Name':['Alice','Bob','Charlie','Diana']
+})
+
+df_scores = pd.DataFrame({
+    'ID':[2,3,4,5],
+    'Score':[90,85,78,92]
+})
+
+# Perform inner, left, right, and outer joins
+inner = pd.merge(df_names, df_scores, on='ID', how='inner')
+left = pd.merge(df_names, df_scores, on='ID', how='left')
+right = pd.merge(df_names, df_scores, on='ID', how='right')
+outer = pd.merge(df_names, df_scores, on='ID', how='outer')
+
+print("Inner Join:\n", inner)
+print("Left Join:\n", left)
+print("Right Join:\n", right)
+print("Outer Join:\n", outer)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q & A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is GroupBy in Pandas?</h4>
+    <p><strong>A:</strong> GroupBy allows grouping data by one or more columns and applying aggregation functions.</p>
+
+    <h4>Q2. What aggregations can be performed after GroupBy?</h4>
+    <p><strong>A:</strong> Common aggregations: <code>count</code>, <code>sum</code>, <code>mean</code>, <code>min</code>, <code>max</code>, <code>agg()</code> for multiple functions.</p>
+
+    <h4>Q3. Difference between inner, left, right, and outer joins?</h4>
+    <p><strong>A:</strong> 
+      <ul>
+        <li>Inner: only matching rows</li>
+        <li>Left: all rows from left + matching from right</li>
+        <li>Right: all rows from right + matching from left</li>
+        <li>Outer: all rows from both</li>
+      </ul>
+    </p>
+
+    <h4>Q4. How to merge DataFrames on multiple columns?</h4>
+    <p><strong>A:</strong> Use <code>pd.merge(df1, df2, on=['col1','col2'], how='type')</code>.</p>
+
+    <h4>Q5. Can you perform aggregation on multiple columns simultaneously?</h4>
+    <p><strong>A:</strong> Yes, using <code>agg()</code> with a dictionary: <code>df.groupby('col').agg({'col1':'sum','col2':'mean'})</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 6 ──────────────── -->
+<!-- ──────────────── Topic 7: Handling Missing Data & Data Cleaning ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 7: Handling Missing Data, Data Cleaning & Correcting Wrong Data</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Data in real-world datasets often contains missing or incorrect values.  
+    Pandas provides methods to detect, fill, or drop missing values and correct wrong data efficiently.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Detecting Missing Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+df = pd.read_csv('customer.csv')  # Sample CSV
+print(df.isna())          # Boolean DataFrame: True if missing
+print(df.isna().sum())    # Count of missing values per column
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Filling Missing Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>fillna()</code> to replace missing values with a constant, mean, median, or mode.</p>
+    <div class="code-block">
+<pre>
+# Fill all missing values with a constant
+df.fillna('India', inplace=True)
+
+# Fill numeric column with mean
+df['age'].fillna(df['age'].mean(), inplace=True)
+
+# Fill with mode
+df['place'].fillna(df['place'].mode()[0], inplace=True)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Dropping Missing Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>dropna()</code> to remove rows or columns with missing values.</p>
+    <div class="code-block">
+<pre>
+# Drop rows with any missing value
+df.dropna(inplace=True)
+
+# Drop specific column if it has missing values
+df.drop(['column_name'], axis=1, inplace=True)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Correcting Wrong Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>loc</code> to locate incorrect entries and replace them.</p>
+    <div class="code-block">
+<pre>
+# Suppose 'Iname' at index 460 is wrong
+df.loc[460, 'Iname'] = 'John'
+
+# Example: Replace all negative ages with mean age
+df.loc[df['age'] &lt; 0, 'age'] = df['age'].mean()
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises & Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Detect Missing Values</h4>
+      <div class="code-block">
+<pre>
+# Load a CSV and count missing values per column
+import pandas as pd
+df = pd.read_csv('customer.csv')
+print(df.isna().sum())
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Fill Missing Values</h4>
+      <div class="code-block">
+<pre>
+# Fill missing 'age' with mean and 'place' with mode
+df['age'].fillna(df['age'].mean(), inplace=True)
+df['place'].fillna(df['place'].mode()[0], inplace=True)
+print(df.isna().sum())
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Correct Wrong Data</h4>
+      <div class="code-block">
+<pre>
+# Replace any negative scores with column mean
+df = pd.DataFrame({
+    'Name':['Alice','Bob','Charlie','Diana'],
+    'Score':[85,-10,78,92]
+})
+df.loc[df['Score'] &lt; 0, 'Score'] = df['Score'].mean()
+print(df)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q & A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. How to check for missing values in a DataFrame?</h4>
+    <p><strong>A:</strong> Use <code>df.isna()</code> for a boolean DataFrame or <code>df.isna().sum()</code> to count missing per column.</p>
+
+    <h4>Q2. Difference between fillna() and dropna()?</h4>
+    <p><strong>A:</strong> <code>fillna()</code> replaces missing values; <code>dropna()</code> removes rows/columns with missing values.</p>
+
+    <h4>Q3. How to fill missing values with column mean, median, or mode?</h4>
+    <p><strong>A:</strong> <code>df['col'].fillna(df['col'].mean(), inplace=True)</code> or <code>median()</code> / <code>mode()[0]</code>.</p>
+
+    <h4>Q4. How to correct wrong data in Pandas?</h4>
+    <p><strong>A:</strong> Use <code>df.loc[index, 'column'] = new_value</code> or conditional replacement like <code>df.loc[df['col'] &lt; 0, 'col'] = value</code>.</p>
+
+    <h4>Q5. Can fillna() be used for multiple columns simultaneously?</h4>
+    <p><strong>A:</strong> Yes, using a dictionary: <code>df.fillna({'col1':value1, 'col2':value2}, inplace=True)</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 7 ──────────────── -->
+<!-- ──────────────── Topic 8: Sorting, Filtering & Selecting Data ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 8: Sorting, Filtering & Selecting Data</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Sorting and filtering are essential for analyzing large datasets.  
+    Pandas provides methods to sort rows or columns, select specific rows/columns, and filter data based on conditions.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Selecting Columns & Rows <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Pandas allows easy selection of specific columns or rows using <code>loc</code>, <code>iloc</code>, or simple indexing.</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample dataset
+df = pd.read_csv('customer.csv', header=None)
+df.columns = ['id', 'fname', 'Iname', 'age', 'profession', 'place']
+
+# Select single column
+print(df['fname'])
+
+# Select multiple columns
+print(df[['fname', 'age', 'place']])
+
+# Select rows using iloc (integer index)
+print(df.iloc[0:5])  # First 5 rows
+
+# Select rows using loc (label index)
+print(df.loc[0:5, ['fname', 'age']])  # First 6 rows, fname and age columns
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Filtering Data with Conditions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Filter rows based on specific conditions using boolean indexing.</p>
+    <div class="code-block">
+<pre>
+# Age above 60
+df_age = df.loc[df['age'] &gt; 60]
+print(df_age)
+
+# Place is 'India'
+df_place = df.loc[df['place'] == 'India']
+print(df_place)
+
+# Age between 50 and 60 AND place is 'Africa'
+df_filtered = df.loc[(df['age'] &gt; 50) &amp; (df['age'] &lt;= 60) &amp; (df['place'] == 'Africa')]
+print(df_filtered)
+
+# Profession is 'Photographer'
+df_prof = df.loc[df['profession'] == 'Photographer']
+print(df_prof)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Sorting Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can sort a DataFrame by one or more columns using <code>sort_values()</code>.  
+    Sorting can be ascending or descending.</p>
+    <div class="code-block">
+<pre>
+# Sort by age (ascending)
+df_sorted = df.sort_values(by='age')
+print(df_sorted)
+
+# Sort by place (descending)
+df_sorted_desc = df.sort_values(by='place', ascending=False)
+print(df_sorted_desc)
+
+# Get top 2 people with maximum age in 'Africa'
+df_top_age = df.loc[df['place'] == 'Africa'].sort_values(by='age', ascending=False).head(2)
+print(df_top_age)
+
+# Get 4 people with minimum age whose profession is 'Nurse'
+df_min_age_nurse = df.loc[df['profession'] == 'Nurse'].sort_values(by='age').head(4)
+print(df_min_age_nurse)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Dropping Columns or Rows <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Remove unwanted rows or columns using <code>drop()</code>.</p>
+    <div class="code-block">
+<pre>
+# Drop a column
+df_drop_col = df.drop(['Iname'], axis=1)
+print(df_drop_col)
+
+# Drop a row by index
+df_drop_row = df.drop([460], axis=0)
+print(df_drop_row)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Select Columns & Rows</h4>
+      <div class="code-block">
+<pre>
+# Select 'fname' and 'profession' of first 10 rows
+df_subset = df.loc[0:9, ['fname','profession']]
+print(df_subset)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Filter Data</h4>
+      <div class="code-block">
+<pre>
+# Select all rows where age &gt; 40 and place is 'India'
+df_filtered = df.loc[(df['age'] &gt; 40) &amp; (df['place'] == 'India')]
+print(df_filtered)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Sorting & Top N</h4>
+      <div class="code-block">
+<pre>
+# Find top 3 oldest people in 'Africa' and display their fname, age, place
+df_top3 = df.loc[df['place'] == 'Africa'].sort_values(by='age', ascending=False).head(3)
+print(df_top3[['fname','age','place']])
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. Difference between loc and iloc?</h4>
+    <p><strong>A:</strong> <code>loc</code> is label-based selection; you provide row/column labels. <code>iloc</code> is integer position-based selection; you provide row/column indices.</p>
+
+    <h4>Q2. How to filter rows based on multiple conditions?</h4>
+    <p><strong>A:</strong> Use boolean indexing with logical operators <code>&amp;</code> (and), <code>|</code> (or), and parentheses. Example: <code>df.loc[(df['age'] &gt; 50) &amp; (df['place'] == 'Africa')]</code>.</p>
+
+    <h4>Q3. How to sort a DataFrame by multiple columns?</h4>
+    <p><strong>A:</strong> Pass a list of column names to <code>sort_values()</code>. Example: <code>df.sort_values(by=['place','age'], ascending=[True,False])</code>.</p>
+
+    <h4>Q4. How to select specific columns from rows that meet a condition?</h4>
+    <p><strong>A:</strong> Use <code>loc</code> with condition for rows and a list of columns. Example: <code>df.loc[df['age'] &gt; 40, ['fname','profession']]</code>.</p>
+
+    <h4>Q5. How to drop columns or rows safely?</h4>
+    <p><strong>A:</strong> Use <code>drop()</code> with <code>axis=1</code> for columns or <code>axis=0</code> for rows. Use <code>inplace=True</code> if you want to modify the original DataFrame.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 8 ──────────────── -->
+<!-- ──────────────── Topic 9: GroupBy, Aggregation & Summarizing Data ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 9: GroupBy, Aggregation & Summarizing Data</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Grouping and aggregation are powerful tools in Pandas for summarizing large datasets.  
+    The <code>groupby()</code> method allows splitting data into groups based on column values, applying a function (aggregation), and combining the results.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>GroupBy Basics <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can group data based on one or more columns and then perform aggregate functions.</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample dataset
+df = pd.read_csv('customer.csv', header=None)
+df.columns = ['id', 'fname', 'Iname', 'age', 'profession', 'place']
+
+# Group by profession
+grouped = df.groupby('profession')
+print(grouped)
+
+# Count of each profession
+count_prof = grouped['profession'].count()
+print(count_prof)
+
+# Maximum age in each profession
+max_age_prof = grouped['age'].max()
+print(max_age_prof)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Common Aggregation Functions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Pandas supports several aggregation functions to summarize grouped data:</p>
+    <ul>
+      <li><code>count()</code> – number of entries in each group</li>
+      <li><code>sum()</code> – sum of values</li>
+      <li><code>mean()</code> – average value</li>
+      <li><code>min()</code> – minimum value</li>
+      <li><code>max()</code> – maximum value</li>
+      <li><code>median()</code> – median value</li>
+      <li><code>agg()</code> – custom aggregation with multiple functions</li>
+    </ul>
+    <div class="code-block">
+<pre>
+# Sum of age per profession
+sum_age = grouped['age'].sum()
+print(sum_age)
+
+# Multiple aggregation: min, max, mean
+agg_stats = grouped['age'].agg(['min','max','mean'])
+print(agg_stats)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>GroupBy Multiple Columns <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can group by multiple columns for more granular analysis.</p>
+    <div class="code-block">
+<pre>
+# Group by profession and place, then count
+group_multi = df.groupby(['profession','place'])['id'].count()
+print(group_multi)
+
+# Sum of age for each profession in each place
+age_sum_multi = df.groupby(['profession','place'])['age'].sum()
+print(age_sum_multi)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Count by Profession</h4>
+      <div class="code-block">
+<pre>
+# Count number of people in each profession
+df_prof_count = df.groupby('profession')['id'].count()
+print(df_prof_count)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Max & Min Age</h4>
+      <div class="code-block">
+<pre>
+# Find the maximum and minimum age in each profession
+df_age_stats = df.groupby('profession')['age'].agg(['max','min'])
+print(df_age_stats)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Multi-level Grouping</h4>
+      <div class="code-block">
+<pre>
+# Group by profession and place, then get sum of ages
+df_grouped = df.groupby(['profession','place'])['age'].sum()
+print(df_grouped)
+
+# Sort the results in descending order
+df_sorted = df_grouped.sort_values(ascending=False)
+print(df_sorted)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is the purpose of groupby in Pandas?</h4>
+    <p><strong>A:</strong> The <code>groupby()</code> method splits the dataset into groups based on column values, allowing aggregation or transformation operations on each group.</p>
+
+    <h4>Q2. Difference between aggregation functions like sum(), mean(), and agg()?</h4>
+    <p><strong>A:</strong> <code>sum()</code> and <code>mean()</code> perform specific operations on grouped data. <code>agg()</code> allows multiple functions (e.g., min, max, mean) simultaneously on one or more columns.</p>
+
+    <h4>Q3. Can we group by multiple columns?</h4>
+    <p><strong>A:</strong> Yes. Pass a list of column names to <code>groupby()</code>. Example: <code>df.groupby(['profession','place'])['age'].sum()</code>.</p>
+
+    <h4>Q4. How to sort grouped results?</h4>
+    <p><strong>A:</strong> After aggregation, use <code>sort_values()</code> to order the results ascending or descending.</p>
+
+    <h4>Q5. When to use groupby in real projects?</h4>
+    <p><strong>A:</strong> Use groupby when you need to summarize, count, or aggregate data based on categories, like sales per region, revenue per product type, or age distribution per department.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 9 ──────────────── -->
+<!-- ──────────────── Topic 10: Merging, Joining & Concatenating DataFrames ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 10: Merging, Joining & Concatenating DataFrames</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>In Pandas, combining datasets is essential for data analysis. You can merge, join, or concatenate DataFrames based on columns or indexes.</p>
+    <ul>
+      <li><strong>Merge:</strong> Combines DataFrames based on common columns or indices (similar to SQL joins).</li>
+      <li><strong>Join:</strong> Convenient method for combining DataFrames using index or key columns.</li>
+      <li><strong>Concatenate:</strong> Stacks DataFrames vertically or horizontally.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Merge / SQL-style Join <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>pd.merge()</code> to combine DataFrames on a common column.</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample DataFrames
+df1 = pd.DataFrame({
+    'id': [101, 102, 103],
+    'Name': ['Alice', 'Bob', 'Charlie']
+})
+
+df2 = pd.DataFrame({
+    'id': [101, 102, 104],
+    'Salary': [50000, 60000, 70000]
+})
+
+# Inner join (only matching ids)
+inner_df = pd.merge(df1, df2, on='id', how='inner')
+print("Inner Join:\n", inner_df)
+
+# Left join (all rows from left + matching from right)
+left_df = pd.merge(df1, df2, on='id', how='left')
+print("Left Join:\n", left_df)
+
+# Right join
+right_df = pd.merge(df1, df2, on='id', how='right')
+print("Right Join:\n", right_df)
+
+# Full outer join
+outer_df = pd.merge(df1, df2, on='id', how='outer')
+print("Outer Join:\n", outer_df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Join Using Index <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can join DataFrames based on index instead of columns:</p>
+    <div class="code-block">
+<pre>
+df1 = pd.DataFrame({'Name': ['Alice', 'Bob', 'Charlie']}, index=[101, 102, 103])
+df2 = pd.DataFrame({'Salary': [50000, 60000, 70000]}, index=[101, 102, 104])
+
+# Join using index
+joined_df = df1.join(df2, how='outer')
+print(joined_df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Concatenation <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Stack DataFrames vertically or horizontally using <code>pd.concat()</code>.</p>
+    <div class="code-block">
+<pre>
+df1 = pd.DataFrame({'Name': ['Alice', 'Bob'], 'Age': [25, 30]})
+df2 = pd.DataFrame({'Name': ['Charlie', 'David'], 'Age': [35, 40]})
+
+# Vertical concatenation (stack rows)
+vert_concat = pd.concat([df1, df2])
+print("Vertical Concatenation:\n", vert_concat)
+
+# Horizontal concatenation (stack columns)
+df3 = pd.DataFrame({'Salary': [50000, 60000]})
+horiz_concat = pd.concat([df1, df3], axis=1)
+print("Horizontal Concatenation:\n", horiz_concat)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Inner Join</h4>
+      <div class="code-block">
+<pre>
+# Merge df1 and df2 using inner join on 'id' column
+import pandas as pd
+df1 = pd.DataFrame({'id':[1,2,3],'Name':['A','B','C']})
+df2 = pd.DataFrame({'id':[2,3,4],'Salary':[2000,3000,4000]})
+inner_df = pd.merge(df1, df2, on='id', how='inner')
+print(inner_df)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Left Join</h4>
+      <div class="code-block">
+<pre>
+# Merge df1 and df2 using left join
+left_df = pd.merge(df1, df2, on='id', how='left')
+print(left_df)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Concatenate & Sort</h4>
+      <div class="code-block">
+<pre>
+# Concatenate two DataFrames vertically and sort by 'Age'
+df1 = pd.DataFrame({'Name':['Alice','Bob'],'Age':[25,30]})
+df2 = pd.DataFrame({'Name':['Charlie','David'],'Age':[22,28]})
+vert_concat = pd.concat([df1, df2])
+vert_sorted = vert_concat.sort_values(by='Age')
+print(vert_sorted)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is the difference between merge and join?</h4>
+    <p><strong>A:</strong> <code>merge()</code> is SQL-style, used to combine DataFrames on columns. <code>join()</code> is a convenient method to join on indexes or key columns.</p>
+
+    <h4>Q2. Difference between inner, left, right, and outer joins?</h4>
+    <p><strong>A:</strong> Inner: only matching rows. Left: all rows from left + matching from right. Right: all from right + matching from left. Outer: all rows from both, filling missing with NaN.</p>
+
+    <h4>Q3. How to concatenate DataFrames vertically and horizontally?</h4>
+    <p><strong>A:</strong> Use <code>pd.concat([df1, df2])</code> for vertical (default axis=0) and <code>pd.concat([df1, df2], axis=1)</code> for horizontal.</p>
+
+    <h4>Q4. Can you join DataFrames on index?</h4>
+    <p><strong>A:</strong> Yes, <code>df1.join(df2, how='outer')</code> joins DataFrames on index.</p>
+
+    <h4>Q5. When to use merge vs concatenation?</h4>
+    <p><strong>A:</strong> Use <code>merge</code> when combining datasets based on key columns (like relational tables). Use <code>concat</code> when stacking datasets vertically or horizontally without key columns.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 10 ──────────────── -->
+<!-- ──────────────── Topic 11: Handling Missing Data, Duplicates & Wrong Data ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 11: Handling Missing Data, Duplicates & Wrong Data</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>In real-world datasets, missing values, duplicates, and wrong entries are common. Pandas provides robust tools to clean and preprocess data for analysis.</p>
+    <ul>
+      <li><strong>Missing values:</strong> Can be represented as <code>NaN</code> or <code>None</code>. Use <code>isna()</code>, <code>fillna()</code>, or <code>dropna()</code> to handle them.</li>
+      <li><strong>Duplicates:</strong> Rows that are identical. Use <code>duplicated()</code> to detect and <code>drop_duplicates()</code> to remove them.</li>
+      <li><strong>Wrong data:</strong> Incorrect or inconsistent entries. Can be corrected using <code>loc</code> or conditional filtering.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Handling Missing Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Methods to handle missing values in DataFrames:</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample DataFrame with missing values
+data = {
+    'Name': ['Alice', 'Bob', None, 'David'],
+    'Age': [25, None, 30, 28],
+    'Place': ['NY', 'LA', 'SF', None]
+}
+df = pd.DataFrame(data)
+print("Original DataFrame:\n", df)
+
+# Check missing values
+print(df.isna())
+
+# Fill missing values
+df_filled = df.fillna({'Name':'Unknown', 'Age':df['Age'].mean(), 'Place':'Unknown'})
+print("Filled DataFrame:\n", df_filled)
+
+# Drop rows with missing values
+df_dropped = df.dropna()
+print("Dropped DataFrame:\n", df_dropped)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Handling Duplicates <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Detect and remove duplicate rows:</p>
+    <div class="code-block">
+<pre>
+# Sample DataFrame with duplicates
+df_dup = pd.DataFrame({
+    'Name': ['Alice','Bob','Alice','Charlie'],
+    'Age': [25,30,25,28]
+})
+
+# Check duplicates
+print(df_dup.duplicated())
+
+# Drop duplicates
+df_no_dup = df_dup.drop_duplicates()
+print(df_no_dup)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Correcting Wrong Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use conditional selection and <code>loc</code> to fix wrong entries:</p>
+    <div class="code-block">
+<pre>
+# Sample DataFrame with wrong data
+df_wrong = pd.DataFrame({
+    'Name': ['Alice','Bob','Charlie'],
+    'Age': [25, -30, 28]  # negative age is wrong
+})
+
+# Correct wrong Age
+df_wrong.loc[df_wrong['Age'] < 0, 'Age'] = df_wrong['Age'].mean()
+print(df_wrong)
+
+# Correct a specific entry
+df_wrong.loc[df_wrong['Name']=='Charlie','Name'] = 'Charles'
+print(df_wrong)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Fill Missing Values</h4>
+      <div class="code-block">
+<pre>
+# Fill missing values in 'Age' column with median and 'Place' with 'Unknown'
+import pandas as pd
+df = pd.DataFrame({'Name':['A','B','C'],'Age':[25,None,30],'Place':['NY',None,'SF']})
+df['Age'].fillna(df['Age'].median(), inplace=True)
+df['Place'].fillna('Unknown', inplace=True)
+print(df)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Remove Duplicates</h4>
+      <div class="code-block">
+<pre>
+# Remove duplicate rows from DataFrame
+df = pd.DataFrame({'Name':['A','B','A'],'Age':[25,30,25]})
+df = df.drop_duplicates()
+print(df)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Correct Wrong Data</h4>
+      <div class="code-block">
+<pre>
+# Replace negative ages with mean age
+df = pd.DataFrame({'Name':['A','B','C'],'Age':[25,-5,30]})
+df.loc[df['Age']<0, 'Age'] = df['Age'].mean()
+print(df)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. How do you detect missing values in a DataFrame?</h4>
+    <p><strong>A:</strong> Use <code>df.isna()</code> or <code>df.isnull()</code> to detect missing values.</p>
+
+    <h4>Q2. How do you fill missing values with mean, median, or a fixed value?</h4>
+    <p><strong>A:</strong> Use <code>fillna()</code>. Example: <code>df['Age'].fillna(df['Age'].mean(), inplace=True)</code>.</p>
+
+    <h4>Q3. How to drop rows or columns containing missing values?</h4>
+    <p><strong>A:</strong> Use <code>dropna()</code>. Example: <code>df.dropna(axis=0, inplace=True)</code> drops rows with NaN.</p>
+
+    <h4>Q4. How to detect and remove duplicate rows?</h4>
+    <p><strong>A:</strong> Use <code>duplicated()</code> to detect and <code>drop_duplicates()</code> to remove duplicates.</p>
+
+    <h4>Q5. How to correct wrong data in a DataFrame?</h4>
+    <p><strong>A:</strong> Use <code>loc</code> with conditions to select and correct wrong entries. Example: <code>df.loc[df['Age']<0,'Age'] = df['Age'].mean()</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 11 ──────────────── -->
+<!-- ──────────────── Topic 12: Sorting, Filtering & Conditional Selection ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 12: Sorting, Filtering & Conditional Selection</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Sorting and filtering are essential operations for analyzing and inspecting data in Pandas.  
+    Conditional selection allows you to extract rows based on specific criteria, making data analysis dynamic and efficient.</p>
+    <ul>
+      <li><strong>Sorting:</strong> Arrange data in ascending or descending order using <code>sort_values()</code>.</li>
+      <li><strong>Filtering:</strong> Extract data based on conditions using boolean indexing.</li>
+      <li><strong>Conditional selection:</strong> Combine multiple conditions using logical operators (<code>&</code>, <code>|</code>).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Sorting DataFrames <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>sort_values()</code> to sort rows based on column values:</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 22, 28],
+    'Salary': [50000, 60000, 45000, 52000]
+})
+
+# Sort by Age ascending
+df_sorted_age = df.sort_values(by='Age')
+print(df_sorted_age)
+
+# Sort by Salary descending
+df_sorted_salary = df.sort_values(by='Salary', ascending=False)
+print(df_sorted_salary)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Filtering & Conditional Selection <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Extract rows based on conditions:</p>
+    <div class="code-block">
+<pre>
+# Filter rows where Age > 25
+df_filtered = df[df['Age'] > 25]
+print(df_filtered)
+
+# Filter rows where Salary >= 50000
+df_filtered_salary = df[df['Salary'] >= 50000]
+print(df_filtered_salary)
+
+# Conditional selection with multiple conditions
+df_conditional = df[(df['Age'] > 25) & (df['Salary'] >= 52000)]
+print(df_conditional)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Selecting Specific Columns <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can select one or more columns after filtering:</p>
+    <div class="code-block">
+<pre>
+# Select Name and Salary for Age > 25
+df_select = df.loc[df['Age'] > 25, ['Name','Salary']]
+print(df_select)
+
+# Select all columns for Salary < 52000
+df_select_all = df.loc[df['Salary'] < 52000]
+print(df_select_all)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Sort by Multiple Columns</h4>
+      <div class="code-block">
+<pre>
+# Sort by Age ascending and Salary descending
+import pandas as pd
+df = pd.DataFrame({
+    'Name':['A','B','C','D'],
+    'Age':[25,30,25,28],
+    'Salary':[50000,60000,45000,52000]
+})
+df_sorted = df.sort_values(by=['Age','Salary'], ascending=[True, False])
+print(df_sorted)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Filter with Condition</h4>
+      <div class="code-block">
+<pre>
+# Filter employees with Age > 25 and Salary < 60000
+df_filtered = df[(df['Age']>25) & (df['Salary']<60000)]
+print(df_filtered)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Top 2 Salaries</h4>
+      <div class="code-block">
+<pre>
+# Find top 2 employees with highest Salary
+df_top = df.sort_values(by='Salary', ascending=False).head(2)
+print(df_top)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. How to sort a DataFrame by a single column?</h4>
+    <p><strong>A:</strong> Use <code>sort_values(by='column_name')</code>. Set <code>ascending=False</code> for descending order.</p>
+
+    <h4>Q2. How to sort by multiple columns?</h4>
+    <p><strong>A:</strong> Pass a list to <code>by</code> and a corresponding <code>ascending</code> list. Example: <code>df.sort_values(by=['Age','Salary'], ascending=[True,False])</code>.</p>
+
+    <h4>Q3. How to filter rows based on a condition?</h4>
+    <p><strong>A:</strong> Use boolean indexing: <code>df[df['Age']>25]</code> returns rows with Age greater than 25.</p>
+
+    <h4>Q4. How to apply multiple conditions for filtering?</h4>
+    <p><strong>A:</strong> Use logical operators: <code>&</code> for AND, <code>|</code> for OR. Always wrap each condition in parentheses.</p>
+
+    <h4>Q5. How to select specific columns after filtering?</h4>
+    <p><strong>A:</strong> Use <code>loc</code>: <code>df.loc[condition, ['col1','col2']]</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 12 ──────────────── -->
+<!-- ──────────────── Topic 13: GroupBy & Aggregation ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 13: GroupBy & Aggregation</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <strong>GroupBy</strong> operation in Pandas allows you to group data based on one or more columns and perform aggregation or transformation on each group.  
+    This is extremely useful for summarizing and analyzing large datasets efficiently.</p>
+    <ul>
+      <li>Grouping by one or more columns using <code>groupby()</code>.</li>
+      <li>Applying aggregation functions: <code>count()</code>, <code>sum()</code>, <code>mean()</code>, <code>max()</code>, <code>min()</code>.</li>
+      <li>Sorting and analyzing grouped data.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Grouping by a Single Column <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Group by a column and get summary statistics:</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+df = pd.DataFrame({
+    'Department': ['HR', 'IT', 'HR', 'IT', 'Finance', 'Finance'],
+    'Employee': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank'],
+    'Salary': [50000, 60000, 45000, 70000, 55000, 58000],
+    'Age': [25, 30, 28, 35, 40, 38]
+})
+
+# Group by Department and calculate mean salary
+grouped = df.groupby('Department')['Salary'].mean()
+print(grouped)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Aggregating Multiple Columns <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can aggregate multiple columns with different functions:</p>
+    <div class="code-block">
+<pre>
+# Group by Department and get multiple aggregations
+agg_df = df.groupby('Department').agg({
+    'Salary': ['mean', 'max', 'min'],
+    'Age': 'mean'
+})
+print(agg_df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Counting Rows per Group <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Count the number of employees in each department:</p>
+    <div class="code-block">
+<pre>
+# Count employees in each Department
+count_df = df.groupby('Department')['Employee'].count()
+print(count_df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Sorting Groups <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Sort the grouped data based on aggregated values:</p>
+    <div class="code-block">
+<pre>
+# Sort departments by average salary descending
+sorted_group = df.groupby('Department')['Salary'].mean().sort_values(ascending=False)
+print(sorted_group)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Group and Sum</h4>
+      <div class="code-block">
+<pre>
+# Group by Department and calculate total salary
+df_group_sum = df.groupby('Department')['Salary'].sum()
+print(df_group_sum)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Multiple Aggregations</h4>
+      <div class="code-block">
+<pre>
+# Group by Department and get max salary and average age
+df_group_multi = df.groupby('Department').agg({
+    'Salary': 'max',
+    'Age': 'mean'
+})
+print(df_group_multi)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Department with Highest Average Salary</h4>
+      <div class="code-block">
+<pre>
+# Identify the department with the highest average salary
+dept_highest_salary = df.groupby('Department')['Salary'].mean().sort_values(ascending=False).head(1)
+print(dept_highest_salary)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is the purpose of GroupBy in Pandas?</h4>
+    <p><strong>A:</strong> GroupBy is used to split the dataset into groups based on column values, perform computations on each group, and then combine the results. It is very useful for aggregation and summarization.</p>
+
+    <h4>Q2. How do you perform multiple aggregations on a group?</h4>
+    <p><strong>A:</strong> Use <code>agg()</code> with a dictionary mapping columns to aggregation functions. Example: <code>df.groupby('Department').agg({'Salary':['mean','max'],'Age':'mean'})</code>.</p>
+
+    <h4>Q3. How to count rows per group?</h4>
+    <p><strong>A:</strong> After grouping, use <code>count()</code> on a column to count the number of rows in each group. Example: <code>df.groupby('Department')['Employee'].count()</code>.</p>
+
+    <h4>Q4. How can you sort groups based on aggregated values?</h4>
+    <p><strong>A:</strong> Apply <code>sort_values()</code> to the grouped/aggregated result. Example: <code>df.groupby('Department')['Salary'].mean().sort_values(ascending=False)</code>.</p>
+
+    <h4>Q5. Can you group by multiple columns?</h4>
+    <p><strong>A:</strong> Yes, pass a list of columns to <code>groupby()</code>. Example: <code>df.groupby(['Dept','Gender'])['Salary'].mean()</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 13 ──────────────── -->
+<!-- ──────────────── Topic 14: Handling Missing & Wrong Data ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 14: Handling Missing &amp; Wrong Data</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Missing &amp; Wrong Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>In real-world datasets, missing or incorrect data is common. Pandas provides tools to <strong>detect, handle, and correct</strong> such data to ensure analysis and modeling are accurate.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Detecting Missing Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>isna()</code> or <code>isnull()</code> to detect missing values.</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', None, 'David'],
+    'Age': [25, None, 30, 28],
+    'City': ['New York', 'London', 'Paris', None]
+})
+
+# Check missing values
+print(df.isna())
+
+# Count missing values per column
+print(df.isna().sum())
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Filling Missing Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can replace missing values with a constant, mean, median, or mode:</p>
+    <div class="code-block">
+<pre>
+# Fill with constant
+df.fillna('Unknown', inplace=True)
+
+# Fill numeric columns with mean
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+
+# Fill with mode (most frequent value)
+most_common_city = df['City'].mode()[0]
+df['City'].fillna(most_common_city, inplace=True)
+
+print(df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Dropping Missing Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can remove rows or columns with missing values:</p>
+    <div class="code-block">
+<pre>
+# Drop rows with any missing value
+df.dropna(inplace=True)
+
+# Drop columns with any missing value
+df.dropna(axis=1, inplace=True)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Handling Wrong / Dirty Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Sometimes datasets contain incorrect entries. Pandas allows us to correct them easily using <code>loc</code> or <code>replace</code>.</p>
+    <div class="code-block">
+<pre>
+# Correct a specific wrong value
+df.loc[df['Name'] == 'Alic', 'Name'] = 'Alice'
+
+# Replace multiple wrong values
+df['City'].replace({'Nwe York':'New York', 'Londn':'London'}, inplace=True)
+
+print(df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Conditional Cleaning <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use conditions to clean data selectively:</p>
+    <div class="code-block">
+<pre>
+# Set Age to mean if Age is less than 0 or missing
+df.loc[df['Age'] < 0, 'Age'] = df['Age'].mean()
+
+# Correct city names for specific condition
+df.loc[df['Name']=='Bob', 'City'] = 'London'
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Detect Missing Values</h4>
+      <div class="code-block">
+<pre>
+# Create a DataFrame with missing values
+# Count missing values per column
+import pandas as pd
+
+data = {'Product': ['Pen','Notebook',None,'Eraser'],
+        'Price': [10, 50, 30, None],
+        'Quantity': [100, None, 50, 200]}
+
+df = pd.DataFrame(data)
+
+# Count missing values
+print(df.isna().sum())
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Fill Missing Values</h4>
+      <div class="code-block">
+<pre>
+# Fill missing values: 
+# 'Product' with 'Unknown', 
+# 'Price' with mean, 
+# 'Quantity' with median
+df['Product'].fillna('Unknown', inplace=True)
+df['Price'].fillna(df['Price'].mean(), inplace=True)
+df['Quantity'].fillna(df['Quantity'].median(), inplace=True)
+print(df)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Clean Employee Dataset</h4>
+      <div class="code-block">
+<pre>
+# Dataset contains missing Age, Salary and incorrect City names
+data = {'EmpID':[101,102,103,104],
+        'Name':['Alice','Bob','Charlie','David'],
+        'Age':[25,None,30,-5],
+        'Salary':[50000, None, 60000, 55000],
+        'City':['New York','Londn','Paris','Nwe York']}
+
+df = pd.DataFrame(data)
+
+# 1. Fill missing Age with mean
+# 2. Replace negative Age with mean
+# 3. Fill missing Salary with median
+# 4. Correct City names
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. How to detect missing data in Pandas?</h4>
+    <p><strong>A:</strong> Use <code>isna()</code> or <code>isnull()</code> to find missing values. To count them per column, use <code>df.isna().sum()</code>.</p>
+
+    <h4>Q2. Difference between <code>fillna()</code> and <code>dropna()</code>?</h4>
+    <p><strong>A:</strong> <code>fillna()</code> replaces missing values with a constant or statistic, while <code>dropna()</code> removes rows or columns containing missing values.</p>
+
+    <h4>Q3. How to handle wrong data in a column?</h4>
+    <p><strong>A:</strong> Use <code>loc</code> with a condition to set the correct value, or <code>replace()</code> to map multiple incorrect values to correct ones.</p>
+
+    <h4>Q4. Can you fill missing numeric values differently from categorical values?</h4>
+    <p><strong>A:</strong> Yes. For numeric columns, you can use mean, median, or mode. For categorical columns, you can use the most frequent value or a constant.</p>
+
+    <h4>Q5. Why is data cleaning important?</h4>
+    <p><strong>A:</strong> Clean data ensures accurate analysis, modeling, and decision-making. Missing or wrong values can lead to incorrect results and biased insights.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 14 ──────────────── -->
+<!-- ──────────────── Pandas Interview Q&A & Coding Challenges ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Pandas Interview Questions & Coding Challenges</h2>
+</div>
+
+<div class="qa-block">
+  <button>Q1. What is Pandas and why is it used? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Pandas is a Python library used for data manipulation and analysis. It provides fast and flexible data structures like <strong>Series</strong> (1D) and <strong>DataFrame</strong> (2D tabular data) that are ideal for handling structured data. It is widely used in data preprocessing, cleaning, and analysis tasks.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q2. Difference between Series and DataFrame? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Series is a one-dimensional labeled array, whereas a DataFrame is a two-dimensional table with rows and columns. A Series can be thought of as a single column of a DataFrame. DataFrames can contain multiple Series with potentially different data types.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q3. How to create a DataFrame from a dictionary? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> You can create a DataFrame from a dictionary of lists, where keys become column names and values become column data:</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'City': ['NY', 'LA', 'Chicago']}
+
+df = pd.DataFrame(data)
+print(df)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q4. How to handle missing data in Pandas? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Pandas provides several methods to handle missing values:</p>
+    <ul>
+      <li><code>df.isna()</code> – check missing values</li>
+      <li><code>df.fillna(value)</code> – fill missing values with a specific value or mean/median/mode</li>
+      <li><code>df.dropna()</code> – remove rows/columns with missing values</li>
+    </ul>
+    <div class="code-block">
+<pre>
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+df.dropna(subset=['City'], inplace=True)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q5. How to filter rows based on conditions? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use boolean indexing with conditions:</p>
+    <div class="code-block">
+<pre>
+# Filter rows where Age > 30
+df_filtered = df[df['Age'] > 30]
+
+# Using loc
+df_filtered = df.loc[df['City'] == 'NY', ['Name', 'Age']]
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q6. How to sort a DataFrame by column? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use <code>sort_values()</code> method:</p>
+    <div class="code-block">
+<pre>
+# Sort by Age ascending
+df_sorted = df.sort_values(by='Age')
+
+# Sort by Age descending
+df_sorted_desc = df.sort_values(by='Age', ascending=False)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q7. Explain groupby in Pandas with an example <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> The <code>groupby()</code> method is used to group data based on a column and perform aggregation:</p>
+    <div class="code-block">
+<pre>
+# Group by City and get average Age
+df_grouped = df.groupby('City')['Age'].mean()
+print(df_grouped)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q8. How to merge or join two DataFrames? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use <code>pd.merge()</code> with <code>how</code> parameter:</p>
+    <div class="code-block">
+<pre>
+df1 = pd.DataFrame({'ID':[1,2,3],'Name':['Alice','Bob','Charlie']})
+df2 = pd.DataFrame({'ID':[2,3,4],'City':['NY','LA','Chicago']})
+
+# Inner join
+df_inner = pd.merge(df1, df2, on='ID', how='inner')
+
+# Left join
+df_left = pd.merge(df1, df2, on='ID', how='left')
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q9. How to concatenate DataFrames vertically and horizontally? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use <code>pd.concat()</code>:</p>
+    <div class="code-block">
+<pre>
+# Vertical concatenation
+df_v = pd.concat([df1, df2], axis=0)
+
+# Horizontal concatenation
+df_h = pd.concat([df1, df2], axis=1)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q10. How to create Pivot Tables and Cross Tabulation? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Pivot tables summarize data by grouping and aggregating:</p>
+    <div class="code-block">
+<pre>
+# Pivot table example
+df = pd.DataFrame({
+    'City': ['NY','LA','NY','LA'],
+    'Product': ['A','A','B','B'],
+    'Sales': [200, 150, 300, 250]
+})
+pivot = pd.pivot_table(df, values='Sales', index='City', columns='Product', aggfunc='sum')
+
+# Cross tab
+cross = pd.crosstab(df['City'], df['Product'])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q11. How to apply custom functions using apply(), map(), and vectorized operations? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Pandas allows applying functions efficiently:</p>
+    <div class="code-block">
+<pre>
+# Using apply on a column
+df['Sales_Tax'] = df['Sales'].apply(lambda x: x*0.1)
+
+# Using map on Series
+df['City_Upper'] = df['City'].map(str.upper)
+
+# Vectorized operation
+df['Sales_Discount'] = df['Sales'] * 0.9
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q12. How to handle DateTime in Pandas? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use <code>pd.to_datetime()</code> and extract parts like year, month, day:</p>
+    <div class="code-block">
+<pre>
+df['Date'] = pd.to_datetime(df['Date'])
+df['Year'] = df['Date'].dt.year
+df['Month'] = df['Date'].dt.month
+df['Day'] = df['Date'].dt.day
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q13. How to visualize data with Pandas? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Pandas integrates with Matplotlib for basic visualization:</p>
+    <div class="code-block">
+<pre>
+# Line plot
+df['Sales'].plot(kind='line')
+
+# Histogram
+df['Sales'].plot(kind='hist', bins=5)
+
+# Scatter plot
+df.plot(kind='scatter', x='Product', y='Sales')
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q14. How to perform string operations in Pandas? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use <code>.str</code> accessor for vectorized string operations:</p>
+    <div class="code-block">
+<pre>
+df['City_Upper'] = df['City'].str.upper()
+df['City_Length'] = df['City'].str.len()
+df['City_Replace'] = df['City'].str.replace('NY','New York')
+df['City_Contains'] = df['City'].str.contains('A')
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q15. How to drop duplicate rows or columns? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use <code>drop_duplicates()</code>:</p>
+    <div class="code-block">
+<pre>
+# Drop duplicate rows
+df_no_dup = df.drop_duplicates()
+
+# Drop duplicate in specific column
+df_no_dup = df.drop_duplicates(subset=['City'])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q16. How to rename columns or index labels? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Use <code>rename()</code> method:</p>
+    <div class="code-block">
+<pre>
+df.rename(columns={'Sales':'Total_Sales'}, inplace=True)
+df.rename(index={0:'Row1',1:'Row2'}, inplace=True)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q17. Coding Challenge: Top N rows based on a column <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Challenge:</strong> Find top 3 sales in each city.</p>
+    <div class="code-block">
+<pre>
+top_sales = df.groupby('City').apply(lambda x: x.nlargest(3, 'Sales'))
+print(top_sales)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q18. Coding Challenge: Conditional selection <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Challenge:</strong> Select all products with Sales > 200 and City containing 'A'</p>
+    <div class="code-block">
+<pre>
+df_filtered = df[(df['Sales']>200) & (df['City'].str.contains('A'))]
+print(df_filtered)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q19. Coding Challenge: Pivot + Aggregation <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>Challenge:</strong> Create a pivot table with sum of sales per city and product.</p>
+    <div class="code-block">
+<pre>
+pivot = pd.pivot_table(df, values='Sales', index='City', columns='Product', aggfunc='sum')
+print(pivot)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Q20. Explain the importance of vectorized operations over loops? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><strong>A:</strong> Vectorized operations in Pandas (or NumPy) are implemented in C and run much faster than Python loops. They allow element-wise operations on Series/DataFrames efficiently, which improves performance and reduces code complexity.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Pandas Interview Q&A ──────────────── -->
 
   <div class="go-back">
     <button onclick="history.back()">← Go Back</button>
