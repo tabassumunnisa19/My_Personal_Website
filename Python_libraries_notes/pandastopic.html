@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Topic 1: Introduction to Pandas & Series</title>
+  <title>Topic 1: Introduction to Pandas</title>
 
   <!-- reuse main site stylesheet -->
   <link rel="stylesheet" href="../style.css">
@@ -11,35 +11,12 @@
 
   <style>
     body { line-height:1.7; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
-    
-    .qa-block {
-      width: 100%;
-      border: 1px solid #e6eef8;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background: #fff;
-      overflow: hidden;
-      display: block;
-    }
-    .qa-block button {
-      width: 100%;
-      text-align: left;
-      padding: 1rem;
-      border: none;
-      background: #f5f8fa;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    main.site-container { max-width: 900px; margin: 0 auto; padding: 2rem; background: var(--background-color); }
+
+    .qa-block { border: 1px solid #e6eef8; border-radius: 8px; margin-bottom: 1rem; background: #fff; overflow: hidden; }
+    .qa-block button { width: 100%; text-align: left; padding: 1rem; border: none; background: #f5f8fa; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size:1rem; }
     .qa-block button:hover { background: #e0ebf8; }
-    .qa-block .content {
-      display: none;
-      padding: 1.25rem;
-      border-top: 1px solid #e6eef8;
-      background: #fff;
-    }
+    .qa-block .content { display: none; padding: 1.25rem; border-top: 1px solid #e6eef8; background: #fff; }
     .qa-block .content p, .qa-block .content ul, .qa-block .content ol { margin-bottom: 0.9rem; }
     .qa-block h4 { margin-top: 0.25rem; }
 
@@ -49,74 +26,66 @@
     .exercise { background: #f6fbff; padding: 1rem; border-left: 4px solid #007bff; margin-bottom: 1rem; }
     .exercise h4 { margin-top: 0; }
 
-    .topic-head { margin-bottom: 0.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
-    .topic-head h2 { margin: 0; font-size:1.35rem; }
-    .badge { font-size:0.85rem; color:#fff; background:#2d7ef7; padding:0.25rem 0.6rem; border-radius:5px; }
-
     .go-back { text-align:center; margin:2rem 0; }
     .go-back button { padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer; }
 
-    @media (max-width: 600px) {
-      .qa-block button { font-size: 0.95rem; }
-    }
+    .topic-head { margin-bottom: 0.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+    .topic-head h2 { margin: 0; font-size:1.35rem; }
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="site-container header-inner">
-      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" style="height:36px; object-fit:cover;"></a>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav id="main-nav" class="navbar" role="navigation">
-        <a href="../index.html">Home</a>
-        <a href="../about.html">About</a>
-        <a href="../portfolio.html">Portfolio</a>
-        <a href="../learn.html" class="active">Learn</a>
-        <a href="../blog.html">Blog</a>
-        <a href="../books.html">Books</a>
-        <a href="../contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" style="height:36px; object-fit:cover;"></a>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav id="main-nav" class="navbar" role="navigation">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../learn.html" class="active">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- ──────────────── Topic 1: Pandas & Series ──────────────── -->
-  <div class="topic-head" style="margin-top:2rem;">
+<main class="site-container">
+  <div class="topic-head">
     <h2>Topic 1: Introduction to Pandas &amp; Series</h2>
   </div>
 
   <div class="qa-block">
     <button>Overview of Pandas <i class="fas fa-chevron-down"></i></button>
     <div class="content">
-      <p>Pandas is a powerful Python library for data manipulation and analysis.  
-      It provides two main data structures: <strong>Series</strong> (1D) and <strong>DataFrame</strong> (2D).  
-      Series can be created from lists, tuples, dictionaries, or NumPy arrays.  
-      DataFrames are ideal for structured datasets like CSV files or Excel sheets.</p>
+      <p>Pandas is a Python library for data manipulation and analysis. It provides two main data structures: <strong>Series</strong> (1D) and <strong>DataFrame</strong> (2D tabular data). Series can be created from lists, tuples, dictionaries, or NumPy arrays. DataFrames are ideal for structured data like CSV files or Excel sheets.</p>
     </div>
   </div>
 
   <div class="qa-block">
     <button>Creating a Series <i class="fas fa-chevron-down"></i></button>
     <div class="content">
-      <p>Series are one-dimensional labeled arrays. They can hold any data type.</p>
       <div class="code-block">
 <pre>
 import pandas as pd
 
 # From list
-s1 = pd.Series([2, 3, 4])
-
-# From tuple
-s2 = pd.Series((10, 20, 30))
+s1 = pd.Series([2,3,4])
 
 # From dictionary
-s3 = pd.Series({'id':4, 'Name':"Anna", 'Place':'Eklm', 'Age':45}, index=['Name','Age','id','Place'])
+dic = {'id': 4, 'Name': "Anna", 'Place': "Eklm", 'Age': 45}
+s2 = pd.Series(dic, index=['Name','Age','id','Place'])
 
 # Using range
-s4 = pd.Series([i for i in range(6)])
+s3 = pd.Series([i for i in range(6)])
+print(s1)
+print(s2)
+print(s3)
 </pre>
       </div>
     </div>
@@ -125,10 +94,9 @@ s4 = pd.Series([i for i in range(6)])
   <div class="qa-block">
     <button>Series Attributes <i class="fas fa-chevron-down"></i></button>
     <div class="content">
-      <p>Useful attributes:</p>
       <div class="code-block">
 <pre>
-s = pd.Series([4, 5, 5, 3, 2, 5, 7])
+s = pd.Series([4,5,5,3,2,5,7])
 print("Shape:", s.shape)
 print("Size:", s.size)
 print("Data type:", s.dtype)
@@ -142,11 +110,10 @@ print("First 5 elements:", s.head())
   <div class="qa-block">
     <button>Series Operations <i class="fas fa-chevron-down"></i></button>
     <div class="content">
-      <p>Perform element-wise arithmetic operations:</p>
       <div class="code-block">
 <pre>
-a = pd.Series([4, 3, 2])
-b = pd.Series([1, 2, 3])
+a = pd.Series([4,3,2])
+b = pd.Series([1,2,3])
 
 print("Addition:", a.add(b))
 print("Subtraction:", a.sub(b))
@@ -160,17 +127,14 @@ print("Division:", a.div(b))
   <div class="qa-block">
     <button>Mini Dataset Example – Sales Data <i class="fas fa-chevron-down"></i></button>
     <div class="content">
-      <p>Series of monthly sales and basic operations:</p>
       <div class="code-block">
 <pre>
-sales = pd.Series([2500, 3000, 2800, 3500, 4000],
+sales = pd.Series([2500, 3000, 2800, 3500, 4000], 
                   index=['Jan','Feb','Mar','Apr','May'])
-print("Total months:", sales.size)
+
 print("Months:", sales.index)
 print("Values:", sales.values)
-
-increase = sales + 500
-print("Sales after increase:\n", increase)
+print("Sales +500:\n", sales + 500)
 </pre>
       </div>
     </div>
@@ -179,13 +143,12 @@ print("Sales after increase:\n", increase)
   <div class="qa-block">
     <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
     <div class="content">
-
       <div class="exercise">
         <h4>Exercise 1 – Create a Series</h4>
         <div class="code-block">
 <pre>
 import pandas as pd
-data = [12, 24, 36, 48, 60]
+data = [12,24,36,48,60]
 s = pd.Series(data)
 print(s.head(3))
 </pre>
@@ -196,8 +159,8 @@ print(s.head(3))
         <h4>Exercise 2 – Series Operations</h4>
         <div class="code-block">
 <pre>
-s1 = pd.Series([5, 10, 15])
-s2 = pd.Series([2, 4, 6])
+s1 = pd.Series([5,10,15])
+s2 = pd.Series([2,4,6])
 print("Addition:", s1 + s2)
 print("Multiplication:", s1 * s2)
 </pre>
@@ -208,14 +171,13 @@ print("Multiplication:", s1 * s2)
         <h4>Coding Challenge – Temperature Data</h4>
         <div class="code-block">
 <pre>
-temps = pd.Series([22, 25, 21, 23, 24, 26, 22])
+temps = pd.Series([22,25,21,23,24,26,22])
 print("Max temp:", temps.max())
 print("Min temp:", temps.min())
 print("Mean temp:", temps.mean())
 </pre>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -226,53 +188,57 @@ print("Mean temp:", temps.mean())
       <p><strong>A:</strong> A Series is a one-dimensional labeled array capable of holding any data type.</p>
 
       <h4>Q2. Difference between Series and DataFrame?</h4>
-      <p><strong>A:</strong> Series is 1D, DataFrame is 2D.</p>
+      <p><strong>A:</strong> Series is 1D, DataFrame is 2D (rows and columns).</p>
 
       <h4>Q3. How to create a Series from a dictionary?</h4>
-      <p><strong>A:</strong> Use <code>pd.Series(dictionary)</code> with optional custom index labels.</p>
+      <p><strong>A:</strong> Use <code>pd.Series(dictionary)</code> and optionally a custom index.</p>
 
-      <h4>Q4. How to perform element-wise arithmetic operations on Series?</h4>
-      <p><strong>A:</strong> Use operators (`+`, `-`, `*`, `/`) or methods like <code>add()</code>, <code>sub()</code>.</p>
+      <h4>Q4. How to perform element-wise arithmetic operations?</h4>
+      <p><strong>A:</strong> Use operators (+,-,*,/) or methods like <code>add()</code>, <code>sub()</code>.</p>
 
       <h4>Q5. How to get the first few elements of a Series?</h4>
-      <p><strong>A:</strong> Use <code>head(n)</code>; default is first 5 elements.</p>
+      <p><strong>A:</strong> Use <code>head(n)</code> method; default is 5 elements.</p>
     </div>
   </div>
 
-  <!-- Go Back -->
   <div class="go-back">
     <button onclick="history.back()">← Go Back</button>
   </div>
+</main>
 
-  <footer class="site-footer">
-    <div class="site-container footer-inner">
-      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-      <div class="socials" aria-label="social links">
-        <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="#" class="social github" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="#" class="social medium" title="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-        <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      </div>
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    const qaBlocks = document.querySelectorAll('.qa-block button');
-    qaBlocks.forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        button.querySelector('i').classList.toggle('fa-chevron-up');
-        button.querySelector('i').classList.toggle('fa-chevron-down');
-      });
+<script>
+  // Q&A toggle
+  const qaBlocks = document.querySelectorAll('.qa-block button');
+  qaBlocks.forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      button.querySelector('i').classList.toggle('fa-chevron-up');
+      button.querySelector('i').classList.toggle('fa-chevron-down');
     });
+  });
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('#main-nav');
-    if (menuToggle && nav) {
-      menuToggle.addEventListener('click', () => { nav.classList.toggle('active'); });
-    }
-  </script>
+  // Hamburger toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('#main-nav');
+  if(menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  }
+</script>
 
 </body>
 </html>
