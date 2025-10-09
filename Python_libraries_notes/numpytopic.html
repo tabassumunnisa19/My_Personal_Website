@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NumPy — Topic 1: Introduction</title>
+  <title>Topic 1: Introduction</title>
 
   <!-- reuse main site stylesheet -->
   <link rel="stylesheet" href="../style.css">
@@ -71,8 +71,7 @@
 
     <!-- Page header -->
     <div class="topic-head">
-      <h2>NumPy — Topic 1: Introduction to NumPy</h2>
-      <span class="badge">Beginner • Web Notes</span>
+      <h2>Topic 1: Introduction to NumPy</h2>
     </div>
 
     <!-- Topic content block (collapsible like your other pages) -->
@@ -266,7 +265,67 @@ print("Mean of > 50:", np.mean(greater_50))
 
       </div>
     </div>
+<div class="qa-block">
+  <button>Exercises & Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
 
+    <div class="exercise">
+      <h4>Exercise 1 — Create Even Numbers Array</h4>
+      <div class="code-block">
+<pre>
+evens = np.arange(2, 22, 2)
+print(evens)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 — Create 4×4 Ones and Zeros Matrices</h4>
+      <div class="code-block">
+<pre>
+ones = np.ones((4, 4))
+zeros = np.zeros((4, 4))
+print("Ones:\n", ones)
+print("Zeros:\n", zeros)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 — Random Normal Distribution</h4>
+      <div class="code-block">
+<pre>
+data = np.random.randn(1000)
+print("Mean:", np.mean(data))
+print("Std:", np.std(data))
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge — Salary Simulation</h4>
+    <div class="exercise">
+      <p>Generate random monthly salaries for 12 months and compute total, average, and the month with the highest salary.</p>
+      <div class="code-block">
+<pre>
+months = np.arange(1, 13)
+salaries = np.random.randint(25000, 60000, 12)
+
+total = np.sum(salaries)
+average = np.mean(salaries)
+max_month = months[np.argmax(salaries)]
+
+print("Monthly salaries:", salaries)
+print("Total salary:", total)
+print("Average salary:", average)
+print("Highest salary month:", max_month)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    
     <!-- Go Back -->
     <div class="go-back">
       <button onclick="history.back()">← Go Back</button>
