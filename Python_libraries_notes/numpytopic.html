@@ -324,6 +324,214 @@ print("Highest salary month:", max_month)
 
   </div>
 </div>
+<!-- ──────────────── Topic 2: Array Creation Methods ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 2: Array Creation Methods</h2>
+  <span class="badge">Beginner • Data Science</span>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Array Creation Methods <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>NumPy offers multiple ways to create arrays efficiently — from Python sequences, numeric ranges, filled arrays, identity matrices, and random data. These are the most common methods used in data science workflows.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.array()</code> – From Python Objects <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Create arrays directly from lists or tuples.</p>
+    <div class="code-block">
+<pre>
+import numpy as np
+
+# from list
+a = np.array([1, 2, 3, 4])
+
+# 2-D from nested lists
+b = np.array([[10, 20, 30], [40, 50, 60]])
+
+print(a)
+print(b)
+print("dtype:", a.dtype)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.arange()</code> – Evenly Spaced Range <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Generates evenly spaced values within a range using <code>(start, stop, step)</code>.</p>
+    <div class="code-block">
+<pre>
+a = np.arange(0, 10, 2)    # even numbers 0–8
+b = np.arange(10, 0, -3)  # countdown by 3
+print(a)
+print(b)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.linspace()</code> – Fixed Number of Points <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Returns a specific number of evenly spaced samples between two values (inclusive).</p>
+    <div class="code-block">
+<pre>
+# 5 values between 0 and 1 inclusive
+x = np.linspace(0, 1, 5)
+print(x)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Zeros, Ones &amp; Empty Arrays <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Useful for initializing arrays before filling with data.</p>
+    <div class="code-block">
+<pre>
+zeros_arr = np.zeros((2, 3))
+ones_arr  = np.ones((3, 2))
+empty_arr = np.empty((2, 2))
+
+print(zeros_arr)
+print(ones_arr)
+print(empty_arr)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.eye()</code> – Identity Matrix <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+I = np.eye(3)
+print(I)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Random Arrays with <code>np.random</code> <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>The <code>np.random</code> module generates integers, floats, and normally distributed values for simulation or sampling.</p>
+    <div class="code-block">
+<pre>
+rand_ints   = np.random.randint(1, 101, 5)
+rand_floats = np.random.rand(3)
+rand_norm   = np.random.randn(2, 3)
+
+print(rand_ints)
+print(rand_floats)
+print(rand_norm)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Student Scores <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Generate random scores for 5 students in 3 subjects and compute their averages.</p>
+    <div class="code-block">
+<pre>
+scores = np.random.randint(50, 100, (5, 3))
+print("Scores:\n", scores)
+
+avg_subject = np.mean(scores, axis=0)
+avg_student = np.mean(scores, axis=1)
+
+print("Average per subject:", avg_subject)
+print("Average per student:", avg_student)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. Difference between <code>np.arange()</code> and <code>np.linspace()</code>?</h4>
+    <p><strong>A:</strong> <code>arange()</code> uses step size; <code>linspace()</code> uses number of samples and includes the stop value.</p>
+
+    <h4>Q2. What does <code>np.eye()</code> produce?</h4>
+    <p><strong>A:</strong> A 2-D identity matrix with ones on the main diagonal and zeros elsewhere.</p>
+
+    <h4>Q3. How to create a 5×5 random integer matrix (10–99)?</h4>
+    <div class="code-block">
+<pre>
+mat = np.random.randint(10, 100, (5, 5))
+print(mat)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="exercise">
+      <h4>Exercise 1 – Even Numbers Array</h4>
+      <div class="code-block">
+<pre>
+evens = np.arange(2, 22, 2)
+print(evens)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – 4×4 Ones &amp; Zeros Matrices</h4>
+      <div class="code-block">
+<pre>
+ones = np.ones((4, 4))
+zeros = np.zeros((4, 4))
+print("Ones:\n", ones)
+print("Zeros:\n", zeros)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Random Normal Distribution</h4>
+      <div class="code-block">
+<pre>
+data = np.random.randn(1000)
+print("Mean:", np.mean(data))
+print("Std:", np.std(data))
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Salary Simulation</h4>
+    <div class="exercise">
+      <p>Generate random monthly salaries for 12 months and compute total, average, and month with highest salary.</p>
+      <div class="code-block">
+<pre>
+months = np.arange(1, 13)
+salaries = np.random.randint(25000, 60000, 12)
+
+total = np.sum(salaries)
+average = np.mean(salaries)
+max_month = months[np.argmax(salaries)]
+
+print("Monthly salaries:", salaries)
+print("Total salary:", total)
+print("Average salary:", average)
+print("Highest salary month:", max_month)
+</pre>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 2 ──────────────── -->
 
     
     <!-- Go Back -->
