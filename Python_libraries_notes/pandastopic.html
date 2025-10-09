@@ -200,6 +200,749 @@ print("Mean temp:", temps.mean())
       <p><strong>A:</strong> Use <code>head(n)</code> method; default is 5 elements.</p>
     </div>
   </div>
+<!-- ──────────────── Topic 2: DataFrame Basics & Operations ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 2: DataFrame Basics &amp; Operations</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of DataFrames <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>A <strong>DataFrame</strong> is a two-dimensional labeled data structure in Pandas.  
+    It can store data of different types (numeric, string, boolean) in columns.  
+    DataFrames are ideal for CSV, Excel, SQL tables, and structured datasets.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Creating a DataFrame <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# From list of lists
+data = [
+    [101,'Vineeth',32,'Alappuzha'],
+    [102,'Amal',25,'Ernakulam'],
+    [103,'Aleena',21,'Kottayam']
+]
+df1 = pd.DataFrame(data, columns=['ID','Name','Age','Place'])
+
+# From dictionary
+dic = {
+    'Roll':[101,102,103],
+    'Name':['Amal','Anu','Raj'],
+    'Age':[24,43,21],
+    'Place':['Alapy','Kottayam','Kannur']
+}
+df2 = pd.DataFrame(dic)
+
+print(df1)
+print(df2)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>DataFrame Attributes & Info <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+print("Shape:", df1.shape)
+print("Number of elements:", df1.size)
+print("Data types:\n", df1.dtypes)
+print("Column names:", df1.columns)
+print("Number of dimensions:", df1.ndim)
+print("First 5 rows:\n", df1.head())
+print("Last 5 rows:\n", df1.tail())
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Adding & Modifying Columns <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Adding columns
+df1['Gender'] = ['M','M','F']
+df1['Salary'] = [20000,30000,40000]
+
+# Modifying columns
+df1['Salary'] = df1['Salary'] + 5000
+
+print(df1)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Selecting Rows & Columns <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Using column names
+print(df1['Name'])
+print(df1[['Name','Age']])
+
+# Using iloc (integer index)
+print(df1.iloc[0])       # first row
+print(df1.iloc[0:2, 1:3]) # first 2 rows, columns 1 to 2
+
+# Using loc (label-based)
+print(df1.loc[df1['Age']>25, ['Name','Age']])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Handling Missing Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Detect missing values
+print(df1.isna().sum())
+
+# Fill missing values
+df1['Place'].fillna('Unknown', inplace=True)
+
+# Drop rows with missing values
+df1.dropna(inplace=True)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Sorting & Filtering <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Sorting
+df1_sorted = df1.sort_values(by='Age', ascending=False)
+
+# Filtering
+df_filtered = df1.loc[(df1['Age']>20) & (df1['Place']=='Alappuzha')]
+
+print(df1_sorted)
+print(df_filtered)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="exercise">
+      <h4>Exercise 1 – Create & Inspect DataFrame</h4>
+      <div class="code-block">
+<pre>
+# Create a DataFrame with 5 rows & 4 columns of your choice
+# Print shape, columns, and first 3 rows
+import pandas as pd
+data = [
+  [1,'Alice',25,'NY'],
+  [2,'Bob',30,'LA'],
+  [3,'Charlie',22,'SF'],
+  [4,'David',28,'NY'],
+  [5,'Eva',35,'LA']
+]
+df = pd.DataFrame(data, columns=['ID','Name','Age','City'])
+print(df.shape)
+print(df.columns)
+print(df.head(3))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Filter & Sort</h4>
+      <div class="code-block">
+<pre>
+# Filter rows with Age > 25 and sort by City
+filtered = df.loc[df['Age']>25].sort_values(by='City')
+print(filtered)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Sales Data</h4>
+      <div class="code-block">
+<pre>
+# Create a DataFrame for 5 products with columns: Product, Price, Quantity
+# Find total value = Price * Quantity and sort descending
+products = pd.DataFrame({
+  'Product':['A','B','C','D','E'],
+  'Price':[100,150,200,50,120],
+  'Quantity':[10,5,8,20,15]
+})
+products['Total'] = products['Price'] * products['Quantity']
+products_sorted = products.sort_values(by='Total', ascending=False)
+print(products_sorted)
+</pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is a Pandas DataFrame?</h4>
+    <p><strong>A:</strong> A 2D labeled data structure with rows and columns, capable of holding multiple data types.</p>
+
+    <h4>Q2. How to create a DataFrame from a dictionary?</h4>
+    <p><strong>A:</strong> Use <code>pd.DataFrame(dictionary)</code>. Keys become column names.</p>
+
+    <h4>Q3. Difference between loc and iloc?</h4>
+    <p><strong>A:</strong> <code>loc</code> uses labels, <code>iloc</code> uses integer index positions.</p>
+
+    <h4>Q4. How to handle missing values?</h4>
+    <p><strong>A:</strong> Use <code>fillna()</code> to fill or <code>dropna()</code> to remove missing values.</p>
+
+    <h4>Q5. How to sort and filter a DataFrame?</h4>
+    <p><strong>A:</strong> Use <code>sort_values(by='column')</code> and boolean conditions with <code>loc</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 2 ──────────────── -->
+<!-- ──────────────── Topic 3: Advanced DataFrame Operations, Grouping & Merging ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 3: Advanced DataFrame Operations, Grouping & Merging</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Advanced DataFrame operations include <strong>grouping, aggregation, merging, joining, and handling duplicates</strong>.  
+    These are essential for analyzing large datasets efficiently.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Grouping & Aggregation <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>groupby()</code> to group data by a column and perform aggregation functions like <code>count(), sum(), mean(), max(), min()</code>.</p>
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample DataFrame
+data = {
+    'Name':['Alice','Bob','Charlie','Alice','Bob'],
+    'Department':['HR','IT','IT','HR','IT'],
+    'Salary':[50000,60000,55000,52000,62000],
+    'Age':[25,30,28,26,31]
+}
+df = pd.DataFrame(data)
+
+# Group by Department
+grouped = df.groupby('Department')
+
+# Aggregations
+count_per_dept = grouped['Name'].count()
+sum_salary = grouped['Salary'].sum()
+max_age = grouped['Age'].max()
+
+print("Count per department:\n", count_per_dept)
+print("Total Salary per department:\n", sum_salary)
+print("Max Age per department:\n", max_age)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Filtering after Grouping <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Filter departments with total salary > 110000
+filtered = grouped['Salary'].sum()
+filtered = filtered[filtered > 110000]
+print(filtered)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Handling Duplicates <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Detect duplicates
+df.duplicated().sum()
+
+# Drop duplicates
+df_unique = df.drop_duplicates()
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Merging DataFrames <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Combine DataFrames using <code>merge()</code> and specify <code>how</code>:</p>
+    <ul>
+      <li><strong>inner:</strong> Only matching rows</li>
+      <li><strong>left:</strong> All rows from left, matching from right</li>
+      <li><strong>right:</strong> All rows from right, matching from left</li>
+      <li><strong>outer:</strong> All rows from both DataFrames</li>
+    </ul>
+    <div class="code-block">
+<pre>
+# Sample DataFrames
+df1 = pd.DataFrame({
+    'ID':[1,2,3],
+    'Name':['Alice','Bob','Charlie']
+})
+df2 = pd.DataFrame({
+    'ID':[2,3,4],
+    'Salary':[60000,55000,50000]
+})
+
+# Inner join
+inner_join = pd.merge(df1, df2, on='ID', how='inner')
+
+# Left join
+left_join = pd.merge(df1, df2, on='ID', how='left')
+
+# Outer join
+outer_join = pd.merge(df1, df2, on='ID', how='outer')
+
+print("Inner Join:\n", inner_join)
+print("Left Join:\n", left_join)
+print("Outer Join:\n", outer_join)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="exercise">
+      <h4>Exercise 1 – Grouping</h4>
+      <div class="code-block">
+<pre>
+# Create a DataFrame of 5 students with columns: Name, Class, Marks
+# Group by Class and calculate mean Marks
+import pandas as pd
+data = {
+    'Name':['A','B','C','D','E'],
+    'Class':['X','X','Y','Y','X'],
+    'Marks':[80,90,75,85,95]
+}
+df = pd.DataFrame(data)
+mean_marks = df.groupby('Class')['Marks'].mean()
+print(mean_marks)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Merge</h4>
+      <div class="code-block">
+<pre>
+# Create two DataFrames and merge on a common column
+df1 = pd.DataFrame({'ID':[1,2,3],'Name':['John','Anna','Mike']})
+df2 = pd.DataFrame({'ID':[2,3,4],'Score':[88,92,75]})
+merged = pd.merge(df1, df2, on='ID', how='outer')
+print(merged)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Sales Analysis</h4>
+      <div class="code-block">
+<pre>
+# DataFrame of products sold in 2 regions
+data1 = {'Product':['A','B','C'], 'Region1':[100,150,200]}
+data2 = {'Product':['B','C','D'], 'Region2':[120,180,220]}
+df1 = pd.DataFrame(data1)
+df2 = pd.DataFrame(data2)
+
+# Merge and calculate total sales per product
+df_total = pd.merge(df1, df2, on='Product', how='outer').fillna(0)
+df_total['TotalSales'] = df_total['Region1'] + df_total['Region2']
+print(df_total)
+</pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. What is the purpose of groupby in Pandas?</h4>
+    <p><strong>A:</strong> To split the DataFrame into groups based on column(s) and perform aggregate computations like sum, mean, count, etc.</p>
+
+    <h4>Q2. Difference between inner and outer merge?</h4>
+    <p><strong>A:</strong> Inner merge keeps only matching rows; outer merge keeps all rows from both DataFrames with NaN for missing values.</p>
+
+    <h4>Q3. How to handle duplicates in a DataFrame?</h4>
+    <p><strong>A:</strong> Use <code>drop_duplicates()</code> to remove duplicate rows; use <code>duplicated()</code> to detect duplicates.</p>
+
+    <h4>Q4. How to filter grouped data?</h4>
+    <p><strong>A:</strong> After <code>groupby()</code>, perform aggregation and then apply boolean indexing to filter rows.</p>
+
+    <h4>Q5. What are common join types in Pandas merge?</h4>
+    <p><strong>A:</strong> inner, left, right, outer — depending on which rows you want to keep from each DataFrame.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 3 ──────────────── -->
+<!-- ──────────────── Topic 4: Data Cleaning, Handling Missing/Wrong Data & Advanced Filters ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 4: Data Cleaning, Handling Missing/Wrong Data & Advanced Filters</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Data cleaning is crucial for reliable analysis.  
+    Key steps include handling missing values, correcting wrong data, filtering rows based on conditions, and renaming columns.  
+    Pandas provides <code>isna()</code>, <code>fillna()</code>, <code>dropna()</code>, <code>loc</code>, <code>iloc</code>, and boolean indexing for these tasks.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Handling Missing Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample DataFrame with missing values
+data = {
+    'ID':[101,102,103,104],
+    'Name':['Alice','Bob',None,'Diana'],
+    'Age':[25,None,28,30],
+    'Place':['NY','LA','NY',None]
+}
+df = pd.DataFrame(data)
+
+# Detect missing values
+print(df.isna())
+
+# Fill missing values with a single value
+df.fillna({'Name':'Unknown', 'Age':df['Age'].mean(), 'Place':'Unknown'}, inplace=True)
+
+# Drop rows with any missing values
+df.dropna(inplace=True)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Correcting Wrong Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Correct wrong data using loc
+df.loc[df['Name']=='Alicee','Name'] = 'Alice'
+df.loc[df['Place']=='Nw York','Place'] = 'NY'
+
+# Extract specific columns
+print(df[['Name','Place']])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Filtering Rows Using Conditions <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Filter rows where Age > 25
+df_age = df.loc[df['Age'] > 25]
+
+# Filter rows where Place is 'NY' and Age > 25
+df_filtered = df.loc[(df['Place']=='NY') & (df['Age']>25)]
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Renaming Columns <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Rename columns using rename()
+df.rename(columns={'ID':'CustomerID','Name':'FullName'}, inplace=True)
+print(df.columns)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Sorting Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Sort by Age ascending
+df_sorted = df.sort_values(by='Age')
+
+# Sort by Place descending
+df_sorted_desc = df.sort_values(by='Place', ascending=False)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises & Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Fill Missing Data</h4>
+      <div class="code-block">
+<pre>
+# Create a DataFrame with missing values and fill them with appropriate values
+import pandas as pd
+data = {
+    'Name':['Tom',None,'Jerry','Spike',None],
+    'Age':[22,25,None,28,30],
+    'City':['NY','LA',None,'SF','LA']
+}
+df = pd.DataFrame(data)
+# Fill missing values
+df.fillna({'Name':'Unknown','Age':df['Age'].mean(),'City':'Unknown'}, inplace=True)
+print(df)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Correct Wrong Data</h4>
+      <div class="code-block">
+<pre>
+# Correct misspelled names or city names
+df.loc[df['Name']=='Tomm','Name'] = 'Tom'
+df.loc[df['City']=='Nw York','City'] = 'NY'
+print(df)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Filter & Sort</h4>
+      <div class="code-block">
+<pre>
+# Filter people with Age > 25 and City 'LA', then sort by Age descending
+df_filtered = df.loc[(df['Age']>25) & (df['City']=='LA')]
+df_sorted = df_filtered.sort_values(by='Age', ascending=False)
+print(df_sorted)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q & A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. How do you detect missing values in Pandas?</h4>
+    <p><strong>A:</strong> Use <code>isna()</code> or <code>isnull()</code> to detect missing values in DataFrame.</p>
+
+    <h4>Q2. How can you fill missing values?</h4>
+    <p><strong>A:</strong> Use <code>fillna()</code> to replace missing values with a specific value, mean, median, or mode.</p>
+
+    <h4>Q3. How to remove rows with missing values?</h4>
+    <p><strong>A:</strong> Use <code>dropna()</code> to remove rows that have any NaN values.</p>
+
+    <h4>Q4. How do you correct wrong data in a DataFrame?</h4>
+    <p><strong>A:</strong> Use <code>loc[index, 'column'] = new_value</code> or boolean indexing to fix incorrect entries.</p>
+
+    <h4>Q5. How do you filter data based on multiple conditions?</h4>
+    <p><strong>A:</strong> Use boolean indexing with <code>&</code> (and), <code>|</code> (or), and parentheses: <code>df.loc[(cond1) & (cond2)]</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 4 ──────────────── -->
+<!-- ──────────────── Topic 5: Loc, Iloc & Advanced Indexing ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 5: Loc, Iloc & Advanced Indexing</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Pandas provides powerful ways to select and filter data using <strong>loc</strong> (label-based) and <strong>iloc</strong> (integer-based) indexing.  
+    You can select rows, columns, or specific cells, and combine conditions to extract meaningful subsets.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Loc: Label-based Indexing <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+import pandas as pd
+
+# Sample DataFrame
+data = {
+    'ID':[101,102,103,104],
+    'Name':['Alice','Bob','Charlie','Diana'],
+    'Age':[25,30,28,32],
+    'Place':['NY','LA','SF','NY']
+}
+df = pd.DataFrame(data)
+
+# Select single row by label (index)
+print(df.loc[1])
+
+# Select multiple rows by labels
+print(df.loc[[0,2]])
+
+# Select specific row and column
+print(df.loc[2, 'Name'])
+
+# Select multiple rows and columns
+print(df.loc[[0,2], ['Name','Place']])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Iloc: Integer-based Indexing <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Select row by integer position
+print(df.iloc[1])
+
+# Select multiple rows
+print(df.iloc[[0,2]])
+
+# Select specific row and column
+print(df.iloc[2,1])
+
+# Select multiple rows and columns
+print(df.iloc[0:3, 1:3])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Advanced Indexing & Boolean Filters <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Filter rows where Age > 28
+df_age = df.loc[df['Age'] > 28]
+
+# Filter rows with multiple conditions (Age>25 and Place='NY')
+df_filtered = df.loc[(df['Age']>25) & (df['Place']=='NY')]
+
+# Select specific columns after filtering
+df_select = df_filtered[['Name','Place','Age']]
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Selecting Columns <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <div class="code-block">
+<pre>
+# Single column
+names = df['Name']
+
+# Multiple columns
+subset = df[['Name','Age']]
+
+# Using loc for columns
+subset2 = df.loc[:, ['ID','Place']]
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises & Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Use loc</h4>
+      <div class="code-block">
+<pre>
+# Extract rows 1 and 3 and columns 'Name' and 'Age' using loc
+import pandas as pd
+data = {
+    'ID':[201,202,203,204],
+    'Name':['Tom','Jerry','Spike','Tyke'],
+    'Age':[23,27,22,24],
+    'City':['NY','LA','SF','LA']
+}
+df = pd.DataFrame(data)
+subset = df.loc[[0,2], ['Name','Age']]
+print(subset)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Use iloc</h4>
+      <div class="code-block">
+<pre>
+# Extract first 3 rows and last 2 columns using iloc
+subset = df.iloc[0:3, 2:4]
+print(subset)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Coding Challenge – Advanced Filters</h4>
+      <div class="code-block">
+<pre>
+# Filter people with Age > 22 and City 'LA', then select Name and Age
+filtered = df.loc[(df['Age']>22) & (df['City']=='LA'), ['Name','Age']]
+print(filtered)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q & A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. Difference between loc and iloc?</h4>
+    <p><strong>A:</strong> <code>loc</code> is label-based; <code>iloc</code> is integer-position based.</p>
+
+    <h4>Q2. How do you select multiple rows and columns?</h4>
+    <p><strong>A:</strong> Use <code>df.loc[[row1,row2], [col1,col2]]</code> or <code>df.iloc[[0,2],[1,3]]</code>.</p>
+
+    <h4>Q3. How do you filter data using multiple conditions?</h4>
+    <p><strong>A:</strong> Combine boolean conditions with <code>&</code> (and), <code>|</code> (or), and parentheses: <code>df.loc[(cond1)&(cond2)]</code>.</p>
+
+    <h4>Q4. How to select a single column?</h4>
+    <p><strong>A:</strong> Use <code>df['ColumnName']</code> or <code>df.loc[:, 'ColumnName']</code>.</p>
+
+    <h4>Q5. How to select multiple columns?</h4>
+    <p><strong>A:</strong> Use <code>df[['Col1','Col2']]</code> or <code>df.loc[:, ['Col1','Col2']]</code>.</p>
+  </div>
+</div>
+<!-- ──────────────── End of Topic 5 ──────────────── -->
 
   <div class="go-back">
     <button onclick="history.back()">← Go Back</button>
