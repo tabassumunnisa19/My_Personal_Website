@@ -1774,6 +1774,378 @@ for f, c in zip(faces, counts):
   </div>
 </div>
 <!-- ──────────────── End of Topic 8 ──────────────── -->
+<!-- ──────────────── Topic 9: Working with Missing Data ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 9: Working with Missing Data</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Handling Missing Data in NumPy <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>NumPy uses <code>np.nan</code> to represent missing values. Efficient handling of missing data is crucial in preprocessing and analysis workflows.  
+    Common operations include checking, replacing, or removing NaN values.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.nan</code> – Representing Missing Data <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p><code>np.nan</code> is used to denote missing or undefined values in arrays.</p>
+    <div class="code-block">
+<pre>
+import numpy as np
+
+data = np.array([1, 2, np.nan, 4, 5])
+print("Array with missing data:", data)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button><code>np.isnan()</code> – Checking for NaN <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Identifies elements that are NaN, returning a boolean array.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([1, np.nan, 3, np.nan, 5])
+nan_mask = np.isnan(arr)
+print("NaN Mask:", nan_mask)
+print("Elements that are NaN:", arr[nan_mask])
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Replacing or Removing NaN Values <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>You can replace NaNs with a value or remove them using masking or <code>np.nan_to_num()</code>.</p>
+    <div class="code-block">
+<pre>
+# Replace NaN with 0
+cleaned = np.nan_to_num(arr, nan=0)
+print("NaN replaced with 0:", cleaned)
+
+# Remove NaN values
+filtered = arr[~np.isnan(arr)]
+print("Array without NaNs:", filtered)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Student Test Scores <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Handle missing scores in a dataset.</p>
+    <div class="code-block">
+<pre>
+scores = np.array([78, 85, np.nan, 90, 56, np.nan, 95])
+
+# Find missing scores
+missing_idx = np.isnan(scores)
+print("Missing indices:", missing_idx)
+
+# Replace missing scores with mean of existing scores
+mean_score = np.nanmean(scores)
+scores_filled = np.where(missing_idx, mean_score, scores)
+print("Scores after filling NaN with mean:", scores_filled)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. How does NumPy represent missing data?</h4>
+    <p><strong>A:</strong> Using <code>np.nan</code> in arrays.</p>
+
+    <h4>Q2. Difference between <code>np.isnan()</code> and <code>np.nan_to_num()</code>?</h4>
+    <p><strong>A:</strong> <code>np.isnan()</code> checks for NaN values, while <code>np.nan_to_num()</code> replaces NaNs with a specified number.</p>
+
+    <h4>Q3. How to calculate mean ignoring NaN values?</h4>
+    <p><strong>A:</strong> Use <code>np.nanmean(array)</code> to compute mean while ignoring NaNs.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Identify Missing Data</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([10, np.nan, 20, np.nan, 30])
+print("NaN positions:", np.isnan(arr))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Replace NaN with Zero</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([5, np.nan, 15, np.nan])
+arr_filled = np.nan_to_num(arr, nan=0)
+print("NaN replaced with 0:", arr_filled)
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Compute Mean Ignoring NaNs</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([2, np.nan, 8, np.nan, 10])
+mean_val = np.nanmean(arr)
+print("Mean ignoring NaN:", mean_val)
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Normalize Array with Missing Data</h4>
+    <div class="exercise">
+      <p>Normalize an array after handling missing values.</p>
+      <div class="code-block">
+<pre>
+data = np.array([3, np.nan, 7, 5, np.nan])
+
+# Replace NaN with mean
+mean_val = np.nanmean(data)
+data_filled = np.where(np.isnan(data), mean_val, data)
+
+# Normalize
+normalized = (data_filled - np.min(data_filled)) / (np.max(data_filled) - np.min(data_filled))
+print("Normalized data:", normalized)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 9 ──────────────── -->
+<!-- ──────────────── Topic 10: Interview & Practical Exercises ──────────────── -->
+<div class="topic-head" style="margin-top:2rem;">
+  <h2>Topic 10: Interview &amp; Practical Exercises</h2>
+</div>
+
+<div class="qa-block">
+  <button>Overview of Practical NumPy Exercises <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>This section covers commonly asked NumPy exercises in interviews and practical tests.  
+    Focuses on array manipulation, aggregation, reshaping, and normalization tasks.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Find the Mean of Each Row <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Compute row-wise mean for a 2-D array using <code>np.mean()</code>.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]])
+
+row_mean = np.mean(arr, axis=1)
+print("Mean of each row:", row_mean)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Sort a 2D Array by Column <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Sort a 2-D array based on values in a specific column using <code>arr[arr[:, col].argsort()]</code>.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([[3, 2, 1],
+                [1, 3, 2],
+                [2, 1, 3]])
+
+# Sort by 2nd column (index 1)
+sorted_arr = arr[arr[:, 1].argsort()]
+print("Sorted by 2nd column:\n", sorted_arr)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Reverse an Array <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Reverse an array using slicing <code>[::-1]</code>.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([1, 2, 3, 4, 5])
+reversed_arr = arr[::-1]
+print("Reversed array:", reversed_arr)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Find Unique Elements <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Use <code>np.unique()</code> to find unique elements and optionally their counts.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([1, 2, 2, 3, 3, 3, 4])
+unique, counts = np.unique(arr, return_counts=True)
+print("Unique elements:", unique)
+print("Counts:", counts)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Convert List to Array and Reshape <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Convert a Python list to a NumPy array and reshape it.</p>
+    <div class="code-block">
+<pre>
+lst = [1, 2, 3, 4, 5, 6]
+arr = np.array(lst).reshape(2, 3)
+print("Reshaped array:\n", arr)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Normalize a NumPy Array <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Scale array values to the range 0–1 using min-max normalization.</p>
+    <div class="code-block">
+<pre>
+arr = np.array([10, 20, 30, 40, 50])
+normalized = (arr - np.min(arr)) / (np.max(arr) - np.min(arr))
+print("Normalized array:", normalized)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Mini Dataset Example – Employee Salaries <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <p>Practice multiple operations on a dataset of employee salaries.</p>
+    <div class="code-block">
+<pre>
+salaries = np.array([[50000, 60000, 55000],
+                     [70000, 65000, 72000],
+                     [48000, 52000, 50000]])
+
+# Row-wise mean
+row_mean = np.mean(salaries, axis=1)
+# Sort by 2nd column
+sorted_salaries = salaries[salaries[:, 1].argsort()]
+# Normalize salaries
+normalized_salaries = (salaries - np.min(salaries)) / (np.max(salaries) - np.min(salaries))
+
+print("Row-wise mean:", row_mean)
+print("Sorted by 2nd column:\n", sorted_salaries)
+print("Normalized salaries:\n", normalized_salaries)
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Interview Q &amp; A <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    <h4>Q1. How to reverse a NumPy array?</h4>
+    <p><strong>A:</strong> Use slicing <code>arr[::-1]</code> to reverse the array.</p>
+
+    <h4>Q2. How do you sort a 2D array by a column?</h4>
+    <p><strong>A:</strong> Use <code>arr[arr[:, col_index].argsort()]</code> to sort by a specific column.</p>
+
+    <h4>Q3. How to normalize a NumPy array?</h4>
+    <p><strong>A:</strong> Apply min-max normalization: <code>(arr - arr.min()) / (arr.max() - arr.min())</code>.</p>
+
+    <h4>Q4. How to find unique elements and their counts?</h4>
+    <p><strong>A:</strong> Use <code>np.unique(arr, return_counts=True)</code>.</p>
+  </div>
+</div>
+
+<div class="qa-block">
+  <button>Exercises &amp; Coding Challenge <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+
+    <div class="exercise">
+      <h4>Exercise 1 – Mean of Each Row</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([[2, 4, 6],
+                [1, 3, 5],
+                [7, 8, 9]])
+print("Row-wise mean:", np.mean(arr, axis=1))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 2 – Reverse and Sort</h4>
+      <div class="code-block">
+<pre>
+arr = np.array([10, 5, 15, 20])
+print("Reversed:", arr[::-1])
+print("Sorted:", np.sort(arr))
+</pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4>Exercise 3 – Reshape and Normalize</h4>
+      <div class="code-block">
+<pre>
+lst = [3, 6, 9, 12, 15, 18]
+arr = np.array(lst).reshape(2,3)
+normalized = (arr - np.min(arr)) / (np.max(arr) - np.min(arr))
+print("Reshaped array:\n", arr)
+print("Normalized array:\n", normalized)
+</pre>
+      </div>
+    </div>
+
+    <h4>Coding Challenge – Student Marks Analytics</h4>
+    <div class="exercise">
+      <p>Analyze marks of students using multiple NumPy operations.</p>
+      <div class="code-block">
+<pre>
+marks = np.array([[78, 85, 90],
+                  [56, 65, 70],
+                  [88, 92, 95]])
+
+# Row mean
+row_mean = np.mean(marks, axis=1)
+
+# Sort by 3rd subject
+sorted_marks = marks[marks[:, 2].argsort()]
+
+# Reverse first row
+reversed_first_row = marks[0][::-1]
+
+# Normalize all marks
+normalized_marks = (marks - np.min(marks)) / (np.max(marks) - np.min(marks))
+
+print("Row-wise mean:", row_mean)
+print("Sorted by 3rd subject:\n", sorted_marks)
+print("Reversed first row:", reversed_first_row)
+print("Normalized marks:\n", normalized_marks)
+</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ──────────────── End of Topic 10 ──────────────── -->
 
     
     <!-- Go Back -->
