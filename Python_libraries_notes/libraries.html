@@ -1,1 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NumPy — Topic 1: Introduction</title>
+
+  <!-- reuse main site stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Page-specific styles (kept consistent with python_simplified.html) */
+    body { line-height:1.7; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    .qa-block { border: 1px solid #e6eef8; border-radius: 8px; margin-bottom: 1rem; background: #fff; overflow: hidden; }
+    .qa-block button { width: 100%; text-align: left; padding: 1rem; border: none; background: #f5f8fa; cursor: pointer; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .qa-block button:hover { background: #e0ebf8; }
+    .qa-block .content { display: none; padding: 1.25rem; border-top: 1px solid #e6eef8; background: #fff; }
+    .qa-block .content p, .qa-block .content ul, .qa-block .content ol { margin-bottom: 0.9rem; }
+    .qa-block h4 { margin-top: 0.25rem; }
+
+    /* Code blocks (examples) — black background as requested */
+    .code-block { background: #0b0b0b; color: #e6eef8; padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-family: monospace; font-size: 0.95rem; }
+    .code-block pre { margin: 0; color: inherit; white-space: pre-wrap; word-break: break-word; }
+
+    /* Exercises (lighter background but code stays black) */
+    .exercise { background: #f6fbff; padding: 1rem; border-left: 4px solid #007bff; margin-bottom: 1rem; }
+    .exercise h4 { margin-top: 0; }
+
+    details .code-block { margin-top: 0.75rem; }
+
+    /* Go Back button */
+    .go-back { text-align:center; margin:2rem 0; }
+    .go-back button { padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer; }
+
+    /* Small visual tweak for NumPy headings */
+    .topic-head { margin-bottom: 0.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .topic-head h2 { margin: 0; font-size:1.35rem; }
+    .badge { font-size:0.85rem; color:#fff; background:#2d7ef7; padding:0.25rem 0.6rem; border-radius:5px; }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .qa-block button { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header (same structure as python_simplified.html) -->
+  <header class="site-header">
+    <div class="site-container header-inner">
+      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" style="height:36px; object-fit:cover;"></a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="main-nav" class="navbar" role="navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../learn.html" class="active">Learn</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../books.html">Books</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-container" style="padding:2rem; background:var(--background-color);">
+
+    <!-- Page header -->
+    <div class="topic-head">
+      <h2>NumPy — Topic 1: Introduction to NumPy</h2>
+      <span class="badge">Beginner • Web Notes</span>
+    </div>
+
+    <!-- Topic content block (collapsible like your other pages) -->
+    <div class="qa-block">
+      <button>Overview & Quick Facts <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p><strong>NumPy</strong> (Numerical Python) is the foundational package for numerical computing in Python. It provides the <code>ndarray</code> — a fast, memory-efficient N-dimensional array — plus mathematical functions and tools used throughout data science.</p>
+
+        <h4>Why NumPy is essential</h4>
+        <ul>
+          <li>Vectorized operations (fast element-wise math without Python loops).</li>
+          <li>Efficient memory usage vs Python lists.</li>
+          <li>Used by Pandas, Scikit-learn, TensorFlow, and many libraries.</li>
+          <li>Provides linear algebra, random sampling, and statistical helpers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Core properties -->
+    <div class="qa-block">
+      <button>Array Basics & Attributes <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <h4>Creating arrays</h4>
+        <div class="code-block">
+<pre>
+# import numpy with the common alias
+import numpy as np  # import statement
+
+# 1D array
+a = np.array([10, 20, 30, 40, 50])  # creates an ndarray from a Python list
+
+# 2D array (matrix)
+b = np.array([[1, 2, 3],
+              [4, 5, 6]])  # nested lists create 2D arrays
+
+print(a)  # -> [10 20 30 40 50]
+print(b)  # -> [[1 2 3]
+          #     [4 5 6]]
+</pre>
+        </div>
+
+        <h4>Inspecting arrays</h4>
+        <div class="code-block">
+<pre>
+print(type(a))   # -> &lt;class 'numpy.ndarray'&gt;   # object type
+print(a.dtype)   # -> int64 or int32 (element data-type)
+print(a.ndim)    # -> 1 (number of dimensions)
+print(a.shape)   # -> (5,) (shape tuple)
+print(a.size)    # -> 5 (total elements)
+</pre>
+        </div>
+
+        <h4>1D / 2D / 3D / 4D examples</h4>
+        <div class="code-block">
+<pre>
+# 1D
+arr1 = np.array([10, 20, 30])
+
+# 2D
+arr2 = np.array([[1,2,3],[4,5,6]])
+
+# 3D
+arr3 = np.array([[[1,2],[3,4]],[[5,6],[7,8]]])
+
+# 4D example (e.g., small RGB image stack)
+arr4 = np.random.randint(0,255,(2,2,2,3))
+
+print(arr1.ndim, arr2.ndim, arr3.ndim, arr4.ndim)  # -> 1 2 3 4
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- arange and sequences -->
+    <div class="qa-block">
+      <button>Sequences with <code>np.arange()</code> <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <h4>np.arange(start, stop, step)</h4>
+        <div class="code-block">
+<pre>
+# sequence 0..4
+a = np.arange(5)         # -> [0 1 2 3 4]
+
+# descending sequence 10..1
+b = np.arange(10, 0, -1)  # -> [10 9 8 7 6 5 4 3 2 1]
+
+print(a)
+print(b)
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- mini real-world dataset -->
+    <div class="qa-block">
+      <button>Mini Real-World Example: Weekly Temperatures <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <p>Use NumPy to compute quick statistics from a small dataset.</p>
+        <div class="code-block">
+<pre>
+# Daily temperatures (°C) for a week
+temperature = np.array([30.2, 32.5, 31.8, 29.9, 33.0, 34.1, 32.0])
+
+# total, mean, min, max
+total = np.sum(temperature)        # sum of values
+mean  = np.mean(temperature)       # average
+tmin  = np.min(temperature)        # minimum
+tmax  = np.max(temperature)        # maximum
+
+print("Total:", total)
+print("Mean:", mean)                # -> 31.93...
+print("Min:", tmin, "Max:", tmax)
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- interview Q&A -->
+    <div class="qa-block">
+      <button>Interview Q&A (short) <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <h4>Q: List vs NumPy array — main differences?</h4>
+        <p><strong>A:</strong> Lists can hold mixed types and are slower for numeric computation; NumPy arrays are homogeneous, memory-efficient and support vectorized element-wise operations.</p>
+
+        <h4>Q: How to check the number of dimensions?</h4>
+        <p><strong>A:</strong> Use <code>.ndim</code> (e.g., <code>arr.ndim</code>).</p>
+
+        <h4>Q: What is the difference between <code>shape</code> and <code>size</code>?</h4>
+        <p><strong>A:</strong> <code>shape</code> gives dimensions (tuple), <code>size</code> gives the total number of elements.</p>
+      </div>
+    </div>
+
+    <!-- exercises -->
+    <div class="qa-block">
+      <button>Exercises & Solutions <i class="fas fa-chevron-down"></i></button>
+      <div class="content">
+        <div class="exercise">
+          <h4>Exercise 1 — Create sequence</h4>
+          <div class="code-block">
+<pre>
+# Create 1D array from 5 to 50 (step 5)
+a = np.arange(5, 55, 5)  # -> [ 5 10 15 20 25 30 35 40 45 50]
+print(a)
+</pre>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <h4>Exercise 2 — Array properties</h4>
+          <div class="code-block">
+<pre>
+# Create 3x3 array and print ndim, shape, size
+mat = np.array([[2,4,6],[8,10,12],[14,16,18]])
+print(mat.ndim)   # -> 2
+print(mat.shape)  # -> (3,3)
+print(mat.size)   # -> 9
+</pre>
+          </div>
+        </div>
+
+        <div class="exercise">
+          <h4>Exercise 3 — Monthly expenses</h4>
+          <div class="code-block">
+<pre>
+# Monthly expenses and statistics
+expenses = np.array([23000, 25000, 22000, 27000, 26000])
+print("Total:", np.sum(expenses))
+print("Average:", np.mean(expenses))
+</pre>
+          </div>
+        </div>
+
+        <h4>Coding Challenge</h4>
+        <div class="exercise">
+          <div class="code-block">
+<pre>
+# Task: Generate 30 random integers between 1 and 100.
+#       Find how many are > 50 and compute their mean.
+import numpy as np
+
+arr = np.random.randint(1, 101, 30)   # 30 ints between 1 and 100
+greater_50 = arr[arr > 50]            # boolean indexing
+
+print("Array:", arr)
+print("Numbers > 50:", greater_50)
+print("Count > 50:", greater_50.size)
+print("Mean of > 50:", np.mean(greater_50))
+</pre>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Go Back -->
+    <div class="go-back">
+      <button onclick="history.back()">← Go Back</button>
+    </div>
+
+  </main>
+
+  <!-- Footer (same structure as the original file) -->
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+      <div class="socials" aria-label="social links">
+        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Q&A toggle (same logic as the source file)
+    const qaBlocks = document.querySelectorAll('.qa-block button');
+    qaBlocks.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        button.querySelector('i').classList.toggle('fa-chevron-up');
+        button.querySelector('i').classList.toggle('fa-chevron-down');
+      });
+    });
+
+    // Hamburger toggle (same as source)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#main-nav');
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  </script>
+
+</body>
+</html>
 
