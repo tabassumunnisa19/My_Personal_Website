@@ -73,42 +73,17 @@
         {{ content }}
       </div>
 
-     // Like toggle
-let liked = JSON.parse(localStorage.getItem(`${postId}-liked`)) || false;
-if (liked) likeBtn.classList.add("liked");
+      <!-- Like & Comment Section -->
+      <div class="interaction-container">
+        <button id="like-btn" class="like-btn">❤️ Like</button>
+        <span id="like-count">0</span>
 
-likeBtn.addEventListener("click", () => {
-  liked = !liked;
-  localStorage.setItem(`${postId}-liked`, JSON.stringify(liked));
-
-  if (liked) {
-    likes++;
-    likeBtn.classList.add("liked");
-  } else {
-    likes--;
-    likeBtn.classList.remove("liked");
-  }
-
-  localStorage.setItem(`${postId}-likes`, likes);
-  likeCount.textContent = likes;
-});
-lass="like-btn">👍 Like (<span class="like-count">0</span>)</button>
-
-// Comment button with name + timestamp
-commentBtn.addEventListener("click", () => {
-  const text = commentInput.value.trim();
-  if (text !== "") {
-    const name = prompt("Enter your name:");
-    const time = new Date().toLocaleString();
-    const comment = { name: name || "Anonymous", text, time };
-    comments.push(comment);
-    localStorage.setItem(`${postId}-comments`, JSON.stringify(comments));
-    commentInput.value = "";
-    renderComments();
-  }
-});
-
-
+        <div class="comment-section">
+          <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+          <button id="comment-btn" class="comment-btn">💬 Comment</button>
+          <div id="comment-list"></div>
+        </div>
+      </div>
 
       <!-- Back Button -->
       <div class="back-btn">
@@ -140,8 +115,9 @@ commentBtn.addEventListener("click", () => {
   </div>
 </footer>
 
+<!-- Scripts -->
 <script src="{{ '/script.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/blog-interactions.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/blog-interactions.js' | relative_url }}"></script>
 
 </body>
 </html>
