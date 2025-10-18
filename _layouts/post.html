@@ -73,25 +73,29 @@
         {{ content }}
       </div>
 
-      <!-- Like & Comment Section -->
-      <div class="interaction-container">
-        <button id="like-btn" class="like-btn">❤️ Like</button>
-        <span id="like-count">0</span>
-
-        <div class="comment-section">
-          <textarea id="comment-input" placeholder="Write a comment..."></textarea>
-          <button id="comment-btn" class="comment-btn">💬 Comment</button>
-          <div id="comment-list"></div>
-        </div>
+      <!-- External Share/Comment Links -->
+      {% if page.share_links %}
+      <div class="external-comments" style="margin-top:30px; font-weight:bold;">
+        Like and comment this post on: 
+        {% if page.share_links.medium %}
+          <a href="{{ page.share_links.medium }}" target="_blank" style="color:#00ab6c; text-decoration:none;">Medium</a>
+        {% endif %}
+        {% if page.share_links.linkedin %}
+          <a href="{{ page.share_links.linkedin }}" target="_blank" style="color:#0073b1; text-decoration:none;">LinkedIn</a>
+        {% endif %}
+        {% if page.share_links.kaggle %}
+          <a href="{{ page.share_links.kaggle }}" target="_blank" style="color:#20beff; text-decoration:none;">Kaggle</a>
+        {% endif %}
       </div>
+      {% endif %}
 
       <!-- Back Button -->
-      <div class="back-btn">
+      <div class="back-btn" style="margin-top:20px;">
         <a href="{{ '/blog.html' | relative_url }}" class="btn">← Back to Blog</a>
       </div>
 
-      <!-- Share -->
-      <div class="social-share">
+      <!-- Social Share -->
+      <div class="social-share" style="margin-top:20px;">
         <span>Share: </span>
         <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank">LinkedIn</a> |
         <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" target="_blank">Twitter</a> |
