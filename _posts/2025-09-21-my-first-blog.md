@@ -8,6 +8,11 @@ categories: [Data Science, Career, Learning]
 tags: [Data Science, Career Change, Roadmap, 30s]
 image: /assets/images/post111.png
 roadmap_image: /assets/images/My_data_Science_roadmap.png  # internal content image
+share_links:
+  medium: "https://medium.com/@yourusername/your-post-url"
+  linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://medium.com/@yourusername/your-post-url"
+  kaggle: "https://www.kaggle.com/yourusername/your-kaggle-notebook-url"
+
 ---
 
 <section class="blog-content">
