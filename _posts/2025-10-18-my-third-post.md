@@ -4,7 +4,7 @@ title: "From Fear to Facts: My Journey Decoding Boeing vs. Airbus Safety"
 date: 2025-10-18
 author: "Tabassum Unnisa"
 categories: [Data Science, Aviation, Analysis]
-image: assets/images/aviation1.png
+image: assets/images/aviation11.png
 ---
 
 <p>Today I want to take you on a personal journey, a story of how I turned my curiosity into a project that changed the way I see the world, as part of my journey in data science learning, guided by hands-on exploration and analysis. It all started with a spark, a moment that hit me hard, and it’s been an emotional rollercoaster ever since. Let me share it with you.</p>
