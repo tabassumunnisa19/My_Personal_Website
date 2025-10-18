@@ -1,49 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const boxes = document.querySelectorAll(".interaction-box");
+  const postId = window.location.pathname;
 
-  boxes.forEach(box => {
-    const postId = box.dataset.postId;
-    const likeBtn = box.querySelector(".like-btn");
-    const likeCount = box.querySelector(".like-count");
-    const commentList = box.querySelector(".comment-list");
-    const commentInput = box.querySelector(".comment-input");
-    const commentBtn = box.querySelector(".comment-btn");
+  const likeBtn = document.getElementById("like-btn");
+  const likeCount = document.getElementById("like-count");
+  const commentInput = document.getElementById("comment-input");
+  const commentBtn = document.getElementById("comment-btn");
+  const commentList = document.getElementById("comment-list");
 
-    // Load from local storage
-    let likes = parseInt(localStorage.getItem(`${postId}-likes`)) || 0;
-    let comments = JSON.parse(localStorage.getItem(`${postId}-comments`)) || [];
-    likeCount.textContent = likes;
-    renderComments();
+  if (!likeBtn) return;
 
-    // Like button
-    likeBtn.addEventListener("click", () => {
+  // Likes
+  let likes = parseInt(localStorage.getItem(`${postId}-likes`)) || 0;
+  let liked = JSON.parse(localStorage.getItem(`${postId}-liked`)) || false;
+  likeCount.textContent = likes;
+  if (liked) likeBtn.classList.add("liked");
+
+  likeBtn.addEventListener("click", () => {
+    liked = !liked;
+    localStorage.setItem(`${postId}-liked`, JSON.stringify(liked));
+
+    if (liked) {
       likes++;
-      localStorage.setItem(`${postId}-likes`, likes);
-      likeCount.textContent = likes;
-    });
+      likeBtn.classList.add("liked");
+    } else {
+      likes--;
+      likeBtn.classList.remove("liked");
+    }
 
-    // Comment button
-    commentBtn.addEventListener("click", () => {
-      const text = commentInput.value.trim();
-      if (text !== "") {
-        comments.push(text);
-        localStorage.setItem(`${postId}-comments`, JSON.stringify(comments));
-        commentInput.value = "";
-        renderComments();
-      }
-    });
-
-    // Render all comments
-  function renderComments() {
-  commentList.innerHTML = "";
-  comments.forEach(comment => {
-    const div = document.createElement("div");
-    div.classList.add("comment-item");
-    div.innerHTML = `<strong>${comment.name}</strong> <small>${comment.time}</small><br>${comment.text}`;
-    commentList.appendChild(div);
+    localStorage.setItem(`${postId}-likes`, likes);
+    likeCount.textContent = likes;
   });
-}
 
-  });assets/js/blog-interactions.js
+  // Comments
+  let comments = JSON.parse(localStorage.getItem(`${postId}-comments`)) || [];
 
+  const renderComments = () => {
+    commentList.innerHTML = comments
+      .map(
+        (c) =>
+          `<p><strong>${c.name}</strong> (${c.time}): ${c.text}</p>`
+      )
+      .join("");
+  };
+  renderComments();
+
+  commentBtn.addEventListener("click", () => {
+    const text = commentInput.value.trim();
+    if (text !== "") {
+      const name = prompt("Enter your name:");
+      const time = new Date().toLocaleString();
+      const comment = { name: name || "Anonymous", text, time };
+      comments.push(comment);
+      localStorage.setItem(`${postId}-comments`, JSON.stringify(comments));
+      commentInput.value = "";
+      renderComments();
+    }
+  });
 });
