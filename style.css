@@ -692,36 +692,6 @@ main { padding: 28px 0; }
   color: #555;
 }
 
-.calendar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-color: #ff4da6;
-  color: #fff;
-  border-radius: 6px;
-  font-weight: 700;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.calendar-day {
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.calendar-month {
-  font-size: 0.7rem;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.calendar-year {
-  font-size: 0.85rem;
-  color: #555;
-}
 /* Horizontal Research Grid */
 .research-horizontal {
   display: flex;
@@ -781,4 +751,45 @@ main { padding: 28px 0; }
     flex-direction: column;
     gap: 8px;
   }
+}
+.interaction-box {
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+.like-btn {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.like-btn:hover {
+  background-color: #0056b3;
+}
+.comments {
+  margin-top: 15px;
+}
+.comment-input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.comment-btn {
+  margin-top: 6px;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.comment-item {
+  background: #f7f7f7;
+  border-radius: 6px;
+  padding: 5px 8px;
+  margin-top: 4px;
 }
