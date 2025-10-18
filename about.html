@@ -7,22 +7,67 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Override About text color and font to match other pages */
+    /* About Me text and spacing */
     .lead {
       color: #000000; /* black */
-      font-family: 'Inter', sans-serif; /* match other pages font */
+      font-family: 'Inter', sans-serif;
+      line-height: 1.8; /* line spacing */
+      margin-bottom: 16px; /* spacing between paragraphs */
     }
+
     ul {
       color: #000000;
       font-family: 'Inter', sans-serif;
+      line-height: 1.6;
     }
-    .research-card .research-title {
+
+    .research-card .research-title,
+    .research-card .research-desc,
+    .kaggle-title,
+    .kaggle-desc,
+    .cert-card h4,
+    .cert-card p {
       font-family: 'Inter', sans-serif;
-      font-weight: 600;
+      color: #000000;
     }
-    .research-card .research-desc {
-      font-family: 'Inter', sans-serif;
-      color: #000;
+
+    .grid-inner {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn.status {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: default;
+    }
+
+    .cert-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #ec4899, #3b82f6);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .profile img {
+      width: 100%;
+      border-radius: 12px;
     }
   </style>
 </head>
@@ -32,15 +77,9 @@
     <a href="index.html" class="logo">
       <img src="logo.jpg" alt="Nisa logo" />
     </a>
-
-    <!-- Hamburger button -->
     <button class="menu-toggle" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About Me</a>
@@ -56,12 +95,12 @@
 <main>
   <div class="site-container">
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="intro">
+    <!-- Hero Section: About Me + Profile -->
+    <section class="hero" style="display:flex; gap:40px; flex-wrap:wrap; margin-bottom:50px;">
+      <!-- Left: Introduction -->
+      <div class="intro" style="flex:1; min-width:280px;">
         <h1 class="page-title"><span class="gradient-text-light">About Me</span></h1>
 
-        <!-- About Me Paragraph -->
         <p class="lead">
           I hold a B.Tech in Electronics & Communication and a Master’s in Digital Communication, which laid the foundation for my professional journey. Over the years, I gained valuable experience in teaching, project coordination, and HR—each role sharpening my ability to analyze, communicate, and adapt to challenges.
         </p>
@@ -71,112 +110,99 @@
         <p class="lead">
           I chose data science not because it is an emerging field, but because I discovered it to be the perfect intersection of my skills, experiences, and passion. Through self-reflection, I realized that working with data, solving problems, and creating impact is what excites me the most. I truly love data science—because doing what you love is not only fulfilling, it’s also where you create your best work. For me, data science is not just a career choice; it is a path that feels naturally aligned with who I am and what I genuinely enjoy.
         </p>
-<!-- Professional Highlights -->
-<h2>Professional Highlights</h2>
-<ul style="margin-top:8px; margin-left:18px; color:#000000; font-family: 'YourSiteFont', sans-serif;">
-  <li>~3 years of teaching experience, mentoring students and fostering critical thinking</li>
-  <li>Project coordination experience, managing academic and technical projects successfully</li>
-  <li>HR exposure, which enhanced communication, teamwork, and stakeholder management skills</li>
-  <li>Current focus: Diploma in Data Science, hands-on learning in Python, Machine Learning, Deep Learning, and Data Visualization</li>
-</ul>
 
-<!-- Signature Statement -->
-<p style="margin-top:20px; font-style:italic; color:#000000; font-family: 'YourSiteFont', sans-serif;">
-  “Transforming thoughts, experiences, and data into knowledge, solutions, and inspiration for the world.”
-</p>
+        <!-- Professional Highlights -->
+        <h2>Professional Highlights</h2>
+        <ul>
+          <li>~3 years of teaching experience, mentoring students and fostering critical thinking</li>
+          <li>Project coordination experience, managing academic and technical projects successfully</li>
+          <li>HR exposure, which enhanced communication, teamwork, and stakeholder management skills</li>
+          <li>Current focus: Diploma in Data Science, hands-on learning in Python, Machine Learning, Deep Learning, and Data Visualization</li>
+        </ul>
 
-<!-- Profile Image -->
-<div class="profile">
-  <img src="profile.png" alt="Profile">
-</div>
+        <!-- Signature Statement -->
+        <p style="margin-top:20px; font-style:italic;">
+          “Transforming thoughts, experiences, and data into knowledge, solutions, and inspiration for the world.”
+        </p>
+      </div>
 
-</section>
+      <!-- Right: Profile Image -->
+      <div class="profile" style="flex:0 0 250px;">
+        <img src="profile.png" alt="Profile">
+      </div>
+    </section>
 
-<!-- ===== Professional Highlights Section ===== -->
-<section class="section professional-highlights">
-  <h2>Achievement Highlights</h2>
+    <!-- Achievement Highlights Section -->
+    <section class="section professional-highlights">
+      <h2>Achievement Highlights</h2>
 
-  <!-- ===== Research Publications Grid ===== -->
-  <div class="grid research-publications">
-    <h3>Research Publications</h3>
-    <div class="grid-inner">
-      <!-- Paper 1 -->
-      <div class="card research-card">
-        <div class="research-title">Designing a Dynamic Pricing Engine for E-Commerce</div>
-        <p class="research-desc">This research explores the implementation of a dynamic pricing system similar to those used by Amazon, Uber, and major airlines...</p>
-        <div class="research-buttons">
-          <button class="btn status">Published</button>
+      <!-- Research Publications Grid -->
+      <div class="grid research-publications" style="margin-bottom:40px;">
+        <h3>Research Publications</h3>
+        <div class="grid-inner">
+          <div class="card research-card">
+            <div class="research-title">Designing a Dynamic Pricing Engine for E-Commerce</div>
+            <p class="research-desc">This research explores the implementation of a dynamic pricing system similar to those used by Amazon, Uber, and major airlines...</p>
+            <div class="research-buttons">
+              <button class="btn status">Published</button>
+            </div>
+          </div>
+
+          <div class="card research-card">
+            <div class="research-title">Comparative Study of Machine Learning Algorithms</div>
+            <p class="research-desc">A comparative study of popular machine learning algorithms analyzing performance, accuracy, and application across datasets.</p>
+            <div class="research-buttons">
+              <button class="btn status">Published</button>
+            </div>
+          </div>
+
+          <div class="card research-card">
+            <div class="research-title">A Comparative Survey of Python and R for Data Science</div>
+            <p class="research-desc">This paper provides a comprehensive comparison of Python and R for data science applications, highlighting practical examples and performance benchmarks.</p>
+            <div class="research-buttons">
+              <button class="btn status">Published</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Paper 2 -->
-      <div class="card research-card">
-        <div class="research-title">Comparative Study of Machine Learning Algorithms</div>
-        <p class="research-desc">A comparative study of popular machine learning algorithms analyzing performance, accuracy, and application across datasets.</p>
-        <div class="research-buttons">
-          <button class="btn status">Published</button>
+      <!-- Kaggle Achievements Grid -->
+      <div class="grid kaggle-achievements" style="margin-bottom:40px;">
+        <h3>Kaggle Achievements</h3>
+        <div class="grid-inner">
+          <div class="card">
+            <div class="kaggle-title">Top Kaggle Competitions Participated</div>
+            <p class="kaggle-desc">Participated in top competitions: Titanic ML, Housing Prices Prediction, Digit Recognizer, among others.</p>
+            <div class="card-buttons">
+              <button class="btn status">Participated</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Paper 3 -->
-      <div class="card research-card">
-        <div class="research-title">A Comparative Survey of Python and R for Data Science</div>
-        <p class="research-desc">This paper provides a comprehensive comparison of Python and R for data science applications, highlighting practical examples and performance benchmarks.</p>
-        <div class="research-buttons">
-          <button class="btn status">Published</button>
+      <!-- Courses & Certifications Grid -->
+      <div class="grid courses-certifications">
+        <h3>Courses & Certifications</h3>
+        <div class="grid-inner">
+          <div class="card cert-card">
+            <h4>Diploma in Data Science</h4>
+            <p>Currently pursuing at Asquare Technologies, Kochi. Covers statistics, machine learning, and practical data analysis projects.</p>
+            <a href="#" target="_blank" class="cert-btn">View Certificate</a>
+          </div>
+          <div class="card cert-card">
+            <h4>IBM Data Science Professional Certificate</h4>
+            <p>Comprehensive program with 12 modules covering Python, SQL, Data Analysis, Visualization, and Machine Learning.</p>
+            <a href="#" target="_blank" class="cert-btn">View Certificate</a>
+          </div>
+          <div class="card cert-card">
+            <h4>Generative AI for Data Science</h4>
+            <p>Certification by Microsoft. Explore diverse applications of GenAI, including data augmentation, feature engineering, anomaly detection, and generative modeling.</p>
+            <a href="#" target="_blank" class="cert-btn">View Certificate</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ===== Kaggle Achievements Grid ===== -->
-  <div class="grid kaggle-achievements">
-    <h3>Kaggle Achievements</h3>
-    <div class="grid-inner">
-      <div class="card">
-        <div class="kaggle-title">Top Kaggle Competitions Participated</div>
-        <p class="kaggle-desc">Participated in top competitions: Titanic ML, Housing Prices Prediction, Digit Recognizer, among others, showcasing practical ML problem-solving skills.</p>
-        <div class="card-buttons">
-          <button class="btn status">Participated</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== Courses & Certifications Grid ===== -->
-  <div class="grid courses-certifications">
-    <h3>Courses & Certifications</h3>
-    <div class="grid-inner">
-      <!-- Certificate 1 -->
-      <div class="card cert-card">
-        <h4>Diploma in Data Science</h4>
-        <p>Currently pursuing at Asquare Technologies, Kochi. Covers statistics, machine learning, and practical data analysis projects.</p>
-        <a href="#" target="_blank" class="cert-btn">View Certificate</a>
-      </div>
-
-      <!-- Certificate 2 -->
-      <div class="card cert-card">
-        <h4>IBM Data Science Professional Certificate</h4>
-        <p>Comprehensive program with 12 modules covering Python, SQL, Data Analysis, Visualization, and Machine Learning.</p>
-        <a href="#" target="_blank" class="cert-btn">View Certificate</a>
-      </div>
-
-      <!-- Certificate 3 -->
-      <div class="card cert-card">
-        <h4>Generative AI for Data Science</h4>
-        <p>Certification by Microsoft. Explore diverse applications of GenAI, including data augmentation, feature engineering, anomaly detection, and generative modeling.</p>
-        <a href="#" target="_blank" class="cert-btn">View Certificate</a>
-      </div>
-
-     
-    </div>
-  </div>
-</section>
-
-  </div>
-</section>
-
-
+    </section>
   </div>
 </main>
 
@@ -184,10 +210,10 @@
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
     <div class="socials" aria-label="social links">
-      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
 </footer>
