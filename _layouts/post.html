@@ -73,24 +73,18 @@
         {{ content }}
       </div>
 
-      <!-- Like Button (GitHub Issue Reactions) -->
-      <div class="post-like" style="margin-top: 20px;">
-        <a href="https://github.com/tabassumunnisa19/My_Personal_Website/issues/{{ page.slug }}" target="_blank" style="text-decoration:none; font-weight:bold;">
-          👍 Like this post
-        </a>
-        <small style="display:block; color:#555;">Click the link to give a thumbs up on GitHub</small>
-      </div>
+     <!-- ===== Local Like & Comment Section ===== -->
+<div class="interaction-box" data-post-id="{{ page.slug }}">
+  <button class="like-btn">👍 Like (<span class="like-count">0</span>)</button>
 
-      <!-- Comments via Utterances -->
-      <div class="post-comments" style="margin-top: 40px;">
-        <script src="https://utteranc.es/client.js"
-                repo="tabassumunnisa19/My_Personal_Website"
-                issue-term="pathname"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-        </script>
-      </div>
+  <div class="comments">
+    <h4>Comments</h4>
+    <div class="comment-list"></div>
+    <textarea placeholder="Write a comment..." class="comment-input"></textarea>
+    <button class="comment-btn">Post Comment</button>
+  </div>
+</div>
+
 
       <!-- Back Button -->
       <div class="back-btn">
