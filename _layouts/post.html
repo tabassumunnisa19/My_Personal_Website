@@ -73,17 +73,41 @@
         {{ content }}
       </div>
 
-     <!-- ===== Local Like & Comment Section ===== -->
-<div class="interaction-box" data-post-id="{{ page.slug }}">
-  <button class="like-btn">👍 Like (<span class="like-count">0</span>)</button>
+     // Like toggle
+let liked = JSON.parse(localStorage.getItem(`${postId}-liked`)) || false;
+if (liked) likeBtn.classList.add("liked");
 
-  <div class="comments">
-    <h4>Comments</h4>
-    <div class="comment-list"></div>
-    <textarea placeholder="Write a comment..." class="comment-input"></textarea>
-    <button class="comment-btn">Post Comment</button>
-  </div>
-</div>
+likeBtn.addEventListener("click", () => {
+  liked = !liked;
+  localStorage.setItem(`${postId}-liked`, JSON.stringify(liked));
+
+  if (liked) {
+    likes++;
+    likeBtn.classList.add("liked");
+  } else {
+    likes--;
+    likeBtn.classList.remove("liked");
+  }
+
+  localStorage.setItem(`${postId}-likes`, likes);
+  likeCount.textContent = likes;
+});
+lass="like-btn">👍 Like (<span class="like-count">0</span>)</button>
+
+// Comment button with name + timestamp
+commentBtn.addEventListener("click", () => {
+  const text = commentInput.value.trim();
+  if (text !== "") {
+    const name = prompt("Enter your name:");
+    const time = new Date().toLocaleString();
+    const comment = { name: name || "Anonymous", text, time };
+    comments.push(comment);
+    localStorage.setItem(`${postId}-comments`, JSON.stringify(comments));
+    commentInput.value = "";
+    renderComments();
+  }
+});
+
 
 
       <!-- Back Button -->
