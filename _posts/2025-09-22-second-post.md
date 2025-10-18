@@ -5,6 +5,11 @@ date: 2025-09-29
 author: "Nisa"
 categories: [Journey, Personal, Tech]
 image: "/assets/images/post22.png"  # Change to postdo.png if you prefer
+share_links:
+  medium: "https://medium.com/@yourusername/your-post-url"
+  linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://medium.com/@yourusername/your-post-url"
+  kaggle: "https://www.kaggle.com/yourusername/your-kaggle-notebook-url"
+
 ---
 
 
