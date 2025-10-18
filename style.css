@@ -764,10 +764,10 @@ main { padding: 28px 0; }
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
+.like-btn.liked {
+  background-color: #ff4081;
 }
-.like-btn:hover {
-  background-color: #0056b3;
-}
+
 .comments {
   margin-top: 15px;
 }
@@ -792,4 +792,19 @@ main { padding: 28px 0; }
   border-radius: 6px;
   padding: 5px 8px;
   margin-top: 4px;
+}
+
+.comment-item {
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-top: 6px;
+  border-left: 3px solid #007BFF;
+}
+.comment-item strong {
+  color: #007BFF;
+}
+.comment-item small {
+  color: #777;
+  font-size: 0.8em;
 }
