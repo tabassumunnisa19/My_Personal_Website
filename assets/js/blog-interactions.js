@@ -34,15 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Render all comments
-    function renderComments() {
-      commentList.innerHTML = "";
-      comments.forEach(comment => {
-        const div = document.createElement("div");
-        div.classList.add("comment-item");
-        div.textContent = comment;
-        commentList.appendChild(div);
-      });
-    }
+  function renderComments() {
+  commentList.innerHTML = "";
+  comments.forEach(comment => {
+    const div = document.createElement("div");
+    div.classList.add("comment-item");
+    div.innerHTML = `<strong>${comment.name}</strong> <small>${comment.time}</small><br>${comment.text}`;
+    commentList.appendChild(div);
+  });
+}
+
   });assets/js/blog-interactions.js
 
 });
