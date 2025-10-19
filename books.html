@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* ====== General ====== */
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f9fafb;
@@ -17,14 +16,14 @@
       line-height: 1.7;
     }
 
-    /* ====== Section ====== */
+    /* ====== Section (Dark Background) ====== */
     .section {
-      background: #ffffff;
-      padding: 60px 20px;
+      background: #1e293b; /* dark grey background */
+      padding: 60px 20px; /* reduced padding for compact view */
       border-radius: 16px;
       max-width: 1100px;
-      margin: 80px auto;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      margin: 60px auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
 
     /* ====== Main Heading ====== */
@@ -33,7 +32,7 @@
       font-size: 2.4rem;
       font-weight: 700;
       margin-bottom: 20px;
-      background: linear-gradient(90deg, #9333ea, #2563eb);
+      background: linear-gradient(90deg, #a5b4fc, #60a5fa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -44,7 +43,7 @@
       max-width: 700px;
       margin: 0 auto 50px;
       font-size: 1.1rem;
-      color: #475569;
+      color: #e2e8f0;
       font-weight: 400;
       line-height: 1.8;
     }
@@ -71,15 +70,23 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
-    /* ====== Book Title ====== */
+    /* ====== Book Titles (Professional Colors) ====== */
+    .card:nth-child(1) h3 { color: #2563eb; } /* Deep Royal Blue */
+    .card:nth-child(2) h3 { color: #9333ea; } /* Elegant Purple */
+    .card:nth-child(3) h3 { color: #0ea5e9; } /* Teal Blue */
+    .card:nth-child(4) h3 { color: #db2777; } /* Magenta Pink */
+
     .card h3 {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #1e40af; /* Professional Royal Blue */
       margin-bottom: 10px;
+      transition: color 0.3s ease;
     }
 
-    /* ====== Book Description ====== */
+    .card h3:hover {
+      filter: brightness(1.2);
+    }
+
     .card p {
       color: #374151;
       font-size: 0.98rem;
@@ -87,7 +94,7 @@
       margin-bottom: 16px;
     }
 
-    /* ====== Book Action Buttons ====== */
+    /* ====== Buttons (Blue Hover) ====== */
     .book-actions .btn.amazon {
       display: inline-block;
       background: linear-gradient(90deg, #2563eb, #0ea5e9);
@@ -129,7 +136,6 @@
       margin-bottom: 10px;
       font-size: 0.9rem;
     }
-
   </style>
 </head>
 
