@@ -1,5 +1,139 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Books — Nisa</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Books — Nisa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ====== General ====== */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #334155;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ====== Section ====== */
+    .section {
+      background: #ffffff;
+      padding: 60px 20px;
+      border-radius: 16px;
+      max-width: 1100px;
+      margin: 80px auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    /* ====== Main Heading ====== */
+    .section h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #9333ea, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ====== Subheading ====== */
+    .books-subheading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+      color: #475569;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+
+    /* ====== Grid Layout ====== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    /* ====== Book Card ====== */
+    .card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    /* ====== Book Title ====== */
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e40af; /* Professional Royal Blue */
+      margin-bottom: 10px;
+    }
+
+    /* ====== Book Description ====== */
+    .card p {
+      color: #374151;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* ====== Book Action Buttons ====== */
+    .book-actions .btn.amazon {
+      display: inline-block;
+      background: linear-gradient(90deg, #2563eb, #0ea5e9);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .book-actions .btn.amazon:hover {
+      background: linear-gradient(90deg, #1d4ed8, #0369a1);
+      transform: translateY(-2px);
+    }
+
+    /* ====== Footer ====== */
+    .site-footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 24px 0;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .site-footer .socials a {
+      color: #cbd5e1;
+      margin: 0 8px;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .site-footer .socials a:hover {
+      color: #60a5fa;
+    }
+
+    .copyright {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+
+<body>
 <header class="site-header">
   <div class="site-container header-inner">
     <a href="index.html" class="logo">
@@ -7,12 +141,11 @@
     </a>
 
     <!-- Hamburger button -->
-<button class="menu-toggle" aria-label="Toggle menu">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
-
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
     <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
@@ -27,57 +160,60 @@
   </div>
 </header>
 
-
 <main>
   <section class="section">
-      <h2>Books</h2>
+    <h2><i class="fa-solid fa-book-open-reader"></i> Books</h2>
     <p class="books-subheading">
-    Writing is my habit, my passion, and my craft, here I pour my imaginations, experiences, and thoughts into every word and page of these books.
-  </p>
+      Writing is my habit, my passion, and my craft — here I pour my imaginations, experiences, and thoughts into every word and page of these books.
+    </p>
     
-      <div class="grid">
-        <div class="card">
-          <h3>Connections Beyond Borders</h3>
-          <p>Published — A tale of faith and destiny, where two souls from different worlds unite across cultures, guided by God’s perfect plan, and born to love beyond borders.</p>
-          <div class="book-actions">
-            <a class="btn amazon" href="#" aria-disabled="true">Amazon — Coming Soon</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>My Beautiful Pregnancies</h3>
-          <p>Published — A mother’s reflections on the joy, struggle, and wonder of carrying life twice.</p>
-          <div class="book-actions">
-            <a class="btn amazon" href="#" aria-disabled="true">Amazon — Coming Soon</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Energy of the Unconscious Mind</h3>
-          <p>Discover the strength within that guides your journey to purpose, passion, and possibility</p>
-          <div class="book-actions">
-          <a class="btn amazon" href="#" aria-disabled="true">Upcoming</a>
-          </div>
-          </div>
-          <div class="card">
-          <h3>Manifestation: From Wish to Reality</h3>
-          <p>A step-by-step guide to wishing, believing, and creating the life you desire</p>
-          <div class="book-actions">
-            <a class="btn amazon" href="#" aria-disabled="true">Upcoming</a>
-          </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Connections Beyond Borders</h3>
+        <p>Published — A tale of faith and destiny, where two souls from different worlds unite across cultures, guided by God’s perfect plan, and born to love beyond borders.</p>
+        <div class="book-actions">
+          <a class="btn amazon" href="#" aria-disabled="true">Amazon — Coming Soon</a>
         </div>
       </div>
-    </section>
-  </div>
+
+      <div class="card">
+        <h3>My Beautiful Pregnancies</h3>
+        <p>Published — A mother’s reflections on the joy, struggle, and wonder of carrying life twice.</p>
+        <div class="book-actions">
+          <a class="btn amazon" href="#" aria-disabled="true">Amazon — Coming Soon</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Energy of the Unconscious Mind</h3>
+        <p>Discover the strength within that guides your journey to purpose, passion, and possibility.</p>
+        <div class="book-actions">
+          <a class="btn amazon" href="#" aria-disabled="true">Upcoming</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Manifestation: From Wish to Reality</h3>
+        <p>A step-by-step guide to wishing, believing, and creating the life you desire.</p>
+        <div class="book-actions">
+          <a class="btn amazon" href="#" aria-disabled="true">Upcoming</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer class="site-footer">
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
     <div class="socials" aria-label="social links">
-      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
 </footer>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
