@@ -1,20 +1,108 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact — Nisa</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Nisa</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* === Professional Color Scheme === */
+    h2 {
+      color: #1a1a2e; /* dark navy */
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #23395d; /* softer navy for subheading */
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #2d2d2d; /* professional readable black */
+      line-height: 1.6;
+    }
+
+    /* === Contact Layout === */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      color: #333;
+      font-family: inherit;
+    }
+
+    .contact-form button {
+      background: #3a82d4;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .contact-form button:hover {
+      background: #1f5dbf;
+      transform: translateY(-2px);
+    }
+
+    /* === Contact Details Styling === */
+    .contact-details p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    .contact-details a {
+      color: #3a82d4;
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    /* === Icon styling === */
+    .contact-details i {
+      color: #3a82d4;
+      margin-right: 8px;
+    }
+
+    .site-footer {
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
 <header class="site-header">
   <div class="site-container header-inner">
     <a href="index.html" class="logo">
       <img src="logo.jpg" alt="Nisa logo" />
     </a>
 
-    <!-- Hamburger button (visible only on mobile) -->
-   <!-- Hamburger button -->
-<button class="menu-toggle" aria-label="Toggle menu">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-    <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About Me</a>
@@ -22,7 +110,7 @@
       <a href="blog.html">Blog</a>
       <a href="learn.html">Learn</a>
       <a href="books.html">Books</a>
-      <a href="contact.html class="active"">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
   </div>
 </header>
@@ -30,43 +118,33 @@
 <main>
   <div class="site-container">
     <section class="section" id="contact">
-      <h2>Contact</h2>
+      <h2><i class="fa-solid fa-envelope-circle-check" style="color:#3a82d4;margin-right:10px;"></i>Contact</h2>
       <p>If you'd like to reach out, use the form below or connect via the social links in the footer.</p>
 
-      <!-- Two-column contact layout -->
       <div class="contact-container">
-
-        <!-- LEFT: Form (Formspree) -->
-        <form class="contact-form"
-              action="https://formspree.io/f/mgvljlvl"
-              method="POST">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Your email" required>
+        <!-- LEFT: Form -->
+        <form class="contact-form" action="https://formspree.io/f/mgvljlvl" method="POST">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
           <textarea name="message" rows="6" placeholder="Message" required></textarea>
 
-          <!-- optional: set email subject visible in Formspree dashboard -->
-          <input type="hidden" name="_subject" value="New contact from Nisa website">
-
-          <!-- redirect after successful submit; CHANGE this to your actual site URL if different -->
-          <input type="hidden" name="_next" value="https://tabassumunnisa19.github.io/My_personal_website/thank-you.html">
-
-          <!-- honeypot (anti-bot) -->
-          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="New contact from Nisa website" />
+          <input type="hidden" name="_next" value="https://tabassumunnisa19.github.io/My_personal_website/thank-you.html" />
+          <input type="text" name="_gotcha" style="display:none" />
 
           <div style="margin-top:10px;">
             <button class="btn" type="submit">Send Message</button>
           </div>
         </form>
 
-        <!-- RIGHT: Contact details (simple & professional) -->
+        <!-- RIGHT: Contact Info -->
         <aside class="contact-details">
-          <h3>Get in touch</h3>
-<p><strong>Email:</strong> <a href="mailto:nisashabeerk@gmail.com">nisashabeerk@gmail.com</a></p>
-          <p><strong>Location:</strong> Kochi, India</p>
-          <p><strong>Social:</strong> Connect via the footer icons below</p>
+          <h3><i class="fa-solid fa-user-tie"></i> Get in touch</h3>
+          <p><i class="fa-solid fa-envelope"></i><strong>Email:</strong> <a href="mailto:nisashabeerk@gmail.com">nisashabeerk@gmail.com</a></p>
+          <p><i class="fa-solid fa-location-dot"></i><strong>Location:</strong> Kochi, India</p>
+          <p><i class="fa-solid fa-share-nodes"></i><strong>Social:</strong> Connect via the footer icons below</p>
           <p style="margin-top:12px; color:#6b7280; font-size:14px;">I usually reply within a few days. If it’s urgent, use the email above.</p>
         </aside>
-
       </div>
     </section>
   </div>
@@ -76,12 +154,14 @@
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
     <div class="socials" aria-label="social links">
-      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
 </footer>
+
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
