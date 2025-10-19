@@ -6,159 +6,177 @@
   <title>About — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-  /* ====== General Typography ====== */
-  body {
-    font-family: 'Inter', sans-serif;
-    color: #000;
-    background-color: #f9fafb;
-    line-height: 1.7;
-  }
+ <style>
+/* ================== General Typography ================== */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #000; /* About Me text black */
+  background-color: #f9fafb;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+}
 
-  .lead {
-    color: #000;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
+.lead {
+  color: #000;
+  font-size: 1rem; /* professional size */
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
 
-  ul {
-    color: #000;
-    line-height: 1.6;
-  }
+ul {
+  color: #000;
+  line-height: 1.6;
+  margin-left: 20px;
+}
 
-  /* ====== Section Titles ====== */
-  h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 24px;
-    font-weight: 700;
-  }
-<style>
-  /* Section container */
-  .achievement-section {
-    margin: 80px auto;
-    padding: 40px 20px;
-    max-width: 1100px;
-  }
+/* Section Titles */
+h1.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827; /* Dark professional color */
+  margin-bottom: 24px;
+}
 
-  /* Main title with gradient */
-  .section-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, #9333ea, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 50px;
-    font-family: 'Inter', sans-serif;
-  }
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b; /* Dark Slate Blue */
+  text-align: center;
+  margin-bottom: 24px;
+}
 
-  /* Each block */
-  .achievement-block {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    margin-bottom: 60px;
-  }
+/* ================== Achievement Highlights ================== */
+.achievement-section {
+  margin: 60px auto;
+  padding: 40px 20px;
+  max-width: 1100px;
+}
 
-  /* Sub-titles */
-  .sub-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    margin-bottom: 24px;
-  }
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #9333ea, #3b82f6); /* Gradient heading */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  .research-title {
-    color: #2563eb; /* Deep Blue */
-  }
+.achievement-block {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  margin-bottom: 60px;
+}
 
-  .kaggle-title {
-    color: #0ea5e9; /* Cyan Blue */
-  }
+/* Sub-titles */
+.sub-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
 
-  .cert-title {
-    color: #ec4899; /* Pink Magenta */
-  }
+.research-title {
+  color: #2563eb; /* Deep Blue */
+}
 
-  /* Grid for cards */
+.kaggle-title {
+  color: #0ea5e9; /* Cyan Blue */
+}
+
+.cert-title {
+  color: #ec4899; /* Pink Magenta */
+}
+
+/* Grid for cards */
+.grid-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Individual card */
+.card {
+  flex: 1;
+  min-width: 280px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card h4 {
+  font-size: 1.05rem;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+/* Buttons */
+.btn.status,
+.cert-btn {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn.status:hover,
+.cert-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Profile Image */
+.profile img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .grid-inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
   }
 
-  /* Individual card */
-  .card {
-    flex: 1;
-    min-width: 280px;
-    background: #fff;
-    border: 1px solid #e5e7eb;
+  .achievement-block {
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  h1.page-title {
+    font-size: 1.6rem;
+  }
+
+  h2, .section-title {
+    font-size: 1.5rem;
+  }
+
+  .sub-title {
+    font-size: 1.1rem;
   }
 
   .card h4 {
-    font-size: 1.1rem;
-    color: #1e293b;
-    margin-bottom: 10px;
+    font-size: 1rem;
   }
-
-  .card p {
-    color: #334155;
-    line-height: 1.6;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 14px;
-  }
-
-  /* Button (for research/kaggle) */
-  .btn.status {
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: default;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  /* Button (for certification links) */
-  .cert-btn {
-    display: inline-block;
-    background: #2563eb;
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s ease;
-  }
-
-  .cert-btn:hover,
-  .btn.status:hover {
-    background: #1d4ed8;
-  }
-</style>
-
-  /* ====== Profile Image ====== */
-  .profile img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-
-  /* ====== Responsive ====== */
-  @media (max-width: 768px) {
-    .section {
-      padding: 0 16px;
-    }
-    .achievement-title {
-      font-size: 1.7rem;
-    }
-  }
+}
 </style>
 
 </head>
@@ -223,64 +241,77 @@
       </div>
     </section>
 
-   <!-- ================= Achievement Highlights ================= -->
-<section class="section achievement-section">
+   <!-- ===================== Achievement Highlights Section ===================== -->
+<section class="section professional-highlights">
   <h2 class="section-title">Achievement Highlights</h2>
 
   <!-- ===== Research Publications ===== -->
-  <div class="achievement-block">
-    <h3 class="sub-title research-title">Research Publications</h3>
+  <div class="achievement-section">
+    <h3 class="sub-title research-title"><i class="fas fa-book-open"></i> Research Publications</h3>
     <div class="grid-inner">
-      <div class="card">
-        <h4>Optimizing Hospital Resources with AI</h4>
-        <p>Published research focusing on predictive analytics for optimizing bed, ventilator, and staff allocation to improve patient outcomes.</p>
-        <button class="btn status">Published</button>
+      <div class="card cert-card">
+        <h4>Designing a Dynamic Pricing Engine for E-Commerce</h4>
+        <p>This research explores dynamic pricing strategies used by Amazon and Uber, integrating regression and reinforcement learning to optimize profits and customer satisfaction.</p>
+        <a class="cert-btn">Published</a>
       </div>
-
-      <div class="card">
-        <h4>AI-driven Environmental Insights</h4>
-        <p>A study on using machine learning and geospatial analysis to monitor environmental pollution patterns and air quality trends.</p>
-        <button class="btn status">Published</button>
+      <div class="card cert-card">
+        <h4>Comparative Study of Machine Learning Algorithms</h4>
+        <p>An in-depth evaluation of classification and regression models across benchmark datasets to identify accuracy-performance tradeoffs.</p>
+        <a class="cert-btn">Published</a>
+      </div>
+      <div class="card cert-card">
+        <h4>A Comparative Survey of Python and R for Data Science</h4>
+        <p>A detailed comparison of Python and R focusing on libraries, execution speed, and ease of use for statistical and analytical tasks.</p>
+        <a class="cert-btn">Published</a>
       </div>
     </div>
   </div>
 
   <!-- ===== Kaggle Achievements ===== -->
-  <div class="achievement-block">
-    <h3 class="sub-title kaggle-title">Kaggle Achievements</h3>
+  <div class="achievement-section">
+    <h3 class="sub-title kaggle-title"><i class="fas fa-brain"></i> Kaggle Achievements</h3>
     <div class="grid-inner">
-      <div class="card">
-        <h4>#IfBoeingIWillNotGo</h4>
-        <p>A data storytelling competition analyzing Boeing vs Airbus crash trends globally using Python and visualization tools.</p>
-        <button class="btn status">Completed</button>
+      <div class="card cert-card">
+        <h4>Titanic — Machine Learning from Disaster</h4>
+        <p>Built predictive classification models using logistic regression, decision trees, and ensemble learning to identify survival probabilities of passengers.</p>
+        <a class="cert-btn">Participated</a>
       </div>
-
-      <div class="card">
-        <h4>Climate Intelligence Dashboard</h4>
-        <p>Built an interactive dashboard predicting Air Quality Index (AQI) using geospatial and time-series data for environmental analysis.</p>
-        <button class="btn status">Completed</button>
+      <div class="card cert-card">
+        <h4>House Prices — Advanced Regression Techniques</h4>
+        <p>Predicted housing prices using feature engineering, regularization, and advanced regression algorithms for accurate market forecasting.</p>
+        <a class="cert-btn">Participated</a>
+      </div>
+      <div class="card cert-card">
+        <h4>Digit Recognizer — Computer Vision Challenge</h4>
+        <p>Implemented a CNN model using TensorFlow to classify handwritten digits from the MNIST dataset, achieving high validation accuracy.</p>
+        <a class="cert-btn">Participated</a>
       </div>
     </div>
   </div>
 
   <!-- ===== Courses & Certifications ===== -->
-  <div class="achievement-block">
-    <h3 class="sub-title cert-title">Courses & Certifications</h3>
+  <div class="achievement-section">
+    <h3 class="sub-title cert-title"><i class="fas fa-graduation-cap"></i> Courses & Certifications</h3>
     <div class="grid-inner">
-      <div class="card">
-        <h4>Google Data Analytics Professional Certificate</h4>
-        <p>Hands-on training in data cleaning, visualization, and SQL using real business case studies.</p>
-        <a href="#" class="cert-btn">View Certificate</a>
+      <div class="card cert-card">
+        <h4>Diploma in Data Science</h4>
+        <p>Currently pursuing at Asquare Technologies, Kochi. Covers statistics, machine learning, and practical data analysis projects.</p>
+        <a href="#" target="_blank" class="cert-btn">View Certificate</a>
       </div>
-
-      <div class="card">
-        <h4>Deep Learning Specialization — Coursera</h4>
-        <p>Comprehensive training in neural networks, CNNs, RNNs, and AI deployment.</p>
-        <a href="#" class="cert-btn">View Certificate</a>
+      <div class="card cert-card">
+        <h4>IBM Data Science Professional Certificate</h4>
+        <p>Comprehensive program with 12 modules covering Python, SQL, Data Analysis, Visualization, and Machine Learning.</p>
+        <a href="#" target="_blank" class="cert-btn">View Certificate</a>
+      </div>
+      <div class="card cert-card">
+        <h4>Generative AI for Data Science</h4>
+        <p>Certification by Microsoft. Explore diverse applications of GenAI, including data augmentation, feature engineering, anomaly detection, and generative modeling.</p>
+        <a href="#" target="_blank" class="cert-btn">View Certificate</a>
       </div>
     </div>
   </div>
 </section>
+
 
 
   </div>
