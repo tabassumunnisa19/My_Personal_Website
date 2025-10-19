@@ -871,3 +871,94 @@ main { padding: 28px 0; }
   color: #777;
   font-size: 0.8em;
 }
+  /* ==============================
+   MAIN CONTAINER
+============================== */
+.site-container {
+  background-color: #f8fafc; /* Light, professional grey-blue */
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* ==============================
+   SECTION HEADINGS & SUBHEADINGS
+============================== */
+.section h2 {
+  font-size: 28px;
+  text-align: center;
+  color: #1e3a8a; /* Professional deep blue */
+  margin-bottom: 12px;
+}
+
+.section p {
+  font-size: 16px;
+  text-align: center;
+  color: #475569; /* Professional grey-blue */
+  margin-bottom: 24px;
+}
+
+/* ==============================
+   GRID LAYOUT
+============================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* ==============================
+   CARD STYLING
+============================== */
+.card {
+  background-color: #ffffff; /* white cards inside container */
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #0f172a; /* Professional dark color */
+}
+
+.card p {
+  color: #475569; /* Subheading professional grey-blue */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==============================
+   BUTTONS (GLOBAL)
+============================== */
+.btn, .btn-explore, .amazon {
+  background: linear-gradient(90deg, #3a82d4, #5aa0f2); /* base blue */
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover,
+.btn-explore:hover,
+.amazon:hover {
+  background: linear-gradient(90deg, #1d4ed8, #3b82f6); /* darker blue hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
