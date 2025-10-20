@@ -8,6 +8,22 @@
   <script src="scripts.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+  /* Hero section buttons (left aligned with gap) */
+.hero-btn-wrapper {
+  display: flex;
+  justify-content: flex-start; /* left align */
+  gap: 12px;                   /* space between buttons */
+  margin-top: 15px;
+}
+
+/* All other buttons in cards remain centered */
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 0; /* optional, can leave as default */
+}
+
 <style>
 /* =======================
    Buttons: Solid Blue
