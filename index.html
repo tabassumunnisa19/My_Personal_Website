@@ -7,88 +7,126 @@
   <link rel="stylesheet" href="style.css" />
   <script src="scripts.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* =======================
+       General Button Styles
+    ======================= */
+    .btn, .btn-explore {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none !important;
+      font-weight: bold;
+      border-radius: 8px;
+      color: #ffffff !important;
+      background-color: #3b82f6 !important;
+      background-image: none !important;
+      border: none;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover, .btn-explore:hover {
+      background-color: #2563eb !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:active, .btn-explore:active {
+      background-color: #1d4ed8 !important;
+    }
+
+    /* =======================
+       Hero Section Layout
+    ======================= */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
+
+    .hero .intro {
+      flex: 1 1 400px;
+    }
+
+    .hero .profile {
+      flex: 0 0 300px;
+    }
+
+    .hero .profile img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Hero buttons left-aligned */
+    .hero-btn-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    /* =======================
+       Grid Card Titles
+    ======================= */
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* Alternating professional colors */
+    .card:nth-child(6n+1) h3 { color: #2563eb; } /* Blue */
+    .card:nth-child(6n+2) h3 { color: #9333ea; } /* Purple */
+    .card:nth-child(6n+3) h3 { color: #0ea5e9; } /* Teal */
+    .card:nth-child(6n+4) h3 { color: #db2777; } /* Magenta */
+    .card:nth-child(6n+5) h3 { color: #f59e0b; } /* Amber */
+    .card:nth-child(6n+6) h3 { color: #10b981; } /* Green */
+
+    .card h3:hover {
+      filter: brightness(1.2);
+    }
+
+    /* Card paragraphs */
+    .card p {
+      color: #334155;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* Center all other card buttons */
+    .btn-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 0;
+    }
+
+    /* =======================
+       Responsive
+    ======================= */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero .profile {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .hero-btn-wrapper {
+        justify-content: flex-start;
+        gap: 8px;
+      }
+    }
+
+  </style>
 </head>
-<style>
-/* =======================
-   Buttons: Solid Blue
-======================= */
-.btn,
-.btn-explore {
-  display: inline-block;
-  padding: 10px 20px;
-  text-decoration: none;        /* remove underline */
-  font-weight: bold;
-  border-radius: 8px;
-  color: #ffffff !important;           /* white text */
-  background-color: #3b82f6 !important; /* solid blue */
-  background-image: none !important;    /* remove any gradient */
-  border: none;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-}
-
-.btn:hover,
-.btn-explore:hover {
-  background-color: #2563eb !important; /* darker blue on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.btn:active,
-.btn-explore:active {
-  background-color: #1d4ed8 !important; /* click state */
-}
-
-/* Center buttons in wrapper */
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-/* =======================
-   Grid Card Titles: Distinct Professional Colors
-======================= */
-.card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-/* Alternating professional colors */
-.card:nth-child(6n+1) h3 { color: #2563eb; } /* Blue */
-.card:nth-child(6n+2) h3 { color: #9333ea; } /* Purple */
-.card:nth-child(6n+3) h3 { color: #0ea5e9; } /* Teal */
-.card:nth-child(6n+4) h3 { color: #db2777; } /* Magenta */
-.card:nth-child(6n+5) h3 { color: #f59e0b; } /* Amber */
-.card:nth-child(6n+6) h3 { color: #10b981; } /* Green */
-
-.card h3:hover {
-  filter: brightness(1.2);
-}
-
-/* Paragraphs inside cards */
-.card p {
-  color: #334155; /* dark professional text */
-  font-size: 0.98rem;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-    /* Hero section buttons (left aligned with gap) */
-.hero-btn-wrapper {
-  display: flex;
-  justify-content: flex-start; /* left align */
-  gap: 12px;                   /* space between buttons */
-  margin-top: 15px;
-}
-
-/* All other buttons in cards remain centered */
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  gap: 0; /* optional, can leave as default */
-}
-</style>
 
 <body>
 <header class="site-header">
@@ -122,16 +160,12 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="intro">
-        <h1 class="typed-heading">
-          <span id="typed"></span><span class="cursor">|</span>
-        </h1>
+        <h1 class="typed-heading"><span id="typed"></span><span class="cursor">|</span></h1>
         <p class="lead">Data Scientist | Educator | AI Enthusiast</p>
         <p>Turn data into meaningful stories and actionable insights. With a background in engineering and a passion for AI, I design data-driven solutions that empower learning, decision-making, and innovation.</p>
         <div class="hero-btn-wrapper">
-  <a href="portfolio.html" class="btn">View Portfolio</a>
-  <a href="learn.html" class="btn">Learn with Me</a>
-</div>
-
+          <a href="portfolio.html" class="btn">View Portfolio</a>
+          <a href="learn.html" class="btn">Learn with Me</a>
         </div>
       </div>
       <div class="profile">
@@ -236,7 +270,7 @@
 </footer>
 
 <script>
-  const text = "Hi! Iam Nisa";
+  const text = "Hi! I am Nisa";
   let i = 0;
   function typeWriter() {
     if (i < text.length) {
