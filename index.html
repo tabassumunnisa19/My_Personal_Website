@@ -6,8 +6,10 @@
   <title>Nisa — Data Scientist, Educator</title>
   <link rel="stylesheet" href="style.css" />
   <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<body>
 <header class="site-header">
   <div class="site-container header-inner">
     <a href="index.html" class="logo">
@@ -15,11 +17,11 @@
     </a>
 
     <!-- Hamburger button -->
-<button class="menu-toggle" aria-label="Toggle menu">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
     <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
@@ -34,199 +36,107 @@
   </div>
 </header>
 
-
 <main>
   <div class="site-container">
+    <!-- Hero Section -->
     <section class="hero">
       <div class="intro">
-        <h1 class="Hi! Iam Nisa">
-  <span id="typed"></span><span class="cursor">|</span>
-</h1>
-
+        <h1 class="typed-heading">
+          <span id="typed"></span><span class="cursor">|</span>
+        </h1>
         <p class="lead">Data Scientist | Educator | AI Enthusiast</p>
-        <p>turn data into meaningful stories and actionable insights. With a background in engineering and a passion for AI, I design data-driven solutions that empower learning, decision-making, and innovation.</p>
-        <p style="margin-top:12px;">
+        <p>Turn data into meaningful stories and actionable insights. With a background in engineering and a passion for AI, I design data-driven solutions that empower learning, decision-making, and innovation.</p>
+        <div class="btn-wrapper">
           <a href="portfolio.html" class="btn">View Portfolio</a>
-          <a href="learn.html" class="btn" style="background:#3a82d4; margin-left:8px;">Learn with Me</a>
-        </p>
+          <a href="learn.html" class="btn">Learn with Me</a>
+        </div>
       </div>
       <div class="profile">
         <img src="profile.png" alt="Profile">
       </div>
     </section>
 
+    <!-- Featured Projects Section -->
     <section class="section">
       <h2>Featured Projects</h2>
       <div class="grid">
-  <div class="card">
-    <h3>Climate Intelligence Dashboard</h3>
-    <p>Designed an interactive dashboard predicting Air Quality Index (AQI) using geospatial and time series data to visualize environmental trends and pollution patterns.</p>
-    <div class="btn-wrapper">
-      <a href="#" target="_blank" class="btn-explore">View on GitHub</a>
-    </div>
-  </div>
+        <div class="card">
+          <h3>Climate Intelligence Dashboard</h3>
+          <p>Designed an interactive dashboard predicting Air Quality Index (AQI) using geospatial and time series data to visualize environmental trends and pollution patterns.</p>
+          <div class="btn-wrapper">
+            <a href="#" target="_blank" class="btn-explore">View on GitHub</a>
+          </div>
+        </div>
 
-  <div class="card">
-    <h3>Healthcare Resource Optimization</h3>
-    <p>Developed a predictive analytics model to optimize hospital resource allocation — forecasting bed, ventilator, and staff demand to reduce patient wait times.</p>
-    <div class="btn-wrapper">
-      <a href="#" target="_blank" class="btn-explore">View on GitHub</a>
-    </div>
-  </div>
+        <div class="card">
+          <h3>Healthcare Resource Optimization</h3>
+          <p>Developed a predictive analytics model to optimize hospital resource allocation — forecasting bed, ventilator, and staff demand to reduce patient wait times.</p>
+          <div class="btn-wrapper">
+            <a href="#" target="_blank" class="btn-explore">View on GitHub</a>
+          </div>
+        </div>
 
-  <div class="card">
-    <h3>Dynamic Pricing Engine for E-Commerce</h3>
-    <p>Created an AI-driven pricing engine using regression and reinforcement learning to adjust product prices dynamically based on demand, seasonality, and competition.</p>
-    <div class="btn-wrapper">
-      <a href="#" target="_blank" class="btn-explore">View on GitHub</a>
-    </div>
-  </div>
-</div>
-
-      <section class="section">
-  <h2>Latest Blog Posts</h2>
-  <div class="grid">
-    <!-- Card 1 -->
-    <div class="card">
-      <h3>How I Built My Personal Website Coming from a Non-IT Background</h3>
-      <p>A story of learning, determination, and building my own website while juggling family and life.</p>
-      <div class="btn-wrapper">
-        <a href="{{ '/posts/how-i-built-my-personal-website.md' | relative_url }}" class="btn-explore">Explore My Blog</a>
+        <div class="card">
+          <h3>Dynamic Pricing Engine for E-Commerce</h3>
+          <p>Created an AI-driven pricing engine using regression and reinforcement learning to adjust product prices dynamically based on demand, seasonality, and competition.</p>
+          <div class="btn-wrapper">
+            <a href="#" target="_blank" class="btn-explore">View on GitHub</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Card 2 -->
-    <div class="card">
-      <h3>From Fear to Facts: My Journey Decoding Boeing vs. Airbus Safety</h3>
-      <p>A data-driven journey analyzing airplane safety and separating facts from fear.</p>
-      <div class="btn-wrapper">
-        <a href="{{ '/posts/2025-10-18-my-third-post.md' | relative_url }}" class="btn-explore">Explore My Blog</a>
+    <!-- Latest Blog Posts Section -->
+    <section class="section latest-blogs">
+      <h2>Latest Blog Posts</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>How I Built My Personal Website Coming from a Non-IT Background</h3>
+          <p>A story of learning, determination, and building my own website while juggling family and life.</p>
+          <div class="btn-wrapper">
+            <a href="#" class="btn-explore">Explore My Blog</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>From Fear to Facts: My Journey Decoding Boeing vs. Airbus Safety</h3>
+          <p>A data-driven journey analyzing airplane safety and separating facts from fear.</p>
+          <div class="btn-wrapper">
+            <a href="#" class="btn-explore">Explore My Blog</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<style>
-/* Grid layout */
-.latest-blogs .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* Card styling */
-.latest-blogs .card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Button wrapper to center button */
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-/* Solid Blue Button */
-.btn-explore {
-  display: inline-block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 8px;
-  background-color: #3b82f6; /* solid professional blue */
-  background-image: none; /* remove any gradient applied elsewhere */
-  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-explore:hover {
-  background-color: #2563eb; /* slightly darker blue on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.btn-explore:active {
-  background-color: #1d4ed8; /* active click state */
-}
-
-
-
-<style>
-/* Grid layout */
-.latest-blogs .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* Card styling */
-.latest-blogs .card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Button styling with gradient */
-.btn-explore {
-  margin-top: 15px;
-  display: inline-block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #ff6ec4, #7873f5); /* pink to blue gradient */
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-explore:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-</style>
-
-
-    <section class="section">
+    <!-- Books & Resources Section -->
+    <section class="section books">
       <h2>Books & Resources</h2>
       <div class="grid">
-  <div class="card">
-    <h3>Connections Beyond Borders</h3>
-    <p>Published — A tale of faith and destiny, where two souls from different worlds unite across cultures, guided by God’s perfect plan, and born to love beyond borders.</p>
-    <div class="book-actions">
-      <a class="btn-explore" href="#" aria-disabled="true">Amazon — Coming Soon</a>
-    </div>
-  </div>
+        <div class="card">
+          <h3>Connections Beyond Borders</h3>
+          <p>Published — A tale of faith and destiny, where two souls from different worlds unite across cultures, guided by God’s perfect plan, and born to love beyond borders.</p>
+          <div class="btn-wrapper">
+            <a class="btn-explore" href="#" aria-disabled="true">Amazon — Coming Soon</a>
+          </div>
+        </div>
 
-  <div class="card">
-    <h3>My Beautiful Pregnancies</h3>
-    <p>Published — A mother’s reflections on the joy, struggle, and wonder of carrying life twice.</p>
-    <div class="book-actions">
-      <a class="btn-explore" href="#" aria-disabled="true">Amazon — Coming Soon</a>
-    </div>
-  </div>
+        <div class="card">
+          <h3>My Beautiful Pregnancies</h3>
+          <p>Published — A mother’s reflections on the joy, struggle, and wonder of carrying life twice.</p>
+          <div class="btn-wrapper">
+            <a class="btn-explore" href="#" aria-disabled="true">Amazon — Coming Soon</a>
+          </div>
+        </div>
 
-  <div class="card">
-    <h3>Manifestation: From Wish to Reality</h3>
-    <p>A step-by-step guide to wishing, believing, and creating the life you desire</p>
-    <div class="book-actions">
-      <a class="btn-explore" href="#" aria-disabled="true">Upcoming</a>
-    </div>
-  </div>
-</div>
-
-
+        <div class="card">
+          <h3>Manifestation: From Wish to Reality</h3>
+          <p>A step-by-step guide to wishing, believing, and creating the life you desire.</p>
+          <div class="btn-wrapper">
+            <a class="btn-explore" href="#" aria-disabled="true">Upcoming</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -234,13 +144,14 @@
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
     <div class="socials" aria-label="social links">
-      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
 </footer>
+
 <script>
   const text = "Hi! Iam Nisa";
   let i = 0;
@@ -248,13 +159,11 @@
     if (i < text.length) {
       document.getElementById("typed").innerHTML += text.charAt(i);
       i++;
-      // fallback support for gradient
-      document.getElementById("typed").setAttribute("data-text", document.getElementById("typed").innerText);
-      setTimeout(typeWriter, 200); // typing speed (ms) - 200ms is smooth
+      setTimeout(typeWriter, 200);
     }
   }
   window.onload = typeWriter;
 </script>
-<script src="script.js"></script>
+
 </body>
 </html>
