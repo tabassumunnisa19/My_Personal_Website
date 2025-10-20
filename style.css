@@ -932,5 +932,105 @@ button.btn:hover,
 .grid, .cert-grid {
     gap: 20px;
 }
+/* ====== General Body & Section Styles ====== */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #334155;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ====== Section Container ====== */
+.section {
+  background: #3b82f6; /* Vibrant Sky Blue */
+  padding: 60px 20px;
+  border-radius: 16px;
+  max-width: 1100px;
+  margin: 40px auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* ====== Main Heading (h2) ====== */
+.section h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #a5b4fc, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ====== Subheading (Reusable for all sections) ====== */
+.section-subheading,
+.books-subheading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.1rem;
+  color: #9333ea; /* Elegant Purple */
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* ====== Grid Layout ====== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* ====== Card / Grid Items ====== */
+.card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ====== Card Titles (Dynamic Professional Colors) ====== */
+:root {
+  --card-colors: #2563eb, #9333ea, #0ea5e9, #db2777, #f59e0b, #10b981; /* Blue, Purple, Teal, Magenta, Amber, Green */
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Cycle colors automatically using nth-child formula */
+.card h3:nth-child(1n) {
+  color: var(--card-colors);
+}
+
+/* JS-free automatic cycling using :nth-child formula per card index */
+.card:nth-child(6n+1) h3 { color: #2563eb; }
+.card:nth-child(6n+2) h3 { color: #9333ea; }
+.card:nth-child(6n+3) h3 { color: #0ea5e9; }
+.card:nth-child(6n+4) h3 { color: #db2777; }
+.card:nth-child(6n+5) h3 { color: #f59e0b; }
+.card:nth-child(6n+6) h3 { color: #10b981; }
+
+.card h3:hover {
+  filter: brightness(1.2);
+}
+
+/* ====== Card Paragraphs ====== */
+.card p {
+  color: #1e293b; /* Dark Slate for readability */
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
 
 
