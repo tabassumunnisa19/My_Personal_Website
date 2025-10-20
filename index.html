@@ -133,15 +133,7 @@
   margin-top: 15px;
 }
 
-<style>
-/* Section titles professional color */
-.section h2 {
-  color: #1a1a2e; /* dark navy / professional look */
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-/* Button styling with blue hover */
+/* Solid Blue Button */
 .btn-explore {
   display: inline-block;
   padding: 10px 20px;
@@ -149,17 +141,20 @@
   color: #fff;
   font-weight: bold;
   border-radius: 8px;
-  background: #3a82d4; /* default blue */
+  background-color: #3b82f6; /* solid professional blue */
+  background-image: none; /* remove any gradient applied elsewhere */
   transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-explore:hover {
-  background: #1f5dbf; /* darker blue hover */
+  background-color: #2563eb; /* slightly darker blue on hover */
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
-</style>
 
+.btn-explore:active {
+  background-color: #1d4ed8; /* active click state */
+}
 
 
 
