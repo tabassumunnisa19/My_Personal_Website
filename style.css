@@ -900,78 +900,6 @@ main { padding: 28px 0; }
     margin-bottom: 10px;
     font-weight: 600;
 }
-
-/* Assign distinct professional colors */
-.card h3 { color: #1e3a8a; } /* Indigo */
-.research-title { color: #0f172a; } /* Dark Gray */
-.cert-card h3 { color: #065f46; } /* Teal */
-
-/* Buttons: blue hover for all */
-button.btn, .cert-btn, .research-buttons .btn {
-    background-color: #1e40af;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-button.btn:hover,
-.cert-btn:hover,
-.research-buttons .btn:hover {
-    background-color: #1e3a8a; /* darker blue on hover */
-}
-
-/* Keep container background as is (already professional light gray) */
-.site-container {
-    background-color: inherit; /* no change */
-}
-
-/* Optional: add spacing inside grids */
-.grid, .cert-grid {
-    gap: 20px;
-}
-/* ====== General Body & Section Styles ====== */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb;
-  color: #334155;
-  margin: 0;
-  line-height: 1.7;
-}
-
-/* ====== Section Container ====== */
-.section {
-  background: #3b82f6; /* Vibrant Sky Blue */
-  padding: 60px 20px;
-  border-radius: 16px;
-  max-width: 1100px;
-  margin: 40px auto;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-
-/* ====== Main Heading (h2) ====== */
-.section h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, #a5b4fc, #60a5fa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* =======================
-   General Body Styles
-======================= */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb; /* light neutral background */
-  color: #334155;            /* professional dark text */
-  margin: 0;
-  line-height: 1.7;
-}
-
 /* =======================
    Buttons: Solid Blue
 ======================= */
@@ -983,29 +911,29 @@ body {
 .btn-explore:visited {
   display: inline-block;
   padding: 10px 20px;
-  text-decoration: none;
+  text-decoration: none;        /* remove underline */
   font-weight: bold;
   border-radius: 8px;
   color: #ffffff !important;           /* white text */
-  background-color: #3b82f6 !important; /* solid blue */
-  background-image: none !important;     /* remove any gradient */
+  background-color: #3b82f6 !important; /* solid professional blue */
+  background-image: none !important;    /* remove any gradient */
   border: none;
   transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .btn:hover,
 .btn-explore:hover {
-  background-color: #2563eb !important; /* slightly darker blue */
+  background-color: #2563eb !important; /* darker blue on hover */
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .btn:active,
 .btn-explore:active {
-  background-color: #1d4ed8 !important; /* active click state */
+  background-color: #1d4ed8 !important; /* click state */
 }
 
-/* Button wrapper center */
+/* Center button wrapper */
 .btn-wrapper {
   display: flex;
   justify-content: center;
@@ -1013,71 +941,7 @@ body {
 }
 
 /* =======================
-   Section Styles
-======================= */
-.section {
-  background: #f9fafb; /* light professional background */
-  padding: 60px 20px;
-  border-radius: 16px;
-  max-width: 1100px;
-  margin: 40px auto;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-.section h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #1a1a2e; /* professional dark heading */
-}
-
-.section .subheading {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 1.1rem;
-  color: #9333ea; /* elegant purple */
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-/* =======================
-   Grid Layout
-======================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-}
-
-/* =======================
-   Cards
-======================= */
-.card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 24px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-/* Paragraphs inside cards */
-.card p {
-  color: #334155;
-  font-size: 0.98rem;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-/* =======================
-   Grid Titles: Alternating Professional Colors
+   Grid Card Titles: Alternating Professional Colors
 ======================= */
 .card h3 {
   font-size: 1.25rem;
@@ -1086,7 +950,7 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Alternate colors across all sections */
+/* Alternate colors for cards (works across sections) */
 .section .card:nth-child(6n+1) h3,
 .latest-blogs .card:nth-child(6n+1) h3,
 .books .card:nth-child(6n+1) h3 { color: #2563eb; } /* Blue */
@@ -1116,25 +980,11 @@ body {
 }
 
 /* =======================
-   Footer
+   Paragraphs inside cards
 ======================= */
-.site-footer {
-  background-color: #1e293b;
-  color: #f9fafb;
-  padding: 30px 20px;
-  text-align: center;
+.card p {
+  color: #334155; /* dark professional text */
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
-
-.site-footer .socials a {
-  color: #f9fafb;
-  margin: 0 8px;
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.site-footer .socials a:hover {
-  color: #3b82f6;
-}
-
-
-
