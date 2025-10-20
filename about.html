@@ -6,11 +6,11 @@
   <title>About — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <style>
+<style>
 /* ================== General Typography ================== */
 body {
   font-family: 'Inter', sans-serif;
-  color: #000; /* About Me text black */
+  color: #000;
   background-color: #f9fafb;
   line-height: 1.65;
   margin: 0;
@@ -19,7 +19,7 @@ body {
 
 .lead {
   color: #000;
-  font-size: 1rem; /* professional size */
+  font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 16px;
 }
@@ -34,136 +34,30 @@ ul {
 h1.page-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #111827; /* Dark professional color */
+  color: #111827;
   margin-bottom: 24px;
 }
 
 h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #1e293b; /* Dark Slate Blue */
+  color: #1e293b;
   text-align: center;
   margin-bottom: 24px;
 }
 
-//* ================== Achievement Highlights ================== */
+/* ================== Achievement Highlights (Compact) ================== */
 .achievement-section {
-  margin: 40px auto;      /* reduced from 60px */
-  padding: 20px 20px;     /* reduced from 40px */
+  margin: 40px auto;     /* reduced from 60px */
+  padding: 20px 20px;    /* reduced from 40px */
   max-width: 1100px;
 }
 
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;    /* slightly reduced */
-  background: linear-gradient(90deg, #9333ea, #3b82f6); /* Gradient heading */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Individual achievement/research card */
 .achievement-block {
   background: #fff;
   border-radius: 16px;
-  padding: 20px;               /* reduced from 30px */
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  margin-bottom: 16px;         /* reduced from 30px */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  padding:
 
-.achievement-block:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-/* Sub-titles inside cards */
-.sub-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 16px;        /* reduced for compact look */
-}
-
-/* Distinct professional colors for different titles */
-.research-title {
-  color: #2563eb; /* Deep Blue */
-}
-
-.kaggle-title {
-  color: #0ea5e9; /* Cyan Blue */
-}
-
-.cert-title {
-  color: #ec4899; /* Pink Magenta */
-}
-
-/* Card content */
-.achievement-block p {
-  color: #334155;
-  line-height: 1.5;
-  margin-bottom: 12px;        /* slightly tighter spacing */
-}
-
-/* Grid layout for cards */
-.grid-inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;                   /* reduced gap between cards */
-}
-
-/* Buttons inside cards */
-.btn.status,
-.cert-btn {
-  display: inline-block;
-  background: #2563eb;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.btn.status:hover,
-.cert-btn:hover {
-  background: #1d4ed8;
-}
-
-/* Profile Image inside section */
-.profile img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .grid-inner {
-    flex-direction: column;
-  }
-
-  .achievement-block {
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-
-  h1.page-title {
-    font-size: 1.6rem;
-  }
-
-  h2, .section-title {
-    font-size: 1.5rem;
-  }
-
-  .sub-title {
-    font-size: 1.1rem;
-  }
-
-  .card h4 {
-    font-size: 1rem;
-  }
-}
 
 
 </style>
