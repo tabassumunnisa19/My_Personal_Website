@@ -7,164 +7,74 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* =================== General Grid and Card Styles =================== */
-    .section {
-      margin: 50px auto;
-      max-width: 1200px;
-      padding: 0 20px;
-      text-align: center; /* center all section titles */
-    }
+   /* =================== General Grid and Card Styles =================== */
+.section {
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  text-align: center; /* center all section titles */
+}
 
-    /* Section Titles */
-    h2.section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 30px;
-      display: inline-block;
-      position: relative;
-    }
+/* Section Titles */
+h2.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  display: inline-block;
+  position: relative;
+}
 
-    /* Section Title Underlines */
-    .project-section .section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      margin: 8px auto 0;
-      border-radius: 2px;
-      background: linear-gradient(90deg, #9333ea, #8b5cf6);
-    }
+/* Section Title Underlines with Slide-in Animation */
+.project-section .section-title::after,
+.research-section .section-title::after,
+.cert-section .section-title::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
 
-    .research-section .section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      margin: 8px auto 0;
-      border-radius: 2px;
-      background: linear-gradient(90deg, #2563eb, #3b82f6);
-    }
+.project-section .section-title::after { background: linear-gradient(90deg, #9333ea, #8b5cf6); }
+.research-section .section-title::after { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+.cert-section .section-title::after { background: linear-gradient(90deg, #ec4899, #f43f5e); }
 
-    .cert-section .section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      margin: 8px auto 0;
-      border-radius: 2px;
-      background: linear-gradient(90deg, #ec4899, #f43f5e);
-    }
+/* Animate underline on page load */
+h2.section-title {
+  animation: underlineExpand 0.8s forwards;
+}
+@keyframes underlineExpand {
+  0% { width: 0; }
+  100% { width: 80px; }
+}
 
-    /* Grid Layout */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
-    }
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
 
-    /* Card Styles */
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left; /* content aligned left inside card */
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      padding: 0;
-      border-radius: 0;
-      display: block;
-      background: none;
-      color: inherit;
-    }
-
-    .card p {
-      color: #334155;
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
-    .card .btn, .card .cert-btn {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #2563eb;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .card .btn:hover, .card .cert-btn:hover {
-      background-color: #1d4ed8;
-    }
-
-    /* Gradient Colors for Card Titles */
-    .research-card h3 { 
-      background: linear-gradient(90deg, #2563eb, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .project-card h3 { 
-      background: linear-gradient(90deg, #9333ea, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .cert-card h3 { 
-      background: linear-gradient(90deg, #ec4899, #f43f5e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Back Button */
-    .back-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff0080, #ff4da6);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-    }
-    .back-btn:hover {
-      opacity: 0.9;
-    }
-    /* Card Hover Effects for all sections */
+/* Card Styles */
 .card {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+  text-align: left; /* content aligned left inside card */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Fade-up animation on scroll */
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
@@ -172,14 +82,95 @@
   box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* stronger shadow */
 }
 
-/* Optional: smooth button hover effect */
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding: 0;
+  border-radius: 0;
+  display: block;
+  background: none;
+  color: inherit;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card p {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* Card Titles Gradient for Sections */
+.project-card h3 { 
+  background: linear-gradient(90deg, #9333ea, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.research-card h3 { 
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cert-card h3 { 
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card Hover Effect on Titles */
+.card:hover h3 {
+  text-shadow: 0 0 8px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+/* Buttons */
 .card .btn, .card .cert-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
   transition: background 0.3s, transform 0.3s;
 }
 
 .card .btn:hover, .card .cert-btn:hover {
+  background-color: #1d4ed8;
   transform: translateY(-2px); /* small lift on hover */
 }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff0080, #ff4da6);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+.back-btn:hover {
+  opacity: 0.9;
+}
+
+/* ===== Scroll Animation JS ===== */
+
 
 
   </style>
@@ -329,6 +320,18 @@
     const mainNav = document.getElementById('main-nav');
     menuToggle.addEventListener('click', () => mainNav.classList.toggle('show'));
   </script>
+<script>
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
