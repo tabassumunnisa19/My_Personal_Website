@@ -12,25 +12,58 @@
       margin: 50px auto;
       max-width: 1200px;
       padding: 0 20px;
+      text-align: center; /* center all section titles */
     }
 
+    /* Section Titles */
     h2.section-title {
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 30px;
-      text-align: center;
-      position: relative;
       display: inline-block;
-      padding-bottom: 8px;
+      position: relative;
     }
 
+    /* Section Title Underlines */
+    .project-section .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #9333ea, #8b5cf6);
+    }
+
+    .research-section .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+    }
+
+    .cert-section .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #ec4899, #f43f5e);
+    }
+
+    /* Grid Layout */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 25px;
+      margin-top: 20px;
     }
 
+    /* Card Styles */
     .card {
       background: #fff;
       border-radius: 12px;
@@ -38,21 +71,23 @@
       border: 1px solid #e5e7eb;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left; /* content aligned left inside card */
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
     }
 
     .card h3 {
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 12px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      color: #fff;
-      display: inline-block;
+      padding: 0;
+      border-radius: 0;
+      display: block;
+      background: none;
+      color: inherit;
     }
 
     .card p {
@@ -78,39 +113,20 @@
     }
 
     /* Gradient Colors for Card Titles */
-    .project-card h3 { background: linear-gradient(90deg, #9333ea, #8b5cf6); }
-    .research-card h3 { background: linear-gradient(90deg, #2563eb, #3b82f6); }
-    .cert-card h3 { background: linear-gradient(90deg, #ec4899, #f43f5e); }
-
-    /* Section Heading Underline */
-    .project-section .section-title::after {
-      content: "";
-      display: block;
-      height: 4px;
-      width: 60px;
-      margin: 8px auto 0;
-      border-radius: 2px;
-      background: linear-gradient(90deg, #9333ea, #8b5cf6);
-    }
-
-    .research-section .section-title::after {
-      content: "";
-      display: block;
-      height: 4px;
-      width: 60px;
-      margin: 8px auto 0;
-      border-radius: 2px;
+    .research-card h3 { 
       background: linear-gradient(90deg, #2563eb, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
-    .cert-section .section-title::after {
-      content: "";
-      display: block;
-      height: 4px;
-      width: 60px;
-      margin: 8px auto 0;
-      border-radius: 2px;
+    .project-card h3 { 
+      background: linear-gradient(90deg, #9333ea, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .cert-card h3 { 
       background: linear-gradient(90deg, #ec4899, #f43f5e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     /* Responsive */
@@ -123,11 +139,6 @@
       .grid {
         grid-template-columns: 1fr;
       }
-    }
-
-    /* Reduce space between sections */
-    .section + .section {
-      margin-top: 50px;
     }
 
     /* Back Button */
@@ -145,6 +156,32 @@
     .back-btn:hover {
       opacity: 0.9;
     }
+    /* Card Hover Effects for all sections */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02); /* slight lift + scale */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* stronger shadow */
+}
+
+/* Optional: smooth button hover effect */
+.card .btn, .card .cert-btn {
+  transition: background 0.3s, transform 0.3s;
+}
+
+.card .btn:hover, .card .cert-btn:hover {
+  transform: translateY(-2px); /* small lift on hover */
+}
+
+
   </style>
 </head>
 <body>
@@ -171,9 +208,10 @@
   </header>
 
   <main>
+
     <!-- ===== Projects Section ===== -->
     <section class="section project-section">
-      <h2 class="section-title">Selected Projects</h2>
+      <h2 class="section-title">Portfolio — Selected Projects</h2>
       <div class="grid">
         <div class="card project-card">
           <h3>Social Media Sentiment Intelligence</h3>
@@ -209,17 +247,17 @@
       <div class="grid">
         <div class="card research-card">
           <h3>Designing a Dynamic Pricing Engine for E-Commerce: Revenue Optimization and Machine Learning Applications</h3>
-          <p>This research explores a dynamic pricing system similar to Amazon, Uber, and major airlines. It combines regression, reinforcement learning, and API-based deployment to optimize pricing and revenue. Real-world e-commerce datasets demonstrate modeling market dynamics, predicting demand, and simulating pricing strategies.</p>
+          <p>This research explores a dynamic pricing system similar to Amazon, Uber, and major airlines. It combines regression, reinforcement learning, and API-based deployment to optimize pricing and revenue. Real-world e-commerce datasets demonstrate modeling market dynamics, predicting demand, and simulating pricing strategies for thousands of products.</p>
           <a class="btn" href="#">View Paper</a>
         </div>
         <div class="card research-card">
-          <h3>Analyzing AI-Assisted Outcomes in Healthcare Using Synthetic Patient Data: Insights from Machine Learning Applications</h3>
-          <p>This paper investigates AI in healthcare using a synthetic dataset of 5,000 patient records. It applies data preprocessing, exploratory analysis, and machine learning to profile patients, predict treatment efficacy, and optimize treatment strategies.</p>
+          <h3>Analyzing AI-Assisted Outcomes in Healthcare Using Machine Learning on Synthetic Patient Data</h3>
+          <p>This study investigates AI in healthcare using synthetic datasets of 5,000 patient records covering demographics, vitals, diagnoses, treatments, and AI-assisted outcomes. Applies machine learning models for patient profiling, predicting treatment efficacy, and assessing AI interventions to improve healthcare decision-making.</p>
           <a class="btn" href="#">View Paper</a>
         </div>
         <div class="card research-card">
           <h3>A Comparative Survey of Python and R for Data Science: Ecosystems, Applications, and Future Directions</h3>
-          <p>Compares Python and R for data science, analyzing libraries, visualization tools, ML capabilities, and practical benchmarks to help professionals choose the right tool for specific tasks.</p>
+          <p>Provides a comprehensive comparison of Python and R for data science applications. Analyzes library ecosystems, visualization tools, statistical and ML capabilities, and suitability across domains, helping beginners and professionals choose the right tool for specific data science tasks.</p>
           <a class="btn" href="#">View Paper</a>
         </div>
       </div>
@@ -241,22 +279,22 @@
         </div>
         <div class="card cert-card">
           <h3>Generative AI for Data Science</h3>
-          <p>Certification by Microsoft. Explore GenAI applications including data augmentation, feature engineering, anomaly detection, and generative modeling.</p>
+          <p>Certification by Microsoft exploring GenAI applications including data augmentation, feature engineering, anomaly detection, and generative modeling.</p>
           <a class="cert-btn" href="https://coursera.org/share/623ea4dfd7d8e56417c61ab8f8289ec2" target="_blank">View Certificate</a>
         </div>
         <div class="card cert-card">
           <h3>Responsive Web Design</h3>
-          <p>Certification by freeCodeCamp to build a strong foundation in HTML and CSS for creating structured, styled web pages.</p>
+          <p>Certification by freeCodeCamp covering HTML, CSS, and web design fundamentals.</p>
           <a class="cert-btn" href="https://freecodecamp.org/certification/tabassumunnisa/responsive-web-design" target="_blank">View Certificate</a>
         </div>
         <div class="card cert-card">
           <h3>Google Prompt Essentials</h3>
-          <p>Certification by Google focusing on effective prompt creation for AI tools, optimizing productivity and creativity using generative AI.</p>
+          <p>Certification by Google focusing on effective prompt creation for AI tools, optimizing productivity and creativity.</p>
           <a class="cert-btn" href="#">View Certificate</a>
         </div>
         <div class="card cert-card">
           <h3>Prompt Engineering Basics</h3>
-          <p>Certification by Microsoft covering principles of crafting structured prompts for large language models and generative AI applications.</p>
+          <p>Certification by Microsoft on crafting structured prompts for LLMs and generative AI applications.</p>
           <a class="cert-btn" href="#">View Certificate</a>
         </div>
         <div class="card cert-card">
@@ -283,12 +321,6 @@
   <footer class="site-footer">
     <div class="site-container footer-inner">
       <p class="copyright">© 2025 Nisa — Built with ❤️ by Nisa</p>
-      <div class="socials" aria-label="social links">
-        <a href="#" class="social linkedin"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social github"><i class="fab fa-github"></i></a>
-        <a href="#" class="social medium"><i class="fab fa-medium"></i></a>
-        <a href="#" class="social youtube"><i class="fab fa-youtube"></i></a>
-      </div>
     </div>
   </footer>
 
