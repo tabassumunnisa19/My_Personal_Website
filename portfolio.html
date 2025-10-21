@@ -6,8 +6,8 @@
   <title>Portfolio & Research — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-   /* =================== General Grid and Card Styles =================== */
+ <style>
+/* =================== General Section & Grid Styles =================== */
 .section {
   margin: 50px auto;
   max-width: 1200px;
@@ -15,41 +15,46 @@
   text-align: center; /* center all section titles */
 }
 
+/* Section Titles */
 h2.section-title {
-  font-size: 1.5rem; /* reduced from 2rem */
-  font-weight: 600;   /* slightly lighter for cleaner look */
-  margin-bottom: 20px; /* smaller spacing under title */
+  font-size: 1.5rem;       /* slightly smaller to fit long headings */
+  font-weight: 600;
+  margin-bottom: 20px;
   display: inline-block;
   position: relative;
-  color: #111827; /* optional: keep it black/charcoal */
+  color: #111827;          /* black/charcoal */
+  white-space: nowrap;      /* prevent wrapping to next line */
 }
 
-}
-
-/* Section Title Underlines with Slide-in Animation */
-.project-section .section-title::after,
-.research-section .section-title::after,
-.cert-section .section-title::after {
+/* Section Title Underlines */
+.project-section .section-title::after {
   content: "";
   display: block;
-  width: 0;
+  width: 80px;
   height: 4px;
   margin: 8px auto 0;
   border-radius: 2px;
-  transition: width 0.5s ease;
+  background: linear-gradient(90deg, #9333ea, #8b5cf6);
 }
 
-.project-section .section-title::after { background: linear-gradient(90deg, #9333ea, #8b5cf6); }
-.research-section .section-title::after { background: linear-gradient(90deg, #2563eb, #3b82f6); }
-.cert-section .section-title::after { background: linear-gradient(90deg, #ec4899, #f43f5e); }
-
-/* Animate underline on page load */
-h2.section-title {
-  animation: underlineExpand 0.8s forwards;
+.research-section .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
 }
-@keyframes underlineExpand {
-  0% { width: 0; }
-  100% { width: 80px; }
+
+.cert-section .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
 }
 
 /* Grid Layout */
@@ -67,16 +72,8 @@ h2.section-title {
   padding: 20px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
-  text-align: left; /* content aligned left inside card */
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-/* Fade-up animation on scroll */
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left; /* content inside card aligned left */
 }
 
 .card:hover {
@@ -93,7 +90,6 @@ h2.section-title {
   display: block;
   background: none;
   color: inherit;
-  transition: text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card p {
@@ -103,30 +99,6 @@ h2.section-title {
   margin-bottom: 12px;
 }
 
-/* Card Titles Gradient for Sections */
-.project-card h3 { 
-  background: linear-gradient(90deg, #9333ea, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.research-card h3 { 
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.cert-card h3 { 
-  background: linear-gradient(90deg, #ec4899, #f43f5e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Card Hover Effect on Titles */
-.card:hover h3 {
-  text-shadow: 0 0 8px rgba(0,0,0,0.15);
-  transform: translateY(-2px);
-}
-
-/* Buttons */
 .card .btn, .card .cert-btn {
   display: inline-block;
   margin-top: 10px;
@@ -141,6 +113,25 @@ h2.section-title {
 .card .btn:hover, .card .cert-btn:hover {
   background-color: #1d4ed8;
   transform: translateY(-2px); /* small lift on hover */
+}
+
+/* Gradient Colors for Card Titles */
+.research-card h3 { 
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-card h3 { 
+  background: linear-gradient(90deg, #9333ea, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cert-card h3 { 
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Responsive */
@@ -170,12 +161,8 @@ h2.section-title {
 .back-btn:hover {
   opacity: 0.9;
 }
+</style>
 
-/* ===== Scroll Animation JS ===== */
-
-
-
-  </style>
 </head>
 <body>
 
