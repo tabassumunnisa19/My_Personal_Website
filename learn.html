@@ -1,94 +1,216 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learn with Me — Nisa</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>
-<header class="site-header">
-  <div class="site-container header-inner">
-    <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
-    
-   <!-- Hamburger button -->
-<button class="menu-toggle" aria-label="Toggle menu">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn with Me — Nisa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* =================== Section & Grid Styles =================== */
+    .section {
+      margin: 50px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+      text-align: center;
+    }
 
+    h2.section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-block;
+      position: relative;
+    }
 
-    <!-- Navigation -->
-    <nav id="main-nav" class="navbar" role="navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html">Blog</a>
-      <a href="learn.html" class="active">Learn</a>
-      <a href="books.html">Books</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+    h2.section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      margin: 6px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #9333ea, #8b5cf6);
+    }
 
-<main>
-  <div class="site-container">
-    <section class="section">
-      <h2>Learn with Me 📚</h2>
-      <p style="color:#475569; margin-bottom:12px;">
-        A curated hub of tutorials, notes, videos, PDFs and interview prep — designed for learners returning to tech and those who prefer clear, practical guidance.
-      </p>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
 
-      <div class="grid">
-  <!-- Data Science Roadmap -->
-        <a href="roadmap/roadmap.html" class="card" style="text-decoration:none; color:inherit;">
-          <h3>Data Science Roadmap</h3>
-          <p>Roadmap from basics to projects to interviews.</p>
-        </a>
-        
-        <!-- Python Simplified -->
-        <a href="python%20notes/python_simplified.html" class="card" style="text-decoration:none; color:inherit;">
-          <h3>Python Simplified</h3>
-          <p>Notes, exercises and cheatsheets.</p>
-        </a>
+    /* Card Styles */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+      color: #334155;
+    }
 
-<!-- Data Science Libraries-->
-        <a href="Python_libraries_notes/libraries.html" class="card" style="text-decoration:none; color:inherit;">
-          <h3>Python Librarties for DS</h3>
-          <p>Notes, exercises and Coding challenge.</p>
-        </a>
-        <!-- Machine Learning Basics -->
-        <a href="machine_learning_basics.html" class="card" style="text-decoration:none; color:inherit;">
-          <h3>Machine Learning Basics</h3>
-          <p>Regression, classification & clustering explained.</p>
-        </a>
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #111827;
+    }
 
-        <!-- Deep Learning Essentials -->
-        <a href="deep_learning_essentials.html" class="card" style="text-decoration:none; color:inherit;">
-          <h3>Deep Learning Essentials</h3>
-          <p>Neural nets, TensorFlow & PyTorch guides.</p>
-        </a>
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      color: #475569;
+    }
 
-        <!-- SQL for Data Science -->
-        <a href="sql_for_data_science.html" class="card" style="text-decoration:none; color:inherit;">
-          <h3>SQL for Data Science</h3>
-          <p>Queries, joins, aggregations and practical tasks.</p>
-        </a>
-<!-- Interview Prepration -->
-        <a href="interview.html" class="card" style="text-decoration:none; color:inherit;">
-          <h3>Interview Prepration</h3>
-          <p>Common questions, mock interviews and templates.</p>
-        </a>
-        
-      </div>
-    </section>
-  </div>
-</main>
+    .card .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
 
-<footer class="site-footer">
-  <div class="site-container footer-inner">
-    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-    <div class="socials" aria-label="social links">
-      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+    .card .btn:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff0080, #ff4da6);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 30px 0;
+    }
+
+    .back-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-container header-inner">
+      <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="main-nav" class="navbar" role="navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="learn.html" class="active">Learn</a>
+        <a href="books.html">Books</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </div>
-</footer>
-<script src="script.js"></script>
-</body></html>
+  </header>
+
+  <main>
+    <div class="site-container">
+      <section class="section">
+        <h2 class="section-title">Learn with Me 📚</h2>
+        <p style="margin-bottom:25px; color:#475569;">
+          A curated hub of tutorials, notes, videos, PDFs and interview prep — designed for learners returning to tech and those who prefer clear, practical guidance.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Data Science Roadmap</h3>
+            <p>Roadmap from basics to projects to interviews.</p>
+            <a href="roadmap/roadmap.html" class="btn">Go →</a>
+          </div>
+
+          <div class="card">
+            <h3>Python Simplified</h3>
+            <p>Notes, exercises and cheatsheets.</p>
+            <a href="python%20notes/python_simplified.html" class="btn">Go →</a>
+          </div>
+
+          <div class="card">
+            <h3>Python Libraries for DS</h3>
+            <p>Notes, exercises and coding challenges.</p>
+            <a href="Python_libraries_notes/libraries.html" class="btn">Go →</a>
+          </div>
+
+          <div class="card">
+            <h3>Machine Learning Basics</h3>
+            <p>Regression, classification & clustering explained.</p>
+            <a href="machine_learning_basics.html" class="btn">Go →</a>
+          </div>
+
+          <div class="card">
+            <h3>Deep Learning Essentials</h3>
+            <p>Neural nets, TensorFlow & PyTorch guides.</p>
+            <a href="deep_learning_essentials.html" class="btn">Go →</a>
+          </div>
+
+          <div class="card">
+            <h3>SQL for Data Science</h3>
+            <p>Queries, joins, aggregations and practical tasks.</p>
+            <a href="sql_for_data_science.html" class="btn">Go →</a>
+          </div>
+
+          <div class="card">
+            <h3>Interview Preparation</h3>
+            <p>Common questions, mock interviews and templates.</p>
+            <a href="interview.html" class="btn">Go →</a>
+          </div>
+        </div>
+
+        <!-- Pink Back Button -->
+        <div style="text-align:center;">
+          <button onclick="history.back()" class="back-btn">← Back</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+      <div class="socials" aria-label="social links">
+        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium"></i></a>
+        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    menuToggle.addEventListener('click', () => mainNav.classList.toggle('show'));
+  </script>
+</body>
+</html>
