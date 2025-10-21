@@ -6,113 +6,135 @@
   <title>Learn with Me — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* =================== Section & Grid Styles =================== */
-    .section {
-      margin: 50px auto;
-      max-width: 1200px;
-      padding: 0 20px;
-      text-align: center;
-    }
+ <style>
+  /* =================== Section & Grid Styles =================== */
+  .section {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    text-align: center;
+  }
 
-    h2.section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: inline-block;
-      position: relative;
-    }
+  /* Section Titles */
+  h2.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: inline-block;
+    position: relative;
+    color: #111827; /* professional dark heading */
+  }
 
-    h2.section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      margin: 6px auto 0;
-      border-radius: 2px;
-      background: linear-gradient(90deg, #9333ea, #8b5cf6);
-    }
+  h2.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 6px auto 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #9333ea, #8b5cf6); /* gradient underline */
+  }
 
+  /* Subheading / paragraph under section title */
+  .section p {
+    margin-bottom: 25px;
+    color: #475569; /* professional gray-blue */
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Grid Layout */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+  }
+
+  /* Card Styles */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    color: #475569;
+  }
+
+  /* Grid card heading with distinct professional gradient */
+  .card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6); /* professional blue gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #475569; /* professional gray-blue for card content */
+  }
+
+  /* Buttons */
+  .card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #2563eb; /* professional blue button */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .card .btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+  }
+
+  /* Back Button */
+  .back-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff0080, #ff4da6);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 30px 0;
+  }
+
+  .back-btn:hover {
+    opacity: 0.9;
+  }
+
+  /* Responsive Grid */
+  @media (max-width: 1024px) {
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    /* Card Styles */
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-      color: #334155;
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
+  }
 
-    .card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #111827;
-    }
+  /* Card Hover Effects */
+  .card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  }
+</style>
 
-    .card p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 12px;
-      color: #475569;
-    }
-
-    .card .btn {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #2563eb;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .card .btn:hover {
-      background-color: #1d4ed8;
-      transform: translateY(-2px);
-    }
-
-    /* Back Button */
-    .back-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff0080, #ff4da6);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-      margin: 30px 0;
-    }
-
-    .back-btn:hover {
-      opacity: 0.9;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
   <header class="site-header">
