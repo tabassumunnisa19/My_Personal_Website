@@ -19,9 +19,9 @@
       font-weight: 700;
       margin-bottom: 30px;
       text-align: center;
-      background: linear-gradient(90deg, #9333ea, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
     }
 
     .grid {
@@ -82,16 +82,36 @@
     .research-card h3 { background: linear-gradient(90deg, #2563eb, #3b82f6); }
     .cert-card h3 { background: linear-gradient(90deg, #ec4899, #f43f5e); }
 
-    /* =================== Section Specific Titles =================== */
-    .sub-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+    /* Section Heading Underline */
+    .project-section .section-title::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 60px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #9333ea, #8b5cf6);
     }
 
-    .project-title { color: #9333ea; }
-    .research-title { color: #2563eb; }
-    .cert-title { color: #ec4899; }
+    .research-section .section-title::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 60px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+    }
+
+    .cert-section .section-title::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 60px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #ec4899, #f43f5e);
+    }
 
     /* Responsive */
     @media (max-width: 1024px) {
@@ -153,7 +173,7 @@
   <main>
     <!-- ===== Projects Section ===== -->
     <section class="section project-section">
-      <h2 class="section-title project-title">Selected Projects</h2>
+      <h2 class="section-title">Selected Projects</h2>
       <div class="grid">
         <div class="card project-card">
           <h3>Social Media Sentiment Intelligence</h3>
@@ -185,7 +205,7 @@
 
     <!-- ===== Research Section ===== -->
     <section class="section research-section">
-      <h2 class="section-title research-title">Research Papers</h2>
+      <h2 class="section-title">Research Papers</h2>
       <div class="grid">
         <div class="card research-card">
           <h3>Designing a Dynamic Pricing Engine for E-Commerce: Revenue Optimization and Machine Learning Applications</h3>
@@ -207,7 +227,7 @@
 
     <!-- ===== Certifications Section ===== -->
     <section class="section cert-section">
-      <h2 class="section-title cert-title">Courses & Certifications</h2>
+      <h2 class="section-title">Courses & Certifications</h2>
       <div class="grid">
         <div class="card cert-card">
           <h3>Diploma in Data Science</h3>
@@ -216,12 +236,12 @@
         </div>
         <div class="card cert-card">
           <h3>IBM Data Science Professional Certificate</h3>
-          <p>Comprehensive program covering Python, SQL, Data Analysis, Visualization, and Machine Learning.</p>
+          <p>Comprehensive program with 12 modules covering Python, SQL, Data Analysis, Visualization, and Machine Learning.</p>
           <a class="cert-btn" href="#">View Certificate</a>
         </div>
         <div class="card cert-card">
           <h3>Generative AI for Data Science</h3>
-          <p>Microsoft certification exploring GenAI applications including data augmentation, feature engineering, anomaly detection, and generative modeling.</p>
+          <p>Certification by Microsoft. Explore GenAI applications including data augmentation, feature engineering, anomaly detection, and generative modeling.</p>
           <a class="cert-btn" href="https://coursera.org/share/623ea4dfd7d8e56417c61ab8f8289ec2" target="_blank">View Certificate</a>
         </div>
         <div class="card cert-card">
@@ -277,5 +297,6 @@
     const mainNav = document.getElementById('main-nav');
     menuToggle.addEventListener('click', () => mainNav.classList.toggle('show'));
   </script>
+
 </body>
 </html>
