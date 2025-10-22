@@ -1,29 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>HR Interview — Learn with Me</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HO — Learn with Me</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family:"Poppins", sans-serif; margin:0; background:#f9fafc; color:#1e293b; }
+    
+    /* Page Header */
+    .page-header { padding:2rem 0; text-align:center; }
+    .page-header h1 { font-size:2rem; margin-bottom:0.5rem; }
+    .page-header p { color:#1e40af; font-size:1rem; display:flex; justify-content:center; align-items:center; gap:8px; margin-bottom:1rem; }
+    .page-header p i { color:#2563eb; font-size:1.2rem; }
+    .back-link { text-decoration:none; color:#2563eb; font-weight:500; }
+
+    /* Grid */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-top:20px; }
+    .card {
+      background:#fff; border-radius:12px; padding:25px; border:1px solid #e5e7eb;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:transform 0.3s ease, box-shadow 0.3s ease;
+      text-align:left; color:#475569; cursor:pointer; text-decoration:none; display:flex; flex-direction:column;
+    }
+    .card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 12px 24px rgba(0,0,0,0.15); }
+    .card h3 { display:flex; align-items:center; gap:10px; font-size:1.25rem; font-weight:600; }
+    .card h3::after { content:"→"; margin-left:auto; font-weight:600; color:inherit; opacity:0.6; transition:opacity 0.3s; }
+    .card:hover h3::after { opacity:1; }
+    .card p { font-size:1rem; line-height:1.5; margin-top:8px; color:#475569; }
+
+    /* Individual card colors & icons */
+    .ho-general h3, .ho-general h3 i { color:#2563eb; }
+    .ho-process h3, .ho-process h3 i { color:#10b981; }
+    .ho-docs h3, .ho-docs h3 i { color:#f59e0b; }
+    .ho-tasks h3, .ho-tasks h3 i { color:#8b5cf6; }
+    .ho-policy h3, .ho-policy h3 i { color:#3b82f6; }
+    .ho-templates h3, .ho-templates h3 i { color:#ef4444; }
+
+    /* Back button */
+    .back-btn {
+      display:inline-block;
+      background:linear-gradient(90deg,#ff0080,#ff4da6);
+      color:white;
+      padding:10px 20px;
+      border-radius:6px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      text-decoration:none;
+      margin:30px 0;
+    }
+    .back-btn:hover { opacity:0.9; }
+
+    @media(max-width:1024px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px){ .grid{ grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
 
-<!-- 🔹 Header (with Hamburger) -->
 <header class="site-header">
   <div class="site-container header-inner">
-
-    <!-- Logo -->
     <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
-
-    <!-- Hamburger button -->
     <button class="menu-toggle" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
@@ -33,77 +73,58 @@
       <a href="../books.html">Books</a>
       <a href="../contact.html">Contact</a>
     </nav>
-
   </div>
 </header>
 
-<!-- 🔹 Page Header -->
 <section class="page-header">
   <div class="site-container">
-    <h1>HR Interview — Learn with Me</h1>
-    <p>Select a section to explore HR interview questions, answers, and mock interview prompts.</p>
+    <h1>HO — Learn with Me</h1>
+    <p><i class="fas fa-lightbulb"></i> Explore HO procedures, processes, templates, and policies with guidance and examples.</p>
     <a href="../learn.html" class="back-link">← Back to Learn</a>
   </div>
 </section>
 
-<!-- 🔹 Grid Section -->
 <main class="site-container">
   <div class="grid">
-    <a class="card" href="general.html">
-      <div class="icon"><i class="fa fa-user-tie"></i></div>
-      <h3>General HR</h3>
-      <p>Common HR questions: introductions, strengths & weaknesses, notice period, etc.</p>
+    <a href="general.html" class="card ho-general">
+      <h3><i class="fas fa-user-tie"></i> General HO</h3>
+      <p>Overview, objectives, and general practices for HO management.</p>
     </a>
 
-    <a class="card" href="behavioral.html">
-      <div class="icon"><i class="fa fa-lightbulb"></i></div>
-      <h3>Behavioral HR</h3>
-      <p>STAR-format behavioral questions with sample answers and practice prompts.</p>
+    <a href="process.html" class="card ho-process">
+      <h3><i class="fas fa-project-diagram"></i> HO Process</h3>
+      <p>Step-by-step HO procedures and workflow explanations.</p>
     </a>
 
-    <a class="card" href="DataScience.html">
-      <div class="icon"><i class="fa fa-chart-line"></i></div>
-      <h3>Data Science HR</h3>
-      <p>Role-specific HR questions for Data Science positions.</p>
+    <a href="docs.html" class="card ho-docs">
+      <h3><i class="fas fa-file-alt"></i> HO Documents</h3>
+      <p>Templates, reports, and necessary documentation guidelines.</p>
     </a>
 
-    <a class="card" href="Salary.html">
-      <div class="icon"><i class="fa fa-hand-holding-dollar"></i></div>
-      <h3>Salary & Negotiation</h3>
-      <p>How to discuss CTC, benefits, notice periods, and effective negotiation tactics.</p>
+    <a href="tasks.html" class="card ho-tasks">
+      <h3><i class="fas fa-tasks"></i> HO Tasks</h3>
+      <p>Task allocation, priorities, and day-to-day responsibilities.</p>
     </a>
 
-    <a class="card" href="Freshers.html">
-      <div class="icon"><i class="fas fa-user-graduate"></i></div>
-      <h3>Freshers</h3>
-      <p>General, Behavioral, and HR Questions for Freshers.</p>
+    <a href="policy.html" class="card ho-policy">
+      <h3><i class="fas fa-gavel"></i> HO Policies</h3>
+      <p>Organizational policies, rules, and compliance guidelines.</p>
     </a>
 
-    <a class="card" href="mock.html">
-      <div class="icon"><i class="fa fa-microphone"></i></div>
-      <h3>Mock Interviews</h3>
-      <p>Scripts, checklists, and templates to run mock HR interviews.</p>
+    <a href="templates.html" class="card ho-templates">
+      <h3><i class="fas fa-file-code"></i> HO Templates</h3>
+      <p>Reusable templates, checklists, and standard operating formats.</p>
     </a>
   </div>
-</main>
-<div style="text-align:center; margin:2rem 0;">
-  <button onclick="history.back()" 
-          style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
-                 background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
-    ← Go Back
-  </button>
-</div>
 
-<!-- 🔹 Footer -->
+  <div style="text-align:center;">
+    <button onclick="history.back()" class="back-btn">← Go Back</button>
+  </div>
+</main>
+
 <footer class="site-footer">
   <div class="site-container footer-inner">
     <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-    <div class="socials" aria-label="social links">
-      <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-      <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-    </div>
   </div>
 </footer>
 
