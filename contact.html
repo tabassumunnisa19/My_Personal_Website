@@ -1,151 +1,225 @@
-<style>
-  /* === Professional Color Scheme === */
-  h2 {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #0369a1, #0ea5e9);
-    -webkit-background-clip: text;
-    color: transparent;
-    transition: all 0.3s ease;
-  }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Nisa</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* === Professional Color Scheme === */
+    h2 {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #0369a1, #0ea5e9);
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: all 0.3s ease;
+    }
+    h2:hover {
+      transform: translateY(-2px);
+    }
 
-  h2:hover {
-    transform: translateY(-2px);
-  }
+    h3 {
+      color: #1e40af; 
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
 
-  h3 {
-    color: #1e40af; 
-    font-weight: 500;
-    margin-bottom: 12px;
-  }
+    p {
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
 
-  p {
-    color: #2d2d2d;
-    line-height: 1.6;
-  }
+    /* === Contact Layout === */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 30px;
+    }
 
-  /* === Contact Layout === */
-  .contact-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    align-items: flex-start;
-    margin-top: 30px;
-  }
+    /* === Contact Form === */
+    .contact-form {
+      background: #f9fafb;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .contact-form:hover {
+      transform: translateY(-2px);
+    }
 
-  /* === Contact Form === */
-  .contact-form {
-    background: #f9fafb;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-  }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 15px;
+      color: #333;
+      font-family: inherit;
+      transition: border 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .contact-form input:hover,
+    .contact-form textarea:hover {
+      transform: scale(1.01);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #0369a1;
+      box-shadow: 0 0 0 2px rgba(3,105,161,0.2);
+      outline: none;
+    }
 
-  .contact-form:hover {
-    transform: translateY(-2px);
-  }
+    .contact-form button {
+      background: linear-gradient(90deg, #0369a1, #0ea5e9);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(90deg, #0ea5e9, #0369a1);
+      transform: translateY(-2px);
+    }
 
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 15px;
-    color: #333;
-    font-family: inherit;
-    transition: border 0.3s, box-shadow 0.3s, transform 0.2s;
-  }
+    /* === Contact Details Styling === */
+    .contact-details {
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .contact-details:hover {
+      transform: translateY(-2px);
+    }
 
-  .contact-form input:hover,
-  .contact-form textarea:hover {
-    transform: scale(1.01);
-  }
+    .contact-details p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+    .contact-details a {
+      color: #3a82d4;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.2s;
+    }
+    .contact-details a:hover {
+      color: #0ea5e9;
+      text-decoration: underline;
+      transform: translateX(3px);
+    }
 
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: #0369a1;
-    box-shadow: 0 0 0 2px rgba(3,105,161,0.2);
-    outline: none;
-  }
+    .contact-details i {
+      color: #3a82d4;
+      margin-right: 8px;
+      transition: color 0.3s, transform 0.2s;
+    }
+    .contact-details i:hover {
+      color: #0ea5e9;
+      transform: scale(1.2);
+    }
 
-  .contact-form button {
-    background: linear-gradient(90deg, #0369a1, #0ea5e9);
-    color: #fff;
-    font-weight: 600;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s;
-  }
+    .contact-details .note {
+      margin-top:12px;
+      color:#6b7280;
+      font-size:14px;
+    }
 
-  .contact-form button:hover {
-    background: linear-gradient(90deg, #0ea5e9, #0369a1);
-    transform: translateY(-2px);
-  }
+    .site-footer {
+      margin-top: 60px;
+    }
 
-  /* === Contact Details Styling === */
-  .contact-details {
-    background: #f1f5f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-  }
+    .socials a {
+      transition: all 0.3s;
+    }
+    .socials a:hover {
+      opacity: 0.85;
+      transform: translateY(-3px) scale(1.1);
+    }
+  </style>
+</head>
 
-  .contact-details:hover {
-    transform: translateY(-2px);
-  }
+<body>
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="Nisa logo" />
+    </a>
 
-  .contact-details p {
-    margin: 8px 0;
-    font-size: 15px;
-  }
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-  .contact-details a {
-    color: #3a82d4;
-    text-decoration: none;
-    transition: color 0.3s, transform 0.2s;
-  }
+    <nav id="main-nav" class="navbar" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="learn.html">Learn</a>
+      <a href="books.html">Books</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  .contact-details a:hover {
-    color: #0ea5e9;
-    text-decoration: underline;
-    transform: translateX(3px);
-  }
+<main>
+  <div class="site-container">
+    <section class="section" id="contact">
+      <h2><i class="fa-solid fa-envelope-circle-check" style="color:#3a82d4;margin-right:10px;"></i>Contact</h2>
+      <p>If you'd like to reach out, use the form below or connect via the social links in the footer.</p>
 
-  .contact-details i {
-    color: #3a82d4;
-    margin-right: 8px;
-    transition: color 0.3s, transform 0.2s;
-  }
+      <div class="contact-container">
+        <!-- LEFT: Form -->
+        <form class="contact-form" action="https://formspree.io/f/mgvljlvl" method="POST">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" rows="6" placeholder="Message" required></textarea>
 
-  .contact-details i:hover {
-    color: #0ea5e9;
-    transform: scale(1.2);
-  }
+          <input type="hidden" name="_subject" value="New contact from Nisa website" />
+          <input type="hidden" name="_next" value="https://tabassumunnisa19.github.io/My_personal_website/thank-you.html" />
+          <input type="text" name="_gotcha" style="display:none" />
 
-  .contact-details .note {
-    margin-top:12px;
-    color:#6b7280;
-    font-size:14px;
-  }
+          <div style="margin-top:10px;">
+            <button class="btn" type="submit">Send Message</button>
+          </div>
+        </form>
 
-  .site-footer {
-    margin-top: 60px;
-  }
+        <!-- RIGHT: Contact Info -->
+        <aside class="contact-details">
+          <h3><i class="fa-solid fa-user-tie"></i> Get in touch</h3>
+          <p><i class="fa-solid fa-envelope"></i><strong>Email:</strong> <a href="mailto:nisashabeerk@gmail.com">nisashabeerk@gmail.com</a></p>
+          <p><i class="fa-solid fa-location-dot"></i><strong>Location:</strong> Kochi, India</p>
+          <p><i class="fa-solid fa-share-nodes"></i><strong>Social:</strong> Connect via the footer icons below</p>
+          <p class="note">I usually reply within a few days. If it’s urgent, use the email above.</p>
+        </aside>
+      </div>
+    </section>
+  </div>
+</main>
 
-  .socials a {
-    transition: all 0.3s;
-  }
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
 
-  .socials a:hover {
-    opacity: 0.85;
-    transform: translateY(-3px) scale(1.1);
-  }
-
-</style>
+<script src="script.js"></script>
+</body>
+</html>
