@@ -6,33 +6,58 @@
   <title>Salary & Compensation HR Interview Questions — Nisa</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+    /* Section Title */
+    .section-title {
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #2563eb, #9333ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .section-subtitle {
+      color: #475569;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Q&A Blocks */
     .qa-block {
-      border: 1px solid #e6eef8;
-      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
       margin-bottom: 1rem;
       background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       overflow: hidden;
+      transition: all 0.3s ease;
     }
     .qa-block button {
       width: 100%;
       text-align: left;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       border: none;
-      background: #f5f8fa;
+      background: #f8fafc;
       cursor: pointer;
       font-size: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: #1e293b;
+      font-weight: 500;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .qa-block button:hover {
-      background: #e0ebf8;
+      background: #eef2ff;
+      color: #334155;
     }
     .qa-block .content {
       display: none;
-      padding: 1rem;
-      border-top: 1px solid #e6eef8;
+      padding: 1rem 1.2rem;
+      border-top: 1px solid #e2e8f0;
+      color: #374151;
+      line-height: 1.6;
       background: #fff;
     }
     .qa-block .tip {
@@ -40,38 +65,54 @@
       color: #555;
       margin-top: 0.5rem;
     }
+    .qa-block.active {
+      border-color: #6366f1;
+      box-shadow: 0 3px 8px rgba(99,102,241,0.15);
+    }
+
+    .qa-block i {
+      transition: transform 0.3s ease;
+      color: #6366f1;
+    }
+    .qa-block.active i {
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Header -->
   <header class="site-header">
     <div class="site-container header-inner">
       <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
-       <!-- Hamburger button (mobile) -->
-    <button class="menu-toggle" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <!-- Navigation -->
-    <nav id="main-nav" class="navbar" role="navigation">
-      <a href="../index.html">Home</a>
-      <a href="../about.html">About</a>
-      <a href="../portfolio.html">Portfolio</a>
-      <a href="../learn.html" class="active">Learn</a>
-      <a href="../blog.html">Blog</a>
-      <a href="../books.html">Books</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
-
-  </div>
-</header>
-
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="main-nav" class="navbar" role="navigation">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../learn.html" class="active">Learn</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../books.html">Books</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Main Content -->
   <main class="site-container" style="padding:2rem; background:var(--background-color);">
+    <h2 class="section-title">Salary & Compensation HR Interview Questions 💼</h2>
+    <p class="section-subtitle">Learn how to confidently discuss salary expectations, negotiations, and compensation details.</p>
 
     <!-- Q&A Blocks -->
     <div class="qa-block">
@@ -171,44 +212,38 @@
     </div>
 
   </main>
-<main class="site-container" style="padding:2rem; background:var(--background-color);">
-  <!-- Q&A blocks here -->
-
-  <!-- Go Back Button -->
-  <div style="text-align:center; margin:2rem 0;">
-    <button onclick="history.back()" 
-            style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
-                   background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
-      ← Go Back
-    </button>
-  </div>
-</main>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="site-container footer-inner">
       <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
       <div class="socials" aria-label="social links">
-        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+        <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+        <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </footer>
 
   <script>
-    const qaBlocks = document.querySelectorAll('.qa-block button');
-    qaBlocks.forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        button.querySelector('i').classList.toggle('fa-chevron-up');
-        button.querySelector('i').classList.toggle('fa-chevron-down');
+    const buttons = document.querySelectorAll('.qa-block button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parent = btn.parentElement;
+        const content = btn.nextElementSibling;
+        const isActive = parent.classList.contains('active');
+        document.querySelectorAll('.qa-block').forEach(block => {
+          block.classList.remove('active');
+          block.querySelector('.content').style.display = 'none';
+        });
+        if (!isActive) {
+          parent.classList.add('active');
+          content.style.display = 'block';
+        }
       });
     });
   </script>
 
 </body>
 </html>
-
