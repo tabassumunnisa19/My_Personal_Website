@@ -6,163 +6,89 @@
   <title>Learn with Me — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      background: #f9fafc;
-      color: #1e293b;
-    }
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn with Me — Nisa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: "Poppins", sans-serif; margin:0; background:#f9fafc; color:#1e293b; }
+    .section { margin:50px auto; max-width:1200px; padding:0 20px; text-align:center; }
+    h2.section-title { font-size:1.8rem; font-weight:700; margin-bottom:12px; display:inline-block; position:relative; color:#111827; }
+    h2.section-title::after { content:""; display:block; width:80px; height:4px; margin:6px auto 0; border-radius:2px; background:linear-gradient(90deg,#9333ea,#8b5cf6); }
+    .section p { margin-bottom:25px; color:#1d4ed8; font-size:1rem; line-height:1.6; display:flex; justify-content:center; align-items:center; gap:8px; }
+    .section p i { color:#2563eb; font-size:1.2rem; }
 
-    .section {
-      margin: 50px auto;
-      max-width: 1200px;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    h2.section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: inline-block;
-      position: relative;
-      color: #111827;
-    }
-
-    h2.section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      margin: 6px auto 0;
-      border-radius: 2px;
-      background: linear-gradient(90deg, #9333ea, #8b5cf6);
-    }
-
-    .section p {
-      margin-bottom: 25px;
-      color: #1d4ed8; /* Professional blue for subheading */
-      font-size: 1rem;
-      line-height: 1.6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .section p i {
-      color: #2563eb;
-      font-size: 1.2rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
-    }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-top:20px; }
 
     .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 25px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-      color: #475569;
-      cursor: pointer;
+      background:#fff;
+      border-radius:12px;
+      padding:25px;
+      border:1px solid #e5e7eb;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      text-align:left;
+      color:#475569;
+      cursor:pointer;
+      text-decoration:none; /* Remove underline */
+      display:flex;
+      flex-direction:column;
     }
 
-    .card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-    }
+    .card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 12px 24px rgba(0,0,0,0.15); }
 
     .card h3 {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:1.25rem;
+      font-weight:600;
+      margin-bottom:10px;
     }
+
+    .card h3::after {
+      content:"→";
+      margin-left:auto;
+      font-weight:600;
+      color:inherit;
+      opacity:0.6;
+      transition:opacity 0.3s;
+    }
+
+    .card:hover h3::after { opacity:1; }
 
     /* Individual Grid Colors & Icon Colors */
-    .data-science h3 {
-      color: #2563eb; /* Blue */
-    }
-    .data-science h3 i { color: #2563eb; }
+    .data-science h3, .data-science h3 i { color:#2563eb; }
+    .python h3 { color:#306998; } .python h3 i { color:#FFD43B; }
+    .python-libs h3, .python-libs h3 i { color:#FF6D00; }
+    .ml h3, .ml h3 i { color:#10B981; }
+    .dl h3, .dl h3 i { color:#3B82F6; }
+    .sql h3, .sql h3 i { color:#0EA5E9; }
+    .interview h3, .interview h3 i { color:#F43F5E; }
 
-    .python h3 {
-      color: #306998; /* Python blue */
-    }
-    .python h3 i { color: #FFD43B; } /* Python yellow */
+    .card p { font-size:1rem; line-height:1.5; margin-bottom:12px; color:#475569; }
 
-    .python-libs h3 {
-      color: #FF6D00; /* Orange */
-    }
-    .python-libs h3 i { color: #FF6D00; }
-
-    .ml h3 { color: #10B981; } /* Green */
-    .ml h3 i { color: #10B981; }
-
-    .dl h3 { color: #3B82F6; } /* Blue */
-    .dl h3 i { color: #3B82F6; }
-
-    .sql h3 { color: #0EA5E9; } /* Azure Blue */
-    .sql h3 i { color: #0EA5E9; }
-
-    .interview h3 { color: #F43F5E; } /* Pink */
-    .interview h3 i { color: #F43F5E; }
-
-    .card p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 12px;
-      color: #475569;
-    }
-
-    /* Responsive Grid */
-    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    @media(max-width:1024px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px){ .grid{ grid-template-columns:1fr; } }
 
     .back-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff0080, #ff4da6);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-      margin: 30px 0;
+      display:inline-block;
+      background:linear-gradient(90deg,#ff0080,#ff4da6);
+      color:white;
+      padding:10px 20px;
+      border-radius:6px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      text-decoration:none;
+      margin:30px 0;
     }
 
-    .back-btn:hover { opacity: 0.9; }
+    .back-btn:hover { opacity:0.9; }
   </style>
-
-  <header class="site-header">
-    <div class="site-container header-inner">
-      <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav id="main-nav" class="navbar" role="navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="blog.html">Blog</a>
-        <a href="learn.html" class="active">Learn</a>
-        <a href="books.html">Books</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
 </head>
 <body>
   <main>
@@ -172,40 +98,40 @@
         <p><i class="fas fa-lightbulb"></i> A curated hub of tutorials, notes, videos, PDFs and interview prep — designed for learners returning to tech and those who prefer clear, practical guidance.</p>
 
         <div class="grid">
-          <div class="card data-science">
+          <a href="roadmap/roadmap.html" class="card data-science">
             <h3><i class="fas fa-chart-line"></i> Data Science Roadmap</h3>
             <p>Roadmap from basics to projects to interviews.</p>
-          </div>
+          </a>
 
-          <div class="card python">
+          <a href="python%20notes/python_simplified.html" class="card python">
             <h3><i class="fab fa-python"></i> Python Simplified</h3>
             <p>Notes, exercises and cheatsheets.</p>
-          </div>
+          </a>
 
-          <div class="card python-libs">
+          <a href="Python_libraries_notes/libraries.html" class="card python-libs">
             <h3><i class="fas fa-cogs"></i> Python Libraries for DS</h3>
             <p>Notes, exercises and coding challenges.</p>
-          </div>
+          </a>
 
-          <div class="card ml">
+          <a href="machine_learning_basics.html" class="card ml">
             <h3><i class="fas fa-robot"></i> Machine Learning Basics</h3>
             <p>Regression, classification & clustering explained.</p>
-          </div>
+          </a>
 
-          <div class="card dl">
+          <a href="deep_learning_essentials.html" class="card dl">
             <h3><i class="fas fa-brain"></i> Deep Learning Essentials</h3>
             <p>Neural nets, TensorFlow & PyTorch guides.</p>
-          </div>
+          </a>
 
-          <div class="card sql">
+          <a href="sql_for_data_science.html" class="card sql">
             <h3><i class="fas fa-database"></i> SQL for Data Science</h3>
             <p>Queries, joins, aggregations and practical tasks.</p>
-          </div>
+          </a>
 
-          <div class="card interview">
+          <a href="interview.html" class="card interview">
             <h3><i class="fas fa-comments"></i> Interview Preparation</h3>
             <p>Common questions, mock interviews and templates.</p>
-          </div>
+          </a>
         </div>
 
         <div style="text-align:center;">
@@ -214,7 +140,8 @@
       </section>
     </div>
   </main>
-  
+
+
   <footer class="site-footer">
     <div class="site-container footer-inner">
       <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
