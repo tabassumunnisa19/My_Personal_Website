@@ -7,55 +7,94 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* ----- Q&A Block Styles ----- */
     .qa-block {
-      border: 1px solid #e6eef8;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #f0f9ff;
     }
+
+    .qa-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
     .qa-block button {
       width: 100%;
       text-align: left;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       border: none;
-      background: #f5f8fa;
+      background: #dbeafe;
       cursor: pointer;
       font-size: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: #0369a1;
+      font-weight: 600;
+      transition: background 0.3s;
     }
+
     .qa-block button:hover {
-      background: #e0ebf8;
+      background: #bfdbfe;
     }
+
+    .qa-block button i {
+      transition: transform 0.3s ease;
+    }
+
     .qa-block .content {
       display: none;
-      padding: 1rem;
-      border-top: 1px solid #e6eef8;
-      background: #fff;
+      padding: 1rem 1.5rem;
+      background: #ffffff;
+      border-top: 1px solid #dbeafe;
+      color: #1e293b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      animation: fadeIn 0.4s ease;
     }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
     .qa-block .tip {
       font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
+      color: #1e40af;
+      background: #e0f2fe;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.8rem;
     }
+
+    .back-btn {
+      display:inline-block;
+      background:linear-gradient(90deg,#ff0080,#ff4da6);
+      color:white;
+      padding:10px 20px;
+      border-radius:6px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      text-decoration:none;
+      margin:30px 0;
+      transition: opacity 0.3s;
+    }
+    .back-btn:hover { opacity:0.9; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="site-container header-inner">
-      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
-       <!-- Hamburger button (mobile) -->
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
     <button class="menu-toggle" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
@@ -65,173 +104,131 @@
       <a href="../books.html">Books</a>
       <a href="../contact.html">Contact</a>
     </nav>
-
   </div>
 </header>
 
-  <!-- Main Content -->
-  <main class="site-container" style="padding:2rem; background:var(--background-color);">
-
-    <!-- Q&A Blocks -->
-    <div class="qa-block">
-      <button>Why did you choose Data Science as a career path? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I’ve always been fascinated by the power of data to solve real-world problems. My background in Digital Communication and experience in teaching, HR, and project coordination helped me develop analytical and problem-solving skills. Data Science allows me to combine technical skills and business insights to create meaningful impact.</p>
-        <p class="tip"><strong>Tip:</strong> Show passion and connect your background to Data Science.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>What excites you more—solving business problems or building complex models? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I enjoy solving business problems because it allows me to apply models to make meaningful decisions. Building models is exciting, but seeing insights translate into real-world impact is most satisfying.</p>
-        <p class="tip"><strong>Tip:</strong> Emphasize practical application and business value.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Tell me about a data science project you worked on and your role in it. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In one project, I analyzed customer behavior data to improve retention. I cleaned the data, performed exploratory analysis, built predictive models, and presented actionable insights to stakeholders. My role spanned end-to-end from data handling to visualization.</p>
-        <p class="tip"><strong>Tip:</strong> Use a real example and clearly explain your contribution.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>If your model has 85% accuracy but the business team is not happy with the outcome, what would you do? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I would first discuss with the team to understand their expectations and define success metrics. Then I would evaluate the model for potential improvements, explain the results in business terms, and explore alternative approaches if needed.</p>
-        <p class="tip"><strong>Tip:</strong> Show business understanding, communication skills, and problem-solving.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>How do you keep yourself updated with the latest tools and technologies in Data Science? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I follow blogs, online courses, webinars, and GitHub projects. I also participate in Data Science communities and practice hands-on projects to learn new tools and techniques actively.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight continuous learning and initiative.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Which do you enjoy more—working with raw messy data or presenting insights to stakeholders? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I enjoy both, but I find presenting insights especially rewarding. Transforming messy data into meaningful recommendations and communicating them effectively is where the impact is realized.</p>
-        <p class="tip"><strong>Tip:</strong> Show you can handle both technical and communication aspects.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Suppose you don’t have complete data for a problem. How will you handle it? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I would explore imputation techniques, use proxy data, and communicate limitations to stakeholders. I would also consider collecting additional data if feasible and evaluate the model’s robustness under uncertainty.</p>
-        <p class="tip"><strong>Tip:</strong> Show problem-solving, creativity, and transparency.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>If you get multiple job offers in Data Science, how would you decide which one to accept? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I would evaluate offers based on growth opportunities, learning potential, role alignment, team culture, and impact of the work. While compensation is important, my priority is long-term learning and meaningful contributions.</p>
-        <p class="tip"><strong>Tip:</strong> Show focus on growth, learning, and alignment with goals.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>What’s more important to you—salary, role, or learning opportunities? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Learning opportunities are most important to me, followed by role alignment. Salary is important but secondary to personal and professional growth and the chance to work on meaningful projects.</p>
-        <p class="tip"><strong>Tip:</strong> Show career-minded approach and priorities.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Data Science often requires collaboration with non-technical teams. How would you explain a complex model in simple terms? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I would focus on the business impact, use analogies, visualizations, and avoid technical jargon. The goal is to help stakeholders understand results and make informed decisions.</p>
-        <p class="tip"><strong>Tip:</strong> Emphasize communication skills and ability to simplify complexity.</p>
-      </div>
-    </div>
-
-    <!-- Additional 5 DS HR questions -->
-    <div class="qa-block">
-      <button>How do you prioritize multiple tasks or projects in a Data Science role? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I evaluate tasks based on impact, urgency, and dependencies. I use planning tools, break work into smaller steps, and communicate priorities with the team to ensure timely delivery.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight organization, planning, and collaboration.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Can you describe a time when your data-driven recommendation influenced a business decision? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In a previous project, my analysis of customer churn led to targeted retention strategies. The team implemented the recommendations, reducing churn by 12% within three months.</p>
-        <p class="tip"><strong>Tip:</strong> Use real examples and quantify impact if possible.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>How do you ensure data quality and integrity in your projects? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I perform data validation, cleaning, and consistency checks. I also maintain documentation and monitor pipelines regularly to ensure accurate and reliable data for analysis.</p>
-        <p class="tip"><strong>Tip:</strong> Show attention to detail and responsibility.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Describe a challenge you faced while working with large datasets and how you overcame it. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Working with a large customer dataset, I faced memory limitations. I used efficient data structures, batch processing, and optimized queries to handle the data and complete analysis on time.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight problem-solving, technical knowledge, and resourcefulness.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>What tools and programming languages do you feel most confident using, and why? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I am confident in Python, R, SQL, and tools like Tableau and Power BI. Python and R help with modeling and analysis, SQL is essential for data handling, and visualization tools help communicate insights effectively.</p>
-        <p class="tip"><strong>Tip:</strong> Mention relevant skills and explain how you use them.</p>
-      </div>
-    </div>
-
-  </main>
 <main class="site-container" style="padding:2rem; background:var(--background-color);">
-  <!-- Q&A blocks here -->
+
+  <!-- Q&A Blocks -->
+  <div class="qa-block">
+    <button>Why did you choose Data Science as a career path? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I’ve always been fascinated by the power of data to solve real-world problems. My background in Digital Communication and experience in teaching, HR, and project coordination helped me develop analytical and problem-solving skills. Data Science allows me to combine technical skills and business insights to create meaningful impact.</p>
+      <p class="tip"><strong>Tip:</strong> Show passion and connect your background to Data Science.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>What excites you more—solving business problems or building complex models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I enjoy solving business problems because it allows me to apply models to make meaningful decisions. Building models is exciting, but seeing insights translate into real-world impact is most satisfying.</p>
+      <p class="tip"><strong>Tip:</strong> Emphasize practical application and business value.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Tell me about a data science project you worked on and your role in it. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>In one project, I analyzed customer behavior data to improve retention. I cleaned the data, performed exploratory analysis, built predictive models, and presented actionable insights to stakeholders. My role spanned end-to-end from data handling to visualization.</p>
+      <p class="tip"><strong>Tip:</strong> Use a real example and clearly explain your contribution.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>If your model has 85% accuracy but the business team is not happy with the outcome, what would you do? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I would first discuss with the team to understand their expectations and define success metrics. Then I would evaluate the model for potential improvements, explain the results in business terms, and explore alternative approaches if needed.</p>
+      <p class="tip"><strong>Tip:</strong> Show business understanding, communication skills, and problem-solving.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>How do you keep yourself updated with the latest tools and technologies in Data Science? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I follow blogs, online courses, webinars, and GitHub projects. I also participate in Data Science communities and practice hands-on projects to learn new tools and techniques actively.</p>
+      <p class="tip"><strong>Tip:</strong> Highlight continuous learning and initiative.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Which do you enjoy more—working with raw messy data or presenting insights to stakeholders? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I enjoy both, but I find presenting insights especially rewarding. Transforming messy data into meaningful recommendations and communicating them effectively is where the impact is realized.</p>
+      <p class="tip"><strong>Tip:</strong> Show you can handle both technical and communication aspects.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Suppose you don’t have complete data for a problem. How will you handle it? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I would explore imputation techniques, use proxy data, and communicate limitations to stakeholders. I would also consider collecting additional data if feasible and evaluate the model’s robustness under uncertainty.</p>
+      <p class="tip"><strong>Tip:</strong> Show problem-solving, creativity, and transparency.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>If you get multiple job offers in Data Science, how would you decide which one to accept? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I would evaluate offers based on growth opportunities, learning potential, role alignment, team culture, and impact of the work. While compensation is important, my priority is long-term learning and meaningful contributions.</p>
+      <p class="tip"><strong>Tip:</strong> Show focus on growth, learning, and alignment with goals.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>What’s more important to you—salary, role, or learning opportunities? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>Learning opportunities are most important to me, followed by role alignment. Salary is important but secondary to personal and professional growth and the chance to work on meaningful projects.</p>
+      <p class="tip"><strong>Tip:</strong> Show career-minded approach and priorities.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Data Science often requires collaboration with non-technical teams. How would you explain a complex model in simple terms? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I would focus on the business impact, use analogies, visualizations, and avoid technical jargon. The goal is to help stakeholders understand results and make informed decisions.</p>
+      <p class="tip"><strong>Tip:</strong> Emphasize communication skills and ability to simplify complexity.</p>
+    </div>
+  </div>
 
   <!-- Go Back Button -->
   <div style="text-align:center; margin:2rem 0;">
-    <button onclick="history.back()" 
-            style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
-                   background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
-      ← Go Back
-    </button>
+    <button onclick="history.back()" class="back-btn">← Go Back</button>
   </div>
+
 </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-container footer-inner">
-      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-      <div class="socials" aria-label="social links">
-        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      </div>
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p>© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    const qaBlocks = document.querySelectorAll('.qa-block button');
-    qaBlocks.forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        button.querySelector('i').classList.toggle('fa-chevron-up');
-        button.querySelector('i').classList.toggle('fa-chevron-down');
+<script>
+  const qaButtons = document.querySelectorAll('.qa-block button');
+  qaButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      const isOpen = content.style.display === 'block';
+      document.querySelectorAll('.qa-block .content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.qa-block i').forEach(i => {
+        i.classList.remove('fa-chevron-up');
+        i.classList.add('fa-chevron-down');
       });
+      if (!isOpen) {
+        content.style.display = 'block';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
