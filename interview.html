@@ -6,27 +6,87 @@
   <title>Interview Prep — Nisa</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family:"Poppins", sans-serif; margin:0; background:#f9fafc; color:#1e293b; }
+
+    /* Page Header / Section */
+    .section { padding:2rem 0; text-align:center; }
+    .section h2 { font-size:1.8rem; font-weight:700; margin-bottom:10px; color:#111827; }
+    .section p { font-size:1rem; line-height:1.6; color:#475569; margin-bottom:25px; display:flex; justify-content:center; align-items:center; gap:8px; }
+    .section p i { color:#2563eb; font-size:1.2rem; }
+
+    /* Grid */
+    .grid {
+      display:flex;
+      flex-wrap:wrap;
+      gap:25px;
+      justify-content:flex-start;
+      margin-top:20px;
+    }
+
+    .card {
+      flex: 0 1 300px;
+      background:#fff; border-radius:12px; padding:25px; border:1px solid #e5e7eb;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      text-align:left; color:#475569; cursor:pointer; text-decoration:none;
+      display:flex; flex-direction:column;
+    }
+
+    .card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 12px 24px rgba(0,0,0,0.15); }
+
+    .card h3 {
+      display:flex; align-items:center; gap:10px; font-size:1.25rem; font-weight:600;
+      margin-bottom:5px;
+    }
+
+    .card h3::after {
+      content:"→"; margin-left:auto; font-weight:600; color:inherit; opacity:0.6;
+      transition:opacity 0.3s;
+    }
+
+    .card:hover h3::after { opacity:1; }
+
+    .card p { font-size:0.95rem; line-height:1.4; margin-top:4px; color:#475569; }
+
+    /* Individual card colors & icons */
+    .card.python h3, .card.python h3 i { color:#2563eb; }
+    .card.sql h3, .card.sql h3 i { color:#10b981; }
+    .card.ml h3, .card.ml h3 i { color:#f59e0b; }
+    .card.ds h3, .card.ds h3 i { color:#8b5cf6; }
+    .card.hr h3, .card.hr h3 i { color:#ef4444; }
+
+    /* Back button */
+    .back-btn {
+      display:inline-block;
+      background:linear-gradient(90deg,#ff0080,#ff4da6);
+      color:white;
+      padding:10px 20px;
+      border-radius:6px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      text-decoration:none;
+      margin:30px 0;
+    }
+    .back-btn:hover { opacity:0.9; }
+
+    @media(max-width:1024px){ .grid{ justify-content:center; } }
+    @media(max-width:768px){ .grid{ flex-direction:column; align-items:center; } }
+  </style>
 </head>
 <body>
 <header class="site-header">
   <div class="site-container header-inner">
-
-    <!-- Logo -->
     <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
-
-    <!-- Hamburger button (visible on mobile) -->
     <button class="menu-toggle" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About Me</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="learn.html class="active">Learn</a>
+      <a href="learn.html" class="active">Learn</a>
       <a href="blog.html">Blog</a>
       <a href="books.html">Books</a>
       <a href="contact.html">Contact</a>
@@ -38,29 +98,40 @@
   <div class="site-container">
     <section class="section">
       <h2>Interview Prep 📚</h2>
-      <p style="color:#475569; margin-bottom:12px;">Select a category to explore questions and answers for IT & Data Science roles.</p>
+      <p><i class="fas fa-clipboard-list"></i> Select a category to explore questions and answers for IT & Data Science roles.</p>
 
       <div class="grid">
-        <div class="card"><a href="Python_Interview/Python_Interview_questions.html" style="text-decoration:none; color:inherit;"><h3>Python Interview Questions</h3></a></div>
-        <div class="card"><a href="sql-interview.html" style="text-decoration:none; color:inherit;"><h3>SQL Interview Questions</h3></a></div>
-        <div class="card"><a href="ml-interview.html" style="text-decoration:none; color:inherit;"><h3>Machine Learning Interview Questions</h3></a></div>
-        <div class="card"><a href="ds-interview.html" style="text-decoration:none; color:inherit;"><h3>Data Science Interview Questions</h3></a></div>
-        <div class="card"><a href="hr-pages/hr-interview.html" style="text-decoration:none; color:inherit;"><h3>HR Interview Questions</h3></a></div>
+        <a class="card python" href="Python_Interview/Python_Interview_questions.html">
+          <h3><i class="fab fa-python"></i> Python Interview Questions</h3>
+          <p>Notes, exercises, and common Python questions for interviews.</p>
+        </a>
+
+        <a class="card sql" href="sql-interview.html">
+          <h3><i class="fas fa-database"></i> SQL Interview Questions</h3>
+          <p>Key SQL queries, joins, aggregations, and interview practice questions.</p>
+        </a>
+
+        <a class="card ml" href="ml-interview.html">
+          <h3><i class="fas fa-robot"></i> Machine Learning Interview Questions</h3>
+          <p>Regression, classification, clustering and ML concepts explained for interviews.</p>
+        </a>
+
+        <a class="card ds" href="ds-interview.html">
+          <h3><i class="fas fa-chart-line"></i> Data Science Interview Questions</h3>
+          <p>Data Science interview questions, problem-solving and case study examples.</p>
+        </a>
+
+        <a class="card hr" href="hr-pages/hr-interview.html">
+          <h3><i class="fas fa-user-tie"></i> HR Interview Questions</h3>
+          <p>General, behavioral, and role-specific HR questions and mock interviews.</p>
+        </a>
+      </div>
+
+      <div style="text-align:center; margin:2rem 0;">
+        <button onclick="history.back()" class="back-btn">← Go Back</button>
       </div>
 
     </section>
-  </div>
-</main>
-<main class="site-container" style="padding:2rem; background:var(--background-color);">
-  <!-- Q&A blocks here -->
-
-  <!-- Go Back Button -->
-  <div style="text-align:center; margin:2rem 0;">
-    <button onclick="history.back()" 
-            style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
-                   background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
-      ← Go Back
-    </button>
   </div>
 </main>
 
