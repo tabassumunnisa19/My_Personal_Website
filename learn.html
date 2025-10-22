@@ -7,136 +7,143 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  <style>
-  /* =================== Section & Grid Styles =================== */
-  .section {
-    margin: 50px auto;
-    max-width: 1200px;
-    padding: 0 20px;
-    text-align: center;
-  }
-
-  /* Section Titles */
-  h2.section-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    display: inline-block;
-    position: relative;
-    color: #111827; /* professional dark heading */
-  }
-
-  h2.section-title::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 4px;
-    margin: 6px auto 0;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #9333ea, #8b5cf6); /* gradient underline */
-  }
-
-  /* Subheading / paragraph under section title */
-  .section p {
-    margin-bottom: 25px;
-    color: #475569; /* professional gray-blue */
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  /* Grid Layout */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-  }
-
-  /* Card Styles */
-  .card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-    color: #475569;
-  }
-
-  /* Grid card heading with distinct professional gradient */
-  .card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #2563eb, #3b82f6); /* professional blue gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .card p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    color: #475569; /* professional gray-blue for card content */
-  }
-
-  /* Buttons */
-  .card .btn {
-    display: inline-block;
-    margin-top: 10px;
-    background-color: #2563eb; /* professional blue button */
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s, transform 0.3s;
-  }
-
-  .card .btn:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-2px);
-  }
-
-  /* Back Button */
-  .back-btn {
-    display: inline-block;
-    background: linear-gradient(90deg, #ff0080, #ff4da6);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    margin: 30px 0;
-  }
-
-  .back-btn:hover {
-    opacity: 0.9;
-  }
-
-  /* Responsive Grid */
-  @media (max-width: 1024px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f9fafc;
+      color: #1e293b;
     }
-  }
 
-  @media (max-width: 768px) {
-    .grid {
-      grid-template-columns: 1fr;
+    .section {
+      margin: 50px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+      text-align: center;
     }
-  }
 
-  /* Card Hover Effects */
-  .card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-  }
-</style>
+    h2.section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-block;
+      position: relative;
+      color: #111827;
+    }
 
-</head>
-<body>
+    h2.section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      margin: 6px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #9333ea, #8b5cf6);
+    }
+
+    .section p {
+      margin-bottom: 25px;
+      color: #1d4ed8; /* Professional blue for subheading */
+      font-size: 1rem;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section p i {
+      color: #2563eb;
+      font-size: 1.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* Individual Grid Colors & Icon Colors */
+    .data-science h3 {
+      color: #2563eb; /* Blue */
+    }
+    .data-science h3 i { color: #2563eb; }
+
+    .python h3 {
+      color: #306998; /* Python blue */
+    }
+    .python h3 i { color: #FFD43B; } /* Python yellow */
+
+    .python-libs h3 {
+      color: #FF6D00; /* Orange */
+    }
+    .python-libs h3 i { color: #FF6D00; }
+
+    .ml h3 { color: #10B981; } /* Green */
+    .ml h3 i { color: #10B981; }
+
+    .dl h3 { color: #3B82F6; } /* Blue */
+    .dl h3 i { color: #3B82F6; }
+
+    .sql h3 { color: #0EA5E9; } /* Azure Blue */
+    .sql h3 i { color: #0EA5E9; }
+
+    .interview h3 { color: #F43F5E; } /* Pink */
+    .interview h3 i { color: #F43F5E; }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      color: #475569;
+    }
+
+    /* Responsive Grid */
+    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+    .back-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff0080, #ff4da6);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 30px 0;
+    }
+
+    .back-btn:hover { opacity: 0.9; }
+  </style>
+
   <header class="site-header">
     <div class="site-container header-inner">
       <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
@@ -156,67 +163,58 @@
       </nav>
     </div>
   </header>
-
+</head>
+<body>
   <main>
     <div class="site-container">
       <section class="section">
         <h2 class="section-title">Learn with Me 📚</h2>
-        <p style="margin-bottom:25px; color:#475569;">
-          A curated hub of tutorials, notes, videos, PDFs and interview prep — designed for learners returning to tech and those who prefer clear, practical guidance.
-        </p>
+        <p><i class="fas fa-lightbulb"></i> A curated hub of tutorials, notes, videos, PDFs and interview prep — designed for learners returning to tech and those who prefer clear, practical guidance.</p>
 
         <div class="grid">
-          <div class="card">
-            <h3>Data Science Roadmap</h3>
+          <div class="card data-science">
+            <h3><i class="fas fa-chart-line"></i> Data Science Roadmap</h3>
             <p>Roadmap from basics to projects to interviews.</p>
-            <a href="roadmap/roadmap.html" class="btn">Go →</a>
           </div>
 
-          <div class="card">
-            <h3>Python Simplified</h3>
+          <div class="card python">
+            <h3><i class="fab fa-python"></i> Python Simplified</h3>
             <p>Notes, exercises and cheatsheets.</p>
-            <a href="python%20notes/python_simplified.html" class="btn">Go →</a>
           </div>
 
-          <div class="card">
-            <h3>Python Libraries for DS</h3>
+          <div class="card python-libs">
+            <h3><i class="fas fa-cogs"></i> Python Libraries for DS</h3>
             <p>Notes, exercises and coding challenges.</p>
-            <a href="Python_libraries_notes/libraries.html" class="btn">Go →</a>
           </div>
 
-          <div class="card">
-            <h3>Machine Learning Basics</h3>
+          <div class="card ml">
+            <h3><i class="fas fa-robot"></i> Machine Learning Basics</h3>
             <p>Regression, classification & clustering explained.</p>
-            <a href="machine_learning_basics.html" class="btn">Go →</a>
           </div>
 
-          <div class="card">
-            <h3>Deep Learning Essentials</h3>
+          <div class="card dl">
+            <h3><i class="fas fa-brain"></i> Deep Learning Essentials</h3>
             <p>Neural nets, TensorFlow & PyTorch guides.</p>
-            <a href="deep_learning_essentials.html" class="btn">Go →</a>
           </div>
 
-          <div class="card">
-            <h3>SQL for Data Science</h3>
+          <div class="card sql">
+            <h3><i class="fas fa-database"></i> SQL for Data Science</h3>
             <p>Queries, joins, aggregations and practical tasks.</p>
-            <a href="sql_for_data_science.html" class="btn">Go →</a>
           </div>
 
-          <div class="card">
-            <h3>Interview Preparation</h3>
+          <div class="card interview">
+            <h3><i class="fas fa-comments"></i> Interview Preparation</h3>
             <p>Common questions, mock interviews and templates.</p>
-            <a href="interview.html" class="btn">Go →</a>
           </div>
         </div>
 
-        <!-- Pink Back Button -->
         <div style="text-align:center;">
           <button onclick="history.back()" class="back-btn">← Back</button>
         </div>
       </section>
     </div>
   </main>
-
+  
   <footer class="site-footer">
     <div class="site-container footer-inner">
       <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
