@@ -7,56 +7,94 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* ----- Q&A Block Styles ----- */
     .qa-block {
-      border: 1px solid #e6eef8;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #f0f9ff; /* reflective tone */
     }
+
+    .qa-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
     .qa-block button {
       width: 100%;
       text-align: left;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       border: none;
-      background: #f5f8fa;
+      background: #dbeafe; /* professional light blue */
       cursor: pointer;
       font-size: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: #0369a1;
+      font-weight: 600;
+      transition: background 0.3s;
     }
+
     .qa-block button:hover {
-      background: #e0ebf8;
+      background: #bfdbfe;
     }
+
+    .qa-block button i {
+      transition: transform 0.3s ease;
+    }
+
     .qa-block .content {
       display: none;
-      padding: 1rem;
-      border-top: 1px solid #e6eef8;
-      background: #fff;
+      padding: 1rem 1.5rem;
+      background: #ffffff;
+      border-top: 1px solid #dbeafe;
+      color: #1e293b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      animation: fadeIn 0.4s ease;
     }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
     .qa-block .tip {
       font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
+      color: #1e40af;
+      background: #e0f2fe;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.8rem;
     }
+
+    .back-btn {
+      display:inline-block;
+      background:linear-gradient(90deg,#ff0080,#ff4da6);
+      color:white;
+      padding:10px 20px;
+      border-radius:6px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      text-decoration:none;
+      margin:30px 0;
+      transition: opacity 0.3s;
+    }
+    .back-btn:hover { opacity:0.9; }
   </style>
 </head>
 <body>
+
 <header class="site-header">
   <div class="site-container header-inner">
-
-    <!-- Logo -->
     <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
-
-    <!-- Hamburger button (mobile) -->
     <button class="menu-toggle" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
@@ -66,175 +104,169 @@
       <a href="../books.html">Books</a>
       <a href="../contact.html">Contact</a>
     </nav>
-
   </div>
 </header>
 
- 
-
-  <!-- Main Content -->
-  <main class="site-container" style="padding:2rem; background:var(--background-color);">
-
-    <!-- Q&A Blocks -->
-
-    <div class="qa-block">
-      <button>Describe a challenging situation you faced and how you handled it. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In my previous role, I had to handle a project with very limited time and resources. Initially, the team was overwhelmed, but I broke down the tasks into smaller steps, prioritized the most critical activities, and communicated clearly with everyone. This structured approach helped us complete the project successfully and even impressed the client.</p>
-        <p class="tip"><strong>Tip:</strong> Use the STAR method (Situation, Task, Action, Result). Show problem-solving and composure.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Give me an example of when you showed leadership skills. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During a group project, our team faced delays due to miscommunication. I took initiative to arrange daily check-ins, reassigned roles based on strengths, and motivated the team to stay focused. As a result, we met the deadline and achieved better collaboration.</p>
-        <p class="tip"><strong>Tip:</strong> Show initiative, teamwork, and decision-making ability.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Tell me about a time when you missed a deadline. How did you handle it? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Once, I underestimated the time required for a reporting task and missed the deadline by a few hours. I immediately informed my manager, delivered the report as quickly as possible, and then created a checklist system to avoid repeating the mistake. Since then, I’ve consistently met deadlines.</p>
-        <p class="tip"><strong>Tip:</strong> Be honest, admit the mistake, and highlight what you learned.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Describe a time you had to work with a difficult colleague. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I worked with a colleague who often rejected others’ ideas. Instead of avoiding them, I engaged in one-on-one discussions to understand their perspective. By building rapport and showing respect, we were able to collaborate more effectively and reach common solutions.</p>
-        <p class="tip"><strong>Tip:</strong> Show empathy, patience, and ability to resolve conflicts professionally.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>How do you manage multiple priorities at once? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I start by listing tasks, categorizing them by urgency and importance, and using tools like calendars and trackers. I focus on one task at a time while ensuring stakeholders are updated. This helps me balance competing demands without compromising quality.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight organization and time-management skills.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Tell me about a mistake you made and how you corrected it. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In one project, I overlooked a small detail that caused a delay. Once I realized, I immediately informed the team, corrected the error, and added a double-check process to my workflow. This mistake taught me the importance of reviewing my work carefully.</p>
-        <p class="tip"><strong>Tip:</strong> Choose a small mistake, show accountability, and explain how you improved.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Give an example of when you disagreed with your manager. What did you do? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Once, I disagreed with my manager’s approach to solving a problem. Instead of openly opposing, I requested a discussion where I presented data and alternative ideas respectfully. My manager appreciated my input, and we ended up combining both perspectives for a better outcome.</p>
-        <p class="tip"><strong>Tip:</strong> Show respect, professionalism, and focus on collaboration.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Tell me about a time when you went beyond your responsibilities to achieve a goal. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During a busy phase, I noticed a colleague struggling with documentation, which wasn’t my responsibility. I helped them finish it, which improved the overall project delivery and built stronger teamwork.</p>
-        <p class="tip"><strong>Tip:</strong> Show willingness to take initiative and support others.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>How do you handle criticism or feedback? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I take feedback positively, listen carefully without interrupting, and reflect on how to improve. For example, when I received feedback on my presentation skills, I practiced more and asked for follow-up feedback. This helped me become more confident.</p>
-        <p class="tip"><strong>Tip:</strong> Show openness, humility, and growth mindset.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Describe a project where you had to collaborate with people from different backgrounds. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In one project, I worked with colleagues from different departments and cultural backgrounds. I made sure to listen actively, respect diverse perspectives, and encourage open communication. This diversity actually led to more creative solutions.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight adaptability and respect for diversity.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Tell me about a situation where you took initiative. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I noticed a process that was slowing down the team’s productivity. Without being asked, I researched tools, suggested an automation solution, and presented it to my manager. The idea was accepted, and it saved us a lot of time.</p>
-        <p class="tip"><strong>Tip:</strong> Show proactiveness and results from your actions.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Describe a time you adapted to sudden changes in a project. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Once, a client requested major changes just before the deadline. I quickly re-prioritized tasks, coordinated with the team, and adjusted our workflow. By staying flexible, we managed to deliver the updated version on time.</p>
-        <p class="tip"><strong>Tip:</strong> Show flexibility and positive attitude toward change.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Tell me about a time you had to persuade someone to accept your idea. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I once proposed using a new tool to improve efficiency. Some colleagues resisted because they were used to the old system. I demonstrated how the new tool worked and provided examples of saved time. Eventually, they agreed, and it became our standard practice.</p>
-        <p class="tip"><strong>Tip:</strong> Show persuasion through data, logic, and empathy.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>How do you manage conflicts in a team setting? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>When conflict arises, I listen to each person’s perspective, stay neutral, and encourage open discussion to focus on the common goal. This usually helps de-escalate tension and find a win-win solution.</p>
-        <p class="tip"><strong>Tip:</strong> Show fairness, communication, and problem-solving.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>Give me an example of when you worked under a tight deadline successfully. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During an urgent project, we had only a day to prepare a presentation. I divided tasks among the team, created a clear timeline, and focused on essentials. We delivered the presentation successfully and got appreciation from the client.</p>
-        <p class="tip"><strong>Tip:</strong> Show prioritization and ability to perform under pressure.</p>
-      </div>
-    </div>
-
-  </main>
 <main class="site-container" style="padding:2rem; background:var(--background-color);">
-  <!-- Q&A blocks here -->
 
-  <!-- Go Back Button -->
+  <!-- Q&A Blocks -->
+  <div class="qa-block">
+    <button>Describe a challenging situation you faced and how you handled it. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>In my previous role, I had to handle a project with very limited time and resources. Initially, the team was overwhelmed, but I broke down the tasks into smaller steps, prioritized the most critical activities, and communicated clearly with everyone. This structured approach helped us complete the project successfully and even impressed the client.</p>
+      <p class="tip"><strong>Tip:</strong> Use the STAR method (Situation, Task, Action, Result). Show problem-solving and composure.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Give me an example of when you showed leadership skills. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>During a group project, our team faced delays due to miscommunication. I took initiative to arrange daily check-ins, reassigned roles based on strengths, and motivated the team to stay focused. As a result, we met the deadline and achieved better collaboration.</p>
+      <p class="tip"><strong>Tip:</strong> Show initiative, teamwork, and decision-making ability.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Tell me about a time when you missed a deadline. How did you handle it? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>Once, I underestimated the time required for a reporting task and missed the deadline by a few hours. I immediately informed my manager, delivered the report as quickly as possible, and then created a checklist system to avoid repeating the mistake. Since then, I’ve consistently met deadlines.</p>
+      <p class="tip"><strong>Tip:</strong> Be honest, admit the mistake, and highlight what you learned.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Describe a time you had to work with a difficult colleague. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I worked with a colleague who often rejected others’ ideas. Instead of avoiding them, I engaged in one-on-one discussions to understand their perspective. By building rapport and showing respect, we were able to collaborate more effectively and reach common solutions.</p>
+      <p class="tip"><strong>Tip:</strong> Show empathy, patience, and ability to resolve conflicts professionally.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>How do you manage multiple priorities at once? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I start by listing tasks, categorizing them by urgency and importance, and using tools like calendars and trackers. I focus on one task at a time while ensuring stakeholders are updated. This helps me balance competing demands without compromising quality.</p>
+      <p class="tip"><strong>Tip:</strong> Highlight organization and time-management skills.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Tell me about a mistake you made and how you corrected it. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>In one project, I overlooked a small detail that caused a delay. Once I realized, I immediately informed the team, corrected the error, and added a double-check process to my workflow. This mistake taught me the importance of reviewing my work carefully.</p>
+      <p class="tip"><strong>Tip:</strong> Choose a small mistake, show accountability, and explain how you improved.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Give an example of when you disagreed with your manager. What did you do? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>Once, I disagreed with my manager’s approach to solving a problem. Instead of openly opposing, I requested a discussion where I presented data and alternative ideas respectfully. My manager appreciated my input, and we ended up combining both perspectives for a better outcome.</p>
+      <p class="tip"><strong>Tip:</strong> Show respect, professionalism, and focus on collaboration.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Tell me about a time when you went beyond your responsibilities to achieve a goal. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>During a busy phase, I noticed a colleague struggling with documentation, which wasn’t my responsibility. I helped them finish it, which improved the overall project delivery and built stronger teamwork.</p>
+      <p class="tip"><strong>Tip:</strong> Show willingness to take initiative and support others.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>How do you handle criticism or feedback? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I take feedback positively, listen carefully without interrupting, and reflect on how to improve. For example, when I received feedback on my presentation skills, I practiced more and asked for follow-up feedback. This helped me become more confident.</p>
+      <p class="tip"><strong>Tip:</strong> Show openness, humility, and growth mindset.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Describe a project where you had to collaborate with people from different backgrounds. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>In one project, I worked with colleagues from different departments and cultural backgrounds. I made sure to listen actively, respect diverse perspectives, and encourage open communication. This diversity actually led to more creative solutions.</p>
+      <p class="tip"><strong>Tip:</strong> Highlight adaptability and respect for diversity.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Tell me about a situation where you took initiative. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I noticed a process that was slowing down the team’s productivity. Without being asked, I researched tools, suggested an automation solution, and presented it to my manager. The idea was accepted, and it saved us a lot of time.</p>
+      <p class="tip"><strong>Tip:</strong> Show proactiveness and results from your actions.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Describe a time you adapted to sudden changes in a project. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>Once, a client requested major changes just before the deadline. I quickly re-prioritized tasks, coordinated with the team, and adjusted our workflow. By staying flexible, we managed to deliver the updated version on time.</p>
+      <p class="tip"><strong>Tip:</strong> Show flexibility and positive attitude toward change.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Tell me about a time you had to persuade someone to accept your idea. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I once proposed using a new tool to improve efficiency. Some colleagues resisted because they were used to the old system. I demonstrated how the new tool worked and provided examples of saved time. Eventually, they agreed, and it became our standard practice.</p>
+      <p class="tip"><strong>Tip:</strong> Show persuasion through data, logic, and empathy.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>How do you manage conflicts in a team setting? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>When conflict arises, I listen to each person’s perspective, stay neutral, and encourage open discussion to focus on the common goal. This usually helps de-escalate tension and find a win-win solution.</p>
+      <p class="tip"><strong>Tip:</strong> Show fairness, communication, and problem-solving.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>Give me an example of when you worked under a tight deadline successfully. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>During an urgent project, we had only a day to prepare a presentation. I divided tasks among the team, created a clear timeline, and focused on essentials. We delivered the presentation successfully and got appreciation from the client.</p>
+      <p class="tip"><strong>Tip:</strong> Show prioritization and ability to perform under pressure.</p>
+    </div>
+  </div>
+
   <div style="text-align:center; margin:2rem 0;">
-    <button onclick="history.back()" 
-            style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
-                   background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
-      ← Go Back
-    </button>
+    <button onclick="history.back()" class="back-btn">← Go Back</button>
   </div>
 </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-container footer-inner">
-      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-      <div class="socials" aria-label="social links">
-        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      </div>
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p>© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    const qaBlocks = document.querySelectorAll('.qa-block button');
-    qaBlocks.forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        button.querySelector('i').classList.toggle('fa-chevron-up');
-        button.querySelector('i').classList.toggle('fa-chevron-down');
+<script>
+  const qaButtons = document.querySelectorAll('.qa-block button');
+  qaButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      const isOpen = content.style.display === 'block';
+      document.querySelectorAll('.qa-block .content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.qa-block i').forEach(i => {
+        i.classList.remove('fa-chevron-up');
+        i.classList.add('fa-chevron-down');
       });
+      if (!isOpen) {
+        content.style.display = 'block';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
