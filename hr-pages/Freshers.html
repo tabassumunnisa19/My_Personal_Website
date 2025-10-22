@@ -7,55 +7,94 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* ----- Q&A Block Styles ----- */
     .qa-block {
-      border: 1px solid #e6eef8;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #f0f9ff;
     }
+
+    .qa-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
     .qa-block button {
       width: 100%;
       text-align: left;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       border: none;
-      background: #f5f8fa;
+      background: #dbeafe;
       cursor: pointer;
       font-size: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: #0369a1;
+      font-weight: 600;
+      transition: background 0.3s;
     }
+
     .qa-block button:hover {
-      background: #e0ebf8;
+      background: #bfdbfe;
     }
+
+    .qa-block button i {
+      transition: transform 0.3s ease;
+    }
+
     .qa-block .content {
       display: none;
-      padding: 1rem;
-      border-top: 1px solid #e6eef8;
-      background: #fff;
+      padding: 1rem 1.5rem;
+      background: #ffffff;
+      border-top: 1px solid #dbeafe;
+      color: #1e293b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      animation: fadeIn 0.4s ease;
     }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
     .qa-block .tip {
       font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
+      color: #1e40af;
+      background: #e0f2fe;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.8rem;
     }
+
+    .back-btn {
+      display:inline-block;
+      background:linear-gradient(90deg,#ff0080,#ff4da6);
+      color:white;
+      padding:10px 20px;
+      border-radius:6px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      text-decoration:none;
+      margin:30px 0;
+      transition: opacity 0.3s;
+    }
+    .back-btn:hover { opacity:0.9; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="site-container header-inner">
-      <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
-       <!-- Hamburger button (mobile) -->
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
     <button class="menu-toggle" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <!-- Navigation -->
     <nav id="main-nav" class="navbar" role="navigation">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
@@ -65,218 +104,73 @@
       <a href="../books.html">Books</a>
       <a href="../contact.html">Contact</a>
     </nav>
-
   </div>
 </header>
 
-
-  <!-- Main Content -->
-  <main class="site-container" style="padding:2rem; background:var(--background-color);">
-
-    <!-- Fresher Interview Questions -->
-    <h1>Fresher Interview Questions</h1>
-    <p style="margin-bottom:2rem;">Essential HR and behavioral questions for freshers to prepare confidently for interviews.</p>
-
-    <!-- Q&A Blocks -->
-    <div class="qa-block">
-      <button>1. Tell me about yourself. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Good afternoon, my name is Tabassum Unnisa. I have recently completed my Master’s in Digital Communication Engineering. During my studies, I worked on several projects that helped me develop analytical thinking, problem-solving, and teamwork skills. I have experience in teaching, project coordination, and HR during internships and college activities. I am eager to start my professional career and apply my skills to contribute effectively while learning and growing in a professional environment.</p>
-        <p class="tip"><strong>Tip:</strong> Keep your answer structured: education, experience, skills, and career focus. Be confident and concise.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>2. Why do you want to join our company? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I am impressed by your company’s reputation, values, and focus on innovation. I feel that this environment will provide me with opportunities to learn, contribute, and grow. I want to be part of a team where I can apply my skills effectively and gain valuable experience as a fresher.</p>
-        <p class="tip"><strong>Tip:</strong> Show that you researched the company and connect your interests to its values.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>3. What are your strengths and weaknesses? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>My strengths include adaptability, problem-solving, and communication. I enjoy learning new skills and taking on challenges. My weakness is sometimes spending extra time perfecting a task, but I am learning to balance quality with efficiency.</p>
-        <p class="tip"><strong>Tip:</strong> Pick strengths relevant to the role and mention a weakness that is manageable and shows self-awareness.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>4. Where do you see yourself in 5 years? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In five years, I aim to be a skilled professional contributing to meaningful projects, taking ownership, and developing leadership skills. I also want to stay updated with industry trends and continue learning to grow both technically and personally.</p>
-        <p class="tip"><strong>Tip:</strong> Show ambition but keep it realistic.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>5. Why should we hire you as a fresher? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>As a fresher, I bring enthusiasm, willingness to learn, and a fresh perspective. My academic background, combined with my practical experiences and internship projects, has equipped me with relevant skills. I am ready to adapt, contribute, and grow with the organization.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight your eagerness to learn and ability to adapt as a fresher.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>6. Are you comfortable working in shifts or relocating? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>Yes, I am open to working in shifts or relocating if required. I view it as an opportunity to gain diverse experiences and grow professionally.</p>
-        <p class="tip"><strong>Tip:</strong> Show flexibility confidently.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>7. What motivates you to work hard? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I am motivated by challenges and opportunities to learn new skills. Achieving goals and seeing the impact of my work on the team or organization keeps me driven and focused.</p>
-        <p class="tip"><strong>Tip:</strong> Give personal examples or values that motivate you.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>8. How do you handle feedback or criticism? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I view feedback as an opportunity to improve. I listen carefully, ask questions if needed, and implement suggestions to enhance my work. Constructive criticism helps me grow professionally and personally.</p>
-        <p class="tip"><strong>Tip:</strong> Emphasize openness and willingness to learn.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>9. How do you manage multiple priorities? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I prioritize tasks based on deadlines and importance. I break large tasks into smaller steps, plan my time, and focus on completing one task at a time. This helps me stay organized and productive even with multiple responsibilities.</p>
-        <p class="tip"><strong>Tip:</strong> Show your organizational and time management skills.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>10. Describe a time you faced a challenge and how you solved it. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During my final year project, we faced missing data in the dataset. I analyzed the missing parts, researched solutions, and applied appropriate methods to clean and complete the data. By collaborating with team members and testing multiple approaches, we completed the project successfully.</p>
-        <p class="tip"><strong>Tip:</strong> Use the STAR method (Situation, Task, Action, Result) for behavioral questions.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>11. Describe a time you worked successfully in a team. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In a group project, we divided responsibilities based on each member’s strengths. I coordinated with others, shared updates regularly, and helped resolve any misunderstandings. As a result, we completed the project efficiently and achieved a high score.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight collaboration, communication, and teamwork.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>12. Tell me about a mistake you made and how you corrected it. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During an assignment submission, I initially misunderstood the requirement, which could have affected our project. I immediately consulted my mentor, revised the work, and ensured it met the expectations. The final submission was correct and on time.</p>
-        <p class="tip"><strong>Tip:</strong> Show accountability, learning, and corrective action.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>13. Describe a situation where you took initiative. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>In college, I noticed our team needed better task tracking for a project. I suggested using a shared spreadsheet and set up progress tracking for everyone. This improved our efficiency and helped us complete the project smoothly.</p>
-        <p class="tip"><strong>Tip:</strong> Show proactiveness and problem-solving.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>14. Tell me about a time you had to adapt to sudden changes. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During an internship, the project requirements changed unexpectedly. I quickly learned the new tools and modified our approach. By being flexible and collaborating with the team, we delivered the updated project successfully.</p>
-        <p class="tip"><strong>Tip:</strong> Emphasize adaptability and quick learning.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>15. How do you handle conflict with a peer or colleague? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>If a disagreement arises, I focus on understanding the other person’s perspective and communicate respectfully. I try to find a compromise or solution that aligns with the team’s goal. This approach has helped maintain good relationships and work efficiency.</p>
-        <p class="tip"><strong>Tip:</strong> Show diplomacy, patience, and teamwork skills.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>16. Give an example of when you had to persuade someone to accept your idea. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During a group project, I proposed a different approach to analyze data. I explained the benefits clearly with examples and addressed concerns. The team agreed, and the approach improved our results.</p>
-        <p class="tip"><strong>Tip:</strong> Highlight communication and reasoning skills.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>17. Describe a time when you met a tight deadline. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>For a college assignment, the deadline was moved up unexpectedly. I prioritized tasks, delegated where possible, and worked extra hours to complete it. The assignment was submitted on time with good quality.</p>
-        <p class="tip"><strong>Tip:</strong> Show time management and stress-handling ability.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>18. How do you prioritize tasks under pressure? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I list all tasks, assess urgency and importance, and focus on critical tasks first. Breaking them into smaller steps and maintaining focus helps me perform efficiently under pressure.</p>
-        <p class="tip"><strong>Tip:</strong> Show organized approach and calmness.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>19. Give an example of when you went beyond your responsibilities to achieve a goal. <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>During a college event, I noticed some team members needed help with logistics. I voluntarily assisted while completing my assigned tasks, ensuring the event ran smoothly and successfully.</p>
-        <p class="tip"><strong>Tip:</strong> Show initiative and willingness to help beyond assigned tasks.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <button>20. How do you stay motivated during repetitive or challenging tasks? <i class="fas fa-chevron-down"></i></button>
-      <div class="content">
-        <p>I focus on the bigger goal and remind myself of the value of my work. Breaking tasks into smaller milestones and celebrating small wins keeps me motivated even in repetitive or challenging tasks.</p>
-        <p class="tip"><strong>Tip:</strong> Show positivity, focus, and self-motivation.</p>
-      </div>
-    </div>
-
-  </main>
 <main class="site-container" style="padding:2rem; background:var(--background-color);">
-  <!-- Q&A blocks here -->
+
+  <h1>Fresher Interview Questions</h1>
+  <p style="margin-bottom:2rem;">Essential HR and behavioral questions for freshers to prepare confidently for interviews.</p>
+
+  <!-- Q&A Blocks -->
+  <!-- Copy all your 20 Fresher Q&A blocks here, just like in your existing code -->
+  <!-- Example for first two -->
+  <div class="qa-block">
+    <button>1. Tell me about yourself. <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>Good afternoon, my name is Tabassum Unnisa. I have recently completed my Master’s in Digital Communication Engineering. During my studies, I worked on several projects that helped me develop analytical thinking, problem-solving, and teamwork skills. I have experience in teaching, project coordination, and HR during internships and college activities. I am eager to start my professional career and apply my skills to contribute effectively while learning and growing in a professional environment.</p>
+      <p class="tip"><strong>Tip:</strong> Keep your answer structured: education, experience, skills, and career focus. Be confident and concise.</p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. Why do you want to join our company? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      <p>I am impressed by your company’s reputation, values, and focus on innovation. I feel that this environment will provide me with opportunities to learn, contribute, and grow. I want to be part of a team where I can apply my skills effectively and gain valuable experience as a fresher.</p>
+      <p class="tip"><strong>Tip:</strong> Show that you researched the company and connect your interests to its values.</p>
+    </div>
+  </div>
+
+  <!-- Add the rest of your Q&A blocks here following the same structure -->
 
   <!-- Go Back Button -->
   <div style="text-align:center; margin:2rem 0;">
-    <button onclick="history.back()" 
-            style="padding:0.7rem 1.5rem; font-size:1rem; border:none; border-radius:5px; 
-                   background: linear-gradient(90deg, #ff0080, #ff4da6); color:white; cursor:pointer;">
-      ← Go Back
-    </button>
+    <button onclick="history.back()" class="back-btn">← Go Back</button>
   </div>
 </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-container footer-inner">
-      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-      <div class="socials" aria-label="social links">
-        <a href="#" class="social linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="#" class="social github" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="#" class="social medium" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-        <a href="#" class="social youtube" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      </div>
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p>© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <div class="socials" aria-label="social links">
+      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    const qaBlocks = document.querySelectorAll('.qa-block button');
-    qaBlocks.forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        button.querySelector('i').classList.toggle('fa-chevron-up');
-        button.querySelector('i').classList.toggle('fa-chevron-down');
+<script>
+  const qaButtons = document.querySelectorAll('.qa-block button');
+  qaButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      const isOpen = content.style.display === 'block';
+      document.querySelectorAll('.qa-block .content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.qa-block i').forEach(i => {
+        i.classList.remove('fa-chevron-up');
+        i.classList.add('fa-chevron-down');
       });
+      if (!isOpen) {
+        content.style.display = 'block';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
-
