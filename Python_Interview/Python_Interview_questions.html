@@ -6,6 +6,99 @@
   <title>Python Interview Prep — Nisa</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      background: var(--background-color, #f8fafc);
+      font-family: "Poppins", sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2rem;
+      color: var(--primary-color, #222);
+    }
+
+    p {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #475569;
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Card Base Style */
+    .card {
+      border: none;
+      border-radius: 12px;
+      padding: 1.5rem 1.8rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      filter: brightness(1.1);
+    }
+
+    /* Distinct Gradient Colors for Each Card */
+    .card:nth-child(1) {
+      background: linear-gradient(135deg, #4f46e5, #6366f1); /* General Python */
+    }
+
+    .card:nth-child(2) {
+      background: linear-gradient(135deg, #0ea5e9, #06b6d4); /* Data Science */
+    }
+
+    .card:nth-child(3) {
+      background: linear-gradient(135deg, #ef4444, #f97316); /* Coding Challenges */
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card i {
+      font-size: 1.3rem;
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    .arrow {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+    }
+  </style>
 </head>
 <body>
 <!-- 🔹 Header (with Hamburger) -->
@@ -32,7 +125,6 @@
       <a href="../books.html">Books</a>
       <a href="../contact.html">Contact</a>
     </nav>
-
   </div>
 </header>
 
@@ -40,25 +132,25 @@
   <div class="site-container">
     <section class="section">
       <h2>Python Interview Questions 🐍</h2>
-      <p style="color:#475569; margin-bottom:12px;">Choose a category to explore different Python interview questions and answers.</p>
+      <p>Choose a category to explore different Python interview questions and answers.</p>
 
       <div class="grid">
-        <div class="card">
-          <a href="general_python.html" style="text-decoration:none; color:inherit;">
-            <h3>General Python interview Q&A</h3>
-          </a>
+
+        <div class="card" onclick="location.href='general_python.html'">
+          <h3><i class="fab fa-python"></i> General Python Interview Q&A</h3>
+          <i class="fas fa-arrow-right arrow"></i>
         </div>
-    <div class="grid">
-        <div class="card">
-          <a href="python_datascience.html" style="text-decoration:none; color:inherit;">
-            <h3>Data Science python libraries</h3>
-          </a>
+
+        <div class="card" onclick="location.href='python_datascience.html'">
+          <h3><i class="fas fa-database"></i> Data Science Python Libraries</h3>
+          <i class="fas fa-arrow-right arrow"></i>
         </div>
-        <div class="card">
-          <a href="coding_challenge.html" style="text-decoration:none; color:inherit;">
-            <h3>Python Coding Challenges</h3>
-          </a>
+
+        <div class="card" onclick="location.href='coding_challenge.html'">
+          <h3><i class="fas fa-code"></i> Python Coding Challenges</h3>
+          <i class="fas fa-arrow-right arrow"></i>
         </div>
+
       </div>
 
     </section>
@@ -71,6 +163,14 @@
   </div>
 </footer>
 
+<!-- JS for Hamburger -->
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('main-nav');
+  toggleBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>
-
