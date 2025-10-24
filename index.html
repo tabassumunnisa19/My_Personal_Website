@@ -39,20 +39,26 @@
        Hero Section Layout
     ======================= */
     .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
-      margin: 40px 0;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 0;
+  padding-top: 0;
+}
 
-    .hero .intro {
-      flex: 1 1 400px;
-    }
+.hero .intro {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: -30px; /* adjust -20 to -50 as per look */
+}
+.hero .intro {
+  margin-top: -40px; /* move it up more */
+}
 
-    .hero .profile {
-      flex: 0 0 300px;
-    }
 
     .hero .profile img {
       width: 100%;
