@@ -1,4 +1,4 @@
 title: "My Personal Website"
-baseurl: "/My_Personal_Website"   # ← must match your repo name exactly
-url: "www.tabassumunnisa.com"
+baseurl: ""  # must be empty for custom domain
+url: "https://tabassumunnisa.com"  # include https://
 
