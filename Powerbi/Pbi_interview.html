@@ -1,1 +1,277 @@
+<!-- ============ TOPIC TITLE ============ -->
+<h2 style="
+  background:#dbeafe;
+  color:#0f3c75;
+  padding:1rem 1.5rem;
+  border-radius:10px;
+  margin-bottom:1.5rem;
+  font-size:1.4rem;
+  font-weight:700;
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+">Topic 1 — Power BI Basics & Architecture</h2>
+
+
+<!-- ============ Q&A BLOCK STYLES ============ -->
+<style>
+  .qa-block {
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #f0f9ff;
+  }
+  .qa-block:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  }
+  .qa-block button {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border: none;
+    background: #dbeafe;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0369a1;
+  }
+  .qa-block button:hover {
+    background: #bfdbfe;
+  }
+  .qa-block button i {
+    transition: transform 0.3s ease;
+  }
+  .qa-block .content {
+    display: none;
+    padding: 1rem 1.5rem;
+    background: #ffffff;
+    border-top: 1px solid #dbeafe;
+    color: #1e293b;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+</style>
+
+
+<!-- ============ ALL 20 QUESTIONS + ANSWERS ============ -->
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What is Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI is a business intelligence tool from Microsoft that helps users connect to data,
+    clean it, build visuals, and create interactive dashboards. It enables decision-makers
+    to understand trends, patterns, and performance through easy-to-interpret visuals.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. What are the main components of Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI consists of 5 main components:  
+    • Power BI Desktop – for data modeling and report building  
+    • Power BI Service – for publishing and sharing  
+    • Power BI Mobile – for viewing on phones  
+    • Power BI Gateway – connects on-premise data to the cloud  
+    • Power BI Report Builder – for paginated reports  
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. Difference between Power BI Desktop and Power BI Service? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI Desktop is used to build data models and reports.  
+    Power BI Service is the cloud platform used to publish, share, refresh, and collaborate.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is a Report in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A report is a multi-page collection of visualizations created in Power BI Desktop.
+    Reports allow filtering, drilling down, and interactive exploration of data.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. What is a Dashboard in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A dashboard is a single-page interface created only in the Power BI Service.
+    It displays key visuals pinned from various reports for quick monitoring.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. What is a Dataset in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A dataset is the collection of tables, relationships, and data that is used to build reports.
+    It is the underlying semantic model that powers visuals.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. What is the difference between Import and DirectQuery mode? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Import Mode loads data into Power BI memory (VertiPaq), providing extremely fast performance.  
+    DirectQuery keeps data in the source database and queries it live, suitable for real-time needs.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. What is Power BI Gateway and why is it used? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A gateway connects on-premise data (SQL Server, Excel files in local systems) to Power BI Service
+    for scheduled refresh and real-time access.  
+    It ensures secure data transfer between local servers and the cloud.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What are Workspaces in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Workspaces are cloud collaboration spaces where teams store datasets, reports, dashboards, and apps.
+    They act as shared folders for BI development and publishing.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. What are the types of filters in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI provides 4 types of filters:  
+    • Visual Level Filters  
+    • Page Level Filters  
+    • Report Level Filters  
+    • Drillthrough Filters  
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. What is a Semantic Model? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A semantic model is the structured data model containing tables, relationships, measures, and calculations.
+    It provides consistent logic for all visuals and reports using that dataset.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. Why does a report run fast in Desktop but slow in Service? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Reasons include large datasets, high-cardinality columns, slow DirectQuery sources,
+    complex DAX expressions, and too many visuals per page.  
+    Optimization and reducing unnecessary data usually solve the issue.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. Why does a dashboard show old data? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Common causes are failed scheduled refresh, gateway issues, cached visuals, expired credentials,
+    or using Import mode without refreshing manually.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. How do you share a report securely with a team? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Reports can be shared through workspace access, sharing links (Pro license),
+    or by publishing an App. Row-Level Security (RLS) ensures confidential data protection.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. How do you provide real-time dashboards in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Real-time dashboards are achieved using DirectQuery, streaming datasets, push datasets, or REST API.
+    These methods allow immediate updates without manual refresh.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What is a Tile in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A tile is a single visual object pinned to a dashboard such as a chart, map, KPI, or card.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. What are the Power BI licensing types? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI offers Free, Pro, Premium Per User (PPU), and Premium (capacity-based) licenses.
+    Premium provides dedicated capacity and advanced enterprise features.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What is Q&A in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Q&A is a natural-language feature allowing users to type questions like
+    “Sales by region” and instantly generate visuals based on the dataset.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. What engine does Power BI use internally? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI uses the VertiPaq in-memory engine, which compresses data and processes it column-wise,
+    enabling extremely fast performance for analytical queries.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. What is the Power BI workflow? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    The typical workflow is:  
+    1) Get Data → 2) Transform Data → 3) Build Model →  
+    4) Create Visuals → 5) Publish → 6) Share & Refresh.  
+    This completes the end-to-end BI development cycle.
+  </div>
+</div>
+
+
+<!-- ============ COLLAPSE SCRIPT ============ -->
+<script>
+  const qaButtons = document.querySelectorAll('.qa-block button');
+  qaButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      const isOpen = content.style.display === 'block';
+
+      document.querySelectorAll('.qa-block .content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.qa-block i').forEach(i => {
+        i.classList.remove('fa-chevron-up');
+        i.classList.add('fa-chevron-down');
+      });
+
+      if (!isOpen) {
+        content.style.display = 'block';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      }
+    });
+  });
+</script>
 
