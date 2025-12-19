@@ -694,6 +694,1411 @@
   </div>
 </div>
 </div>
+   <!-- =======================
+     TOPIC 4 HEADER
+======================= -->
+<h2 class="topic-header topic-orange">
+  Topic 4 — Data Modeling
+</h2>
+
+<div class="qa-section">
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What is data modeling in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Data modeling in Power BI is the process of structuring data using tables,
+    relationships, keys, and calculations so that it can be analyzed efficiently
+    and accurately.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. Why is data modeling important in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Good data modeling improves performance, simplifies DAX calculations,
+    ensures accurate results, and makes reports easier to maintain and scale.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. What is a star schema? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A star schema consists of one central fact table connected to multiple
+    dimension tables. It is the recommended modeling approach in Power BI
+    for better performance and simplicity.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is a fact table? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A fact table contains quantitative data such as sales, revenue, quantity,
+    or transactions. It usually includes foreign keys linking to dimension tables.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. What is a dimension table? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A dimension table contains descriptive attributes such as customer name,
+    product category, date, or region, which provide context to fact data.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. What are relationships in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Relationships define how tables are connected using key columns.
+    They allow Power BI to filter and aggregate data across tables correctly.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. What are the types of relationships in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI supports one-to-many, many-to-one, many-to-many,
+    and one-to-one relationships.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. What is relationship cardinality? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Cardinality describes how rows in one table relate to rows in another,
+    such as one-to-many or many-to-many.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What is cross-filter direction? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Cross-filter direction determines how filters flow between related tables.
+    It can be single-direction or both-direction (bi-directional).
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. When should bi-directional relationships be used? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Bi-directional relationships should be used carefully,
+    typically in many-to-many scenarios or complex filtering needs,
+    as they can impact performance and cause ambiguity.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. What is an active vs inactive relationship? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    An active relationship is used by default in calculations.
+    An inactive relationship exists but must be activated using DAX functions
+    like USERELATIONSHIP.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. What is USERELATIONSHIP in DAX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    USERELATIONSHIP is a DAX function that activates an inactive relationship
+    for a specific calculation.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. What is a surrogate key? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A surrogate key is an artificial unique identifier (often numeric)
+    used instead of natural keys to improve performance and consistency.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. What is normalization vs denormalization? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Normalization reduces data redundancy by splitting tables.
+    Denormalization combines data for faster querying,
+    which is often preferred in Power BI models.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. What is a role-playing dimension? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A role-playing dimension is a single dimension table
+    used multiple times in different roles,
+    such as Order Date, Ship Date, and Delivery Date.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What is a date table and why is it required? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A date table is a dedicated calendar table required for
+    time intelligence calculations like YTD, MTD, and YoY analysis.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. What happens if you don’t use a proper date table? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Without a proper date table, time intelligence functions
+    may not work correctly and results can be inaccurate.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What is model ambiguity in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Model ambiguity occurs when multiple filter paths exist
+    between tables, causing Power BI to be unable to determine
+    which path to use.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. How do you optimize a data model? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Model optimization involves reducing columns, removing unused tables,
+    using correct data types, applying star schema,
+    and avoiding unnecessary bi-directional relationships.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. What are best practices for Power BI data modeling? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Best practices include using star schema, a proper date table,
+    simple relationships, minimal columns, and performing transformations
+    in Power Query rather than DAX where possible.
+  </div>
+</div>
+
+</div>
+<!-- =======================
+     TOPIC 5 HEADER
+======================= -->
+<h2 class="topic-header topic-navy">
+  Topic 5 — DAX (Basic to Advanced)
+</h2>
+
+<div class="qa-section">
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What is DAX in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    DAX (Data Analysis Expressions) is a formula language used in Power BI
+    to create calculated columns, measures, and tables for data analysis.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. What is the difference between a calculated column and a measure? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Calculated columns are computed row by row and stored in the model.
+    Measures are calculated at query time based on filters and are not stored.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. What is row context in DAX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Row context refers to the current row being evaluated.
+    It is automatically created in calculated columns and iterators.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is filter context in DAX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Filter context is the set of filters applied to a calculation
+    from visuals, slicers, page filters, or DAX expressions.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. What is context transition? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Context transition occurs when CALCULATE converts
+    row context into filter context during measure evaluation.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. What does the CALCULATE function do? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    CALCULATE modifies filter context to evaluate expressions
+    under specific conditions and is the most powerful DAX function.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. Difference between ALL and ALLEXCEPT? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    ALL removes all filters from a table or column.
+    ALLEXCEPT removes all filters except the specified columns.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. What is the difference between SUM and SUMX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    SUM aggregates a column directly.
+    SUMX iterates row by row, evaluates an expression,
+    and then sums the results.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What are iterator functions in DAX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Iterator functions (SUMX, AVERAGEX, FILTER)
+    evaluate expressions row by row over a table.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. What is the FILTER function used for? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    FILTER returns a table based on conditions
+    and is often used inside CALCULATE for complex filtering.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. What is the difference between COUNT, COUNTA, and DISTINCTCOUNT? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    COUNT counts numeric values,
+    COUNTA counts non-blank values,
+    DISTINCTCOUNT counts unique values.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. What is a time intelligence function? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Time intelligence functions perform calculations over time,
+    such as YTD, MTD, YoY, and require a proper date table.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. What is TOTALYTD used for? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    TOTALYTD calculates year-to-date values
+    based on a date column and filter context.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. What is the difference between RELATED and LOOKUPVALUE? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    RELATED retrieves values using an existing relationship.
+    LOOKUPVALUE searches based on matching column values
+    without requiring a relationship.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. What is EARLIER function? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    EARLIER is used in nested row contexts
+    to access a value from an outer row context.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What is a calculated table? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A calculated table is created using DAX
+    and is evaluated during data refresh.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. What is performance optimization in DAX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    It involves reducing iterators, using measures instead of columns,
+    avoiding unnecessary FILTERs, and optimizing data models.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What is the difference between HASONEVALUE and VALUES? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    HASONEVALUE checks if a single value exists in context.
+    VALUES returns a table of unique values.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. What is the difference between ISBLANK and BLANK()? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    ISBLANK checks whether a value is blank.
+    BLANK() returns a blank value.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. What are DAX best practices? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Use measures over columns, keep formulas simple,
+    follow star schema, use proper date tables,
+    and test performance using Performance Analyzer.
+  </div>
+</div>
+
+</div>
+<!-- =======================
+     TOPIC 6 HEADER
+======================= -->
+<h2 class="topic-header topic-teal">
+  Topic 6 — Data Visualization
+</h2>
+
+<div class="qa-section">
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What is data visualization in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Data visualization is the graphical representation of data using charts,
+    tables, maps, and KPIs to help users understand trends, patterns,
+    and insights easily.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. What are the common visual types in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Common visuals include bar charts, column charts, line charts,
+    pie charts, tables, matrices, cards, KPIs, maps, and slicers.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. Difference between a table and a matrix? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A table displays flat data in rows and columns.
+    A matrix supports hierarchies, drill-down, and grouping of rows and columns.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is a slicer? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A slicer is a visual filtering tool that allows users
+    to interactively filter data across visuals on a report page.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. What is a KPI visual? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A KPI visual shows a key metric along with its target
+    and trend to quickly assess performance.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. What is conditional formatting? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Conditional formatting dynamically changes colors, icons,
+    or data bars based on rules or values to highlight insights.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. What are custom visuals? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Custom visuals are visuals created by Microsoft or third parties
+    and imported from AppSource to extend visualization capabilities.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. What is drill-down and drill-through? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Drill-down allows navigation within a visual hierarchy.
+    Drill-through navigates to a detailed page using selected context.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What is cross-filtering and cross-highlighting? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Cross-filtering filters other visuals completely.
+    Cross-highlighting highlights related data while dimming the rest.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. What are tooltips in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Tooltips display additional information when hovering over visuals
+    and can include custom tooltip pages.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. What is a report theme? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A report theme is a JSON file that defines colors, fonts,
+    and formatting to maintain consistent design across reports.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. What is the purpose of bookmarks? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Bookmarks capture the state of visuals, filters, and navigation
+    to create interactive storytelling experiences.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. What is the selection pane? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    The selection pane controls visibility, layering,
+    and interaction of visuals on a report page.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. What are best practices for data visualization? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Use appropriate chart types, avoid clutter,
+    maintain consistency, highlight key insights,
+    and follow a clear visual hierarchy.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. How do you choose the right visual? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Choose visuals based on data type and purpose:
+    comparisons, trends, distributions, proportions,
+    or relationships.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What is responsive design in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Responsive design automatically adjusts visual layout
+    based on screen size, especially for mobile devices.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. What are small multiples? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Small multiples display the same visual repeated
+    across categories, making comparisons easier.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What is data storytelling in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Data storytelling combines visuals, insights,
+    and narrative to guide users toward meaningful conclusions.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. What is the difference between a dashboard and a report? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A report is multi-page and interactive.
+    A dashboard is a single-page summary built in the Power BI Service.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. What are common visualization mistakes to avoid? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Avoid using too many visuals, incorrect chart types,
+    excessive colors, cluttered layouts, and misleading scales.
+  </div>
+</div>
+
+</div>
+<!-- =======================
+     TOPIC 7 HEADER
+======================= -->
+<h2 class="topic-header topic-rose">
+  Topic 7 — Power BI Service
+</h2>
+
+<div class="qa-section">
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What is Power BI Service? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI Service is the cloud-based platform where reports are published,
+    shared, refreshed, and consumed by users through a web browser or mobile app.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. What can you do in Power BI Service that you cannot do in Desktop? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    In Power BI Service, you can share reports, create dashboards,
+    configure scheduled refresh, manage workspaces,
+    publish apps, and apply security settings.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. What is a workspace in Power BI Service? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A workspace is a collaborative environment used to store datasets,
+    reports, dashboards, dataflows, and apps for a team or project.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is an App in Power BI Service? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    An App is a packaged collection of reports and dashboards
+    published from a workspace and shared with end users.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. What is the difference between a report and a dashboard? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A report is multi-page and interactive.
+    A dashboard is a single-page summary made by pinning visuals
+    from reports in Power BI Service.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. What is scheduled refresh? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Scheduled refresh automatically updates imported datasets
+    at defined intervals to ensure reports show the latest data.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. What is an on-premises data gateway? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    An on-premises data gateway enables secure communication
+    between Power BI Service and on-premises data sources.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. Difference between personal and standard gateway? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Personal gateway is for individual use.
+    Standard gateway supports multiple users and datasets
+    and is recommended for enterprise environments.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What is dataset refresh failure? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Refresh failure occurs when Power BI cannot retrieve data
+    due to credential issues, gateway problems,
+    source unavailability, or query errors.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. What is Row-Level Security (RLS)? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Row-Level Security restricts data visibility
+    so users can only see rows they are authorized to view.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. How do you implement RLS in Power BI Service? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    RLS is defined in Power BI Desktop using roles and filters,
+    then published and assigned to users in Power BI Service.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. What is content sharing in Power BI Service? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Content can be shared using workspace access,
+    direct sharing links, or by publishing apps.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. What is Power BI Premium? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI Premium provides dedicated capacity,
+    enhanced performance, larger datasets,
+    and advanced enterprise features.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. What is Premium Per User (PPU)? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    PPU is a per-user license that provides many
+    Premium features without requiring dedicated capacity.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. What is deployment pipeline? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Deployment pipelines help manage report lifecycle
+    across development, test, and production environments.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What are dataflows? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Dataflows are cloud-based Power Query transformations
+    that can be reused across multiple datasets.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. What is lineage view? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Lineage view shows how datasets, reports,
+    dashboards, and dataflows are connected.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What is usage metrics? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Usage metrics show how often reports and dashboards
+    are viewed, helping measure adoption and performance.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. What is Power BI mobile app? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    The Power BI mobile app allows users to view
+    dashboards and reports on mobile devices.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. What are Power BI Service best practices? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Use apps for distribution, limit workspace access,
+    monitor refresh failures, apply security,
+    and manage environments using deployment pipelines.
+  </div>
+</div>
+
+</div>
+<!-- =======================
+     TOPIC 8 HEADER
+======================= -->
+<h2 class="topic-header topic-gold">
+  Topic 8 — Security & Governance
+</h2>
+
+<div class="qa-section">
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What is security in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Security in Power BI ensures that users can access only the data,
+    reports, and dashboards they are authorized to see,
+    protecting sensitive business information.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. What is governance in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Governance refers to policies, processes, and controls
+    that manage how Power BI content is created, shared,
+    secured, and maintained across an organization.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. What is Row-Level Security (RLS)? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Row-Level Security restricts data access at the row level,
+    ensuring users see only the records they are permitted to view.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is Object-Level Security (OLS)? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Object-Level Security hides specific tables,
+    columns, or measures from users,
+    providing more granular control than RLS.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. What is workspace role-based access? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Workspace roles (Admin, Member, Contributor, Viewer)
+    control what actions users can perform within a workspace.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. Difference between Viewer and Member roles? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Viewers can only view content.
+    Members can create, edit, and publish content
+    within the workspace.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. What is dataset permission? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Dataset permissions control who can build reports,
+    view data, or reshare datasets in Power BI Service.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. What is sensitivity labeling? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Sensitivity labels classify data (Confidential, Public, Restricted)
+    and help enforce data protection policies.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What is tenant-level security? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Tenant-level settings define global Power BI behavior,
+    such as export permissions, sharing rules,
+    and external user access.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. What is data loss prevention (DLP)? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    DLP policies prevent sensitive data
+    from being shared or exported outside the organization.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. What is auditing in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Auditing tracks user activities such as viewing,
+    sharing, exporting, and modifying content
+    for compliance and monitoring.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. What is the Power BI audit log? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    The audit log records all Power BI activities
+    and can be accessed through Microsoft 365 compliance tools.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. What is data certification and endorsement? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Endorsement marks datasets as Promoted or Certified
+    to indicate trusted and verified data sources.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. What is least privilege principle? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Least privilege means users are granted
+    only the minimum access necessary
+    to perform their job.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. What is data governance best practice in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Best practices include clear ownership,
+    certified datasets, restricted sharing,
+    auditing usage, and enforcing security policies.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What is Power BI Admin Portal? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    The Admin Portal allows administrators
+    to manage tenant settings, capacity,
+    users, and governance controls.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. How do you secure Power BI reports for external users? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Security can be enforced using Azure AD B2B,
+    restricted sharing, RLS, and tenant-level settings.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What is data ownership in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Data ownership defines responsibility
+    for maintaining dataset accuracy,
+    refresh, and access control.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. What is compliance in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Compliance ensures Power BI usage
+    meets regulatory and organizational standards
+    such as GDPR or internal policies.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. What are common Power BI security mistakes? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Common mistakes include over-sharing,
+    not using RLS, ignoring tenant settings,
+    lack of auditing, and unmanaged workspaces.
+  </div>
+</div>
+
+</div>
+<!-- =======================
+     TOPIC 9 HEADER
+======================= -->
+<h2 class="topic-header topic-slate">
+  Topic 9 — Performance Optimization
+</h2>
+
+<div class="qa-section">
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What does performance optimization mean in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Performance optimization means improving report responsiveness,
+    reducing load time, and ensuring fast visual interactions
+    by optimizing data model, DAX, and visuals.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. What are the main causes of slow Power BI reports? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Common causes include poor data modeling,
+    high-cardinality columns, complex DAX,
+    excessive visuals, and inefficient DirectQuery sources.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. How does a star schema improve performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A star schema reduces relationship complexity,
+    simplifies filter propagation,
+    and allows the VertiPaq engine to work more efficiently.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is VertiPaq compression? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    VertiPaq uses columnar storage and compression techniques
+    to store data efficiently in memory,
+    enabling very fast analytical queries.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. Why should high-cardinality columns be avoided? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    High-cardinality columns increase memory usage,
+    reduce compression efficiency,
+    and slow down queries.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. What is Performance Analyzer in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Performance Analyzer measures visual load time,
+    DAX query duration, and rendering time
+    to help identify bottlenecks.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. Difference between Import mode and DirectQuery performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Import mode is faster because data is stored in memory.
+    DirectQuery performance depends on the source system
+    and network latency.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. How can Power Query improve performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Performing data cleaning, filtering,
+    and aggregation in Power Query
+    reduces the size and complexity of the model.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What is query folding and how does it help performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Query folding pushes transformations to the data source,
+    reducing data transfer and improving refresh speed.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. How does DAX affect report performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Inefficient DAX with unnecessary iterators,
+    complex filters, or calculated columns
+    can significantly slow down reports.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. Why are measures preferred over calculated columns? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Measures are calculated at query time
+    and do not increase model size,
+    while calculated columns consume memory.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. What is the impact of too many visuals on a page? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Each visual sends a query to the model,
+    so too many visuals increase rendering time
+    and slow page performance.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. How do slicers impact performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Slicers with high-cardinality fields
+    or many slicers on a page
+    can slow down interactions.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. What is incremental refresh? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Incremental refresh updates only new or changed data
+    instead of reloading the entire dataset,
+    improving refresh performance.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. What is aggregation table and why is it used? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Aggregation tables store summarized data
+    to speed up queries on large datasets.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What is dual storage mode? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Dual mode allows tables to act as both Import
+    and DirectQuery, improving query performance
+    in composite models.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. How do you reduce dataset size? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Remove unused columns and rows,
+    use correct data types,
+    reduce cardinality,
+    and pre-aggregate data.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What role does indexing play in DirectQuery? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Proper indexing in source databases
+    significantly improves DirectQuery performance
+    by speeding up SQL execution.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. How do bookmarks help performance? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Bookmarks can reduce visual rendering
+    by hiding unnecessary visuals
+    and controlling report navigation.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. What are Power BI performance best practices? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Use star schema, optimize DAX,
+    limit visuals per page,
+    use Import mode when possible,
+    and monitor performance using Performance Analyzer.
+  </div>
+</div>
+
+</div>
+<!-- =======================
+     TOPIC 10 HEADER
+======================= -->
+<h2 class="topic-header topic-indigo">
+  Topic 10 — Real-World Scenarios
+</h2>
+
+<div class="qa-section">
+
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. How would you design a Power BI report for senior management? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    For senior management, I would focus on high-level KPIs, trends, and exceptions.
+    The report would be minimal, visually clean, use summary cards, trend charts,
+    and allow drill-through for deeper analysis when required.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. How do you handle large datasets in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I handle large datasets using Import mode with optimization,
+    incremental refresh, aggregation tables, reducing columns,
+    and using a star schema to improve performance.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. What would you do if a report is very slow for users? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I would analyze the report using Performance Analyzer,
+    check model design, simplify DAX measures,
+    reduce visuals per page, and verify storage mode.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. How do you handle changing business requirements? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I design flexible models, use measures instead of calculated columns,
+    parameterize Power Query steps, and communicate with stakeholders
+    to manage expectations and changes effectively.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. How do you implement security for different users? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I use Row-Level Security for data access,
+    workspace roles for content access,
+    and sensitivity labels for data classification.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. How do you decide between Import and DirectQuery? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I choose Import mode for performance and analytics.
+    DirectQuery is chosen only when real-time data
+    or very large datasets are required.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. How do you ensure data accuracy in reports? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I validate data with source systems,
+    use data profiling in Power Query,
+    reconcile totals, and implement certified datasets.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. How do you manage multiple data sources in one report? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I integrate multiple sources using Power Query,
+    ensure consistent keys, build a unified data model,
+    and handle relationships carefully to avoid ambiguity.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. How do you explain Power BI insights to non-technical users? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I focus on business language, visual storytelling,
+    clear labels, tooltips, and simple explanations
+    rather than technical details.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. What would you do if users request Excel-like behavior? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I use tables, matrices, drill-through,
+    export options, and explain Power BI’s analytical
+    advantages compared to Excel.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. How do you manage report versioning and deployment? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I use deployment pipelines, separate workspaces
+    for Dev/Test/Prod, and controlled publishing
+    to ensure stability.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. How do you handle failed data refreshes? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I check gateway status, credentials,
+    error logs, and source availability,
+    then notify stakeholders if delays occur.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. How do you track report usage and adoption? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I use Power BI usage metrics,
+    audit logs, and feedback from users
+    to understand adoption and improve reports.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. How do you design reports for performance and usability? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I balance performance and usability by limiting visuals,
+    optimizing DAX, using consistent layouts,
+    and prioritizing key insights.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. How do you handle last-minute changes before deployment? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I assess impact, prioritize critical changes,
+    test thoroughly, communicate risks,
+    and avoid introducing instability.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. How do you collaborate with business stakeholders? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I conduct requirement discussions,
+    share prototypes, gather feedback early,
+    and iterate based on business needs.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. What challenges have you faced in Power BI projects? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Common challenges include unclear requirements,
+    data quality issues, performance tuning,
+    and managing user expectations.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. How do you document Power BI solutions? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I document data sources, model design,
+    key measures, refresh schedules,
+    and security rules for maintainability.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. How do you future-proof a Power BI solution? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    I design scalable models, reusable measures,
+    certified datasets, and follow best practices
+    to accommodate future growth.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. Why is Power BI suitable for real-world business scenarios? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power BI integrates data, analytics, security,
+    and visualization in one platform,
+    making it ideal for real-world decision-making.
+  </div>
+</div>
+
+</div>
+
 </main>
 
 <!-- ================= FOOTER ================= -->
