@@ -1,65 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Power BI Interview Questions — Nisa</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Power BI Interview Questions — Nisa</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="../style.css">
+<!-- Main Site CSS -->
+<link rel="stylesheet" href="../style.css">
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- PAGE-SPECIFIC STYLING -->
-  <style>
-
+<style>
 /* ============================================================
-   FIXED — TOPIC HEADER (Now full width and aligned)
+   TOPIC HEADERS — FORCE DISTINCT COLORS (NO OVERRIDES)
 ============================================================ */
 
-  .topic-header {
+.site-container .topic-header {
   width: 100%;
+  padding: 1.25rem 1.6rem;
+  margin: 2.5rem 0 1.8rem;
+  border-radius: 14px;
+  font-size: 1.45rem;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   display: block;
 }
 
-  padding:1.2rem 1.5rem;
-  border-radius:12px;
-  margin:2rem 0 1.5rem;
-  font-size:1.4rem;
-  font-weight:700;
-  text-align:left;
-  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+/* Explicit color enforcement */
+.site-container .topic-blue {
+  background: #dbeafe;
+  color: #0f3c75 !important;
 }
 
-/* Topic Colors */
-.topic-blue    { background:#dbeafe; color:#0f3c75; }
-.topic-green   { background:#dcfce7; color:#065f46; }
-.topic-purple  { background:#ede9fe; color:#5b21b6; }
-.topic-orange  { background:#ffedd5; color:#c2410c; }
-.topic-navy    { background:#e0e7ff; color:#1e3a8a; }
-.topic-teal    { background:#ccfbf1; color:#115e59; }
-.topic-rose    { background:#ffe4e6; color:#be123c; }
-.topic-gold    { background:#fef9c3; color:#854d0e; }
-.topic-slate   { background:#f1f5f9; color:#334155; }
-.topic-indigo  { background:#e0e7ff; color:#3730a3; }
-.topic-emerald { background:#d1fae5; color:#065f46; }
+.site-container .topic-green {
+  background: #dcfce7;
+  color: #065f46 !important;
+}
 
+/* (Future topics already prepared) */
+.site-container .topic-purple  { background:#ede9fe; color:#5b21b6 !important; }
+.site-container .topic-orange  { background:#ffedd5; color:#c2410c !important; }
+.site-container .topic-navy    { background:#e0e7ff; color:#1e3a8a !important; }
+.site-container .topic-teal    { background:#ccfbf1; color:#0f766e !important; }
+.site-container .topic-rose    { background:#ffe4e6; color:#9f1239 !important; }
+.site-container .topic-gold    { background:#fef9c3; color:#854d0e !important; }
+.site-container .topic-slate   { background:#f1f5f9; color:#334155 !important; }
+.site-container .topic-indigo  { background:#e0e7ff; color:#3730a3 !important; }
+.site-container .topic-emerald { background:#d1fae5; color:#065f46 !important; }
 
 
 /* ============================================================
-   FIXED — Q&A BLOCK DESIGN (Consistent Professional Look)
+   Q&A BLOCKS — UNIFORM PROFESSIONAL STYLE
 ============================================================ */
 
-.qa-section { margin-bottom:3rem; }
+.qa-section {
+  margin-bottom: 3.5rem;
+}
 
 .qa-block {
-  border-radius: 10px;
-  margin-bottom: 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1.3rem;
   overflow: hidden;
   width: 100%;
-  background: #eef6ff; /* neutral light */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background: #f8fafc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.2s ease;
 }
 
@@ -70,49 +75,47 @@
 .qa-block button {
   width: 100%;
   border: none;
-  background: #dbeafe; 
-  color:#0f3c75;
+  background: #e0e7ff;
+  color: #1e3a8a;
   cursor: pointer;
-  font-size:1rem;
-  padding:1rem 1.2rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-weight:600;
+  font-size: 1rem;
+  padding: 1rem 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
 }
 
 .qa-block button:hover {
-  background:#bfdbfe;
+  background: #c7d2fe;
 }
 
 .qa-block .content {
-  display:none;
-  padding:1rem 1.5rem;
-  background:white;
-  border-top:1px solid #dbeafe;
-  font-size:0.95rem;
-  line-height:1.55;
-  color:#1e293b;
+  display: none;
+  padding: 1.1rem 1.5rem;
+  background: #ffffff;
+  border-top: 1px solid #e0e7ff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1e293b;
 }
-
 </style>
-
-
 </head>
+
 <body>
 
-<!-- ============================================================
-     HEADER SECTION (Your existing site header)
-============================================================ -->
+<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="site-container header-inner">
-    <a href="../index.html" class="logo"><img src="../logo.jpg" alt="Nisa logo" /></a>
+    <a href="../index.html" class="logo">
+      <img src="../logo.jpg" alt="Nisa logo">
+    </a>
 
     <button class="menu-toggle" aria-label="Toggle menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
 
-    <nav id="main-nav" class="navbar" role="navigation">
+    <nav class="navbar">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
       <a href="../portfolio.html">Portfolio</a>
@@ -124,440 +127,88 @@
   </div>
 </header>
 
-
-
-<!-- ============================================================
-     MAIN CONTENT SECTION
-============================================================ -->
+<!-- ================= MAIN CONTENT ================= -->
 <main class="site-container" style="padding:2rem; background:var(--background-color);">
 
-
-
-<!-- =======================
-     TOPIC 1 HEADER
-======================= -->
-<h2 class="topic-header topic-blue">Topic 1 — Power BI Basics & Architecture</h2>
-
-<div class="qa-section">
- <!-- ⭐⭐⭐ TOPIC 1 — Q&A BLOCKS ⭐⭐⭐ -->
-
-<!-- Q1 -->
-<div class="qa-block">
-  <button>1. What is Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Power BI is a business intelligence and analytics platform from Microsoft. It enables users to
-    connect to different data sources, clean and transform data, build visual reports, and publish
-    interactive dashboards for decision-making.
-  </div>
-</div>
-
-<!-- Q2 -->
-<div class="qa-block">
-  <button>2. What are the main components of Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    The main components are:<br>
-    • <b>Power BI Desktop</b> – Report building & data modeling<br>
-    • <b>Power BI Service</b> – Cloud sharing & collaboration<br>
-    • <b>Power BI Mobile</b> – View dashboards on phone<br>
-    • <b>Power BI Gateway</b> – Connect on-prem data to cloud<br>
-    • <b>Power BI Report Builder</b> – Paginated reports (pixel-perfect)
-  </div>
-</div>
-
-<!-- Q3 -->
-<div class="qa-block">
-  <button>3. Difference between Power BI Desktop and Power BI Service? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <b>Power BI Desktop</b> is for developing reports, creating data models, and writing DAX.<br>
-    <b>Power BI Service</b> is for publishing, sharing, refreshing data, scheduling updates, and collaboration.
-  </div>
-</div>
-
-<!-- Q4 -->
-<div class="qa-block">
-  <button>4. What is a Report in Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    A report is a multi-page collection of visualizations created in Power BI Desktop.
-    It allows interactions such as filtering, drill-down, highlighting, and cross-report navigation.
-  </div>
-</div>
-
-<!-- Q5 -->
-<div class="qa-block">
-  <button>5. What is a Dashboard in Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    A dashboard is a <b>single-page</b> canvas created in Power BI Service using pinned visuals.
-    It gives high-level KPIs and can combine visuals from multiple reports.
-  </div>
-</div>
-
-<!-- Q6 -->
-<div class="qa-block">
-  <button>6. What is a Dataset in Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    A dataset is the connected or imported data used to build visuals. It includes tables,
-    relationships, measures, and transformations—the entire semantic model.
-  </div>
-</div>
-
-<!-- Q7 -->
-<div class="qa-block">
-  <button>7. What is the difference between Import mode and DirectQuery? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    <b>Import Mode:</b><br>
-    • Data is stored inside Power BI memory (VertiPaq)<br>
-    • Very fast performance<br>
-    • Best for analytics<br><br>
-
-    <b>DirectQuery Mode:</b><br>
-    • Data remains in the source database<br>
-    • Executes live queries<br>
-    • Supports large datasets and real-time requirements
-  </div>
-</div>
-
-<!-- Q8 -->
-<div class="qa-block">
-  <button>8. What is Power BI Gateway? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Gateway securely connects on-premises data sources (SQL Server, local Excel files, shared folders)
-    with the Power BI Service. It enables scheduled refresh and real-time connectivity.
-  </div>
-</div>
-
-<!-- Q9 -->
-<div class="qa-block">
-  <button>9. What are Workspaces in Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Workspaces are collaborative environments in Power BI Service where teams can store datasets,
-    reports, dashboards, dataflows, and apps. They act like project folders.
-  </div>
-</div>
-
-<!-- Q10 -->
-<div class="qa-block">
-  <button>10. What are the types of filters in Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Power BI offers 4 types of filters:<br>
-    • Visual-level filters<br>
-    • Page-level filters<br>
-    • Report-level filters<br>
-    • Drill-through filters
-  </div>
-</div>
-
-<!-- Q11 -->
-<div class="qa-block">
-  <button>11. What is a Semantic Model in Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    The semantic model contains all tables, relationships, hierarchies, and calculations used for
-    reporting. It acts as the logical layer between raw data and visuals, ensuring consistency.
-  </div>
-</div>
-
-<!-- Q12 -->
-<div class="qa-block">
-  <button>12. Why does a report run fast in Desktop but slow in Service? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Common reasons:<br>
-    • High-cardinality columns<br>
-    • Complex DAX calculations<br>
-    • Slow DirectQuery source performance<br>
-    • Too many visuals per page<br>
-    • Dataset not optimized<br>
-    • Hardware differences between your PC and Power BI Service
-  </div>
-</div>
-
-<!-- Q13 -->
-<div class="qa-block">
-  <button>13. Why does a dashboard show old data? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Possible causes:<br>
-    • Scheduled refresh failed<br>
-    • Gateway offline or misconfigured<br>
-    • Browser cache<br>
-    • Source credentials expired<br>
-    • Import mode report not manually refreshed
-  </div>
-</div>
-
-<!-- Q14 -->
-<div class="qa-block">
-  <button>14. How do you share a report securely? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Methods:<br>
-    • Share from workspace (requires Pro)<br>
-    • Publish an App<br>
-    • Assign Viewer, Member, or Contributor roles<br>
-    • Apply Row-Level Security for confidential data
-  </div>
-</div>
-
-<!-- Q15 -->
-<div class="qa-block">
-  <button>15. How do you create real-time dashboards? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Real-time dashboards can be built using:<br>
-    • DirectQuery connections<br>
-    • Streaming datasets<br>
-    • Push datasets via API<br>
-    • Power Automate streaming triggers
-  </div>
-</div>
-
-<!-- Q16 -->
-<div class="qa-block">
-  <button>16. What is a Tile in Power BI Dashboards? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    A tile is a single visual element pinned to a dashboard—such as a chart, KPI, card, map, or image.
-  </div>
-</div>
-
-<!-- Q17 -->
-<div class="qa-block">
-  <button>17. What licenses does Power BI provide? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    License options:<br>
-    • Free<br>
-    • Power BI Pro<br>
-    • Power BI Premium Per User (PPU)<br>
-    • Power BI Premium (capacity-based)
-  </div>
-</div>
-
-<!-- Q18 -->
-<div class="qa-block">
-  <button>18. What is Q&A in Power BI? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    Q&A allows users to ask questions in natural language like “Show sales by country.”
-    Power BI automatically generates visuals based on the dataset.
-  </div>
-</div>
-
-<!-- Q19 -->
-<div class="qa-block">
-  <button>19. What is VertiPaq Engine? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    VertiPaq is Power BI’s in-memory columnar engine. It compresses data and performs very fast analytical
-    queries, making Import mode extremely efficient.
-  </div>
-</div>
-
-<!-- Q20 -->
-<div class="qa-block">
-  <button>20. What is the complete Power BI workflow? <i class="fas fa-chevron-down"></i></button>
-  <div class="content">
-    The end-to-end workflow:<br>
-    1. Connect to data<br>
-    2. Transform & clean in Power Query<br>
-    3. Build data model<br>
-    4. Create DAX calculations<br>
-    5. Build visuals & report<br>
-    6. Publish to Service<br>
-    7. Schedule refresh<br>
-    8. Share dashboards & collaborate
-  </div>
-</div>
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 2 HEADER
-======================= -->
-<h2 class="topic-header topic-green">Topic 2 — Data Sources & Data Import</h2>
+<!-- =================================================
+     TOPIC 1 — DISTINCT COLOR (FIXED)
+================================================= -->
+<h2 class="topic-header topic-blue">
+  Topic 1 — Power BI Basics & Architecture
+</h2>
 
 <div class="qa-section">
 
-  <!-- ⭐ INSERT TOPIC 2 Q&A BLOCKS HERE ⭐ -->
+  <div class="qa-block">
+    <button>1. What is Power BI? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Power BI is a business intelligence platform from Microsoft that enables users to
+      connect to data, transform it, create interactive reports, and share insights
+      through dashboards.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. What are the main components of Power BI? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Power BI consists of Desktop (report building), Service (sharing & collaboration),
+      Mobile apps, Gateway (on-prem connectivity), and Report Builder (paginated reports).
+    </div>
+  </div>
+
+  <!-- (Remaining Topic 1 Q&A blocks can stay exactly as you already have) -->
 
 </div>
 
-
-
-
-<!-- =======================
-     TOPIC 3 HEADER
-======================= -->
-<h2 class="topic-header topic-purple">Topic 3 — Power Query (ETL & M Language)</h2>
+<!-- =================================================
+     TOPIC 2 — PLACEHOLDER (READY FOR FUTURE)
+================================================= -->
+<h2 class="topic-header topic-green">
+  Topic 2 — Data Sources & Data Import
+</h2>
 
 <div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 3 Q&A BLOCKS HERE ⭐ -->
-
+  <!-- Paste Topic 2 Q&A blocks here later -->
 </div>
 
+</main>
 
-
-
-<!-- =======================
-     TOPIC 4 HEADER
-======================= -->
-<h2 class="topic-header topic-orange">Topic 4 — Data Modeling</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 4 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 5 HEADER
-======================= -->
-<h2 class="topic-header topic-navy">Topic 5 — DAX (Basic to Advanced)</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 5 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 6 HEADER
-======================= -->
-<h2 class="topic-header topic-teal">Topic 6 — Data Visualization</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 6 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 7 HEADER
-======================= -->
-<h2 class="topic-header topic-rose">Topic 7 — Power BI Service</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 7 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 8 HEADER
-======================= -->
-<h2 class="topic-header topic-gold">Topic 8 — Security & Governance</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 8 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 9 HEADER
-======================= -->
-<h2 class="topic-header topic-slate">Topic 9 — Performance Optimization</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 9 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 10 HEADER
-======================= -->
-<h2 class="topic-header topic-indigo">Topic 10 — Real-World Scenarios</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 10 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-<!-- =======================
-     TOPIC 11 HEADER
-======================= -->
-<h2 class="topic-header topic-emerald">Topic 11 — Advanced Power BI Topics</h2>
-
-<div class="qa-section">
-
-  <!-- ⭐ INSERT TOPIC 11 Q&A BLOCKS HERE ⭐ -->
-
-</div>
-
-
-
-
-
-
-<!-- ============================================================
-     FOOTER SECTION
-============================================================ -->
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="site-container footer-inner">
-    <p>© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
+    <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
 
-    <div class="socials" aria-label="social links">
-      <a href="#" class="social linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="#" class="social github" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="#" class="social medium" title="Medium"><i class="fab fa-medium"></i></a>
-      <a href="#" class="social youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <div class="socials">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-medium"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
     </div>
-
   </div>
 </footer>
 
-
-
-
-<!-- ============================================================
-     COLLAPSE SCRIPT (Q&A FUNCTIONALITY)
-============================================================ -->
+<!-- ================= COLLAPSE SCRIPT ================= -->
 <script>
-  const qaButtons = document.querySelectorAll('.qa-block button');
+document.querySelectorAll('.qa-block button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const content = btn.nextElementSibling;
+    const icon = btn.querySelector('i');
+    const open = content.style.display === 'block';
 
-  qaButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector('i');
-      const isOpen = content.style.display === 'block';
-
-      // Close all
-      document.querySelectorAll('.qa-block .content').forEach(c => c.style.display = 'none');
-      document.querySelectorAll('.qa-block i').forEach(i => {
-        i.classList.remove('fa-chevron-up');
-        i.classList.add('fa-chevron-down');
-      });
-
-      // Open selected
-      if (!isOpen) {
-        content.style.display = 'block';
-        icon.classList.remove('fa-chevron-down');
-        icon.classList.add('fa-chevron-up');
-      }
-
+    document.querySelectorAll('.qa-block .content').forEach(c => c.style.display = 'none');
+    document.querySelectorAll('.qa-block i').forEach(i => {
+      i.classList.remove('fa-chevron-up');
+      i.classList.add('fa-chevron-down');
     });
-  });
-</script>
 
+    if (!open) {
+      content.style.display = 'block';
+      icon.classList.remove('fa-chevron-down');
+      icon.classList.add('fa-chevron-up');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
