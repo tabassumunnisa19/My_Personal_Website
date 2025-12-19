@@ -505,7 +505,195 @@
   </div>
 </div>
 </div>
+   <h2 class="topic-header topic-purple">
+  Topic 3 — Power Query (ETL & M Language)
+</h2>
 
+<div class="qa-section">
+
+<!-- Q1 -->
+<!-- Q1 -->
+<div class="qa-block">
+  <button>1. What is Power Query in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power Query is the data transformation and ETL (Extract, Transform, Load) engine in Power BI.
+    It is used to clean, shape, merge, and prepare raw data before loading it into the data model.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-block">
+  <button>2. What does ETL mean in the context of Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    ETL stands for Extract, Transform, and Load.
+    Power BI extracts data from sources, transforms it using Power Query,
+    and loads the cleaned data into the Power BI data model.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-block">
+  <button>3. What is the M language? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    M is the functional programming language used by Power Query.
+    Every transformation applied in the Power Query Editor is written
+    as an M expression behind the scenes.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-block">
+  <button>4. What is the Power Query Editor? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power Query Editor is the interface where users perform data cleaning and transformation tasks
+    such as filtering rows, changing data types, splitting columns, and merging tables.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-block">
+  <button>5. What are Applied Steps in Power Query? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Applied Steps represent the sequence of transformations applied to data.
+    Each step corresponds to an M expression and is executed in order during refresh.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-block">
+  <button>6. What is query folding? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Query folding is the process where Power Query pushes transformation logic
+    back to the data source so that the source system performs the computation.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-block">
+  <button>7. Why is query folding important in Power BI? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Query folding improves performance, reduces memory usage,
+    and speeds up refresh by minimizing data transferred to Power BI.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-block">
+  <button>8. How can you check whether query folding is happening? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    In Power Query Editor, right-click a step and check if
+    “View Native Query” is enabled. If available, query folding is occurring.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-block">
+  <button>9. What is the difference between Merge Queries and Append Queries? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Merge Queries joins tables horizontally based on a key.
+    Append Queries combines tables vertically by stacking rows.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-block">
+  <button>10. What are parameters in Power Query? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Parameters allow dynamic values such as dates, file paths, or thresholds
+    to be passed into queries, making solutions flexible and reusable.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-block">
+  <button>11. What is the difference between Load and Close & Apply? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Close & Apply saves transformations and loads data into the model.
+    Disabling load keeps the query for reference without loading it into the dataset.
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-block">
+  <button>12. What is data profiling in Power Query? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Data profiling provides column quality, column distribution,
+    and column profile insights to understand data completeness and patterns.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="qa-block">
+  <button>13. How do you remove duplicates in Power Query? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Duplicates can be removed by selecting one or more columns
+    and choosing “Remove Duplicates” from the ribbon.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="qa-block">
+  <button>14. How do you handle missing or null values in Power Query? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Missing values can be removed, replaced, or filtered using
+    Power Query options such as Replace Values or Fill Down.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="qa-block">
+  <button>15. What is a custom column in Power Query? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    A custom column allows users to create new columns using formulas
+    written in M language to derive values from existing columns.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="qa-block">
+  <button>16. What is the difference between Power Query and DAX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Power Query is used for data preparation before loading data.
+    DAX is used for calculations and measures after data is loaded into the model.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="qa-block">
+  <button>17. What are data types in Power Query and why are they important? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Data types define how values are stored and processed.
+    Correct data types improve performance and prevent calculation errors.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="qa-block">
+  <button>18. What is a Power Query function? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Functions are reusable pieces of M code that accept inputs and return outputs.
+    They are useful for applying the same logic across multiple queries.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="qa-block">
+  <button>19. What happens to Power Query steps during refresh? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    During refresh, Power Query re-executes all applied steps in sequence
+    to fetch and transform the latest data from the source.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="qa-block">
+  <button>20. When should transformations be done in Power Query instead of DAX? <i class="fas fa-chevron-down"></i></button>
+  <div class="content">
+    Transformations such as cleaning, filtering, joining, and reshaping
+    should be done in Power Query to improve performance and simplify the data model.
+  </div>
+</div>
+</div>
 </main>
 
 <!-- ================= FOOTER ================= -->
