@@ -12,46 +12,32 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+
 /* ============================================================
-   TOPIC HEADERS — FORCE DISTINCT COLORS (NO OVERRIDES)
+   TOPIC HEADERS — DISTINCT COLORS ONLY
 ============================================================ */
 
-.site-container .topic-header {
+.topic-header {
   width: 100%;
   padding: 1.25rem 1.6rem;
-  margin: 2.5rem 0 1.8rem;
-  border-radius: 14px;
+  margin: 2.5rem 0 2rem;
+  border-radius: 16px;
   font-size: 1.45rem;
   font-weight: 700;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  display: block;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
 
-/* Explicit color enforcement */
-.site-container .topic-blue {
-  background: #dbeafe;
-  color: #0f3c75 !important;
-}
-
-.site-container .topic-green {
-  background: #dcfce7;
-  color: #065f46 !important;
-}
-
-/* (Future topics already prepared) */
-.site-container .topic-purple  { background:#ede9fe; color:#5b21b6 !important; }
-.site-container .topic-orange  { background:#ffedd5; color:#c2410c !important; }
-.site-container .topic-navy    { background:#e0e7ff; color:#1e3a8a !important; }
-.site-container .topic-teal    { background:#ccfbf1; color:#0f766e !important; }
-.site-container .topic-rose    { background:#ffe4e6; color:#9f1239 !important; }
-.site-container .topic-gold    { background:#fef9c3; color:#854d0e !important; }
-.site-container .topic-slate   { background:#f1f5f9; color:#334155 !important; }
-.site-container .topic-indigo  { background:#e0e7ff; color:#3730a3 !important; }
-.site-container .topic-emerald { background:#d1fae5; color:#065f46 !important; }
+/* Topic colors ONLY */
+.topic-blue    { background:#e0ecff; color:#1e3a8a; }
+.topic-green   { background:#dcfce7; color:#065f46; }
+.topic-purple  { background:#ede9fe; color:#5b21b6; }
+.topic-orange  { background:#ffedd5; color:#c2410c; }
+.topic-teal    { background:#ccfbf1; color:#0f766e; }
+.topic-rose    { background:#ffe4e6; color:#9f1239; }
 
 
 /* ============================================================
-   Q&A BLOCKS — UNIFORM PROFESSIONAL STYLE
+   Q&A — SINGLE BLUE STYLE FOR ALL TOPICS
 ============================================================ */
 
 .qa-section {
@@ -59,27 +45,22 @@
 }
 
 .qa-block {
-  border-radius: 12px;
-  margin-bottom: 1.3rem;
+  border-radius: 14px;
+  margin-bottom: 1.4rem;
   overflow: hidden;
-  width: 100%;
-  background: #f8fafc;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
+  background: #eef2ff;        /* LIGHT BLUE */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 
-.qa-block:hover {
-  transform: translateY(-3px);
-}
-
+/* Question bar */
 .qa-block button {
   width: 100%;
   border: none;
-  background: #e0e7ff;
+  background: #c7d2fe;        /* BLUE */
   color: #1e3a8a;
   cursor: pointer;
   font-size: 1rem;
-  padding: 1rem 1.3rem;
+  padding: 1.05rem 1.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,19 +68,22 @@
 }
 
 .qa-block button:hover {
-  background: #c7d2fe;
+  background: #a5b4fc;
 }
 
+/* Answer */
 .qa-block .content {
   display: none;
-  padding: 1.1rem 1.5rem;
+  padding: 1.2rem 1.5rem;
   background: #ffffff;
-  border-top: 1px solid #e0e7ff;
+  border-top: 1px solid #c7d2fe;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #1e293b;
 }
+
 </style>
+
 </head>
 
 <body>
