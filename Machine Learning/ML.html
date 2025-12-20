@@ -3,102 +3,89 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Machine Learning — Chapter 1</title>
+<title>Machine Learning — Introduction</title>
 
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-/* Base */
 body {
-  line-height: 1.7;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  line-height: 1.8;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
 
-/* Chapter block */
-.chapter-block {
+/* ===================== CHAPTER ===================== */
+.chapter-title {
+  background: linear-gradient(90deg, #6d5dfc, #7c6ee6); /* dusting purple */
+  color: #fff;
+  padding: 1.4rem 1.8rem;
   border-radius: 10px;
+  font-size: 1.6rem;
+  font-weight: 800;
   margin-bottom: 2rem;
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
 }
 
-/* Chapter header */
-.chapter-header {
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  color: white;
-  padding: 1.2rem 1.5rem;
-  font-size: 1.4rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Chapter content */
-.chapter-content {
-  padding: 1.5rem;
-  background: #f8fafc;
-  display: none;
-}
-
-/* Topic (same as Python qa-block) */
+/* ===================== TOPICS ===================== */
 .topic-block {
   border: 1px solid #e6eef8;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   background: #fff;
   overflow: hidden;
 }
 
-.topic-block button {
+.topic-btn {
   width: 100%;
   text-align: left;
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   border: none;
-  background: #f1f5f9;
+  background: #2563eb;
+  color: #fff;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.topic-block button:hover {
-  background: #e0ebf8;
+.topic-btn:hover {
+  background: #1d4ed8;
 }
 
 .topic-content {
   display: none;
-  padding: 1.25rem;
+  padding: 1.4rem;
+  background: #ffffff;
   border-top: 1px solid #e6eef8;
-  background: #fff;
 }
 
-/* Code blocks */
-.code-block {
-  background: #0b0b0b;
-  color: #e6eef8;
-  padding: 1rem;
-  border-radius: 6px;
-  overflow-x: auto;
-  margin: 1rem 0;
-  font-family: monospace;
+.topic-content p {
+  margin-bottom: 1rem;
+  color: #334155;
 }
 
-/* Go Back */
+.topic-content ul {
+  margin-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.topic-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===================== GO BACK ===================== */
 .go-back {
   text-align: center;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 }
 
 .go-back button {
-  padding: 0.7rem 1.5rem;
+  padding: 0.75rem 1.6rem;
   font-size: 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   background: linear-gradient(90deg, #ff0080, #ff4da6);
   color: white;
   cursor: pointer;
@@ -112,140 +99,166 @@ body {
 <header class="site-header">
   <div class="site-container header-inner">
     <a href="../index.html" class="logo">
-      <img src="../logo.jpg" alt="Nisa logo" style="height:36px;">
+      <img src="../logo.jpg" alt="Nisa logo" style="height:42px;">
     </a>
-    <button class="menu-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    <button class="menu-toggle">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
     <nav id="main-nav" class="navbar">
       <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html">Portfolio</a>
       <a href="../learn.html" class="active">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <main class="site-container" style="padding:2rem;">
 
-<!-- ================= CHAPTER 1 ================= -->
-<div class="chapter-block">
+<!-- ===================== CHAPTER TITLE ===================== -->
+<div class="chapter-title">
+  Chapter 1 — Introduction to Machine Learning
+</div>
 
-  <div class="chapter-header">
-    Chapter 1 — Introduction to Machine Learning
-    <i class="fas fa-chevron-down"></i>
-  </div>
+<!-- ===================== TOPIC 1 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">1. What is Machine Learning? <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<p>Machine Learning (ML) is a branch of Artificial Intelligence that enables computers to learn patterns from data and make predictions or decisions without being explicitly programmed.</p>
+<p>Instead of writing rules manually, we provide historical data and correct outputs. The system learns relationships automatically and improves with experience.</p>
+<p>Example: Email spam detection learns from thousands of emails rather than fixed rules.</p>
+</div>
+</div>
 
-  <div class="chapter-content">
+<!-- ===================== TOPIC 2 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">2. Traditional Programming vs Machine Learning <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<p>Traditional programming relies on human-written rules applied to data. Machine learning discovers rules from data itself.</p>
+<ul>
+<li>Traditional: Rules + Data → Output</li>
+<li>Machine Learning: Data + Output → Model</li>
+</ul>
+<p>ML is scalable and adaptable, making it suitable for complex real-world problems.</p>
+</div>
+</div>
 
-    <!-- Topic 1 -->
-    <div class="topic-block">
-      <button>
-        1.1 What is Machine Learning?
-        <i class="fas fa-chevron-down"></i>
-      </button>
-      <div class="topic-content">
-        <p>
-          Machine Learning is a method where computers learn from data and
-          improve their performance automatically without explicit programming.
-        </p>
-        <p><strong>Example:</strong> Learning temperature–disaster patterns from past climate data.</p>
-      </div>
-    </div>
+<!-- ===================== TOPIC 3 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">3. Why Machine Learning? <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<p>Machine learning is needed due to massive data generation, complex relationships, and constantly changing environments.</p>
+<ul>
+<li>Humans cannot analyze huge datasets manually</li>
+<li>Patterns may be non-linear and hidden</li>
+<li>Rules evolve over time</li>
+</ul>
+</div>
+</div>
 
-    <!-- Topic 2 -->
-    <div class="topic-block">
-      <button>
-        1.2 Traditional Programming vs Machine Learning
-        <i class="fas fa-chevron-down"></i>
-      </button>
-      <div class="topic-content">
-        <p><strong>Traditional:</strong> Rules + Data → Output</p>
-        <p><strong>ML:</strong> Data + Output → Model</p>
-      </div>
-    </div>
+<!-- ===================== TOPIC 4 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">4. Applications of Machine Learning <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<ul>
+<li>Weather and climate forecasting</li>
+<li>Healthcare diagnosis and imaging</li>
+<li>Finance and fraud detection</li>
+<li>Recommendation systems</li>
+<li>Climate & disaster analysis</li>
+</ul>
+</div>
+</div>
 
-    <!-- Topic 3 -->
-    <div class="topic-block">
-      <button>
-        1.3 Why Do We Need Machine Learning?
-        <i class="fas fa-chevron-down"></i>
-      </button>
-      <div class="topic-content">
-        <ul>
-          <li>Large data</li>
-          <li>Complex relationships</li>
-          <li>Changing patterns</li>
-        </ul>
-      </div>
-    </div>
+<!-- ===================== TOPIC 5 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">5. Types of Problems ML Solves <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<ul>
+<li><strong>Regression:</strong> Predict numeric values</li>
+<li><strong>Classification:</strong> Predict categories</li>
+<li><strong>Clustering:</strong> Discover hidden groups</li>
+</ul>
+</div>
+</div>
 
-    <!-- Topic 4 -->
-    <div class="topic-block">
-      <button>
-        1.4 Applications of Machine Learning
-        <i class="fas fa-chevron-down"></i>
-      </button>
-      <div class="topic-content">
-        <ul>
-          <li>Weather & Climate</li>
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Recommendation Systems</li>
-        </ul>
-      </div>
-    </div>
+<!-- ===================== TOPIC 6 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">6. ML vs Data Science vs AI <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<p>AI is the broadest field, ML is a subset of AI, and Data Science is an end-to-end discipline that uses ML as a tool.</p>
+</div>
+</div>
 
-    <!-- Topic 5 -->
-    <div class="topic-block">
-      <button>
-        1.5 Limitations of Machine Learning
-        <i class="fas fa-chevron-down"></i>
-      </button>
-      <div class="topic-content">
-        <ul>
-          <li>Data dependency</li>
-          <li>Bias</li>
-          <li>Overfitting</li>
-          <li>No common sense</li>
-        </ul>
-      </div>
-    </div>
+<!-- ===================== TOPIC 7 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">7. Machine Learning Workflow (Overview) <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<p>The ML workflow includes problem understanding, data collection, preprocessing, model building, evaluation, and deployment.</p>
+<p>Most effort is spent on data preprocessing.</p>
+</div>
+</div>
 
-  </div>
+<!-- ===================== TOPIC 8 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">8. Limitations of Machine Learning <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<ul>
+<li>Data dependency</li>
+<li>Bias in data</li>
+<li>Overfitting</li>
+<li>Lack of interpretability</li>
+<li>No common sense</li>
+</ul>
+</div>
+</div>
+
+<!-- ===================== TOPIC 9 ===================== -->
+<div class="topic-block">
+<button class="topic-btn">9. Chapter Summary <i class="fas fa-chevron-down"></i></button>
+<div class="topic-content">
+<p>Machine learning enables data-driven decision-making but must be applied responsibly with awareness of its limitations.</p>
+</div>
 </div>
 
 <div class="go-back">
-  <button onclick="history.back()">← Go Back</button>
+<button onclick="history.back()">← Go Back</button>
 </div>
 
 </main>
 
-<!-- FOOTER (UNCHANGED) -->
+<!-- FOOTER (UNCHANGED, PROFESSIONAL ICONS) -->
 <footer class="site-footer">
   <div class="site-container footer-inner">
     <p>© 2025 Nisa — Built with ❤️</p>
+    <div class="socials">
+      <a href="#" class="social linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social github"><i class="fab fa-github"></i></a>
+      <a href="#" class="social medium"><i class="fab fa-medium"></i></a>
+      <a href="#" class="social youtube"><i class="fab fa-youtube"></i></a>
+    </div>
   </div>
 </footer>
 
 <script>
-/* Chapter toggle */
-document.querySelectorAll('.chapter-header').forEach(chapter => {
-  chapter.addEventListener('click', () => {
-    const content = chapter.nextElementSibling;
+/* Toggle topics */
+document.querySelectorAll('.topic-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const content = btn.nextElementSibling;
     content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    chapter.querySelector('i').classList.toggle('fa-chevron-up');
-    chapter.querySelector('i').classList.toggle('fa-chevron-down');
+    btn.querySelector('i').classList.toggle('fa-chevron-up');
+    btn.querySelector('i').classList.toggle('fa-chevron-down');
   });
 });
 
-/* Topic toggle */
-document.querySelectorAll('.topic-block button').forEach(button => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling;
-    content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    button.querySelector('i').classList.toggle('fa-chevron-up');
-    button.querySelector('i').classList.toggle('fa-chevron-down');
-  });
+/* Hamburger menu */
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+  document.querySelector('#main-nav').classList.toggle('active');
 });
 </script>
 
 </body>
 </html>
-
