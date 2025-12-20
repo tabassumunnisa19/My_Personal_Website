@@ -808,6 +808,282 @@ body {
 
   </div>
 </div>
+<!-- ===================== CHAPTER 4 ===================== -->
+<div class="chapter-title">
+  Chapter 4 — Data Preprocessing
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Data Preprocessing and Why is it Important?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Data preprocessing is the process of cleaning, transforming, and preparing raw data so that it can be effectively used by Machine Learning algorithms.</p>
+
+    <p>In real-world projects, raw data is almost never ready for direct use. It may contain missing values, categorical text, inconsistent scales, or noise.</p>
+
+    <p>Machine Learning algorithms work only with numbers and are sensitive to the scale and distribution of data. Therefore, preprocessing is a mandatory step.</p>
+
+    <p><strong>Important reality:</strong> In most Machine Learning projects, 60–80% of the total effort goes into data preprocessing.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHY PREPROCESS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Machine Learning Models Need Preprocessed Data
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Machine Learning models assume that input data is clean, numerical, and comparable.</p>
+
+    <p>Without preprocessing:</p>
+    <ul>
+      <li>Models may give biased or incorrect predictions</li>
+      <li>Some features may dominate others unfairly</li>
+      <li>Algorithms may fail to converge</li>
+    </ul>
+
+    <p>Preprocessing ensures fairness, stability, and accuracy in learning.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MAIN TASKS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Main Data Preprocessing Tasks
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Common data preprocessing steps include:</p>
+
+    <ul>
+      <li>Handling missing values</li>
+      <li>Encoding categorical variables</li>
+      <li>Scaling and normalization</li>
+      <li>Standardization</li>
+      <li>Outlier handling</li>
+    </ul>
+
+    <p>In this chapter, we focus deeply on <strong>Encoding, Scaling, and Standardization</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== ENCODING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Encoding — Converting Categorical Data into Numbers
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Encoding is the process of converting categorical (text-based) data into numerical form.</p>
+
+    <p>Machine Learning algorithms cannot understand text such as "Low", "Medium", or "High". They only work with numbers.</p>
+
+    <p><strong>Example (Categorical Data):</strong></p>
+
+    <p>Risk Level: Low, Medium, High</p>
+
+    <p><strong>After Encoding:</strong></p>
+    <ul>
+      <li>Low → 0</li>
+      <li>Medium → 1</li>
+      <li>High → 2</li>
+    </ul>
+
+    <p>This allows the model to process categorical information mathematically.</p>
+
+    <p>Encoding does not change meaning — it only changes representation.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Scaling — Why Feature Magnitude Matters
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Scaling is the process of bringing numerical features to a similar range.</p>
+
+    <p>Many Machine Learning algorithms are sensitive to the magnitude of values.</p>
+
+    <p><strong>Example:</strong></p>
+    <ul>
+      <li>Temperature: 30</li>
+      <li>Population: 3,000,000</li>
+    </ul>
+
+    <p>Without scaling, large-valued features dominate smaller ones, even if they are less important.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MIN-MAX SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Min–Max Scaling (Normalization) — Step-by-Step Example
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Min–Max Scaling rescales data into a fixed range, usually between 0 and 1.</p>
+
+    <p><strong>Formula:</strong></p>
+    <p><code>Scaled Value = (X − Min) / (Max − Min)</code></p>
+
+    <p><strong>Example Data:</strong></p>
+    <p>Values: 10, 20, 30</p>
+
+    <ul>
+      <li>Minimum = 10</li>
+      <li>Maximum = 30</li>
+    </ul>
+
+    <p><strong>Scaling each value:</strong></p>
+
+    <ul>
+      <li>10 → (10 − 10) / (30 − 10) = 0</li>
+      <li>20 → (20 − 10) / (30 − 10) = 0.5</li>
+      <li>30 → (30 − 10) / (30 − 10) = 1</li>
+    </ul>
+
+    <p><strong>Scaled Output:</strong> 0, 0.5, 1</p>
+
+    <p>Min–Max scaling preserves the relative distance between values.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STANDARDIZATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Standardization — Mean and Standard Deviation Based Scaling
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Standardization transforms data so that it has:</p>
+    <ul>
+      <li>Mean = 0</li>
+      <li>Standard Deviation = 1</li>
+    </ul>
+
+    <p>This is also called <strong>Z-score normalization</strong>.</p>
+
+    <p><strong>Formula:</strong></p>
+    <p><code>Z = (X − Mean) / Standard Deviation</code></p>
+
+  </div>
+</div>
+
+<!-- ===================== STANDARDIZATION EXAMPLE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Standardization — Step-by-Step Example (10, 20, 30)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Original Data:</strong> 10, 20, 30</p>
+
+    <p><strong>Step 1: Calculate Mean</strong></p>
+    <p>Mean = (10 + 20 + 30) / 3 = 20</p>
+
+    <p><strong>Step 2: Calculate Standard Deviation</strong></p>
+    <p>Variance = [(10−20)² + (20−20)² + (30−20)²] / 3</p>
+    <p>Variance = (100 + 0 + 100) / 3 = 66.67</p>
+    <p>Standard Deviation ≈ 8.16</p>
+
+    <p><strong>Step 3: Standardize Each Value</strong></p>
+    <ul>
+      <li>10 → (10 − 20) / 8.16 ≈ −1.22</li>
+      <li>20 → (20 − 20) / 8.16 = 0</li>
+      <li>30 → (30 − 20) / 8.16 ≈ +1.22</li>
+    </ul>
+
+    <p><strong>Standardized Output:</strong> −1.22, 0, +1.22</p>
+
+    <p>Standardization centers data around zero and spreads it evenly.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING VS STANDARDIZATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Scaling vs Standardization — Conceptual Difference
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Scaling (Min–Max):</strong></p>
+    <ul>
+      <li>Rescales data to a fixed range</li>
+      <li>Sensitive to outliers</li>
+      <li>Preserves relative distances</li>
+    </ul>
+
+    <p><strong>Standardization:</strong></p>
+    <ul>
+      <li>Centers data around zero</li>
+      <li>Handles varying distributions better</li>
+      <li>Commonly used for ML algorithms</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== WHEN TO USE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    When to Use Encoding, Scaling, and Standardization
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Use Encoding:</strong> When data contains text or categories.</p>
+
+    <p><strong>Use Scaling:</strong> When features have different ranges.</p>
+
+    <p><strong>Use Standardization:</strong> When algorithms assume normally distributed data or rely on distance calculations.</p>
+
+  </div>
+</div>
+
+<!-- ===================== TAKEAWAYS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 4 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Data preprocessing is the backbone of Machine Learning.</p>
+
+    <p>Encoding converts categorical data into numbers.</p>
+
+    <p>Scaling ensures features contribute fairly.</p>
+
+    <p>Standardization centers data and improves algorithm stability.</p>
+
+    <p>Good preprocessing often matters more than choosing complex algorithms.</p>
+
+    <p>This chapter prepares you for real Machine Learning implementation.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
