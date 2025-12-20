@@ -1084,6 +1084,225 @@ body {
 
   </div>
 </div>
+<!-- ===================== CHAPTER 5 ===================== -->
+<div class="chapter-title">
+  Chapter 5 — Supervised Learning
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Supervised Learning? (Deep Understanding)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Supervised Learning is a type of Machine Learning where the model learns from <strong>labeled data</strong>. This means that for every input, the correct output is already known.</p>
+
+    <p>The purpose of supervised learning is to learn a mapping between input variables (features) and an output variable (target).</p>
+
+    <p>The learning happens under supervision, similar to how a student learns when the teacher provides both questions and correct answers.</p>
+
+    <p>Supervised learning is the most widely used form of Machine Learning because most real-world business problems already have historical data with known outcomes.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATA SPLIT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Training Data vs Test Data — Why Models Are Tested
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In supervised learning, data is usually divided into two main parts: training data and test data.</p>
+
+    <p><strong>Training data</strong> is used to teach the model how inputs relate to outputs.</p>
+
+    <p><strong>Test data</strong> is used to evaluate how well the model performs on unseen data.</p>
+
+    <p>This separation is crucial because a model that performs well only on training data may fail in real-world situations.</p>
+
+    <p>This idea leads to important concepts such as generalization, overfitting, and underfitting.</p>
+
+  </div>
+</div>
+
+<!-- ===================== REGRESSION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Regression Problems — Conceptual Understanding
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Regression is a supervised learning problem where the output is a <strong>continuous numerical value</strong>.</p>
+
+    <p>The goal of regression is to predict a quantity based on one or more input features.</p>
+
+    <p>Regression tries to learn how changes in input variables affect the output value.</p>
+
+    <p><strong>Real-world regression examples:</strong></p>
+    <ul>
+      <li>Predicting house prices based on size, location, and age</li>
+      <li>Estimating electricity consumption based on weather and usage history</li>
+      <li>Forecasting sales revenue based on marketing spend</li>
+      <li>Predicting delivery time based on distance and traffic conditions</li>
+    </ul>
+
+    <p>Regression answers questions such as “How much?”, “How many?”, or “What will be the value?”.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CLASSIFICATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Classification Problems — Conceptual Understanding
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Classification is a supervised learning problem where the output is a <strong>category or label</strong>.</p>
+
+    <p>The model learns to assign each input to one of the predefined classes.</p>
+
+    <p><strong>Real-world classification examples:</strong></p>
+    <ul>
+      <li>Email spam detection (Spam / Not Spam)</li>
+      <li>Loan approval systems (Approved / Rejected)</li>
+      <li>Medical diagnosis (Disease Present / Not Present)</li>
+      <li>Customer churn prediction (Will Leave / Will Stay)</li>
+    </ul>
+
+    <p>Classification answers questions like “Which group does this belong to?” or “Which class is this?”.</p>
+
+  </div>
+</div>
+
+<!-- ===================== REG VS CLASS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Regression vs Classification — Clear Comparison
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Regression:</strong> Output is numeric and continuous.</p>
+    <p><strong>Classification:</strong> Output is categorical.</p>
+
+    <p>Regression focuses on predicting quantities, while classification focuses on making decisions.</p>
+
+    <p>Choosing the wrong problem type leads to incorrect models and misleading results.</p>
+
+  </div>
+</div>
+
+<!-- ===================== ALGORITHMS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common Supervised Learning Algorithms (Where They Are Used)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Linear Regression:</strong></p>
+    <p>Used when the relationship between inputs and output is approximately linear.</p>
+    <p><em>Real-world use:</em> Price prediction, sales forecasting, trend analysis.</p>
+
+    <p><strong>Logistic Regression:</strong></p>
+    <p>Used for binary classification problems.</p>
+    <p><em>Real-world use:</em> Fraud detection, medical diagnosis, customer churn.</p>
+
+    <p><strong>K-Nearest Neighbors (KNN):</strong></p>
+    <p>Used when similarity between data points is important.</p>
+    <p><em>Real-world use:</em> Recommendation systems, pattern matching, anomaly detection.</p>
+
+    <p><strong>Decision Trees:</strong></p>
+    <p>Used when decisions can be represented as rules.</p>
+    <p><em>Real-world use:</em> Credit scoring, risk assessment, business decision systems.</p>
+
+  </div>
+</div>
+
+<!-- ===================== FEATURES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Features and Target Variable — Core Supervised Learning Concept
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In supervised learning, input variables are called <strong>features</strong>, and the output variable is called the <strong>target</strong>.</p>
+
+    <p>Features describe the problem, while the target represents what we want to predict.</p>
+
+    <p>The quality of features often matters more than the choice of algorithm.</p>
+
+    <p>Good features capture meaningful information that helps the model learn correct patterns.</p>
+
+  </div>
+</div>
+
+<!-- ===================== ERROR ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Error, Loss, and Model Performance (Conceptual)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>No model is perfect. Errors occur when predictions differ from actual values.</p>
+
+    <p><strong>Loss</strong> is a numerical measure of how wrong the model’s predictions are.</p>
+
+    <p>During training, models try to minimize loss.</p>
+
+    <p>Understanding errors helps improve models through better data, features, and preprocessing.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WORKFLOW EXAMPLE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Real-World Supervised Learning Workflow (Conceptual Example)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Consider a company that wants to predict whether a customer will cancel a subscription.</p>
+
+    <p>The company collects historical customer data, labels whether each customer stayed or left, preprocesses the data, and trains a supervised learning model.</p>
+
+    <p>The model learns patterns that distinguish customers who are likely to leave from those who will stay.</p>
+
+    <p>This prediction helps businesses take preventive actions.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 5 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Supervised learning learns from labeled data.</p>
+
+    <p>Regression predicts numerical values, while classification predicts categories.</p>
+
+    <p>Most real-world Machine Learning applications are supervised learning problems.</p>
+
+    <p>Understanding the problem type is more important than choosing an algorithm.</p>
+
+    <p>This chapter prepares the foundation for learning individual algorithms in detail.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
