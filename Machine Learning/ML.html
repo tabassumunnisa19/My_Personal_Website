@@ -1303,6 +1303,275 @@ body {
 
   </div>
 </div>
+<!-- ===================== CHAPTER 6 ===================== -->
+<div class="chapter-title">
+  Chapter 6 — Linear Regression
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Linear Regression?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Linear Regression is one of the most fundamental and widely used algorithms in Machine Learning.</p>
+
+    <p>It is a <strong>supervised learning algorithm</strong> used for <strong>regression problems</strong>, where the output is a continuous numerical value.</p>
+
+    <p>The core idea of linear regression is very simple: it tries to model the relationship between input variables and the output using a <strong>straight line</strong>.</p>
+
+    <p>Despite its simplicity, linear regression is extremely powerful and forms the foundation for many advanced machine learning techniques.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHY LINEAR ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why is it Called “Linear” Regression?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The term <strong>linear</strong> refers to the assumption that the relationship between the input and the output can be approximated by a straight line.</p>
+
+    <p>This does not mean the data itself must be perfectly linear. Instead, it means the model represents the relationship using a linear equation.</p>
+
+    <p>Linear regression tries to find the best possible straight line that represents the overall trend in the data.</p>
+
+  </div>
+</div>
+
+<!-- ===================== REAL WORLD INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Real-World Intuition Behind Linear Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Imagine you are trying to understand how house prices change with size.</p>
+
+    <p>As the size of a house increases, its price generally increases as well. This relationship can often be approximated using a straight line.</p>
+
+    <p>Linear regression captures this intuition mathematically by learning how much the price increases when the size increases.</p>
+
+    <p>The model does not memorize individual examples. Instead, it learns an overall trend.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MATHEMATICAL FORM ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Mathematical Representation of Linear Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The simplest form of linear regression is called <strong>Simple Linear Regression</strong>.</p>
+
+    <p>The equation is:</p>
+
+    <p><strong>y = mx + b</strong></p>
+
+    <p>Where:</p>
+    <ul>
+      <li><strong>y</strong> is the predicted output</li>
+      <li><strong>x</strong> is the input feature</li>
+      <li><strong>m</strong> is the slope (how much y changes when x changes)</li>
+      <li><strong>b</strong> is the intercept (value of y when x is zero)</li>
+    </ul>
+
+    <p>This equation defines a straight line.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SLOPE INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Understanding the Slope (m) — The Heart of Linear Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The slope <strong>m</strong> tells us how strongly the input variable influences the output.</p>
+
+    <p>If the slope is large, small changes in input cause large changes in output.</p>
+
+    <p>If the slope is close to zero, the input has little effect on the output.</p>
+
+    <p>In real-world terms, the slope represents sensitivity or impact.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Understanding the Intercept (b)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The intercept <strong>b</strong> represents the baseline value of the output.</p>
+
+    <p>It is the predicted value when the input variable is zero.</p>
+
+    <p>In practice, the intercept helps position the line correctly on the graph.</p>
+
+    <p>Even if x = 0 is not meaningful in real life, the intercept still plays a mathematical role.</p>
+
+  </div>
+</div>
+
+<!-- ===================== BEST FIT LINE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What Does “Best Fit Line” Really Mean?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The goal of linear regression is to find the line that best fits the data.</p>
+
+    <p>“Best fit” means the line that minimizes the overall error between predicted values and actual values.</p>
+
+    <p>The model tries many possible lines and selects the one with the smallest total error.</p>
+
+    <p>This idea leads to the concept of <strong>loss functions</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== ERROR ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Error in Linear Regression (Prediction Mistake)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Error is the difference between the actual value and the predicted value.</p>
+
+    <p>If the prediction is perfect, the error is zero.</p>
+
+    <p>In reality, errors always exist because data is noisy and imperfect.</p>
+
+    <p>Linear regression aims to minimize these errors overall.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LOSS FUNCTION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Loss Function — How Linear Regression Learns
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A loss function measures how bad the model’s predictions are.</p>
+
+    <p>The most common loss function for linear regression is <strong>Mean Squared Error (MSE)</strong>.</p>
+
+    <p>MSE squares the errors and takes their average.</p>
+
+    <p>Squaring ensures that large errors are penalized more heavily.</p>
+
+    <p>The model adjusts the slope and intercept to minimize this loss.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MULTIPLE FEATURES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Multiple Linear Regression — Extending the Idea
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In real-world problems, output often depends on more than one input.</p>
+
+    <p>Multiple Linear Regression extends simple linear regression to multiple features.</p>
+
+    <p>The equation becomes a weighted sum of all input variables.</p>
+
+    <p>Each feature has its own coefficient representing its contribution.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHERE USED ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Linear Regression is Used in the Real World
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>House price estimation</li>
+      <li>Sales and revenue forecasting</li>
+      <li>Demand prediction</li>
+      <li>Trend analysis in economics</li>
+      <li>Performance prediction in business metrics</li>
+    </ul>
+
+    <p>Linear regression is often the first model tried due to its simplicity and interpretability.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS & LIMITS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths and Limitations of Linear Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Strengths:</strong></p>
+    <ul>
+      <li>Easy to understand and explain</li>
+      <li>Fast to train</li>
+      <li>Highly interpretable</li>
+    </ul>
+
+    <p><strong>Limitations:</strong></p>
+    <ul>
+      <li>Assumes linear relationships</li>
+      <li>Sensitive to outliers</li>
+      <li>Not suitable for complex patterns</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 6 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Linear regression models relationships using straight lines.</p>
+
+    <p>The slope and intercept define the behavior of the model.</p>
+
+    <p>The goal is to minimize prediction error.</p>
+
+    <p>Linear regression is simple, interpretable, and powerful for many real-world problems.</p>
+
+    <p>This chapter builds the foundation for understanding more advanced regression models.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
