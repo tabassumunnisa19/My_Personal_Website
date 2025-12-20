@@ -301,6 +301,253 @@ body {
 
 </div>
 </div>
+<!-- ===================== CHAPTER 2 ===================== -->
+<div class="chapter-title">
+  Chapter 2 — Types of Machine Learning
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Do We Classify Machine Learning into Types?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Before learning Machine Learning algorithms, it is extremely important to understand what kind of learning problem we are trying to solve.</p>
+
+    <p>Not all problems are the same. Different problems require different kinds of data, different learning strategies, and different algorithms.</p>
+
+    <p>Machine Learning is therefore classified based on:</p>
+    <ul>
+      <li>How data is provided to the model</li>
+      <li>Whether correct answers (labels) are available or not</li>
+    </ul>
+
+    <p>This classification helps us decide which approach and algorithms are suitable for a given real-world problem.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MAIN TYPES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Main Types of Machine Learning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Based on how learning happens, Machine Learning is broadly divided into four main types:</p>
+
+    <ul>
+      <li>Supervised Learning</li>
+      <li>Unsupervised Learning</li>
+      <li>Semi-Supervised Learning</li>
+      <li>Reinforcement Learning</li>
+    </ul>
+
+    <p>Each type addresses a different learning scenario and is used for different categories of problems.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUPERVISED LEARNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    1. Supervised Learning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In <strong>Supervised Learning</strong>, the machine learns from <strong>labeled data</strong>.</p>
+
+    <p>This means that for every input data point, the correct output is already known. The model learns by comparing its predicted output with the actual correct output.</p>
+
+    <p>The learning process happens under supervision, similar to how a student learns with the guidance of a teacher.</p>
+
+    <p><strong>Example of labeled data:</strong></p>
+
+    <p>Temperature, Humidity → Rain (Yes / No)</p>
+
+    <p>During training, the model repeatedly adjusts itself to reduce the error between its predictions and the correct answers.</p>
+
+    <p>Supervised learning is the most widely used type of Machine Learning in data science and real-world applications.</p>
+
+  </div>
+</div>
+
+<!-- ===================== REGRESSION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Supervised Learning — Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Regression</strong> is a type of supervised learning used when the output variable is a <strong>continuous numerical value</strong>.</p>
+
+    <p>In regression problems, the goal is to predict a quantity.</p>
+
+    <p><strong>Examples of regression problems:</strong></p>
+    <ul>
+      <li>Predicting temperature</li>
+      <li>Predicting rainfall amount</li>
+      <li>Predicting house prices</li>
+      <li>Predicting CO₂ emission levels</li>
+    </ul>
+
+    <p>Regression problems answer questions such as <em>“How much?”</em> or <em>“How many?”</em>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CLASSIFICATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Supervised Learning — Classification
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Classification</strong> is a type of supervised learning used when the output is a <strong>category or class</strong>.</p>
+
+    <p>The model learns to assign input data to one of the predefined classes.</p>
+
+    <p><strong>Examples of classification problems:</strong></p>
+    <ul>
+      <li>Flood / No Flood</li>
+      <li>El Niño / La Niña / Neutral</li>
+      <li>Disease Yes / No</li>
+      <li>Spam / Not Spam</li>
+    </ul>
+
+    <p>Classification problems answer questions such as <em>“Which category does this belong to?”</em>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== UNSUPERVISED LEARNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    2. Unsupervised Learning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In <strong>Unsupervised Learning</strong>, the machine learns from <strong>unlabeled data</strong>.</p>
+
+    <p>This means that no correct output values are provided. The model must discover patterns and structure in the data on its own.</p>
+
+    <p>Unsupervised learning is primarily used for <strong>exploration</strong> rather than direct prediction.</p>
+
+    <p>The model tries to find similarities, differences, or unusual patterns in the data.</p>
+
+  </div>
+</div>
+
+<!-- ===================== UNSUPERVISED TASKS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Unsupervised Learning — Common Tasks
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Clustering:</strong> Grouping similar data points together.</p>
+
+    <p><strong>Examples:</strong></p>
+    <ul>
+      <li>Grouping similar climate years</li>
+      <li>Clustering disaster-prone regions</li>
+      <li>Customer segmentation</li>
+    </ul>
+
+    <p>Unsupervised learning is useful when we do not know in advance what patterns exist in the data.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SEMI-SUPERVISED ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    3. Semi-Supervised Learning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Semi-Supervised Learning</strong> is a combination of supervised and unsupervised learning.</p>
+
+    <p>In this approach, only a small portion of the data is labeled, while a large portion remains unlabeled.</p>
+
+    <p>This situation is very common in real-world applications because labeling data is often expensive, time-consuming, and requires domain expertise.</p>
+
+    <p>Semi-supervised learning helps improve model performance by making effective use of unlabeled data.</p>
+
+  </div>
+</div>
+
+<!-- ===================== REINFORCEMENT LEARNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    4. Reinforcement Learning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Reinforcement Learning</strong> is a type of learning based on <strong>trial and error</strong>.</p>
+
+    <p>The model, called an <strong>agent</strong>, interacts with an environment by taking actions.</p>
+
+    <p>For each action, the agent receives feedback in the form of a <strong>reward</strong> or a <strong>penalty</strong>.</p>
+
+    <p>The goal of reinforcement learning is to learn a strategy that maximizes the total reward over time.</p>
+
+    <p>This type of learning is inspired by how humans and animals learn from experience.</p>
+
+  </div>
+</div>
+
+<!-- ===================== COMPARISON ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Comparison of Machine Learning Types
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Supervised Learning:</strong> Uses labeled data to predict known outputs.</p>
+
+    <p><strong>Unsupervised Learning:</strong> Discovers hidden patterns in unlabeled data.</p>
+
+    <p><strong>Semi-Supervised Learning:</strong> Combines small labeled datasets with large unlabeled datasets.</p>
+
+    <p><strong>Reinforcement Learning:</strong> Learns optimal actions through rewards and penalties.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 2 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Machine Learning is classified into different types based on how learning occurs and whether labeled data is available.</p>
+
+    <p>Supervised learning is the most commonly used approach in data science.</p>
+
+    <p>Unsupervised learning is useful for discovering unknown patterns.</p>
+
+    <p>Semi-supervised learning reduces the cost of labeling data.</p>
+
+    <p>Reinforcement learning is an advanced approach focused on decision-making through feedback.</p>
+
+    <p>This chapter provides the conceptual foundation required before learning Machine Learning algorithms.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
