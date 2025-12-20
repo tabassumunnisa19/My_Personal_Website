@@ -1,1 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Machine Learning — Chapter 1</title>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* Base */
+body {
+  line-height: 1.7;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+
+/* Chapter block */
+.chapter-block {
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+/* Chapter header */
+.chapter-header {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Chapter content */
+.chapter-content {
+  padding: 1.5rem;
+  background: #f8fafc;
+  display: none;
+}
+
+/* Topic (same as Python qa-block) */
+.topic-block {
+  border: 1px solid #e6eef8;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.topic-block button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  border: none;
+  background: #f1f5f9;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topic-block button:hover {
+  background: #e0ebf8;
+}
+
+.topic-content {
+  display: none;
+  padding: 1.25rem;
+  border-top: 1px solid #e6eef8;
+  background: #fff;
+}
+
+/* Code blocks */
+.code-block {
+  background: #0b0b0b;
+  color: #e6eef8;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-family: monospace;
+}
+
+/* Go Back */
+.go-back {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.go-back button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #ff0080, #ff4da6);
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER (UNCHANGED) -->
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="../index.html" class="logo">
+      <img src="../logo.jpg" alt="Nisa logo" style="height:36px;">
+    </a>
+    <button class="menu-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    <nav id="main-nav" class="navbar">
+      <a href="../index.html">Home</a>
+      <a href="../learn.html" class="active">Learn</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-container" style="padding:2rem;">
+
+<!-- ================= CHAPTER 1 ================= -->
+<div class="chapter-block">
+
+  <div class="chapter-header">
+    Chapter 1 — Introduction to Machine Learning
+    <i class="fas fa-chevron-down"></i>
+  </div>
+
+  <div class="chapter-content">
+
+    <!-- Topic 1 -->
+    <div class="topic-block">
+      <button>
+        1.1 What is Machine Learning?
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="topic-content">
+        <p>
+          Machine Learning is a method where computers learn from data and
+          improve their performance automatically without explicit programming.
+        </p>
+        <p><strong>Example:</strong> Learning temperature–disaster patterns from past climate data.</p>
+      </div>
+    </div>
+
+    <!-- Topic 2 -->
+    <div class="topic-block">
+      <button>
+        1.2 Traditional Programming vs Machine Learning
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="topic-content">
+        <p><strong>Traditional:</strong> Rules + Data → Output</p>
+        <p><strong>ML:</strong> Data + Output → Model</p>
+      </div>
+    </div>
+
+    <!-- Topic 3 -->
+    <div class="topic-block">
+      <button>
+        1.3 Why Do We Need Machine Learning?
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="topic-content">
+        <ul>
+          <li>Large data</li>
+          <li>Complex relationships</li>
+          <li>Changing patterns</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Topic 4 -->
+    <div class="topic-block">
+      <button>
+        1.4 Applications of Machine Learning
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="topic-content">
+        <ul>
+          <li>Weather & Climate</li>
+          <li>Healthcare</li>
+          <li>Finance</li>
+          <li>Recommendation Systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Topic 5 -->
+    <div class="topic-block">
+      <button>
+        1.5 Limitations of Machine Learning
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="topic-content">
+        <ul>
+          <li>Data dependency</li>
+          <li>Bias</li>
+          <li>Overfitting</li>
+          <li>No common sense</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="go-back">
+  <button onclick="history.back()">← Go Back</button>
+</div>
+
+</main>
+
+<!-- FOOTER (UNCHANGED) -->
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p>© 2025 Nisa — Built with ❤️</p>
+  </div>
+</footer>
+
+<script>
+/* Chapter toggle */
+document.querySelectorAll('.chapter-header').forEach(chapter => {
+  chapter.addEventListener('click', () => {
+    const content = chapter.nextElementSibling;
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    chapter.querySelector('i').classList.toggle('fa-chevron-up');
+    chapter.querySelector('i').classList.toggle('fa-chevron-down');
+  });
+});
+
+/* Topic toggle */
+document.querySelectorAll('.topic-block button').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    button.querySelector('i').classList.toggle('fa-chevron-up');
+    button.querySelector('i').classList.toggle('fa-chevron-down');
+  });
+});
+</script>
+
+</body>
+</html>
 
