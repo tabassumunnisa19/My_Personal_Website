@@ -2625,6 +2625,4004 @@ print("Accuracy:", accuracy_score(y, y_pred))
 
   </div>
 </div>
+<!-- ===================== CHAPTER 11 ===================== -->
+<div class="chapter-title">
+  Chapter 11 — Decision Trees (Rule-Based Learning)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly Decision Trees Are Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Decision Trees are used when decisions can be expressed as <strong>clear, logical rules</strong>.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Loan Approval Systems:</strong> If income &gt; X and credit score &gt; Y → approve loan.</li>
+      <li><strong>Customer Eligibility Rules:</strong> Decide offers or discounts based on customer attributes.</li>
+      <li><strong>Medical Decision Support:</strong> Diagnose conditions based on symptoms and test results.</li>
+      <li><strong>Fraud Detection:</strong> Flag transactions using rule-based thresholds.</li>
+      <li><strong>HR Screening:</strong> Shortlist candidates based on experience, skills, and education.</li>
+    </ul>
+
+    <p>Decision Trees are preferred when <strong>interpretability and transparency</strong> are critical.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is a Decision Tree?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A Decision Tree is a supervised learning algorithm that makes predictions by following a sequence of <strong>if-else rules</strong>.</p>
+
+    <p>The model splits data step by step based on feature values until it reaches a final decision.</p>
+
+    <p>Decision Trees can be used for both <strong>classification</strong> and <strong>regression</strong>.</p>
+
+    <p>They mimic human decision-making logic.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRUCTURE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Structure of a Decision Tree
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li><strong>Root Node:</strong> The first split based on the most important feature.</li>
+      <li><strong>Decision Nodes:</strong> Internal nodes that split data further.</li>
+      <li><strong>Leaf Nodes:</strong> Final output or prediction.</li>
+    </ul>
+
+    <p>The tree grows by asking questions like:</p>
+    <p><em>“Is feature X greater than value Y?”</em></p>
+
+  </div>
+</div>
+
+<!-- ===================== INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Intuition — Learning Rules from Data
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Decision Trees work by repeatedly splitting data into more homogeneous groups.</p>
+
+    <p>At each step, the algorithm chooses the feature that best separates the data.</p>
+
+    <p>The goal is to reach leaf nodes where data points are as pure as possible.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SPLITTING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    How Decision Trees Decide Where to Split
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Decision Trees use mathematical measures to decide the best split.</p>
+
+    <p>The most common measures are:</p>
+
+    <ul>
+      <li>Entropy</li>
+      <li>Gini Impurity</li>
+    </ul>
+
+    <p>The objective is to reduce uncertainty after each split.</p>
+
+  </div>
+</div>
+
+<!-- ===================== ENTROPY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Entropy — Measuring Disorder (Math Intuition)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Entropy measures how mixed the classes are in a node.</p>
+
+    <p>If all samples belong to one class, entropy is 0 (perfectly pure).</p>
+
+    <p>If classes are evenly mixed, entropy is high.</p>
+
+    <p><strong>Formula:</strong></p>
+    <p>Entropy = − Σ p log₂(p)</p>
+
+    <p>Decision Trees try to minimize entropy after splitting.</p>
+
+  </div>
+</div>
+
+<!-- ===================== GINI ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Gini Impurity — Alternative Splitting Measure
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Gini Impurity measures the probability of incorrect classification.</p>
+
+    <p>Lower Gini value means purer node.</p>
+
+    <p><strong>Formula:</strong></p>
+    <p>Gini = 1 − Σ p²</p>
+
+    <p>Gini is computationally faster and commonly used in practice.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Predict whether a customer will buy a product based on age.</p>
+
+<pre>
+Age:    22, 25, 30, 35, 40, 45
+Buy:     No, No, Yes, Yes, Yes, Yes
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== FROM SCRATCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Decision Tree Logic (From-Scratch Explanation)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The algorithm tests different split points on age.</p>
+
+    <p>It calculates impurity before and after each split.</p>
+
+    <p>The split that results in the lowest impurity is selected.</p>
+
+    <p>This process repeats recursively for each branch.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Decision Tree Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.tree import DecisionTreeClassifier
+
+X = [[22],[25],[30],[35],[40],[45]]
+y = [0,0,1,1,1,1]
+
+model = DecisionTreeClassifier(criterion="gini")
+model.fit(X, y)
+
+print(model.predict([[28]]))
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== OVERFITTING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Overfitting in Decision Trees
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Decision Trees can easily overfit the training data.</p>
+
+    <p>An overfitted tree memorizes noise instead of learning patterns.</p>
+
+    <p>This leads to poor performance on unseen data.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PRUNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Controlling Tree Growth (Pruning)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Overfitting can be controlled by limiting:</p>
+
+    <ul>
+      <li>Maximum depth of the tree</li>
+      <li>Minimum samples per split</li>
+      <li>Minimum samples per leaf</li>
+    </ul>
+
+    <p>Pruning improves generalization.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting Decision Tree Predictions
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Each prediction follows a path of rules from root to leaf.</p>
+
+    <p>This makes Decision Trees highly explainable.</p>
+
+    <p>Interpretability is a major advantage over black-box models.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths of Decision Trees
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Easy to understand and explain</li>
+      <li>No need for feature scaling</li>
+      <li>Handles non-linear relationships</li>
+      <li>Works with both numerical and categorical data</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of Decision Trees
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Prone to overfitting</li>
+      <li>Unstable (small data changes affect structure)</li>
+      <li>Lower accuracy compared to ensembles</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 11 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Decision Trees learn human-like decision rules from data.</p>
+    <p>They split data using impurity measures like entropy and Gini.</p>
+    <p>They are powerful but prone to overfitting.</p>
+    <p>Pruning improves generalization.</p>
+    <p>This chapter completes rule-based supervised learning.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 12 ===================== -->
+<div class="chapter-title">
+  Chapter 12 — Random Forest (Ensemble Learning)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly Random Forest Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Random Forest is used when we need <strong>high accuracy, robustness, and stability</strong> across complex datasets.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Credit Risk Modeling:</strong> Predict default risk using multiple customer attributes.</li>
+      <li><strong>Healthcare Diagnosis:</strong> Predict disease outcomes using many clinical features.</li>
+      <li><strong>Customer Churn Prediction:</strong> Identify customers likely to leave based on usage behavior.</li>
+      <li><strong>Fraud Detection:</strong> Detect fraudulent transactions with noisy, high-dimensional data.</li>
+      <li><strong>Demand Forecasting:</strong> Predict sales where relationships are non-linear.</li>
+    </ul>
+
+    <p>Random Forest is preferred when a <strong>single decision tree is too unstable</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Random Forest?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Random Forest is an <strong>ensemble learning algorithm</strong> that combines predictions from many decision trees.</p>
+
+    <p>Instead of relying on one tree, it builds multiple trees and aggregates their outputs.</p>
+
+    <p>This reduces overfitting and improves generalization.</p>
+
+  </div>
+</div>
+
+<!-- ===================== ENSEMBLE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Ensemble Learning — Core Idea
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Ensemble learning means combining multiple models to make a better prediction.</p>
+
+    <p>The intuition:</p>
+    <ul>
+      <li>One model may be wrong</li>
+      <li>Many diverse models together are more reliable</li>
+    </ul>
+
+    <p>Random Forest uses the principle of <strong>“wisdom of the crowd”</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== BAGGING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Bagging (Bootstrap Aggregation)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Random Forest uses a technique called <strong>Bagging</strong>.</p>
+
+    <p>Steps:</p>
+    <ol>
+      <li>Create multiple random samples from the dataset (with replacement)</li>
+      <li>Train a decision tree on each sample</li>
+      <li>Combine predictions from all trees</li>
+    </ol>
+
+    <p>This introduces diversity among trees.</p>
+
+  </div>
+</div>
+
+<!-- ===================== RANDOMNESS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why “Random” in Random Forest?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Randomness is introduced in two ways:</p>
+
+    <ul>
+      <li>Random selection of data samples (bootstrapping)</li>
+      <li>Random selection of features at each split</li>
+    </ul>
+
+    <p>This prevents trees from becoming identical and reduces correlation.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Predict whether a customer will purchase a product.</p>
+
+<pre>
+Features:
+- Age
+- Annual Income
+- Time on Website
+
+Target:
+- Purchase (Yes / No)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== FROM SCRATCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Random Forest Logic (From-Scratch Explanation)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Random Forest works as follows:</p>
+
+    <ol>
+      <li>Build many decision trees</li>
+      <li>Each tree is trained on a different random subset</li>
+      <li>Each tree gives a prediction</li>
+      <li>Final prediction is based on majority voting</li>
+    </ol>
+
+    <p>This reduces variance compared to a single tree.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Random Forest Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.ensemble import RandomForestClassifier
+
+X = [
+    [25, 30000, 5],
+    [35, 60000, 10],
+    [45, 80000, 15],
+    [30, 40000, 7],
+    [50, 90000, 20]
+]
+
+y = [0, 1, 1, 0, 1]
+
+model = RandomForestClassifier(
+    n_estimators=100,
+    max_depth=5,
+    random_state=42
+)
+
+model.fit(X, y)
+print(model.predict([[40, 70000, 12]]))
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== FEATURE IMPORTANCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Feature Importance in Random Forest
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+for feature, importance in zip(
+    ["Age", "Income", "TimeOnWebsite"],
+    model.feature_importances_
+):
+    print(feature, importance)
+</pre>
+
+    <p>This helps identify which features influence predictions most.</p>
+
+  </div>
+</div>
+
+<!-- ===================== OVERFITTING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Does Random Forest Overfit?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Random Forest reduces overfitting compared to a single tree.</p>
+
+    <p>However, it can still overfit if:</p>
+    <ul>
+      <li>Too many deep trees</li>
+      <li>Very small datasets</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== CONTROL ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Controlling Random Forest Complexity
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Key hyperparameters:</p>
+
+    <ul>
+      <li><strong>n_estimators:</strong> number of trees</li>
+      <li><strong>max_depth:</strong> depth of each tree</li>
+      <li><strong>min_samples_split:</strong> minimum samples to split</li>
+    </ul>
+
+    <p>Tuning these improves performance and generalization.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting Random Forest Predictions
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Predictions are made by combining votes from all trees.</p>
+
+    <p>While individual trees are interpretable, the ensemble is less transparent.</p>
+
+    <p>Feature importance partially restores interpretability.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths of Random Forest
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>High accuracy</li>
+      <li>Handles non-linear relationships</li>
+      <li>Robust to noise</li>
+      <li>Works well with mixed feature types</li>
+      <li>Less overfitting than single trees</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of Random Forest
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Less interpretable than single trees</li>
+      <li>Slower prediction time</li>
+      <li>Larger memory usage</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 12 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Random Forest is a powerful ensemble of decision trees.</p>
+    <p>It uses bagging and feature randomness.</p>
+    <p>It significantly reduces overfitting.</p>
+    <p>Widely used in real-world ML systems.</p>
+    <p>This chapter completes ensemble-based supervised learning.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 13 ===================== -->
+<div class="chapter-title">
+  Chapter 13 — Support Vector Machines (SVM)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly Support Vector Machines Are Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Support Vector Machines are used when we need <strong>high accuracy classification</strong>, especially with <strong>clear separation margins</strong> and <strong>high-dimensional data</strong>.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Text Classification:</strong> Spam detection, sentiment analysis, topic classification.</li>
+      <li><strong>Face Recognition:</strong> Identifying people based on facial features.</li>
+      <li><strong>Bioinformatics:</strong> Gene classification and protein structure prediction.</li>
+      <li><strong>Image Classification:</strong> Handwritten digit recognition.</li>
+      <li><strong>Cybersecurity:</strong> Malware and intrusion detection.</li>
+    </ul>
+
+    <p>SVM is preferred when the data has a <strong>clear boundary but is not easily separable using simple models</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is a Support Vector Machine?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Support Vector Machine (SVM) is a supervised learning algorithm used for <strong>classification and regression</strong>.</p>
+
+    <p>The main objective of SVM is to find a <strong>decision boundary</strong> that separates classes with the <strong>maximum possible margin</strong>.</p>
+
+    <p>This boundary is called a <strong>hyperplane</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Intuition — Maximum Margin Classifier
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>SVM does not just try to separate classes.</p>
+
+    <p>It tries to separate them in the <strong>safest possible way</strong>.</p>
+
+    <p>The safest separation is the one with the <strong>largest distance</strong> between classes.</p>
+
+    <p>This distance is called the <strong>margin</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUPPORT VECTORS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What Are Support Vectors?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Support vectors are the <strong>data points closest to the decision boundary</strong>.</p>
+
+    <p>They are the most critical points because:</p>
+
+    <ul>
+      <li>They define the margin</li>
+      <li>Removing them changes the boundary</li>
+    </ul>
+
+    <p>All other points have little influence on the model.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LINEAR SVM ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Linear SVM — When Data Is Linearly Separable
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>When data can be separated using a straight line (2D) or plane (higher dimensions), a <strong>Linear SVM</strong> is used.</p>
+
+    <p>Linear SVM works well when:</p>
+
+    <ul>
+      <li>Number of features is high</li>
+      <li>Data has a clear margin</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== NON LINEAR ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Non-Linear SVM — Why We Need Kernels
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Real-world data is often <strong>not linearly separable</strong>.</p>
+
+    <p>SVM handles this using the <strong>Kernel Trick</strong>.</p>
+
+    <p>The kernel transforms data into a higher-dimensional space where separation becomes possible.</p>
+
+  </div>
+</div>
+
+<!-- ===================== KERNELS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common Kernel Functions
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li><strong>Linear Kernel:</strong> Simple linear separation</li>
+      <li><strong>Polynomial Kernel:</strong> Curved decision boundaries</li>
+      <li><strong>RBF (Gaussian) Kernel:</strong> Most commonly used</li>
+      <li><strong>Sigmoid Kernel:</strong> Neural-network-like behavior</li>
+    </ul>
+
+    <p>RBF kernel is widely used due to its flexibility.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Classify emails as spam or not spam based on word frequency features.</p>
+
+    <p>This is a high-dimensional classification problem, ideal for SVM.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Feature Scaling Is Mandatory for SVM
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>SVM relies on distance and margin calculations.</p>
+
+    <p>If features are on different scales, the margin calculation becomes distorted.</p>
+
+<pre>
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Support Vector Machine Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.svm import SVC
+
+model = SVC(kernel="rbf", C=1, gamma="scale")
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== HYPERPARAMETERS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Key Hyperparameters in SVM
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li><strong>C:</strong> Controls margin width vs misclassification</li>
+      <li><strong>Kernel:</strong> Defines transformation type</li>
+      <li><strong>Gamma:</strong> Controls influence of single points</li>
+    </ul>
+
+    <p>Proper tuning is essential for good performance.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting SVM Predictions
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>SVM focuses only on support vectors.</p>
+
+    <p>This makes it robust but less interpretable than linear models.</p>
+
+    <p>Interpretability decreases with non-linear kernels.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths of Support Vector Machines
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Works well in high-dimensional spaces</li>
+      <li>Strong theoretical foundation</li>
+      <li>Effective with small-to-medium datasets</li>
+      <li>Robust to overfitting</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of Support Vector Machines
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Computationally expensive for large datasets</li>
+      <li>Difficult to interpret</li>
+      <li>Choice of kernel is critical</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 13 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>SVM finds optimal decision boundaries using maximum margin.</p>
+    <p>Support vectors define the model.</p>
+    <p>Kernels allow handling non-linear data.</p>
+    <p>Scaling is mandatory.</p>
+    <p>SVM is powerful for complex classification problems.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 14 ===================== -->
+<div class="chapter-title">
+  Chapter 14 — Unsupervised Learning (Clustering Overview)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly Unsupervised Learning Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Unsupervised Learning is used when <strong>no labeled output</strong> is available and we want to <strong>discover hidden patterns or structures</strong> in data.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Customer Segmentation:</strong> Group customers based on behavior, spending, or preferences.</li>
+      <li><strong>Market Basket Analysis:</strong> Discover products frequently bought together.</li>
+      <li><strong>Anomaly Detection:</strong> Identify unusual patterns in network traffic or transactions.</li>
+      <li><strong>Document Grouping:</strong> Organize large volumes of text into topics.</li>
+      <li><strong>Image Compression & Pattern Discovery:</strong> Identify similar visual patterns.</li>
+    </ul>
+
+    <p>Unsupervised learning is essential when <strong>labels are expensive, unavailable, or unknown</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Unsupervised Learning?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Unsupervised Learning is a type of machine learning where the model is trained on <strong>unlabeled data</strong>.</p>
+
+    <p>Unlike supervised learning, there is no predefined target variable.</p>
+
+    <p>The goal is to <strong>explore the data</strong> and uncover hidden structures, relationships, or patterns.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DIFFERENCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Supervised vs Unsupervised Learning (Conceptual Difference)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Supervised Learning:</strong></p>
+    <ul>
+      <li>Has labeled output</li>
+      <li>Goal is prediction</li>
+      <li>Examples: regression, classification</li>
+    </ul>
+
+    <p><strong>Unsupervised Learning:</strong></p>
+    <ul>
+      <li>No labeled output</li>
+      <li>Goal is pattern discovery</li>
+      <li>Examples: clustering, dimensionality reduction</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== CLUSTERING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Clustering — The Heart of Unsupervised Learning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Clustering is the process of grouping similar data points together.</p>
+
+    <p>Data points within the same cluster are more similar to each other than to those in other clusters.</p>
+
+    <p>Clustering helps convert raw data into <strong>meaningful segments</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Intuition — Discovering Natural Groupings
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Unsupervised learning does not tell the model what to look for.</p>
+
+    <p>The model itself discovers:</p>
+
+    <ul>
+      <li>Groups</li>
+      <li>Similarities</li>
+      <li>Outliers</li>
+    </ul>
+
+    <p>This is why unsupervised learning is often called <strong>exploratory learning</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SIMILARITY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Similarity & Distance — Foundation of Clustering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Clustering algorithms rely on measuring similarity or distance between data points.</p>
+
+    <p>Common distance measures:</p>
+
+    <ul>
+      <li>Euclidean distance</li>
+      <li>Manhattan distance</li>
+      <li>Cosine similarity</li>
+    </ul>
+
+    <p>The choice of distance metric affects clustering results.</p>
+
+  </div>
+</div>
+
+<!-- ===================== TYPES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Types of Unsupervised Learning (High-Level)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li><strong>Clustering:</strong> Grouping similar data points</li>
+      <li><strong>Dimensionality Reduction:</strong> Reducing number of features</li>
+      <li><strong>Association Rule Mining:</strong> Finding relationships</li>
+    </ul>
+
+    <p>This chapter focuses primarily on <strong>clustering</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CHALLENGES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Challenges in Unsupervised Learning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>No ground truth to evaluate accuracy</li>
+      <li>Choosing number of clusters is difficult</li>
+      <li>Sensitive to scaling and noise</li>
+      <li>Interpretation can be subjective</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== WHY IMPORTANT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Unsupervised Learning Is Important
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Most real-world data is unlabeled.</p>
+
+    <p>Unsupervised learning helps:</p>
+
+    <ul>
+      <li>Understand data before modeling</li>
+      <li>Reveal hidden structure</li>
+      <li>Guide feature engineering</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== BRIDGE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Bridge to Next Chapters — K-Means & Hierarchical Clustering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In the next chapters, we will study:</p>
+
+    <ul>
+      <li><strong>K-Means:</strong> Centroid-based clustering</li>
+      <li><strong>Hierarchical Clustering:</strong> Tree-based grouping</li>
+    </ul>
+
+    <p>These algorithms implement the ideas introduced in this chapter.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 14 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Unsupervised learning works without labeled data.</p>
+    <p>Clustering is its most important application.</p>
+    <p>It helps discover hidden patterns and structures.</p>
+    <p>Distance and similarity are core foundations.</p>
+    <p>This chapter prepares you for clustering algorithms.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 15 ===================== -->
+<div class="chapter-title">
+  Chapter 15 — K-Means Clustering (Full Implementation)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly K-Means Clustering Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Means is used when we want to <strong>automatically group data into K distinct clusters</strong> based on similarity.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Customer Segmentation:</strong> Group customers based on spending, behavior, or demographics.</li>
+      <li><strong>Market Segmentation:</strong> Identify distinct customer groups for targeted marketing.</li>
+      <li><strong>Image Compression:</strong> Reduce number of colors by clustering pixels.</li>
+      <li><strong>Document Clustering:</strong> Group articles or documents by topic similarity.</li>
+      <li><strong>Anomaly Detection (Basic):</strong> Points far from any cluster may indicate anomalies.</li>
+    </ul>
+
+    <p>K-Means is preferred when clusters are roughly spherical and data size is large.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is K-Means Clustering?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Means is an <strong>unsupervised learning algorithm</strong> that partitions data into K clusters.</p>
+
+    <p>Each cluster is represented by its <strong>centroid</strong> (mean of points in that cluster).</p>
+
+    <p>The goal is to minimize the <strong>within-cluster variance</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Intuition — Clustering Around Centroids
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Means works by repeatedly:</p>
+
+    <ol>
+      <li>Assigning each data point to the nearest centroid</li>
+      <li>Updating centroids as the mean of assigned points</li>
+    </ol>
+
+    <p>This process continues until centroids no longer change.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DISTANCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Distance Metric Used in K-Means
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Means typically uses <strong>Euclidean distance</strong>.</p>
+
+    <p><strong>Formula:</strong></p>
+    <p>√[(x₁ − x₂)² + (y₁ − y₂)²]</p>
+
+    <p>The nearest centroid determines cluster assignment.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Group customers based on annual income and spending score.</p>
+
+<pre>
+Income:   20, 22, 25, 60, 62, 65
+Spending: 30, 35, 40, 70, 75, 80
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== FROM SCRATCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    K-Means From Scratch (Step-by-Step Logic)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Algorithm steps:</strong></p>
+
+    <ol>
+      <li>Choose K initial centroids randomly</li>
+      <li>Assign each point to nearest centroid</li>
+      <li>Recalculate centroids</li>
+      <li>Repeat until convergence</li>
+    </ol>
+
+  </div>
+</div>
+
+<!-- ===================== NUMPY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    K-Means Implementation Using NumPy
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+import numpy as np
+
+X = np.array([[20,30],[22,35],[25,40],[60,70],[62,75],[65,80]])
+K = 2
+
+centroids = X[np.random.choice(len(X), K, replace=False)]
+
+for _ in range(10):
+    distances = np.linalg.norm(X[:,None] - centroids, axis=2)
+    labels = np.argmin(distances, axis=1)
+    centroids = np.array([X[labels == k].mean(axis=0) for k in range(K)])
+
+print("Centroids:", centroids)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Feature Scaling Is Important for K-Means
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Means depends heavily on distance.</p>
+
+    <p>Different feature scales can distort clustering.</p>
+
+<pre>
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== ELBOW ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Choosing the Value of K — Elbow Method
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The Elbow Method helps choose the optimal K.</p>
+
+    <p>It plots:</p>
+    <ul>
+      <li>K vs Within-Cluster Sum of Squares (WCSS)</li>
+    </ul>
+
+    <p>The point where the curve bends is the optimal K.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    K-Means Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.cluster import KMeans
+
+model = KMeans(n_clusters=2, random_state=42)
+model.fit(X_scaled)
+
+labels = model.labels_
+print(labels)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting K-Means Clusters
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Each cluster represents a group of similar data points.</p>
+
+    <p>Clusters can be analyzed using centroid values.</p>
+
+    <p>Business meaning is derived after interpretation.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of K-Means
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Requires predefined K</li>
+      <li>Sensitive to initial centroids</li>
+      <li>Struggles with non-spherical clusters</li>
+      <li>Sensitive to outliers</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 15 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Means is a centroid-based clustering algorithm.</p>
+    <p>Distance and scaling are critical.</p>
+    <p>Elbow method helps choose K.</p>
+    <p>Widely used for segmentation tasks.</p>
+    <p>This chapter completes centroid-based clustering.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 16 ===================== -->
+<div class="chapter-title">
+  Chapter 16 — Hierarchical Clustering (Full Implementation)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly Hierarchical Clustering Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Hierarchical Clustering is used when we want to understand the <strong>structure and relationships</strong> within data rather than just forming fixed clusters.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Customer Segmentation:</strong> Creating customer hierarchies based on behavior similarity.</li>
+      <li><strong>Biology & Genetics:</strong> Grouping genes or species based on similarity.</li>
+      <li><strong>Document Clustering:</strong> Organizing documents into topic hierarchies.</li>
+      <li><strong>Social Network Analysis:</strong> Detecting communities and sub-communities.</li>
+      <li><strong>Market Research:</strong> Understanding layered customer preferences.</li>
+    </ul>
+
+    <p>Hierarchical clustering is preferred when cluster relationships matter more than speed.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Hierarchical Clustering?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Hierarchical Clustering is an <strong>unsupervised learning algorithm</strong> that builds a hierarchy of clusters.</p>
+
+    <p>Instead of creating a single partition, it creates a <strong>tree-like structure</strong> called a dendrogram.</p>
+
+    <p>Clusters are formed by progressively merging or splitting data points.</p>
+
+  </div>
+</div>
+
+<!-- ===================== TYPES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Types of Hierarchical Clustering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li><strong>Agglomerative:</strong> Bottom-up approach (most common).</li>
+      <li><strong>Divisive:</strong> Top-down approach.</li>
+    </ul>
+
+    <p>In practice, agglomerative clustering is used far more often.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Intuition — Building Clusters Step by Step
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The algorithm starts by treating each data point as its own cluster.</p>
+
+    <p>At each step:</p>
+    <ol>
+      <li>Find the two closest clusters</li>
+      <li>Merge them into one cluster</li>
+    </ol>
+
+    <p>This process continues until all points belong to one cluster.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LINKAGE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Linkage Methods — How Clusters Are Merged
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Linkage defines how distance between clusters is calculated.</p>
+
+    <ul>
+      <li><strong>Single Linkage:</strong> Minimum distance between points.</li>
+      <li><strong>Complete Linkage:</strong> Maximum distance between points.</li>
+      <li><strong>Average Linkage:</strong> Average distance between points.</li>
+      <li><strong>Ward’s Method:</strong> Minimizes variance within clusters.</li>
+    </ul>
+
+    <p>Ward’s method is widely used for compact clusters.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DISTANCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Distance Metrics in Hierarchical Clustering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Common distance metrics include:</p>
+
+    <ul>
+      <li>Euclidean distance</li>
+      <li>Manhattan distance</li>
+      <li>Cosine distance</li>
+    </ul>
+
+    <p>The choice affects cluster shape and hierarchy.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Group customers based on income and spending behavior.</p>
+
+<pre>
+Income:   20, 22, 25, 60, 62, 65
+Spending: 30, 35, 40, 70, 75, 80
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== DENDROGRAM ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Dendrogram — Visualizing the Hierarchy
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A dendrogram visually represents how clusters merge.</p>
+
+    <p>The height of each merge indicates distance between clusters.</p>
+
+    <p>Cutting the dendrogram at a certain height gives final clusters.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Hierarchical Clustering Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.cluster import AgglomerativeClustering
+
+X = [[20,30],[22,35],[25,40],[60,70],[62,75],[65,80]]
+
+model = AgglomerativeClustering(
+    n_clusters=2,
+    affinity='euclidean',
+    linkage='ward'
+)
+
+labels = model.fit_predict(X)
+print(labels)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Does Hierarchical Clustering Need Scaling?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Yes, scaling is recommended when features have different units.</p>
+
+    <p>Distance-based clustering is sensitive to scale.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting Hierarchical Clustering Results
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Dendrograms reveal natural cluster boundaries.</p>
+
+    <p>They help decide the number of clusters visually.</p>
+
+    <p>This interpretability is a major advantage over K-Means.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths of Hierarchical Clustering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>No need to predefine number of clusters</li>
+      <li>Produces interpretable hierarchy</li>
+      <li>Works well with small datasets</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of Hierarchical Clustering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Computationally expensive for large datasets</li>
+      <li>Once merged, clusters cannot be undone</li>
+      <li>Sensitive to noise and outliers</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 16 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Hierarchical clustering builds a tree of clusters.</p>
+    <p>Dendrograms provide deep insight into data structure.</p>
+    <p>Linkage methods define merging behavior.</p>
+    <p>Best suited for exploratory analysis and small datasets.</p>
+    <p>This chapter completes tree-based clustering methods.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 17 ===================== -->
+<div class="chapter-title">
+  Chapter 17 — Dimensionality Reduction (PCA)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly PCA Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Principal Component Analysis (PCA) is used when datasets have <strong>many features</strong> and we want to <strong>reduce complexity while preserving information</strong>.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Data Visualization:</strong> Reduce high-dimensional data to 2D or 3D for plotting.</li>
+      <li><strong>Noise Reduction:</strong> Remove redundant or noisy features.</li>
+      <li><strong>Preprocessing for ML Models:</strong> Improve speed and performance of algorithms.</li>
+      <li><strong>Image Compression:</strong> Reduce pixel dimensions while retaining structure.</li>
+      <li><strong>Genomics & Bioinformatics:</strong> Analyze gene-expression data with thousands of variables.</li>
+    </ul>
+
+    <p>PCA is preferred when features are highly correlated.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Dimensionality Reduction?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Dimensionality reduction is the process of reducing the number of input features while retaining as much information as possible.</p>
+
+    <p>High-dimensional data causes:</p>
+    <ul>
+      <li>Slower training</li>
+      <li>Overfitting</li>
+      <li>Visualization difficulty</li>
+    </ul>
+
+    <p>PCA is the most widely used dimensionality reduction technique.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PCA ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Principal Component Analysis (PCA)?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>PCA is an <strong>unsupervised learning technique</strong> that transforms original features into a new set of features called <strong>principal components</strong>.</p>
+
+    <p>These components:</p>
+    <ul>
+      <li>Are linear combinations of original features</li>
+      <li>Are uncorrelated (orthogonal)</li>
+      <li>Capture maximum variance</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Intuition — Preserve Variance, Reduce Dimensions
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>PCA looks for directions where data varies the most.</p>
+
+    <p>These directions contain the most information.</p>
+
+    <p>By projecting data onto these directions, we keep important patterns and discard redundancy.</p>
+
+  </div>
+</div>
+
+<!-- ===================== VARIANCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Variance — Why It Matters in PCA
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Variance measures how much data spreads out.</p>
+
+    <p>High variance = more information.</p>
+
+    <p>PCA selects directions with maximum variance.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MATH SENSE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    PCA Math Sense (Without Heavy Mathematics)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>PCA involves the following steps conceptually:</p>
+
+    <ol>
+      <li>Standardize the data</li>
+      <li>Compute covariance matrix</li>
+      <li>Find eigenvectors and eigenvalues</li>
+      <li>Select top components</li>
+      <li>Project data</li>
+    </ol>
+
+    <p>Eigenvectors define directions, eigenvalues define importance.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Scaling Is Mandatory for PCA
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>PCA is sensitive to feature scale.</p>
+
+    <p>If features are not scaled, those with large values dominate variance.</p>
+
+<pre>
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Reduce customer features for visualization.</p>
+
+<pre>
+Features:
+- Age
+- Income
+- Spending Score
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== NUMPY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    PCA From Scratch (NumPy Implementation)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+import numpy as np
+
+X = np.array([
+    [25, 30000, 40],
+    [35, 60000, 70],
+    [45, 80000, 85],
+    [30, 40000, 50]
+])
+
+X_meaned = X - np.mean(X, axis=0)
+
+cov_matrix = np.cov(X_meaned, rowvar=False)
+
+eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
+
+sorted_idx = np.argsort(eigenvalues)[::-1]
+eigenvectors = eigenvectors[:, sorted_idx]
+
+X_reduced = X_meaned.dot(eigenvectors[:, :2])
+print(X_reduced)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    PCA Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+print(X_pca)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== EXPLAINED VARIANCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Explained Variance — Choosing Number of Components
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+print(pca.explained_variance_ratio_)
+</pre>
+
+    <p>This tells how much information each component retains.</p>
+
+    <p>Common practice: retain 90–95% variance.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting PCA Results
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Principal components are not directly interpretable.</p>
+
+    <p>They represent combined influence of original features.</p>
+
+    <p>PCA trades interpretability for simplicity.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths of PCA
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Reduces dimensionality</li>
+      <li>Removes multicollinearity</li>
+      <li>Improves computational efficiency</li>
+      <li>Useful for visualization</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of PCA
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Loses feature interpretability</li>
+      <li>Assumes linear relationships</li>
+      <li>Not ideal when features are independent</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 17 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>PCA reduces dimensions while preserving variance.</p>
+    <p>Scaling is mandatory.</p>
+    <p>Eigenvectors define new feature directions.</p>
+    <p>Useful for visualization and preprocessing.</p>
+    <p>This chapter completes dimensionality reduction basics.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 18 ===================== -->
+<div class="chapter-title">
+  Chapter 18 — Feature Engineering (Advanced)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly Feature Engineering Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Feature Engineering is used in <strong>every real-world machine learning system</strong>.  
+    In practice, good features matter more than complex algorithms.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Credit Risk Modeling:</strong> Creating ratios like debt-to-income instead of raw values.</li>
+      <li><strong>Customer Churn Prediction:</strong> Features like “days since last login”.</li>
+      <li><strong>Fraud Detection:</strong> Transaction velocity, frequency, and deviation features.</li>
+      <li><strong>Healthcare:</strong> Combining test results into risk scores.</li>
+      <li><strong>Recommendation Systems:</strong> User behavior aggregates and interaction features.</li>
+    </ul>
+
+    <p>In industry, <strong>80% of model performance</strong> often comes from feature engineering.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Feature Engineering?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Feature Engineering is the process of <strong>creating, transforming, and selecting features</strong> so that machine learning models can learn patterns more effectively.</p>
+
+    <p>Raw data is rarely useful in its original form.</p>
+
+    <p>Feature engineering converts raw data into <strong>meaningful signals</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHY IMPORTANT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Feature Engineering Is More Important Than Algorithms
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Two models with the same algorithm can perform very differently depending on features.</p>
+
+    <p>Good features:</p>
+    <ul>
+      <li>Simplify the learning task</li>
+      <li>Reduce noise</li>
+      <li>Improve generalization</li>
+    </ul>
+
+    <p>Even simple models perform well with strong features.</p>
+
+  </div>
+</div>
+
+<!-- ===================== TYPES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Types of Feature Engineering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Feature creation</li>
+      <li>Feature transformation</li>
+      <li>Feature encoding</li>
+      <li>Feature scaling</li>
+      <li>Feature selection</li>
+    </ul>
+
+    <p>This chapter focuses on <strong>advanced feature creation and transformation</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== FEATURE CREATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Feature Creation — Creating New Meaningful Variables
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Feature creation involves deriving new features from existing data.</p>
+
+    <p><strong>Examples:</strong></p>
+
+    <ul>
+      <li>Age from Date of Birth</li>
+      <li>Total spending from individual purchases</li>
+      <li>Average usage per day</li>
+    </ul>
+
+    <p>These features capture behavior better than raw inputs.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERACTION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interaction Features
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Interaction features represent relationships between variables.</p>
+
+    <p><strong>Examples:</strong></p>
+
+    <ul>
+      <li>Income × Age</li>
+      <li>Price × Quantity</li>
+      <li>Usage × Subscription Length</li>
+    </ul>
+
+    <p>These help models capture non-linear relationships.</p>
+
+  </div>
+</div>
+
+<!-- ===================== POLYNOMIAL ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Polynomial Features
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Polynomial features allow linear models to learn non-linear patterns.</p>
+
+<pre>
+from sklearn.preprocessing import PolynomialFeatures
+
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X)
+</pre>
+
+    <p>Used carefully to avoid overfitting.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LOG TRANSFORM ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Log, Power & Non-Linear Transformations
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Used when data is skewed or spans large ranges.</p>
+
+    <p><strong>Examples:</strong></p>
+
+    <ul>
+      <li>Log(income)</li>
+      <li>Square root of count variables</li>
+      <li>Box-Cox transformation</li>
+    </ul>
+
+    <p>These transformations stabilize variance.</p>
+
+  </div>
+</div>
+
+<!-- ===================== BINNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Binning & Bucketing
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Binning converts continuous variables into discrete categories.</p>
+
+    <p><strong>Examples:</strong></p>
+
+    <ul>
+      <li>Age groups (18–25, 26–35, …)</li>
+      <li>Income slabs</li>
+    </ul>
+
+    <p>This improves interpretability and robustness.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DOMAIN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Domain Knowledge–Driven Features
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Domain knowledge often produces the best features.</p>
+
+    <p><strong>Examples:</strong></p>
+
+    <ul>
+      <li>Finance: utilization ratios</li>
+      <li>Healthcare: risk scores</li>
+      <li>Marketing: recency–frequency–monetary features</li>
+    </ul>
+
+    <p>These features reflect real-world logic.</p>
+
+  </div>
+</div>
+
+<!-- ===================== FEATURE SELECTION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Feature Selection — Keeping What Matters
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Too many features can hurt performance.</p>
+
+    <p>Feature selection helps:</p>
+    <ul>
+      <li>Reduce overfitting</li>
+      <li>Improve speed</li>
+      <li>Increase interpretability</li>
+    </ul>
+
+    <p>Methods include correlation analysis and model-based importance.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PITFALLS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common Feature Engineering Mistakes
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Data leakage (using future information)</li>
+      <li>Over-engineering features</li>
+      <li>Ignoring scaling requirements</li>
+      <li>Creating features without business meaning</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 18 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Feature engineering transforms raw data into learning signals.</p>
+    <p>Good features outperform complex models.</p>
+    <p>Domain knowledge is critical.</p>
+    <p>Advanced features capture non-linear relationships.</p>
+    <p>This chapter prepares you for real-world ML systems.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 19 ===================== -->
+<div class="chapter-title">
+  Chapter 19 — Model Validation Techniques
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Model Validation Is Critically Important (Real-World Perspective)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model validation is used to ensure that a machine learning model <strong>generalizes well to unseen data</strong>.</p>
+
+    <p><strong>Real-world importance:</strong></p>
+
+    <ul>
+      <li><strong>Finance:</strong> Prevent models that perform well only on historical data.</li>
+      <li><strong>Healthcare:</strong> Ensure predictions work for new patients.</li>
+      <li><strong>Marketing:</strong> Validate campaigns before real deployment.</li>
+      <li><strong>Fraud Detection:</strong> Avoid models that memorize old fraud patterns.</li>
+      <li><strong>Any ML system:</strong> Prevent false confidence.</li>
+    </ul>
+
+    <p>Without validation, a model’s performance claims are meaningless.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Model Validation?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model validation is the process of evaluating a machine learning model on data <strong>not used during training</strong>.</p>
+
+    <p>The goal is to estimate how the model will perform in the real world.</p>
+
+    <p>Validation protects against overfitting and misleading accuracy.</p>
+
+  </div>
+</div>
+
+<!-- ===================== TRAIN TEST ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Train–Test Split — The Foundation of Validation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The simplest validation technique is splitting data into:</p>
+
+    <ul>
+      <li><strong>Training set:</strong> Used to train the model</li>
+      <li><strong>Test set:</strong> Used to evaluate performance</li>
+    </ul>
+
+    <p>Typical splits:</p>
+    <ul>
+      <li>70% train / 30% test</li>
+      <li>80% train / 20% test</li>
+    </ul>
+
+<pre>
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test =
+train_test_split(X, y, test_size=0.2, random_state=42)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== OVERFITTING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Overfitting and Underfitting (Validation View)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Overfitting:</strong></p>
+    <ul>
+      <li>High training accuracy</li>
+      <li>Low test accuracy</li>
+      <li>Model memorizes noise</li>
+    </ul>
+
+    <p><strong>Underfitting:</strong></p>
+    <ul>
+      <li>Poor training performance</li>
+      <li>Poor test performance</li>
+      <li>Model too simple</li>
+    </ul>
+
+    <p>Validation helps detect both.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CROSS VALIDATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Cross-Validation — Stronger Performance Estimation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Cross-validation evaluates the model multiple times on different data splits.</p>
+
+    <p><strong>K-Fold Cross-Validation:</strong></p>
+    <ul>
+      <li>Data is split into K parts</li>
+      <li>Model trains on K−1 parts</li>
+      <li>Tests on the remaining part</li>
+      <li>Repeated K times</li>
+    </ul>
+
+<pre>
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(model, X, y, cv=5)
+print(scores.mean())
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== BIAS VARIANCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Bias–Variance Tradeoff
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Bias:</strong> Error from overly simplistic models.</p>
+    <p><strong>Variance:</strong> Error from overly complex models.</p>
+
+    <p>Good models balance both.</p>
+
+    <p>Validation helps detect whether to increase or reduce model complexity.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LEARNING CURVES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Learning Curves — Diagnosing Model Behavior
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Learning curves plot:</p>
+    <ul>
+      <li>Training score</li>
+      <li>Validation score</li>
+    </ul>
+
+    <p>They help diagnose:</p>
+    <ul>
+      <li>Overfitting</li>
+      <li>Underfitting</li>
+      <li>Data sufficiency</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== DATA LEAKAGE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Data Leakage — The Silent Killer
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Data leakage occurs when information from the test set leaks into training.</p>
+
+    <p>Examples:</p>
+    <ul>
+      <li>Scaling before splitting</li>
+      <li>Using future data</li>
+      <li>Target leakage in features</li>
+    </ul>
+
+    <p>This causes unrealistically high accuracy.</p>
+
+  </div>
+</div>
+
+<!-- ===================== BEST PRACTICES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Model Validation Best Practices
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Always validate on unseen data</li>
+      <li>Use cross-validation for small datasets</li>
+      <li>Avoid leakage at all costs</li>
+      <li>Choose metrics aligned with business goals</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 19 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Validation ensures real-world performance.</p>
+    <p>Train–test split is the foundation.</p>
+    <p>Cross-validation gives robust estimates.</p>
+    <p>Bias–variance tradeoff guides model complexity.</p>
+    <p>This chapter prepares you for model optimization.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 20 ===================== -->
+<div class="chapter-title">
+  Chapter 20 — Hyperparameter Tuning
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Hyperparameter Tuning Is Essential (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Hyperparameter tuning is used when a model works, but <strong>not optimally</strong>.</p>
+
+    <p><strong>Real-world scenarios:</strong></p>
+
+    <ul>
+      <li><strong>Credit Scoring:</strong> Adjusting tree depth to avoid overfitting risky customers.</li>
+      <li><strong>Medical Diagnosis:</strong> Tuning regularization to avoid false positives.</li>
+      <li><strong>Customer Churn:</strong> Finding the right balance between recall and precision.</li>
+      <li><strong>Fraud Detection:</strong> Adjusting sensitivity to catch rare events.</li>
+      <li><strong>Any ML Deployment:</strong> Improving generalization before production.</li>
+    </ul>
+
+    <p>Untuned models almost never reach production quality.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What Are Hyperparameters?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Hyperparameters are <strong>external configuration values</strong> set <em>before training</em>.</p>
+
+    <p>They control:</p>
+    <ul>
+      <li>Model complexity</li>
+      <li>Learning behavior</li>
+      <li>Bias–variance tradeoff</li>
+    </ul>
+
+    <p><strong>Examples:</strong></p>
+    <ul>
+      <li>Learning rate</li>
+      <li>Number of neighbors (KNN)</li>
+      <li>Tree depth</li>
+      <li>Regularization strength</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== PARAMETERS VS HYPER ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Model Parameters vs Hyperparameters
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Model parameters:</strong></p>
+    <ul>
+      <li>Learned from data</li>
+      <li>Example: coefficients in linear regression</li>
+    </ul>
+
+    <p><strong>Hyperparameters:</strong></p>
+    <ul>
+      <li>Set by humans</li>
+      <li>Control learning process</li>
+    </ul>
+
+    <p>Hyperparameters must be tuned carefully.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHY TUNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Hyperparameter Tuning Improves Performance
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Default values are generic.</p>
+
+    <p>Tuning helps:</p>
+    <ul>
+      <li>Reduce overfitting</li>
+      <li>Reduce underfitting</li>
+      <li>Improve validation performance</li>
+    </ul>
+
+    <p>Even simple models improve significantly when tuned.</p>
+
+  </div>
+</div>
+
+<!-- ===================== COMMON HYPERS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common Hyperparameters Across Algorithms
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li><strong>Linear / Logistic Regression:</strong> Regularization (C, alpha)</li>
+      <li><strong>KNN:</strong> Number of neighbors (k), distance metric</li>
+      <li><strong>Decision Trees:</strong> Max depth, min samples split</li>
+      <li><strong>Random Forest:</strong> Number of trees, max features</li>
+      <li><strong>SVM:</strong> Kernel, C, gamma</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== GRID SEARCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Grid Search — Exhaustive Hyperparameter Tuning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Grid Search tries <strong>all possible combinations</strong> of hyperparameters.</p>
+
+    <p><strong>Pros:</strong></p>
+    <ul>
+      <li>Guaranteed best combination (within grid)</li>
+    </ul>
+
+    <p><strong>Cons:</strong></p>
+    <ul>
+      <li>Computationally expensive</li>
+    </ul>
+
+<pre>
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+
+param_grid = {
+    'n_estimators': [50, 100],
+    'max_depth': [3, 5, None]
+}
+
+grid = GridSearchCV(
+    RandomForestClassifier(),
+    param_grid,
+    cv=5
+)
+
+grid.fit(X_train, y_train)
+print(grid.best_params_)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== RANDOM SEARCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Random Search — Efficient Alternative
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Random Search samples random combinations.</p>
+
+    <p><strong>Advantages:</strong></p>
+    <ul>
+      <li>Faster than Grid Search</li>
+      <li>Explores larger space</li>
+    </ul>
+
+<pre>
+from sklearn.model_selection import RandomizedSearchCV
+
+random_search = RandomizedSearchCV(
+    RandomForestClassifier(),
+    param_grid,
+    n_iter=5,
+    cv=5
+)
+
+random_search.fit(X_train, y_train)
+print(random_search.best_params_)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== CV ROLE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Role of Cross-Validation in Hyperparameter Tuning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Each hyperparameter combination is validated using cross-validation.</p>
+
+    <p>This ensures stable performance estimates.</p>
+
+    <p>Tuning without CV leads to misleading results.</p>
+
+  </div>
+</div>
+
+<!-- ===================== METRIC ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Choosing the Right Evaluation Metric
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Hyperparameters should optimize the <strong>right metric</strong>.</p>
+
+    <ul>
+      <li>Accuracy — balanced datasets</li>
+      <li>Recall — medical / fraud detection</li>
+      <li>Precision — false-positive sensitive tasks</li>
+      <li>F1-score — class imbalance</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== PITFALLS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common Hyperparameter Tuning Mistakes
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Tuning on test data</li>
+      <li>Too large search space</li>
+      <li>Ignoring computation cost</li>
+      <li>Optimizing wrong metric</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== BEST PRACTICES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Hyperparameter Tuning Best Practices
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Start with simple models</li>
+      <li>Use Random Search first</li>
+      <li>Limit search space intelligently</li>
+      <li>Always validate properly</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 20 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Hyperparameters control learning behavior.</p>
+    <p>Tuning improves generalization.</p>
+    <p>Grid Search is exhaustive but expensive.</p>
+    <p>Random Search is efficient and practical.</p>
+    <p>This chapter prepares models for deployment readiness.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 21 ===================== -->
+<div class="chapter-title">
+  Chapter 21 — Machine Learning Pipelines
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Machine Learning Pipelines Are Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Machine Learning Pipelines are used to build <strong>reproducible, error-free, and deployment-ready</strong> ML systems.</p>
+
+    <p><strong>Real-world scenarios:</strong></p>
+
+    <ul>
+      <li><strong>Production ML Systems:</strong> Ensure the same preprocessing is applied during training and inference.</li>
+      <li><strong>Team Collaboration:</strong> Avoid manual steps that break when shared across teams.</li>
+      <li><strong>Model Validation:</strong> Prevent data leakage during cross-validation.</li>
+      <li><strong>Automation:</strong> Enable retraining with new data.</li>
+      <li><strong>Deployment:</strong> Package preprocessing + model together.</li>
+    </ul>
+
+    <p>Pipelines are <strong>mandatory</strong> for professional ML workflows.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is a Machine Learning Pipeline?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A Machine Learning Pipeline is a <strong>sequence of steps</strong> that transforms raw data into predictions.</p>
+
+    <p>Each step performs a specific task:</p>
+    <ul>
+      <li>Data preprocessing</li>
+      <li>Feature engineering</li>
+      <li>Model training</li>
+      <li>Prediction</li>
+    </ul>
+
+    <p>The entire workflow is treated as a <strong>single object</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHY PIPELINES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Pipelines Are Better Than Manual Workflows
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Manual ML workflows often suffer from:</p>
+
+    <ul>
+      <li>Data leakage</li>
+      <li>Inconsistent preprocessing</li>
+      <li>Hard-to-debug errors</li>
+      <li>Unreproducible results</li>
+    </ul>
+
+    <p>Pipelines solve these issues by enforcing a fixed, ordered flow.</p>
+
+  </div>
+</div>
+
+<!-- ===================== COMPONENTS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Components of an ML Pipeline
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A typical pipeline includes:</p>
+
+    <ul>
+      <li><strong>Transformers:</strong> Scaling, encoding, imputation</li>
+      <li><strong>Estimator:</strong> The ML model</li>
+    </ul>
+
+    <p>All steps except the last must be transformers.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SIMPLE PIPELINE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Simple Pipeline Example (Scaling + Model)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+
+pipeline = Pipeline([
+    ('scaler', StandardScaler()),
+    ('model', LogisticRegression())
+])
+
+pipeline.fit(X_train, y_train)
+y_pred = pipeline.predict(X_test)
+</pre>
+
+    <p>Scaling and model training happen together, safely.</p>
+
+  </div>
+</div>
+
+<!-- ===================== COLUMN TRANSFORMER ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Handling Mixed Data — ColumnTransformer
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Real datasets often contain:</p>
+    <ul>
+      <li>Numerical features</li>
+      <li>Categorical features</li>
+    </ul>
+
+    <p>Different preprocessing is needed for each.</p>
+
+<pre>
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+
+numeric_features = ['age', 'income']
+categorical_features = ['gender', 'city']
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', StandardScaler(), numeric_features),
+        ('cat', OneHotEncoder(), categorical_features)
+    ]
+)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== FULL PIPELINE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Full End-to-End Pipeline (Preprocessing + Model)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestClassifier
+
+pipeline = Pipeline([
+    ('preprocess', preprocessor),
+    ('model', RandomForestClassifier())
+])
+
+pipeline.fit(X_train, y_train)
+</pre>
+
+    <p>This pipeline is <strong>production-ready</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PIPELINE + CV ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Pipelines with Cross-Validation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Pipelines prevent leakage during validation.</p>
+
+<pre>
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(pipeline, X, y, cv=5)
+print(scores.mean())
+</pre>
+
+    <p>Preprocessing is done inside each fold correctly.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PIPELINE + TUNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Pipelines with Hyperparameter Tuning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+param_grid = {
+    'model__n_estimators': [50, 100],
+    'model__max_depth': [3, None]
+}
+
+from sklearn.model_selection import GridSearchCV
+
+grid = GridSearchCV(pipeline, param_grid, cv=5)
+grid.fit(X_train, y_train)
+
+print(grid.best_params_)
+</pre>
+
+    <p>Hyperparameters are tuned safely inside the pipeline.</p>
+
+  </div>
+</div>
+
+<!-- ===================== BENEFITS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Benefits of Using Pipelines
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Prevents data leakage</li>
+      <li>Improves reproducibility</li>
+      <li>Simplifies experimentation</li>
+      <li>Makes deployment easier</li>
+      <li>Encourages clean ML design</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== COMMON MISTAKES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common Pipeline Mistakes
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Scaling data outside the pipeline</li>
+      <li>Forgetting to include preprocessing</li>
+      <li>Tuning model without pipeline</li>
+      <li>Mixing training and test transformations</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== BEST PRACTICES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Pipeline Best Practices (Industry Standard)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Always use pipelines for production</li>
+      <li>Combine preprocessing + model</li>
+      <li>Use ColumnTransformer for mixed data</li>
+      <li>Validate and tune inside pipeline</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 21 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Pipelines unify preprocessing and modeling.</p>
+    <p>They prevent data leakage and errors.</p>
+    <p>They are essential for validation and tuning.</p>
+    <p>Pipelines are required for production ML.</p>
+    <p>This chapter bridges modeling to deployment.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 22 ===================== -->
+<div class="chapter-title">
+  Chapter 22 — Model Deployment Basics
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Model Deployment Is Needed (Real-World Perspective)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model deployment is the process of <strong>making a trained ML model usable by real users or systems</strong>.</p>
+
+    <p><strong>Real-world scenarios:</strong></p>
+
+    <ul>
+      <li><strong>Business Applications:</strong> Sales prediction dashboards.</li>
+      <li><strong>Healthcare:</strong> Risk prediction tools for doctors.</li>
+      <li><strong>Finance:</strong> Credit approval systems.</li>
+      <li><strong>Operations:</strong> Demand forecasting tools.</li>
+      <li><strong>Personal Projects:</strong> Interactive ML apps (Streamlit).</li>
+    </ul>
+
+    <p>A model that is not deployed has <strong>zero business value</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What Is Model Deployment?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model deployment means:</p>
+
+    <ul>
+      <li>Saving a trained model</li>
+      <li>Loading it in a runtime environment</li>
+      <li>Feeding new data</li>
+      <li>Returning predictions</li>
+    </ul>
+
+    <p>The model becomes part of a <strong>software system</strong>, not just a notebook.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DEPLOYMENT FLOW ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    End-to-End Deployment Flow (Conceptual)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ol>
+      <li>Train model (notebook / script)</li>
+      <li>Validate and finalize pipeline</li>
+      <li>Serialize model to file</li>
+      <li>Load model in application</li>
+      <li>Accept user input</li>
+      <li>Return prediction</li>
+    </ol>
+
+    <p>This flow applies to all deployment methods.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SERIALIZATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Model Serialization — Saving the Trained Model
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Serialization converts a trained model into a file.</p>
+
+    <p><strong>Common tools:</strong></p>
+    <ul>
+      <li>pickle</li>
+      <li>joblib (preferred for sklearn)</li>
+    </ul>
+
+<pre>
+import joblib
+
+joblib.dump(pipeline, "model.pkl")
+</pre>
+
+    <p>This file stores the entire pipeline (preprocessing + model).</p>
+
+  </div>
+</div>
+
+<!-- ===================== LOADING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Loading the Model for Inference
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+import joblib
+
+model = joblib.load("model.pkl")
+</pre>
+
+    <p>The model is now ready to accept new input.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INFERENCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Inference — Making Predictions on New Data
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+new_data = [[35, 60000, 1]]  # example input
+prediction = model.predict(new_data)
+print(prediction)
+</pre>
+
+    <p>This is called <strong>model inference</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STREAMLIT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Streamlit — Local & Rapid ML Deployment
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Streamlit</strong> is a Python framework used to build interactive ML apps quickly.</p>
+
+    <p><strong>Why Streamlit is widely used:</strong></p>
+
+    <ul>
+      <li>No frontend knowledge required</li>
+      <li>Directly works with Python models</li>
+      <li>Ideal for demos, prototypes, and internal tools</li>
+      <li>Very fast to build</li>
+    </ul>
+
+    <p>Streamlit is often used for:</p>
+    <ul>
+      <li>College projects</li>
+      <li>Proof-of-concepts</li>
+      <li>Internal dashboards</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== STREAMLIT CODE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Simple Streamlit Deployment Example
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+import streamlit as st
+import joblib
+
+model = joblib.load("model.pkl")
+
+st.title("ML Prediction App")
+
+age = st.number_input("Age")
+income = st.number_input("Income")
+gender = st.selectbox("Gender", [0, 1])
+
+if st.button("Predict"):
+    prediction = model.predict([[age, income, gender]])
+    st.write("Prediction:", prediction[0])
+</pre>
+
+    <p>Run using:</p>
+
+<pre>
+streamlit run app.py
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== WHY PIPELINE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Pipelines Are Critical in Deployment
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Without pipelines:</p>
+    <ul>
+      <li>Preprocessing mismatch</li>
+      <li>Wrong predictions</li>
+    </ul>
+
+    <p>With pipelines:</p>
+    <ul>
+      <li>Same transformations during training & inference</li>
+      <li>Safe deployment</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== DEPLOYMENT TYPES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Types of Model Deployment (Overview)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li><strong>Local apps:</strong> Streamlit</li>
+      <li><strong>Web APIs:</strong> Flask / FastAPI</li>
+      <li><strong>Cloud deployment:</strong> AWS, Azure, GCP</li>
+    </ul>
+
+    <p>This chapter focuses on <strong>local & conceptual deployment</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== COMMON MISTAKES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common Deployment Mistakes
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Training and inference mismatch</li>
+      <li>Not using pipelines</li>
+      <li>Hardcoding preprocessing</li>
+      <li>Ignoring input validation</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== BEST PRACTICES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Deployment Best Practices
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Always deploy pipelines, not raw models</li>
+      <li>Validate inputs</li>
+      <li>Version your models</li>
+      <li>Start with Streamlit for learning</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 22 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Deployment makes ML useful.</p>
+    <p>Serialization saves trained models.</p>
+    <p>Pipelines ensure safe inference.</p>
+    <p>Streamlit enables fast local deployment.</p>
+    <p>This chapter bridges ML to real applications.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 23 ===================== -->
+<div class="chapter-title">
+  Chapter 23 — ML Project Structure & Best Practices
+</div>
+
+<!-- ===================== WHY STRUCTURE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why ML Project Structure Matters (Industry Perspective)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In real-world environments, machine learning is not done in notebooks alone.</p>
+
+    <p><strong>Good project structure ensures:</strong></p>
+    <ul>
+      <li>Reproducibility</li>
+      <li>Collaboration</li>
+      <li>Scalability</li>
+      <li>Maintainability</li>
+    </ul>
+
+    <p>Most ML failures in industry happen due to <strong>poor structure, not poor algorithms</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PROJECT LIFECYCLE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    End-to-End ML Project Lifecycle
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ol>
+      <li>Problem understanding</li>
+      <li>Data collection</li>
+      <li>Data preprocessing</li>
+      <li>Feature engineering</li>
+      <li>Model training</li>
+      <li>Validation & tuning</li>
+      <li>Deployment</li>
+      <li>Monitoring & maintenance</li>
+    </ol>
+
+    <p>This lifecycle should be reflected in the project structure.</p>
+
+  </div>
+</div>
+
+<!-- ===================== FOLDER STRUCTURE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Recommended ML Project Folder Structure
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+ml-project/
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── external/
+│
+├── notebooks/
+│
+├── src/
+│   ├── data/
+│   ├── features/
+│   ├── models/
+│   ├── pipelines/
+│   └── utils/
+│
+├── models/
+│
+├── reports/
+│   └── figures/
+│
+├── app/
+│   └── app.py
+│
+├── requirements.txt
+├── README.md
+└── config.yaml
+</pre>
+
+    <p>This structure is widely used in professional ML teams.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATA MANAGEMENT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Data Management Best Practices
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Data should be treated as a first-class asset.</p>
+
+    <ul>
+      <li>Never overwrite raw data</li>
+      <li>Store processed data separately</li>
+      <li>Document data sources</li>
+      <li>Track data versions</li>
+    </ul>
+
+    <p>Good data management prevents silent bugs.</p>
+
+  </div>
+</div>
+
+<!-- ===================== NOTEBOOK PRACTICES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Notebook Best Practices (Jupyter / Colab)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Notebooks are for exploration, not production.</p>
+
+    <p><strong>Best practices:</strong></p>
+    <ul>
+      <li>One notebook = one purpose</li>
+      <li>Clear markdown explanations</li>
+      <li>Move stable code to scripts</li>
+      <li>Do not hardcode paths</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SCRIPTING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Writing Modular & Reusable Code
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Production ML requires clean Python scripts.</p>
+
+    <p><strong>Key principles:</strong></p>
+    <ul>
+      <li>Small, focused functions</li>
+      <li>Reusable modules</li>
+      <li>Clear input/output</li>
+    </ul>
+
+    <p>This enables testing and reuse.</p>
+
+  </div>
+</div>
+
+<!-- ===================== VERSION CONTROL ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Version Control for ML Projects
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Use Git for all ML projects.</p>
+
+    <p><strong>Track:</strong></p>
+    <ul>
+      <li>Code</li>
+      <li>Configurations</li>
+      <li>Experiment metadata</li>
+    </ul>
+
+    <p><strong>Do NOT track:</strong></p>
+    <ul>
+      <li>Large raw datasets</li>
+      <li>Generated files</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== CONFIG ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Configuration Management
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Never hardcode values.</p>
+
+    <p>Use configuration files for:</p>
+    <ul>
+      <li>File paths</li>
+      <li>Hyperparameters</li>
+      <li>Model settings</li>
+    </ul>
+
+    <p>This makes experiments reproducible.</p>
+
+  </div>
+</div>
+
+<!-- ===================== EXPERIMENT TRACKING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Experiment Tracking (Conceptual)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Track experiments to avoid confusion.</p>
+
+    <p>Log:</p>
+    <ul>
+      <li>Data version</li>
+      <li>Features used</li>
+      <li>Hyperparameters</li>
+      <li>Metrics</li>
+    </ul>
+
+    <p>This can be done manually or using tools.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DEPLOYMENT READINESS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Making Projects Deployment-Ready
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A deployment-ready ML project has:</p>
+
+    <ul>
+      <li>Pipeline-based preprocessing</li>
+      <li>Serialized models</li>
+      <li>Clear inference interface</li>
+      <li>Input validation</li>
+    </ul>
+
+    <p>This ensures smooth transition from development to production.</p>
+
+  </div>
+</div>
+
+<!-- ===================== COMMON MISTAKES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Common ML Project Mistakes
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Messy notebooks</li>
+      <li>No version control</li>
+      <li>Hardcoded paths</li>
+      <li>No documentation</li>
+      <li>No validation strategy</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== BEST PRACTICES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    ML Project Best Practices (Industry Standard)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Structure projects from day one</li>
+      <li>Use pipelines everywhere</li>
+      <li>Track experiments</li>
+      <li>Document assumptions</li>
+      <li>Think deployment early</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 23 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>ML is a system, not just a model.</p>
+    <p>Structure enables scalability and collaboration.</p>
+    <p>Good practices prevent costly failures.</p>
+    <p>This chapter prepares you for real-world ML work.</p>
+    <p>You are now ready for full end-to-end projects.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 24 ===================== -->
+<div class="chapter-title">
+  Chapter 24 — End-to-End Machine Learning Case Study
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why an End-to-End Case Study Is Important
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Learning algorithms individually is not enough.</p>
+
+    <p>Real-world machine learning is about:</p>
+    <ul>
+      <li>Connecting multiple steps</li>
+      <li>Making design decisions</li>
+      <li>Avoiding leakage and bias</li>
+      <li>Building deployable systems</li>
+    </ul>
+
+    <p>This chapter demonstrates how all previous chapters work together.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PROBLEM ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 1 — Problem Statement
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Business Problem:</strong></p>
+
+    <p>Predict whether a customer is likely to <strong>churn</strong> (leave a service) based on their usage and profile.</p>
+
+    <p><strong>Why this problem matters:</strong></p>
+    <ul>
+      <li>Retaining customers is cheaper than acquiring new ones</li>
+      <li>Early prediction enables targeted intervention</li>
+    </ul>
+
+    <p><strong>ML Task Type:</strong> Binary Classification</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATA ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 2 — Understanding the Dataset
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Example features:</strong></p>
+
+    <ul>
+      <li>Age</li>
+      <li>Monthly Charges</li>
+      <li>Tenure (months)</li>
+      <li>Contract Type</li>
+      <li>Customer Support Calls</li>
+    </ul>
+
+    <p><strong>Target:</strong> Churn (Yes / No)</p>
+
+    <p>Data includes both numerical and categorical features.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SPLIT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 3 — Train–Test Split
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Split data to evaluate generalization.</p>
+
+<pre>
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test =
+train_test_split(X, y, test_size=0.2, random_state=42)
+</pre>
+
+    <p>This prevents overly optimistic results.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PREPROCESS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 4 — Preprocessing & Feature Engineering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Actions performed:</strong></p>
+    <ul>
+      <li>Scaling numerical features</li>
+      <li>Encoding categorical variables</li>
+      <li>Handling missing values</li>
+    </ul>
+
+<pre>
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', StandardScaler(), ['age','monthly_charges','tenure']),
+        ('cat', OneHotEncoder(), ['contract_type'])
+    ]
+)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== MODEL ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 5 — Model Selection
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Chosen Model:</strong> Logistic Regression</p>
+
+    <p><strong>Why:</strong></p>
+    <ul>
+      <li>Interpretable</li>
+      <li>Fast</li>
+      <li>Strong baseline for classification</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== PIPELINE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 6 — Building the Pipeline
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
+
+pipeline = Pipeline([
+    ('preprocess', preprocessor),
+    ('model', LogisticRegression())
+])
+
+pipeline.fit(X_train, y_train)
+</pre>
+
+    <p>This ensures preprocessing consistency.</p>
+
+  </div>
+</div>
+
+<!-- ===================== VALIDATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 7 — Model Validation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.metrics import classification_report
+
+y_pred = pipeline.predict(X_test)
+print(classification_report(y_test, y_pred))
+</pre>
+
+    <p>Focus on recall to catch potential churners.</p>
+
+  </div>
+</div>
+
+<!-- ===================== TUNING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 8 — Hyperparameter Tuning
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'model__C': [0.1, 1, 10]
+}
+
+grid = GridSearchCV(pipeline, param_grid, cv=5)
+grid.fit(X_train, y_train)
+</pre>
+
+    <p>Tuning improves generalization.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DEPLOY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 9 — Model Deployment (Streamlit)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The trained pipeline is saved and deployed locally.</p>
+
+<pre>
+import joblib
+joblib.dump(grid.best_estimator_, "churn_model.pkl")
+</pre>
+
+    <p>Loaded into a Streamlit app for real-time predictions.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Step 10 — Interpretation & Business Insight
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model outputs are translated into actions:</p>
+
+    <ul>
+      <li>High-risk customers → retention offers</li>
+      <li>Medium-risk → monitoring</li>
+      <li>Low-risk → no action</li>
+    </ul>
+
+    <p>ML supports decisions, not replaces humans.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LESSONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Key Lessons from the End-to-End Project
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Preprocessing matters more than algorithms</li>
+      <li>Pipelines prevent leakage</li>
+      <li>Validation ensures trust</li>
+      <li>Deployment completes the ML lifecycle</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Final Chapter Summary & Course Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>You now understand ML end to end.</p>
+    <p>You can design, build, validate, and deploy models.</p>
+    <p>You think like a data scientist, not just a coder.</p>
+    <p>This completes the full Machine Learning curriculum.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
