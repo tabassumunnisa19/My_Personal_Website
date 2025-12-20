@@ -1572,6 +1572,233 @@ body {
 
   </div>
 </div>
+<!-- ===================== CHAPTER 7 ===================== -->
+<div class="chapter-title">
+  Chapter 7 — Logistic Regression
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is Logistic Regression?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression is a supervised learning algorithm used for <strong>classification problems</strong>.</p>
+
+    <p>Despite its name, Logistic Regression is <strong>not used for regression</strong>. It is used to predict <strong>categories</strong>, especially <strong>binary outcomes</strong>.</p>
+
+    <p>The main purpose of Logistic Regression is to estimate the <strong>probability</strong> that a given input belongs to a particular class.</p>
+
+    <p>It answers questions like: “What is the probability that this event will happen?”</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHY NOT LINEAR ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Linear Regression Cannot Be Used for Classification
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Linear Regression produces outputs that can range from negative infinity to positive infinity.</p>
+
+    <p>Classification problems require outputs that represent <strong>class membership</strong>, usually between 0 and 1.</p>
+
+    <p>If we use linear regression for classification, predictions may go below 0 or above 1, which makes no sense for probabilities.</p>
+
+    <p>Therefore, we need a model that restricts outputs to a valid probability range.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PROBABILITY IDEA ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Probability Interpretation in Logistic Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression predicts the probability that an input belongs to a particular class.</p>
+
+    <p>The output is always between <strong>0 and 1</strong>.</p>
+
+    <p>This probability is then converted into a class label using a threshold, usually 0.5.</p>
+
+    <p>For example:</p>
+    <ul>
+      <li>Probability ≥ 0.5 → Class 1</li>
+      <li>Probability &lt; 0.5 → Class 0</li>
+    </ul>
+
+    <p>This makes Logistic Regression both interpretable and practical.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SIGMOID ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    The Sigmoid Function — Heart of Logistic Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression uses a special function called the <strong>sigmoid function</strong>.</p>
+
+    <p>The sigmoid function converts any real-valued number into a value between 0 and 1.</p>
+
+    <p><strong>Sigmoid Formula:</strong></p>
+    <p><strong>σ(z) = 1 / (1 + e<sup>−z</sup>)</strong></p>
+
+    <p>As z becomes very large, the output approaches 1.</p>
+    <p>As z becomes very small, the output approaches 0.</p>
+
+    <p>This smooth curve makes probability-based classification possible.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MODEL EQUATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Logistic Regression Mathematical Model (Intuition)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression first computes a linear combination of inputs:</p>
+
+    <p><strong>z = w₁x₁ + w₂x₂ + ... + b</strong></p>
+
+    <p>This value is then passed through the sigmoid function to produce a probability.</p>
+
+    <p>The model learns the weights and bias that best separate the classes.</p>
+
+    <p>Even though the internal computation is linear, the final output is non-linear due to the sigmoid function.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DECISION BOUNDARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Decision Boundary — How Classification Happens
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The decision boundary is the line (or surface) that separates different classes.</p>
+
+    <p>Logistic Regression creates a boundary where the predicted probability equals the threshold (usually 0.5).</p>
+
+    <p>Points on one side of the boundary are classified as one class, and points on the other side are classified as the other class.</p>
+
+    <p>This boundary can be linear in feature space.</p>
+
+  </div>
+</div>
+
+<!-- ===================== LOSS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Loss Function in Logistic Regression (Conceptual)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression uses a loss function called <strong>Log Loss</strong> or <strong>Binary Cross-Entropy</strong>.</p>
+
+    <p>This loss penalizes incorrect predictions more heavily when the model is confident but wrong.</p>
+
+    <p>For example, predicting a probability of 0.99 for a wrong class results in a large loss.</p>
+
+    <p>This encourages the model to be both accurate and well-calibrated.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHERE USED ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Logistic Regression Is Used in the Real World
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Email spam detection</li>
+      <li>Credit risk assessment</li>
+      <li>Customer churn prediction</li>
+      <li>Medical diagnosis (yes/no outcomes)</li>
+      <li>Fraud detection systems</li>
+    </ul>
+
+    <p>Logistic Regression is widely used because it is fast, interpretable, and reliable.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths of Logistic Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Outputs probabilities, not just labels</li>
+      <li>Easy to interpret</li>
+      <li>Efficient for large datasets</li>
+      <li>Works well for linearly separable data</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of Logistic Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Assumes linear decision boundary</li>
+      <li>Struggles with complex patterns</li>
+      <li>Sensitive to outliers</li>
+      <li>Requires careful feature engineering</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 7 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression is a classification algorithm based on probability.</p>
+
+    <p>The sigmoid function maps values to probabilities.</p>
+
+    <p>The model predicts class membership using decision boundaries.</p>
+
+    <p>Logistic Regression is simple, interpretable, and widely used.</p>
+
+    <p>This chapter builds a strong foundation for understanding advanced classification models.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
