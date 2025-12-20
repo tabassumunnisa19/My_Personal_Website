@@ -2104,6 +2104,527 @@ X_scaled = scaler.fit_transform(X)
 
   </div>
 </div>
+<!-- ===================== CHAPTER 9 ===================== -->
+<div class="chapter-title">
+  Chapter 9 — Logistic Regression (Full Implementation)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly Logistic Regression Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression is used when the problem requires predicting the <strong>probability of a binary outcome</strong>.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Email Spam Detection:</strong> Predicts whether an email is spam or not spam based on text features.</li>
+      <li><strong>Credit / Loan Approval:</strong> Estimates probability of default to decide approve or reject.</li>
+      <li><strong>Customer Churn Prediction:</strong> Predicts whether a customer will leave a service.</li>
+      <li><strong>Medical Diagnosis:</strong> Predicts probability of disease presence (yes / no).</li>
+      <li><strong>Fraud Detection:</strong> Identifies whether a transaction is fraudulent.</li>
+    </ul>
+
+    <p>Logistic Regression is preferred in these cases because it produces <strong>probabilities</strong>, not just class labels.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Logistic Regression — Concept Refresher (Implementation View)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression is a supervised learning algorithm used for binary classification.</p>
+
+    <p>Instead of predicting a continuous value, it predicts the <strong>probability</strong> that an input belongs to class 1.</p>
+
+    <p>The output probability is converted into a class label using a threshold (commonly 0.5).</p>
+
+  </div>
+</div>
+
+<!-- ===================== SIGMOID ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Sigmoid Function — Implementation Core
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The sigmoid function converts any real number into a value between 0 and 1.</p>
+
+<pre>
+import numpy as np
+
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+</pre>
+
+    <p>This allows us to interpret outputs as probabilities.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Predict whether a student passes an exam based on hours studied.</p>
+
+<pre>
+Hours Studied: 1, 2, 3, 4, 5, 6
+Result (0=Fail, 1=Pass): 0, 0, 0, 1, 1, 1
+</pre>
+
+    <p>This is a classic binary classification problem.</p>
+
+  </div>
+</div>
+
+<!-- ===================== FROM SCRATCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Logistic Regression From Scratch (Math + NumPy)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+# Dataset
+X = np.array([1,2,3,4,5,6])
+y = np.array([0,0,0,1,1,1])
+
+# Reshape
+X = X.reshape(-1,1)
+
+# Initialize parameters
+w = 0.0
+b = 0.0
+lr = 0.1
+
+# Gradient Descent
+for _ in range(1000):
+    z = w * X.flatten() + b
+    y_hat = sigmoid(z)
+
+    dw = np.mean((y_hat - y) * X.flatten())
+    db = np.mean(y_hat - y)
+
+    w -= lr * dw
+    b -= lr * db
+
+print("Weight:", w)
+print("Bias:", b)
+</pre>
+
+    <p>The model learns parameters that minimize log-loss.</p>
+
+  </div>
+</div>
+
+<!-- ===================== PREDICTION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Making Predictions (Probability → Class)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+z = w * X.flatten() + b
+probs = sigmoid(z)
+preds = (probs >= 0.5).astype(int)
+
+print("Probabilities:", probs)
+print("Predicted Classes:", preds)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Logistic Regression Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()
+model.fit(X, y)
+
+print("Coefficient:", model.coef_)
+print("Intercept:", model.intercept_)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Scaling Features — Why It Matters
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+</pre>
+
+    <p>Scaling improves convergence and numerical stability.</p>
+
+  </div>
+</div>
+
+<!-- ===================== EVALUATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Evaluating Logistic Regression Model
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.metrics import confusion_matrix, classification_report
+
+y_pred = model.predict(X)
+
+print(confusion_matrix(y, y_pred))
+print(classification_report(y, y_pred))
+</pre>
+
+    <p>Evaluation focuses on precision, recall, and F1-score rather than accuracy alone.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting Logistic Regression Output
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The coefficient represents how strongly a feature influences the probability of the positive class.</p>
+
+    <p>Positive coefficient → increases probability.</p>
+    <p>Negative coefficient → decreases probability.</p>
+
+    <p>This interpretability is a major reason Logistic Regression is widely used in regulated industries.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 9 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Logistic Regression is a probability-based classification algorithm.</p>
+    <p>It is widely used in finance, healthcare, marketing, and security.</p>
+    <p>Implementation can be done from scratch and using libraries.</p>
+    <p>Evaluation metrics beyond accuracy are essential.</p>
+    <p>This chapter completes binary classification fundamentals.</p>
+
+  </div>
+</div>
+<!-- ===================== CHAPTER 10 ===================== -->
+<div class="chapter-title">
+  Chapter 10 — K-Nearest Neighbors (KNN)
+</div>
+
+<!-- ===================== USE CASES ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Where Exactly K-Nearest Neighbors Is Used (Real-World Scenarios)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Nearest Neighbors (KNN) is used when <strong>similarity between data points</strong> is more important than learning a complex model.</p>
+
+    <p><strong>Common real-world use cases:</strong></p>
+
+    <ul>
+      <li><strong>Recommendation Systems:</strong> Suggest products or movies based on similar users’ behavior.</li>
+      <li><strong>Customer Segmentation:</strong> Group customers based on purchasing patterns or demographics.</li>
+      <li><strong>Medical Diagnosis Support:</strong> Identify disease likelihood by comparing patient records with similar past cases.</li>
+      <li><strong>Image Recognition:</strong> Classify images by comparing pixel similarity with known images.</li>
+      <li><strong>Anomaly Detection:</strong> Detect unusual behavior by checking distance from normal data points.</li>
+    </ul>
+
+    <p>KNN is preferred in these cases because decisions are based on <strong>closeness and similarity</strong>, not learned parameters.</p>
+
+  </div>
+</div>
+
+<!-- ===================== CONCEPT ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What is K-Nearest Neighbors? (Conceptual View)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>K-Nearest Neighbors is a <strong>supervised learning algorithm</strong> that can be used for both classification and regression.</p>
+
+    <p>Unlike other algorithms, KNN does <strong>not learn a model during training</strong>.</p>
+
+    <p>Instead, it stores the entire dataset and makes predictions only when a new data point appears.</p>
+
+    <p>The prediction is based on the <strong>K closest data points</strong> to the new input.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTUITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Core Intuition — “You Are Like Your Neighbors”
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The main idea behind KNN is very intuitive: similar things exist close to each other.</p>
+
+    <p>If most of your nearest neighbors belong to a particular class, you are likely to belong to the same class.</p>
+
+    <p>This is why KNN is called a <strong>distance-based learning algorithm</strong>.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DISTANCE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Distance Metrics — How “Closeness” Is Measured
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>KNN relies on distance calculations to identify nearest neighbors.</p>
+
+    <p><strong>Most common distance metric:</strong> Euclidean Distance</p>
+
+    <p><strong>Formula:</strong></p>
+    <p>√[(x₁ − x₂)² + (y₁ − y₂)²]</p>
+
+    <p>The smaller the distance, the more similar the points.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Practical Dataset Used in This Chapter
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Classify a person as a “Low Spender” or “High Spender” based on annual income.</p>
+
+<pre>
+Income (₹): 20, 25, 30, 60, 65, 70
+Class:      Low, Low, Low, High, High, High
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== FROM SCRATCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    KNN From Scratch (Distance + Logic)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+import numpy as np
+
+X = np.array([20,25,30,60,65,70])
+y = np.array([0,0,0,1,1,1])  # 0=Low, 1=High
+
+def knn_predict(X, y, query, k=3):
+    distances = np.abs(X - query)
+    k_indices = distances.argsort()[:k]
+    k_labels = y[k_indices]
+    return np.bincount(k_labels).argmax()
+
+print(knn_predict(X, y, query=40, k=3))
+</pre>
+
+    <p>The class is determined by majority voting among nearest neighbors.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Scaling Is Mandatory for KNN
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>KNN depends entirely on distance calculations.</p>
+
+    <p>If features are on different scales, the feature with larger values dominates the distance.</p>
+
+    <p>This can completely distort results.</p>
+
+<pre>
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X.reshape(-1,1))
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    KNN Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.neighbors import KNeighborsClassifier
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X.reshape(-1,1), y)
+
+prediction = model.predict([[40]])
+print(prediction)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== CHOOSING K ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Choosing the Value of K (Very Important)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Small K:</p>
+    <ul>
+      <li>More sensitive to noise</li>
+      <li>May overfit</li>
+    </ul>
+
+    <p>Large K:</p>
+    <ul>
+      <li>Smoother decision boundary</li>
+      <li>May underfit</li>
+    </ul>
+
+    <p>The best value of K is usually chosen using validation techniques.</p>
+
+  </div>
+</div>
+
+<!-- ===================== EVALUATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Evaluating KNN Model
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.metrics import accuracy_score
+
+y_pred = model.predict(X.reshape(-1,1))
+print("Accuracy:", accuracy_score(y, y_pred))
+</pre>
+
+    <p>Evaluation metrics depend on the problem type (classification or regression).</p>
+
+  </div>
+</div>
+
+<!-- ===================== STRENGTHS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Strengths of KNN
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Simple and intuitive</li>
+      <li>No training phase</li>
+      <li>Works well with small datasets</li>
+      <li>Flexible decision boundaries</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== LIMITATIONS ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Limitations of KNN
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <ul>
+      <li>Slow for large datasets</li>
+      <li>Memory intensive</li>
+      <li>Highly sensitive to scaling</li>
+      <li>Not suitable for high-dimensional data</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 10 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>KNN is a distance-based, instance-based learning algorithm.</p>
+    <p>It relies on similarity rather than learning parameters.</p>
+    <p>Scaling is critical for correct performance.</p>
+    <p>KNN is best suited for small, well-structured datasets.</p>
+    <p>This chapter completes distance-based supervised learning.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
