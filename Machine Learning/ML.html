@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Machine Learning — Introduction</title>
+<title>Chapter 1 — Introduction to Machine Learning</title>
 
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,53 +12,55 @@
 body {
   line-height: 1.8;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: #f8fafc;
 }
 
-/* ===================== CHAPTER ===================== */
+/* ===================== CHAPTER TITLE ===================== */
 .chapter-title {
-  background: linear-gradient(90deg, #6d5dfc, #7c6ee6); /* dusting purple */
-  color: #fff;
-  padding: 1.4rem 1.8rem;
-  border-radius: 10px;
-  font-size: 1.6rem;
+  background: linear-gradient(90deg, #6b5cff, #8b7cf6); /* dusting professional */
+  color: #ffffff;
+  padding: 1.6rem 2rem;
+  border-radius: 12px;
+  font-size: 1.7rem;
   font-weight: 800;
-  margin-bottom: 2rem;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+  margin-bottom: 2.2rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-/* ===================== TOPICS ===================== */
+/* ===================== TOPIC BLOCK ===================== */
 .topic-block {
-  border: 1px solid #e6eef8;
-  border-radius: 8px;
-  margin-bottom: 1.2rem;
-  background: #fff;
+  border: 1px solid #e5f1fb;
+  border-radius: 10px;
+  margin-bottom: 1.4rem;
+  background: #ffffff;
   overflow: hidden;
 }
 
+/* LIGHT SKY BLUE subtopic header */
 .topic-btn {
   width: 100%;
   text-align: left;
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.4rem;
   border: none;
-  background: #2563eb;
-  color: #fff;
+  background: #7dd3fc;       /* light sky blue */
+  color: #0f172a;
   cursor: pointer;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.08rem;
+  font-weight: 700;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .topic-btn:hover {
-  background: #1d4ed8;
+  background: #bae6fd;
 }
 
 .topic-content {
   display: none;
-  padding: 1.4rem;
+  padding: 1.6rem 1.6rem 1.8rem;
   background: #ffffff;
-  border-top: 1px solid #e6eef8;
+  border-top: 1px solid #e5f1fb;
 }
 
 .topic-content p {
@@ -78,11 +80,11 @@ body {
 /* ===================== GO BACK ===================== */
 .go-back {
   text-align: center;
-  margin: 2.5rem 0;
+  margin: 3rem 0;
 }
 
 .go-back button {
-  padding: 0.75rem 1.6rem;
+  padding: 0.8rem 1.7rem;
   font-size: 1rem;
   border: none;
   border-radius: 6px;
@@ -95,7 +97,7 @@ body {
 
 <body>
 
-<!-- HEADER (UNCHANGED) -->
+<!-- HEADER (UNCHANGED STRUCTURE) -->
 <header class="site-header">
   <div class="site-container header-inner">
     <a href="../index.html" class="logo">
@@ -116,7 +118,7 @@ body {
   </div>
 </header>
 
-<main class="site-container" style="padding:2rem;">
+<main class="site-container" style="padding:2.5rem;">
 
 <!-- ===================== CHAPTER TITLE ===================== -->
 <div class="chapter-title">
@@ -127,9 +129,10 @@ body {
 <div class="topic-block">
 <button class="topic-btn">1. What is Machine Learning? <i class="fas fa-chevron-down"></i></button>
 <div class="topic-content">
-<p>Machine Learning (ML) is a branch of Artificial Intelligence that enables computers to learn patterns from data and make predictions or decisions without being explicitly programmed.</p>
-<p>Instead of writing rules manually, we provide historical data and correct outputs. The system learns relationships automatically and improves with experience.</p>
-<p>Example: Email spam detection learns from thousands of emails rather than fixed rules.</p>
+<p><strong>Machine Learning (ML)</strong> is a technique that enables computers to learn patterns from data and make predictions or decisions without being explicitly programmed for every rule.</p>
+<p>Instead of telling the computer what to do step by step, we provide historical data and correct outputs. The system learns from experience and improves over time.</p>
+<p>Learning for a machine means identifying mathematical patterns and relationships between inputs and outputs.</p>
+<p><strong>Practical example:</strong> Email spam detection learns patterns from thousands of emails instead of fixed rules.</p>
 </div>
 </div>
 
@@ -137,12 +140,10 @@ body {
 <div class="topic-block">
 <button class="topic-btn">2. Traditional Programming vs Machine Learning <i class="fas fa-chevron-down"></i></button>
 <div class="topic-content">
-<p>Traditional programming relies on human-written rules applied to data. Machine learning discovers rules from data itself.</p>
-<ul>
-<li>Traditional: Rules + Data → Output</li>
-<li>Machine Learning: Data + Output → Model</li>
-</ul>
-<p>ML is scalable and adaptable, making it suitable for complex real-world problems.</p>
+<p>Traditional programming follows a rule-based approach where humans define logic explicitly.</p>
+<p><strong>Traditional flow:</strong> Rules + Data → Output</p>
+<p><strong>Machine Learning flow:</strong> Data + Output → Model</p>
+<p>Machine Learning is used when rules are unclear, complex, or constantly changing.</p>
 </div>
 </div>
 
@@ -150,11 +151,11 @@ body {
 <div class="topic-block">
 <button class="topic-btn">3. Why Machine Learning? <i class="fas fa-chevron-down"></i></button>
 <div class="topic-content">
-<p>Machine learning is needed due to massive data generation, complex relationships, and constantly changing environments.</p>
+<p>Machine Learning is needed due to the explosion of data, complexity of relationships, and dynamic nature of real-world systems.</p>
 <ul>
-<li>Humans cannot analyze huge datasets manually</li>
-<li>Patterns may be non-linear and hidden</li>
-<li>Rules evolve over time</li>
+<li>Massive data generated from sensors and systems</li>
+<li>Hidden and non-linear relationships</li>
+<li>Rules change over time</li>
 </ul>
 </div>
 </div>
@@ -168,28 +169,26 @@ body {
 <li>Healthcare diagnosis and imaging</li>
 <li>Finance and fraud detection</li>
 <li>Recommendation systems</li>
-<li>Climate & disaster analysis</li>
+<li>Climate and disaster analysis</li>
 </ul>
 </div>
 </div>
 
 <!-- ===================== TOPIC 5 ===================== -->
 <div class="topic-block">
-<button class="topic-btn">5. Types of Problems ML Solves <i class="fas fa-chevron-down"></i></button>
+<button class="topic-btn">5. Types of Problems Machine Learning Solves <i class="fas fa-chevron-down"></i></button>
 <div class="topic-content">
-<ul>
-<li><strong>Regression:</strong> Predict numeric values</li>
-<li><strong>Classification:</strong> Predict categories</li>
-<li><strong>Clustering:</strong> Discover hidden groups</li>
-</ul>
+<p><strong>Regression:</strong> Predict numerical values (temperature, CO₂).</p>
+<p><strong>Classification:</strong> Predict categories (Flood/No Flood).</p>
+<p><strong>Clustering:</strong> Discover patterns without labels.</p>
 </div>
 </div>
 
 <!-- ===================== TOPIC 6 ===================== -->
 <div class="topic-block">
-<button class="topic-btn">6. ML vs Data Science vs AI <i class="fas fa-chevron-down"></i></button>
+<button class="topic-btn">6. ML vs Data Science vs Artificial Intelligence <i class="fas fa-chevron-down"></i></button>
 <div class="topic-content">
-<p>AI is the broadest field, ML is a subset of AI, and Data Science is an end-to-end discipline that uses ML as a tool.</p>
+<p>Artificial Intelligence is the broad goal of machine intelligence. Machine Learning is a subset that learns from data. Data Science is an end-to-end discipline that uses ML as a tool.</p>
 </div>
 </div>
 
@@ -197,8 +196,8 @@ body {
 <div class="topic-block">
 <button class="topic-btn">7. Machine Learning Workflow (Overview) <i class="fas fa-chevron-down"></i></button>
 <div class="topic-content">
-<p>The ML workflow includes problem understanding, data collection, preprocessing, model building, evaluation, and deployment.</p>
-<p>Most effort is spent on data preprocessing.</p>
+<p>The ML workflow includes problem understanding, data collection, preprocessing, model training, evaluation, and deployment.</p>
+<p>Most effort is spent on data preprocessing rather than algorithms.</p>
 </div>
 </div>
 
@@ -218,9 +217,9 @@ body {
 
 <!-- ===================== TOPIC 9 ===================== -->
 <div class="topic-block">
-<button class="topic-btn">9. Chapter Summary <i class="fas fa-chevron-down"></i></button>
+<button class="topic-btn">9. Chapter Summary & Key Takeaways <i class="fas fa-chevron-down"></i></button>
 <div class="topic-content">
-<p>Machine learning enables data-driven decision-making but must be applied responsibly with awareness of its limitations.</p>
+<p>Machine Learning learns from data, not rules. It is essential for complex systems but must be applied responsibly with awareness of its limitations.</p>
 </div>
 </div>
 
@@ -233,7 +232,7 @@ body {
 <!-- FOOTER (UNCHANGED, PROFESSIONAL ICONS) -->
 <footer class="site-footer">
   <div class="site-container footer-inner">
-    <p>© 2025 Nisa — Built with ❤️</p>
+    <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
     <div class="socials">
       <a href="#" class="social linkedin"><i class="fab fa-linkedin"></i></a>
       <a href="#" class="social github"><i class="fab fa-github"></i></a>
@@ -244,7 +243,7 @@ body {
 </footer>
 
 <script>
-/* Toggle topics */
+/* Toggle subtopics */
 document.querySelectorAll('.topic-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const content = btn.nextElementSibling;
