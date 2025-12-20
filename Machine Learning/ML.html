@@ -1799,6 +1799,311 @@ body {
 
   </div>
 </div>
+<!-- ===================== CHAPTER 8 ===================== -->
+<div class="chapter-title">
+  Chapter 8 — Model Evaluation & Linear Regression Implementation
+</div>
+
+<!-- ===================== WHY EVALUATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Model Evaluation Comes Before Implementation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>In Machine Learning, building a model is not the final goal. The real goal is to build a model that performs well on unseen data.</p>
+
+    <p>Model evaluation helps us answer critical questions:</p>
+    <ul>
+      <li>How accurate is the model?</li>
+      <li>How wrong are the predictions?</li>
+      <li>Can we trust this model in the real world?</li>
+    </ul>
+
+    <p>Without evaluation, a model is just a mathematical equation with no guarantee of usefulness.</p>
+
+  </div>
+</div>
+
+<!-- ===================== ERROR ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Prediction Error — The Foundation of Evaluation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Prediction error is the difference between the actual value and the predicted value.</p>
+
+    <p><strong>Error = Actual − Predicted</strong></p>
+
+    <p>Since errors can be positive or negative, we summarize them using evaluation metrics.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MAE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Mean Absolute Error (MAE) — Concept & Implementation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>MAE measures the average magnitude of errors without considering direction.</p>
+
+    <p><strong>Formula:</strong></p>
+    <p>|Actual − Predicted|</p>
+
+    <p><strong>Python Implementation:</strong></p>
+
+<pre>
+import numpy as np
+
+y_true = np.array([100, 150, 200])
+y_pred = np.array([110, 140, 190])
+
+mae = np.mean(np.abs(y_true - y_pred))
+print(mae)
+</pre>
+
+    <p>MAE is easy to understand and is expressed in the same unit as the target variable.</p>
+
+  </div>
+</div>
+
+<!-- ===================== MSE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Mean Squared Error (MSE) — Concept & Implementation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>MSE squares the errors before averaging, giving more weight to large errors.</p>
+
+    <p><strong>Python Implementation:</strong></p>
+
+<pre>
+mse = np.mean((y_true - y_pred) ** 2)
+print(mse)
+</pre>
+
+    <p>MSE is sensitive to outliers and is commonly used during model training.</p>
+
+  </div>
+</div>
+
+<!-- ===================== RMSE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Root Mean Squared Error (RMSE)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>RMSE is the square root of MSE and brings the error back to the original unit.</p>
+
+<pre>
+rmse = np.sqrt(mse)
+print(rmse)
+</pre>
+
+    <p>RMSE is widely used in regression problems.</p>
+
+  </div>
+</div>
+
+<!-- ===================== R2 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    R² Score — Explained Intuitively
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>R² measures how much variance in the output is explained by the model.</p>
+
+    <p>R² = 1 → perfect model</p>
+    <p>R² = 0 → model performs like mean prediction</p>
+
+<pre>
+from sklearn.metrics import r2_score
+r2 = r2_score(y_true, y_pred)
+print(r2)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== TRANSITION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Transition: From Evaluation to Linear Regression
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Now that we know how to measure model performance, we can safely build and evaluate a regression model.</p>
+
+    <p>We will now implement Linear Regression step by step.</p>
+
+  </div>
+</div>
+
+<!-- ===================== DATASET ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Problem Statement & Dataset
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p><strong>Problem:</strong> Predict monthly electricity bill based on electricity usage.</p>
+
+    <p><strong>Dataset:</strong></p>
+
+<pre>
+Usage (units): 100, 200, 300, 400, 500
+Bill (₹):      500, 1000, 1500, 2000, 2500
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== FROM SCRATCH ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Linear Regression From Scratch (Math + Python)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>We use the equation:</p>
+    <p><strong>y = mx + b</strong></p>
+
+<pre>
+x = np.array([100,200,300,400,500])
+y = np.array([500,1000,1500,2000,2500])
+
+m = np.cov(x, y, bias=True)[0][1] / np.var(x)
+b = y.mean() - m * x.mean()
+
+print("Slope:", m)
+print("Intercept:", b)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== PREDICTION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Making Predictions Using the Model
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+y_pred = m * x + b
+print(y_pred)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== EVALUATE ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Evaluating Linear Regression Model
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+print("MAE:", np.mean(np.abs(y - y_pred)))
+print("RMSE:", np.sqrt(np.mean((y - y_pred)**2)))
+print("R2:", r2_score(y, y_pred))
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SKLEARN ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Linear Regression Using scikit-learn
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.linear_model import LinearRegression
+
+X = x.reshape(-1,1)
+model = LinearRegression()
+model.fit(X, y)
+
+print("Coefficient:", model.coef_)
+print("Intercept:", model.intercept_)
+</pre>
+
+  </div>
+</div>
+
+<!-- ===================== SCALING ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Scaling Input Features (Best Practice)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+<pre>
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+</pre>
+
+    <p>Scaling improves numerical stability and consistency.</p>
+
+  </div>
+</div>
+
+<!-- ===================== INTERPRETATION ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Interpreting the Model
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>The coefficient represents how much the bill increases per unit usage.</p>
+
+    <p>The intercept represents the baseline charge.</p>
+
+    <p>This makes Linear Regression highly interpretable.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 8 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Evaluation metrics quantify model performance.</p>
+    <p>Linear Regression can be implemented from scratch and using libraries.</p>
+    <p>Scaling and interpretation are essential.</p>
+    <p>This chapter completes the first full ML implementation cycle.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
