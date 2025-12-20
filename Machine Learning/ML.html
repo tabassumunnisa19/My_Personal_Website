@@ -548,6 +548,266 @@ body {
 
   </div>
 </div>
+<!-- ===================== CHAPTER 3 ===================== -->
+<div class="chapter-title">
+  Chapter 3 — Machine Learning Workflow
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Why Do We Need a Machine Learning Workflow?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Machine Learning is not just about choosing an algorithm.</p>
+
+    <p>Many beginners think, “If I learn algorithms, I know Machine Learning.” This assumption is incorrect.</p>
+
+    <p>In real-world projects, algorithms are only a small part of the overall process. Most of the effort goes into understanding the problem and preparing the data.</p>
+
+    <p>A Machine Learning workflow provides a systematic, step-by-step process to solve problems correctly and efficiently.</p>
+
+    <p>Without a proper workflow, results become unreliable, models fail in real-world usage, and conclusions become misleading.</p>
+
+  </div>
+</div>
+
+<!-- ===================== WHAT IS WORKFLOW ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    What Is a Machine Learning Workflow?
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A Machine Learning workflow is a structured sequence of steps followed to build, evaluate, and use a machine learning model.</p>
+
+    <p>This workflow ensures that the right problem is solved, data is handled correctly, and results are meaningful and reproducible.</p>
+
+  </div>
+</div>
+
+<!-- ===================== OVERVIEW ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    High-Level Overview of the Machine Learning Workflow
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>A typical Machine Learning workflow consists of the following stages:</p>
+
+    <ol>
+      <li>Problem Understanding</li>
+      <li>Data Collection</li>
+      <li>Data Exploration (EDA)</li>
+      <li>Data Preprocessing</li>
+      <li>Feature Selection & Feature Engineering</li>
+      <li>Model Selection & Training</li>
+      <li>Model Evaluation</li>
+      <li>Model Tuning & Improvement</li>
+      <li>Deployment & Monitoring (conceptual)</li>
+    </ol>
+
+    <p>Each step is important and cannot be skipped.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 1 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    1. Problem Understanding
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Before touching any data, we must clearly understand what problem we are solving, why we are solving it, and how success will be measured.</p>
+
+    <p>A poorly defined problem leads to wrong model choices, incorrect evaluation, and useless results.</p>
+
+    <p>Important questions to ask include:</p>
+
+    <ul>
+      <li>Is this a prediction problem or a pattern discovery problem?</li>
+      <li>Is the output numerical or categorical?</li>
+      <li>Who will use the result?</li>
+      <li>What decisions depend on this model?</li>
+    </ul>
+
+    <p>For example, instead of saying “We want to analyze disasters,” a better problem statement is “We want to predict the likelihood of climate-related disasters based on temperature, ENSO index, and urbanization.”</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 2 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    2. Data Collection
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Data collection is the process of gathering relevant data required to solve the defined problem.</p>
+
+    <p>Data can be collected from various sources such as databases, APIs, CSV or Excel files, sensors, and public datasets.</p>
+
+    <p>Data quality is more important than data quantity. Important factors include relevance, completeness, accuracy, and consistency.</p>
+
+    <p>Poor-quality data leads to poor models regardless of which algorithm is used.</p>
+
+    <p>For climate-related problems, data may include temperature records, disaster data, ENSO indices, and urbanization indicators. All datasets must align properly in terms of time and region.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 3 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    3. Data Exploration (EDA)
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Exploratory Data Analysis (EDA) is used to understand the data before making any modifications.</p>
+
+    <p>EDA helps answer questions such as what the data looks like, whether there are missing values or outliers, how variables are distributed, and whether relationships exist between variables.</p>
+
+    <p>Common EDA activities include viewing data samples, checking data types, calculating summary statistics, and creating visualizations such as histograms and scatter plots.</p>
+
+    <p>EDA prevents blind preprocessing and wrong assumptions, and it guides what preprocessing steps are required next.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 4 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    4. Data Preprocessing
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Data preprocessing is the process of cleaning and transforming raw data into a format suitable for machine learning models.</p>
+
+    <p>This step often consumes 60–80% of the total project time.</p>
+
+    <p>Real-world data is usually incomplete, noisy, inconsistent, and unstructured. Machine learning algorithms expect numerical, clean, and well-scaled data.</p>
+
+    <p>Common preprocessing tasks include handling missing values, encoding categorical variables, scaling and standardization, removing duplicates, and handling outliers.</p>
+
+    <p>This is why data preprocessing is treated as a separate and very important chapter.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 5 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    5. Feature Selection & Feature Engineering
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Features are the input variables used by a machine learning model to make predictions.</p>
+
+    <p>Feature selection involves choosing the most relevant features while removing unnecessary or redundant ones. This reduces noise and improves model performance.</p>
+
+    <p>Feature engineering involves creating new meaningful features from existing data.</p>
+
+    <p>For example, combining temperature and humidity to create a heat index, or calculating disaster frequency per decade.</p>
+
+    <p>Good features often improve performance more than complex algorithms.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 6 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    6. Model Selection & Training
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model selection involves choosing an appropriate algorithm based on the type of problem, data size, and interpretability requirements.</p>
+
+    <p>Examples include using linear regression for simple trends or decision trees for non-linear relationships.</p>
+
+    <p>Model training is the process where the algorithm learns parameters from historical data by minimizing error and capturing patterns.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 7 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    7. Model Evaluation
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model evaluation is necessary because a model that performs well on training data may fail on new, unseen data.</p>
+
+    <p>Evaluation ensures that the model generalizes well and produces reliable results.</p>
+
+    <p>This involves comparing predictions with actual values and measuring performance using appropriate metrics.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 8 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    8. Model Tuning & Improvement
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Model tuning involves adjusting parameters, improving features, and addressing overfitting or underfitting.</p>
+
+    <p>Improvements often come from better preprocessing and feature engineering rather than switching algorithms repeatedly.</p>
+
+  </div>
+</div>
+
+<!-- ===================== STEP 9 ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    9. Deployment & Monitoring
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Deployment refers to making the model available for real-world use by integrating it into applications, dashboards, or systems.</p>
+
+    <p>Monitoring is necessary because model performance can degrade over time as data patterns and environments change.</p>
+
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="topic-block">
+  <button class="topic-btn">
+    Chapter 3 Summary & Key Takeaways
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="topic-content">
+
+    <p>Machine Learning follows a structured workflow rather than a single-step process.</p>
+
+    <p>Understanding the problem is more important than choosing algorithms.</p>
+
+    <p>Data preprocessing is the most time-consuming and critical step.</p>
+
+    <p>Feature quality matters more than model complexity.</p>
+
+    <p>This workflow forms the bridge between theory and practical machine learning implementation.</p>
+
+  </div>
+</div>
 
 <div class="go-back">
 <button onclick="history.back()">← Go Back</button>
