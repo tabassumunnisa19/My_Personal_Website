@@ -3,9 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Machine Learning Interview — Atlas 1 (Fundamentals)</title>
+<title>Machine Learning Interview Questions — Nisa</title>
 
+<!-- Main Site CSS -->
 <link rel="stylesheet" href="../style.css">
+
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -61,190 +64,172 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="site-container header-inner">
     <a href="../index.html" class="logo">
       <img src="../logo.jpg" alt="Nisa logo">
     </a>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
     <nav class="navbar">
       <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html">Portfolio</a>
       <a href="../learn.html" class="active">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
+<!-- ================= MAIN CONTENT ================= -->
 <main class="site-container" style="padding:2rem;">
 
 <h2 class="topic-header">
-  ATLAS 1 — Machine Learning Fundamentals
+  Topic — Machine Learning Fundamentals
 </h2>
 
 <div class="qa-section">
 
-<!-- Q1 -->
 <div class="qa-block">
 <button>1. What is Machine Learning in real-world terms? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-Machine Learning is the ability of a system to learn patterns from historical data
-and make predictions or decisions on new, unseen data without being explicitly programmed.
+Machine Learning is the ability of systems to learn patterns from historical data
+and make predictions or decisions on new, unseen data without explicit rules.
 <br><br>
-<strong>Interview expectation:</strong> You must say <em>prediction + learning from data</em>, not definitions.
+<strong>Interview focus:</strong> Prediction + learning from data.
 </div>
 </div>
 
-<!-- Q2 -->
 <div class="qa-block">
 <button>2. How is Machine Learning different from traditional programming? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-In traditional programming, rules are written by humans and data is processed using those rules.
-In Machine Learning, data and outcomes are provided to the algorithm, and the system learns the rules itself.
+Traditional programming uses predefined rules written by humans.
+Machine Learning learns rules automatically from data.
 <br><br>
-<strong>Real example:</strong> Spam filtering cannot be rule-based effectively — ML adapts automatically.
+<strong>Example:</strong> Spam detection adapts continuously — rules cannot.
 </div>
 </div>
 
-<!-- Q3 -->
 <div class="qa-block">
 <button>3. How is Machine Learning different from statistics? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-Statistics focuses on inference, hypothesis testing, and explaining relationships.
-Machine Learning focuses on prediction accuracy and automation at scale.
+Statistics focuses on inference and explanation.
+Machine Learning focuses on prediction accuracy and scalability.
 <br><br>
-<strong>Interview trap:</strong> Saying “ML is advanced statistics” is ❌.
+<strong>Interview trap:</strong> “ML is advanced statistics” ❌
 </div>
 </div>
 
-<!-- Q4 -->
 <div class="qa-block">
 <button>4. When should you NOT use Machine Learning? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-Machine Learning should not be used when:
+Do NOT use ML when:
 <ul>
-<li>Simple rule-based logic is sufficient</li>
-<li>Very little data is available</li>
-<li>No clear pattern exists</li>
-<li>Business rules frequently change</li>
+<li>Simple rules are sufficient</li>
+<li>Very little data exists</li>
+<li>No learnable pattern exists</li>
+<li>Business logic changes daily</li>
 </ul>
-<strong>This is a GOLD interview answer.</strong>
+<strong>This answer scores HIGH in interviews.</strong>
 </div>
 </div>
 
-<!-- Q5 -->
 <div class="qa-block">
 <button>5. What are the main types of Machine Learning? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
 <ul>
-<li><strong>Supervised Learning</strong> — labeled data (regression, classification)</li>
-<li><strong>Unsupervised Learning</strong> — unlabeled data (clustering)</li>
-<li><strong>Semi-supervised Learning</strong> — partial labels</li>
-<li><strong>Reinforcement Learning</strong> — learning via rewards</li>
+<li><strong>Supervised</strong> — labeled data</li>
+<li><strong>Unsupervised</strong> — unlabeled data</li>
+<li><strong>Semi-supervised</strong></li>
+<li><strong>Reinforcement Learning</strong></li>
 </ul>
-Interviewers mainly expect clarity on the first two.
 </div>
 </div>
 
-<!-- Q6 -->
 <div class="qa-block">
 <button>6. What makes a problem suitable for Machine Learning? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-A problem is suitable when:
+A problem is suitable if:
 <ul>
-<li>Historical data exists</li>
-<li>Patterns can be learned</li>
-<li>Future predictions are valuable</li>
-<li>Errors have acceptable tolerance</li>
+<li>Historical data is available</li>
+<li>Patterns exist</li>
+<li>Predictions create business value</li>
+<li>Some error is acceptable</li>
 </ul>
-ML is not magic — it needs learnable structure.
 </div>
 </div>
 
-<!-- Q7 -->
 <div class="qa-block">
 <button>7. What is data leakage and why is it dangerous? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-Data leakage occurs when information from the future or target leaks into training data.
-It causes unrealistically high accuracy and complete failure in production.
-<br><br>
-<strong>Example:</strong> Using post-loan approval data to predict loan approval.
+Data leakage happens when future or target information
+is used during training, leading to unrealistically high accuracy
+and complete failure in production.
 </div>
 </div>
 
-<!-- Q8 -->
 <div class="qa-block">
-<button>8. What happens if training and test data distributions differ? <i class="fas fa-chevron-down"></i></button>
+<button>8. Can a model be accurate but still useless? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-This is called <strong>distribution shift</strong>.
-The model learns patterns that do not exist in real-world data,
-leading to poor generalization and production failure.
-</div>
-</div>
-
-<!-- Q9 -->
-<div class="qa-block">
-<button>9. Can a model be accurate but still useless? <i class="fas fa-chevron-down"></i></button>
-<div class="content">
-Yes. Accuracy alone does not reflect business value.
+Yes. Accuracy alone ignores business context.
 In imbalanced datasets, predicting the majority class
-can give high accuracy but zero usefulness.
+gives high accuracy but no value.
 <br><br>
 <strong>Example:</strong> Fraud detection.
 </div>
 </div>
 
-<!-- Q10 -->
 <div class="qa-block">
-<button>10. Why do ML models fail in production? <i class="fas fa-chevron-down"></i></button>
+<button>9. Why do Machine Learning models fail in production? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
 Common reasons:
 <ul>
 <li>Data drift</li>
-<li>Poor data quality</li>
 <li>Overfitting</li>
+<li>Poor data quality</li>
 <li>Wrong metric optimization</li>
-<li>Changing business behavior</li>
+<li>Changing user behavior</li>
 </ul>
-Interviewers love this question.
 </div>
 </div>
 
-<!-- Q11 -->
 <div class="qa-block">
-<button>11. What is generalization in Machine Learning? <i class="fas fa-chevron-down"></i></button>
+<button>10. What is generalization in Machine Learning? <i class="fas fa-chevron-down"></i></button>
 <div class="content">
-Generalization is the ability of a model to perform well on unseen data,
-not just on training data.
-Good models generalize — bad models memorize.
-</div>
-</div>
-
-<!-- Q12 -->
-<div class="qa-block">
-<button>12. How do you know a model will work in the future? <i class="fas fa-chevron-down"></i></button>
-<div class="content">
-By:
-<ul>
-<li>Using proper train/validation/test split</li>
-<li>Cross-validation</li>
-<li>Monitoring performance after deployment</li>
-</ul>
-There is no guarantee — only controlled risk.
+Generalization is a model’s ability to perform well
+on unseen data, not just training data.
 </div>
 </div>
 
 </div>
 
+<!-- Back Button -->
 <div style="text-align:center; margin:2rem 0;">
-<button onclick="history.back()" class="back-btn">← Go Back</button>
+  <button onclick="history.back()" class="back-btn">← Go Back</button>
 </div>
 
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="site-container footer-inner">
     <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-medium"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
   </div>
 </footer>
 
+<!-- ================= COLLAPSE SCRIPT ================= -->
 <script>
 document.querySelectorAll('.qa-block button').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -269,4 +254,3 @@ document.querySelectorAll('.qa-block button').forEach(btn=>{
 
 </body>
 </html>
-
