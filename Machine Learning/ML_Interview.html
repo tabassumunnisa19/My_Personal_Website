@@ -206,6 +206,284 @@ Generalization is a model’s ability to perform well
 on unseen data, not just training data.
 </div>
 </div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Machine Learning Interview Questions — Supervised Learning</title>
+
+<!-- Main Site CSS -->
+<link rel="stylesheet" href="../style.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+.topic-header{
+  width:100%;
+  padding:1.25rem 1.6rem;
+  margin:2.5rem 0 2rem;
+  border-radius:16px;
+  font-size:1.45rem;
+  font-weight:700;
+  background:#dcfce7;
+  color:#065f46;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+.qa-section{margin-bottom:3.5rem}
+
+.qa-block{
+  border-radius:14px;
+  margin-bottom:1.4rem;
+  overflow:hidden;
+  background:#eef2ff;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.qa-block button{
+  width:100%;
+  border:none;
+  background:#c7d2fe;
+  color:#1e3a8a;
+  cursor:pointer;
+  font-size:1rem;
+  padding:1.05rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:600;
+}
+
+.qa-block button:hover{background:#a5b4fc}
+
+.qa-block .content{
+  display:none;
+  padding:1.2rem 1.5rem;
+  background:#ffffff;
+  border-top:1px solid #c7d2fe;
+  font-size:0.95rem;
+  line-height:1.65;
+  color:#1e293b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="../index.html" class="logo">
+      <img src="../logo.jpg" alt="Nisa logo">
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav class="navbar">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../learn.html" class="active">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="site-container" style="padding:2rem;">
+
+<h2 class="topic-header">
+  Topic — Supervised Learning (Regression & Classification)
+</h2>
+
+<div class="qa-section">
+
+<div class="qa-block">
+<button>1. What is supervised learning in simple terms? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Supervised learning is a type of machine learning where the model learns
+from labeled data — meaning each input has a known output.
+<br><br>
+<strong>Interview expectation:</strong> Input → Output mapping using labeled examples.
+</div>
+</div>
+
+<div class="qa-block">
+<button>2. How do you decide whether a problem is regression or classification? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+If the target variable is continuous (price, temperature, revenue),
+it is a regression problem.
+If the target variable is categorical (yes/no, churn/not churn),
+it is a classification problem.
+</div>
+</div>
+
+<div class="qa-block">
+<button>3. Why should you always start with a baseline model? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+A baseline model provides a reference point.
+It helps measure whether complex models actually add value
+or just increase complexity.
+<br><br>
+<strong>Interview insight:</strong> Jumping directly to advanced models is a red flag.
+</div>
+</div>
+
+<div class="qa-block">
+<button>4. Linear Regression vs Decision Tree — when do you use each? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Use Linear Regression when:
+<ul>
+<li>Relationship is approximately linear</li>
+<li>Interpretability is important</li>
+</ul>
+Use Decision Trees when:
+<ul>
+<li>Data has non-linear relationships</li>
+<li>Rules and thresholds matter</li>
+</ul>
+</div>
+</div>
+
+<div class="qa-block">
+<button>5. When does Linear Regression fail completely? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Linear Regression fails when:
+<ul>
+<li>Strong non-linearity exists</li>
+<li>Outliers dominate</li>
+<li>Multicollinearity is high</li>
+<li>Homoscedasticity assumption breaks</li>
+</ul>
+</div>
+</div>
+
+<div class="qa-block">
+<button>6. Why is Logistic Regression still widely used? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Logistic Regression is:
+<ul>
+<li>Simple and fast</li>
+<li>Highly interpretable</li>
+<li>Good for probability estimation</li>
+</ul>
+<strong>Real use:</strong> Credit approval, medical diagnosis.
+</div>
+</div>
+
+<div class="qa-block">
+<button>7. What does the output of Logistic Regression represent? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+The output is a probability between 0 and 1
+representing the likelihood of belonging to a class.
+A threshold converts it into a class label.
+</div>
+</div>
+
+<div class="qa-block">
+<button>8. Can Logistic Regression handle non-linear data? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Not directly.
+However, non-linearity can be introduced
+using feature engineering or polynomial features.
+</div>
+</div>
+
+<div class="qa-block">
+<button>9. How do business constraints affect algorithm choice? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Business constraints such as explainability,
+latency, regulation, and cost
+often matter more than raw accuracy.
+</div>
+</div>
+
+<div class="qa-block">
+<button>10. Can the same dataset be modeled as both regression and classification? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Yes.
+Example: Predicting exact sales value (regression)
+vs predicting high/low sales category (classification).
+</div>
+</div>
+
+<div class="qa-block">
+<button>11. What happens if the target variable contains outliers? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+Outliers can heavily distort regression models.
+Solutions include:
+<ul>
+<li>Outlier removal</li>
+<li>Robust models</li>
+<li>Transformation of target variable</li>
+</ul>
+</div>
+</div>
+
+<div class="qa-block">
+<button>12. What is the cost of a wrong prediction in real applications? <i class="fas fa-chevron-down"></i></button>
+<div class="content">
+The cost depends on the problem.
+False negatives may be worse than false positives
+in fraud or medical use cases.
+<br><br>
+<strong>Interviewers expect business thinking here.</strong>
+</div>
+</div>
+
+</div>
+
+<!-- Back Button -->
+<div style="text-align:center; margin:2rem 0;">
+  <button onclick="history.back()" class="back-btn">← Go Back</button>
+</div>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-medium"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= COLLAPSE SCRIPT ================= -->
+<script>
+document.querySelectorAll('.qa-block button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const content=btn.nextElementSibling;
+    const icon=btn.querySelector('i');
+    const open=content.style.display==='block';
+
+    document.querySelectorAll('.qa-block .content').forEach(c=>c.style.display='none');
+    document.querySelectorAll('.qa-block i').forEach(i=>{
+      i.classList.remove('fa-chevron-up');
+      i.classList.add('fa-chevron-down');
+    });
+
+    if(!open){
+      content.style.display='block';
+      icon.classList.remove('fa-chevron-down');
+      icon.classList.add('fa-chevron-up');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
 
 </div>
 
