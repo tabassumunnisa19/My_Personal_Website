@@ -1036,6 +1036,720 @@ in fraud or medical use cases.
 
 </div>
 
+<!-- =================================================
+     TOPIC — HYPERPARAMETER TUNING
+================================================= -->
+<h2 class="topic-header topic-indigo">
+  Topic — Hyperparameter Tuning
+</h2>
+
+<div class="qa-section">
+
+  <div class="qa-block">
+    <button>1. What are hyperparameters in machine learning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Hyperparameters are configuration settings defined before training a model.
+      They control model behavior and learning capacity, such as learning rate,
+      tree depth, number of neighbors, or regularization strength.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. What is the difference between parameters and hyperparameters? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Parameters are learned from data during training (e.g., weights).
+      Hyperparameters are set externally and guide how the model learns.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>3. Why is hyperparameter tuning important? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Proper tuning improves model performance, controls overfitting,
+      and ensures the model generalizes well to unseen data.
+      Poor hyperparameters can make even good algorithms fail.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>4. What is Grid Search? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Grid Search exhaustively tries all combinations of specified
+      hyperparameter values. It is simple but computationally expensive.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>5. What is Random Search and why is it often preferred? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Random Search samples random combinations of hyperparameters.
+      It is more efficient than Grid Search, especially when only a few
+      hyperparameters strongly influence performance.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>6. What is cross-validation and how does it help tuning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Cross-validation evaluates model performance across multiple data splits,
+      providing a reliable estimate of how hyperparameters generalize.
+      It prevents tuning to a single lucky split.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>7. What is overfitting in the context of hyperparameter tuning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Overfitting during tuning occurs when hyperparameters are optimized
+      too aggressively for validation data, reducing real-world performance.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>8. Which hyperparameters are most critical for tree-based models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Key hyperparameters include maximum depth, minimum samples per split,
+      number of trees, and learning rate (for boosting).
+      These directly control bias–variance tradeoff.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>9. How do you tune hyperparameters for SVM? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Important SVM hyperparameters include the regularization parameter (C),
+      kernel type, and kernel-specific parameters such as gamma.
+      Tuning balances margin size and classification errors.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>10. What is early stopping and why is it useful? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Early stopping halts training when validation performance stops improving.
+      It prevents overfitting and reduces unnecessary computation,
+      especially in boosting and neural networks.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>11. How do you choose the search space for hyperparameters? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      The search space should be guided by domain knowledge,
+      algorithm behavior, and prior experiments.
+      Broad ranges are narrowed iteratively.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>12. When should you stop tuning hyperparameters? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Stop tuning when performance gains plateau,
+      improvements are not statistically meaningful,
+      or additional complexity does not justify business value.
+    </div>
+  </div>
+
+</div>
+<!-- =================================================
+     TOPIC — ML IN REAL-WORLD APPLICATIONS
+================================================= -->
+<h2 class="topic-header topic-green">
+  Topic — ML in Real-World Applications
+</h2>
+
+<div class="qa-section">
+
+  <div class="qa-block">
+    <button>1. How do you decide whether a business problem needs machine learning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Use ML when rules are hard to define, patterns are complex,
+      data volume is sufficient, and predictions or automation add business value.
+      If simple rules or SQL can solve it, ML is unnecessary.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. What are common real-world ML use cases? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Typical use cases include fraud detection, churn prediction,
+      recommendation systems, demand forecasting,
+      credit risk scoring, and anomaly detection.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>3. How do you handle imbalanced data in production systems? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Techniques include resampling (over/under-sampling),
+      class-weighted loss functions, threshold tuning,
+      and choosing metrics like precision-recall over accuracy.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>4. Why do models perform well in training but fail in production? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common reasons are data leakage, data drift,
+      changing user behavior, poor feature availability,
+      and mismatch between training and production data.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>5. What is data drift and why is it dangerous? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Data drift occurs when the data distribution changes over time.
+      It silently degrades model performance and requires monitoring
+      and periodic retraining.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>6. How do you explain an ML model to non-technical stakeholders? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Focus on business impact, not math.
+      Explain inputs, outputs, and decisions using examples,
+      visualizations, and simple analogies.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>7. How do you choose the right algorithm for a real problem? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Consider data size, interpretability needs,
+      latency constraints, accuracy requirements,
+      and ease of maintenance before choosing an algorithm.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>8. What trade-offs do you consider between accuracy and interpretability? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      High-stakes domains (finance, healthcare) favor interpretability.
+      Low-risk domains may prioritize accuracy.
+      The choice depends on regulation, trust, and business impact.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>9. How do you validate an ML solution before deployment? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Validate using holdout data, cross-validation,
+      stress tests, edge cases, and business acceptance criteria
+      to ensure robustness beyond metrics.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>10. What KPIs do you track after deploying an ML model? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Track prediction accuracy, latency,
+      data drift indicators, business KPIs,
+      and user impact metrics continuously.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>11. How often should models be retrained in real-world systems? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Retraining frequency depends on data volatility.
+      Stable domains may retrain quarterly,
+      while dynamic domains may require weekly or continuous retraining.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>12. What is the biggest mistake teams make with ML in production? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Treating ML as a one-time project.
+      In reality, ML systems require monitoring,
+      maintenance, and continuous iteration.
+    </div>
+  </div>
+
+</div>
+<!-- =================================================
+     TOPIC — MODEL DEPLOYMENT & MONITORING
+================================================= -->
+<h2 class="topic-header topic-rose">
+  Topic — Model Deployment & Monitoring
+</h2>
+
+<div class="qa-section">
+
+  <div class="qa-block">
+    <button>1. What does model deployment mean in machine learning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Model deployment is the process of making a trained machine learning model
+      available for use in a real application, where it can receive input data
+      and return predictions in real time or batch mode.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. What are common ways to deploy ML models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common deployment approaches include REST APIs, batch prediction jobs,
+      embedded models within applications, and cloud-based ML services.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>3. What is the difference between batch and real-time prediction? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Batch prediction processes data in bulk at scheduled intervals.
+      Real-time prediction responds instantly to individual requests
+      and is used when low latency is critical.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>4. What challenges arise when deploying ML models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common challenges include data mismatch between training and production,
+      scalability issues, latency constraints, version control,
+      and maintaining model performance over time.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>5. What is model monitoring and why is it required? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Model monitoring tracks model behavior after deployment to ensure
+      predictions remain accurate, reliable, and aligned with business goals.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>6. What is concept drift and how is it different from data drift? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Data drift refers to changes in input data distribution.
+      Concept drift occurs when the relationship between inputs and target changes,
+      even if input data appears similar.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>7. How do you detect model performance degradation in production? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Degradation is detected by monitoring prediction metrics,
+      comparing them with historical baselines,
+      tracking drift indicators, and analyzing error patterns.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>8. What is A/B testing in deployed ML models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      A/B testing compares a new model against an existing one
+      by serving both to different user groups and measuring
+      performance and business impact.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>9. Why is versioning important for deployed models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Versioning allows teams to track changes, roll back faulty models,
+      reproduce results, and maintain traceability across experiments
+      and deployments.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>10. What is rollback and when is it needed? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Rollback is reverting to a previous model version when
+      a deployed model causes errors, performance drops,
+      or unexpected business impact.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>11. How do you decide when to retrain a model? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Retraining is triggered by performance degradation,
+      detected drift, new data availability,
+      or changes in business requirements.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>12. What is the biggest mistake teams make after deployment? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Assuming the model will work forever.
+      Deployed ML systems require continuous monitoring,
+      retraining, and alignment with real-world changes.
+    </div>
+  </div>
+
+</div>
+<!-- =================================================
+     TOPIC — TIME SERIES & FORECASTING
+================================================= -->
+<h2 class="topic-header topic-gold">
+  Topic — Time Series & Forecasting
+</h2>
+
+<div class="qa-section">
+
+  <div class="qa-block">
+    <button>1. What is time series data? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Time series data is a sequence of observations recorded over time
+      at regular intervals. The order of data points matters,
+      unlike typical tabular datasets.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. What makes time series problems different from regular ML problems? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Time dependency exists between observations.
+      Shuffling data breaks this dependency, so traditional
+      train-test splits and cross-validation must be handled carefully.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>3. What are the main components of a time series? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      A time series typically consists of trend, seasonality,
+      cyclic patterns, and random noise.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>4. What is stationarity and why is it important? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      A stationary time series has constant mean, variance,
+      and autocorrelation over time.
+      Many statistical models assume stationarity for reliable forecasting.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>5. How do you make a time series stationary? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common techniques include differencing,
+      removing trend and seasonality,
+      and applying transformations like log or power scaling.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>6. What is the difference between AR, MA, and ARIMA models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      AR uses past values,
+      MA uses past errors,
+      and ARIMA combines both with differencing
+      to handle non-stationary data.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>7. When would you prefer ARIMA over ML-based models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      ARIMA is preferred for small datasets,
+      strong temporal patterns,
+      and when interpretability and statistical assumptions matter.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>8. What is seasonality and how do you handle it? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Seasonality refers to repeating patterns at fixed intervals.
+      It can be handled using seasonal differencing,
+      seasonal ARIMA (SARIMA),
+      or adding seasonal features.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>9. How do you evaluate a forecasting model? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common metrics include MAE, RMSE, MAPE,
+      and visual inspection of forecast vs actual values.
+      Evaluation must respect time order.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>10. Why is cross-validation tricky in time series? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Random splits leak future information into training data.
+      Time series uses rolling or expanding window validation instead.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>11. When do ML models outperform classical time series models? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      ML models perform better when there are many external features,
+      non-linear relationships,
+      and large datasets with complex patterns.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>12. What are real-world applications of time series forecasting? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common applications include sales forecasting,
+      demand prediction, stock analysis,
+      weather forecasting, and energy consumption prediction.
+    </div>
+  </div>
+
+</div>
+<!-- =================================================
+     TOPIC — ML PROJECT LIFECYCLE & BEST PRACTICES
+================================================= -->
+<h2 class="topic-header topic-blue">
+  Topic — ML Project Lifecycle & Best Practices
+</h2>
+
+<div class="qa-section">
+
+  <div class="qa-block">
+    <button>1. What is the typical lifecycle of a machine learning project? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      A typical ML project follows these stages:
+      problem understanding → data collection → data cleaning →
+      exploratory data analysis → feature engineering →
+      model selection → training & evaluation →
+      deployment → monitoring & retraining.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. How do you clearly define an ML problem before starting? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Start by understanding the business goal, defining the target variable,
+      identifying success metrics, and clarifying constraints such as latency,
+      interpretability, and data availability.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>3. Why is problem framing more important than algorithm choice? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      A well-framed problem ensures the model solves the right task.
+      Even the best algorithm fails if the target, data, or evaluation metric
+      does not align with the business objective.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>4. What role does EDA play in the ML lifecycle? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      EDA helps understand data distributions, detect anomalies,
+      identify relationships, and uncover data quality issues
+      before building models.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>5. How do you prevent data leakage in an ML project? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Prevent leakage by separating training and test data early,
+      applying preprocessing within pipelines,
+      and ensuring future information is never used during training.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>6. Why are pipelines considered a best practice? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Pipelines ensure consistent preprocessing and modeling steps,
+      reduce human error, prevent leakage,
+      and make experiments reproducible and deployable.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>7. How do you choose a baseline model and why is it important? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Start with a simple, interpretable baseline such as linear regression
+      or logistic regression. Baselines provide a reference point
+      to measure real improvements.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>8. How do you balance experimentation and reproducibility? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Use version control, fixed random seeds,
+      experiment tracking, and consistent data splits
+      to ensure results can be reproduced.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>9. What documentation is essential in ML projects? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Essential documentation includes data sources,
+      feature definitions, model assumptions,
+      evaluation metrics, and deployment details.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>10. How do you decide a model is ready for deployment? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      A model is ready when it meets performance thresholds,
+      passes validation on unseen data,
+      aligns with business goals,
+      and is tested for stability and edge cases.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>11. What are common mistakes in ML project execution? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common mistakes include unclear objectives,
+      ignoring data quality, overfitting to validation data,
+      skipping monitoring, and poor stakeholder communication.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>12. What defines success in a real-world ML project? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Success is defined by business impact, reliability,
+      maintainability, and user trust — not just model accuracy.
+    </div>
+  </div>
+
+</div>
+<!-- =================================================
+     TOPIC — ETHICS, BIAS & FAIRNESS IN MACHINE LEARNING
+================================================= -->
+<h2 class="topic-header topic-rose">
+  Topic — Ethics, Bias & Fairness in Machine Learning
+</h2>
+
+<div class="qa-section">
+
+  <div class="qa-block">
+    <button>1. Why are ethics important in machine learning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      ML systems influence real people and decisions.
+      Ethical ML ensures models do not cause harm,
+      reinforce discrimination, or make opaque decisions
+      that affect livelihoods, safety, or rights.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>2. What is bias in machine learning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Bias occurs when a model produces systematically unfair outcomes
+      due to biased data, flawed assumptions,
+      or unequal representation of groups.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>3. What are common sources of bias in ML systems? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Bias can come from historical data,
+      sampling bias, labeling bias,
+      proxy variables, and feedback loops in production systems.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>4. Can a model be accurate and still be unfair? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Yes.
+      A model can achieve high accuracy overall
+      while consistently disadvantaging specific groups.
+      Accuracy alone does not guarantee fairness.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>5. What is fairness in machine learning? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Fairness means ensuring model outcomes are equitable
+      across different groups,
+      considering context, impact, and societal norms.
+      There is no single universal definition of fairness.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>6. What are common fairness metrics? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Common metrics include demographic parity,
+      equal opportunity, equalized odds,
+      and predictive parity.
+      Each captures a different fairness perspective.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>7. Why is it impossible to satisfy all fairness metrics at once? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Different fairness definitions conflict with each other,
+      especially when base rates differ across groups.
+      Trade-offs must be chosen based on context and policy.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>8. How do you reduce bias during data preparation? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Techniques include collecting representative data,
+      auditing labels, balancing datasets,
+      removing sensitive attributes or carefully handling them,
+      and documenting data limitations.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>9. How do you address bias at the model level? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Use fairness-aware algorithms,
+      apply regularization constraints,
+      adjust decision thresholds,
+      and evaluate fairness metrics alongside performance metrics.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>10. What is model transparency and why does it matter? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Transparency means understanding how a model makes decisions.
+      It builds trust, enables accountability,
+      and is critical in regulated domains like finance and healthcare.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>11. What are real-world examples where ML ethics matter most? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      High-impact areas include hiring systems,
+      loan approvals, credit scoring,
+      medical diagnosis, policing,
+      and content recommendation platforms.
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <button>12. What is the role of an ML practitioner in ethical AI? <i class="fas fa-chevron-down"></i></button>
+    <div class="content">
+      Practitioners must question data sources,
+      evaluate societal impact,
+      communicate limitations,
+      and advocate for responsible deployment
+      rather than blindly optimizing metrics.
+    </div>
+  </div>
+
+</div>
 
 </div>
 
