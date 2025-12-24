@@ -138,6 +138,30 @@
   position: relative;
   z-index: 1100;
 }
+.scroll-banner {
+  width: 100%;
+  overflow: hidden;
+  background-color: #111;
+  color: #f5c542;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 18s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 
   </style>
@@ -169,6 +193,11 @@
     </nav>
   </div>
 </header>
+<div class="scroll-banner">
+  <div class="scroll-text">
+    🔔 Projects and resource links are currently under upload. Some links may not be clickable at the moment. Please check back soon.
+  </div>
+</div>
 
 <main>
   <div class="site-container">
