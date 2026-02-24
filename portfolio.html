@@ -1,4 +1,223 @@
-<section class="section">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Research — Nisa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <style>
+/* =================== General Section & Grid Styles =================== */
+.section {
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  text-align: center; /* center all section titles */
+}
+
+/* Section Titles */
+h2.section-title {
+  font-size: 1.5rem;       /* slightly smaller to fit long headings */
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+  position: relative;
+  color: #111827;          /* black/charcoal */
+  white-space: nowrap;      /* prevent wrapping to next line */
+}
+
+/* Section Title Underlines */
+.project-section .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #9333ea, #8b5cf6);
+}
+
+.research-section .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.cert-section .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left; /* content inside card aligned left */
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02); /* slight lift + scale */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* stronger shadow */
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding: 0;
+  border-radius: 0;
+  display: block;
+  background: none;
+  color: inherit;
+}
+
+.card p {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.card .btn, .card .cert-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.card .btn:hover, .card .cert-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px); /* small lift on hover */
+}
+
+/* Gradient Colors for Card Titles */
+.research-card h3 { 
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-card h3 { 
+  background: linear-gradient(90deg, #9333ea, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cert-card h3 { 
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff0080, #ff4da6);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+.back-btn:hover {
+  opacity: 0.9;
+}
+
+   .tech-stack {
+  margin: 12px 0;
+}
+
+.tech-stack span {
+  display: inline-block;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  margin: 4px 4px 0 0;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  color: #4b5563;
+}
+
+.metrics {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.card-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+</style>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-container header-inner">
+      <a href="index.html" class="logo"><img src="logo.jpg" alt="Nisa logo" /></a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="main-nav" class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="books.html">Books</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Projects Section ===== -->
+    <section class="section">
   <h2 class="section-title">Portfolio Overview</h2>
 
   <div class="grid">
@@ -32,3 +251,37 @@
 
   </div>
 </section>
+    <!-- Back Button -->
+    <div style="text-align:center; margin:40px 0;">
+      <button onclick="history.back()" class="back-btn">← Back</button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <p class="copyright">© 2025 Nisa — Built with ❤️ by Nisa</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    menuToggle.addEventListener('click', () => mainNav.classList.toggle('show'));
+  </script>
+<script>
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
