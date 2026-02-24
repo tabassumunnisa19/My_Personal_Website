@@ -161,6 +161,32 @@ h2.section-title {
 .back-btn:hover {
   opacity: 0.9;
 }
+
+   .tech-stack {
+  margin: 12px 0;
+}
+
+.tech-stack span {
+  display: inline-block;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  margin: 4px 4px 0 0;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  color: #4b5563;
+}
+
+.metrics {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.card-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
 </style>
 
 </head>
@@ -192,12 +218,35 @@ h2.section-title {
     <!-- ===== Projects Section ===== -->
     <section class="section project-section">
       <h2 class="section-title">Portfolio — Selected Projects</h2>
-      <div class="grid">
-        <div class="card project-card">
-          <h3>Social Media Sentiment Intelligence</h3>
-          <p>Developed a sentiment analysis and trend forecasting system using NLP and topic modeling to analyze brand perception and public opinion on X (Twitter).</p>
-          <a class="btn" href="#">View on GitHub</a>
-        </div>
+      <div class="card project-card">
+  <h3>Kerala Healthcare Resource Optimization</h3>
+
+  <p>
+    Designed a predictive machine learning framework to forecast district-level
+    healthcare infrastructure stress and applied Linear Programming to minimize
+    unmet demand under surge conditions.
+  </p>
+
+  <div class="tech-stack">
+    <span>Python</span>
+    <span>Scikit-learn</span>
+    <span>Ridge Regression</span>
+    <span>PuLP</span>
+    <span>Optimization</span>
+  </div>
+
+  <div class="metrics">
+    <p><strong>Best Model:</strong> Ridge Regression</p>
+    <p><strong>Performance:</strong> 87% R² Score</p>
+    <p><strong>Key Insight:</strong> Infrastructure instability beyond 1.6x demand surge</p>
+  </div>
+
+  <div class="card-buttons">
+    <a class="btn" href="YOUR_GITHUB_LINK_HERE" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+</div>
         <div class="card project-card">
           <h3>AI-Powered Resume Screener</h3>
           <p>Built an NLP-based system using BERT and NER to classify resumes, extract skills, and identify key gaps relative to job descriptions for automated candidate screening.</p>
