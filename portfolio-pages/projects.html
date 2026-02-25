@@ -140,7 +140,16 @@ h2.section-title {
 .back-btn:hover {
   opacity: 0.9;
 }
+.card-wide {
+  grid-column: span 2;
+}
 
+/* Responsive Fix */
+@media (max-width: 900px) {
+  .card-wide {
+    grid-column: span 1;
+  }
+}
 </style>
 </head>
 
@@ -361,7 +370,7 @@ h2.section-title {
 </div>
 <!-- ===== End Resume Reviewer ===== -->
     <!-- ===== AI Learning & Interview Assistant ===== -->
-<div class="card project-card">
+<div class="card project-card card-wide">
 
   <h3>AI Learning & Interview Assistant (GenAI System)</h3>
 
