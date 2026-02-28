@@ -194,50 +194,69 @@
     }
   }
     
-/* ================== About Split Layout ================== */
+/* ================== About Split Layout — Premium Refined ================== */
+
 .about-wrapper {
   display: flex;
-  height: 100vh;
-  width: 100%;
+  align-items: center;           /* vertically balanced */
+  justify-content: center;
+  gap: 80px;                     /* elegant spacing between image & text */
+  padding: 80px 100px;           /* breathing space from left & right */
+  background: #f9fafc;
 }
 
+/* LEFT IMAGE */
 .about-image {
-  width: 50%;
-  height: 100vh;
+  flex: 0 0 45%;
+  max-height: 80vh;              /* reduced vertical dominance */
 }
 
 .about-image img {
   width: 100%;
-  height: 100%;
+  height: auto;                  /* natural proportion */
+  border-radius: 16px;           /* premium soft edges */
   object-fit: cover;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);  /* soft depth */
 }
 
+/* RIGHT CONTENT */
 .about-content {
-  width: 50%;
-  height: 100vh;
-  padding: 80px;
-  overflow-y: auto;
-  background: #f9fafc;
+  flex: 0 0 50%;
+  max-height: 80vh;
+  overflow-y: auto;              /* scroll only if needed */
+  padding-right: 20px;
 }
 
-/* Mobile */
+/* Subtle scrollbar refinement (optional premium touch) */
+.about-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 10px;
+}
+
+/* ================== Responsive ================== */
 @media (max-width: 900px) {
+
   .about-wrapper {
     flex-direction: column;
-    height: auto;
+    padding: 50px 25px;
+    gap: 40px;
   }
 
   .about-image {
     width: 100%;
-    height: 400px;
+    max-height: none;
   }
 
   .about-content {
     width: 100%;
-    height: auto;
+    max-height: none;
+    overflow: visible;
   }
-}
-   
+} 
   </style>
 </head>
 
