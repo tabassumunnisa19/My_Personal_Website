@@ -195,13 +195,13 @@
   }
     
 /* ================== About Split Layout ================== */
-/* ================== About Layout – Left Image / Right Content ================== */
+/* ================== About Layout – Top Aligned / Diagonal Left ================== */
 
 .about-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;   /* ⬅ aligns image to TOP */
   justify-content: center;
-  gap: 80px;
+  gap: 100px;
   padding: 80px 100px;
   max-width: 1300px;
   margin: 0 auto;
@@ -209,46 +209,39 @@
 
 /* LEFT IMAGE */
 .about-image {
-  flex: 0 0 340px;   /* controls image width */
+  flex: 0 0 360px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;  /* push more left */
 }
 
 .about-image img {
-  width: 340px;
-  height: 340px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
-  border-radius: 50%;      /* circle */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-radius: 50%;
   border: 8px solid #ffffff;
-  transition: transform 0.3s ease;
-}
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
 
-.about-image img:hover {
-  transform: translateY(-8px);
-}
+  /* 🔥 Diagonal movement */
+  transform: translate(-40px, 0px);
 }
 
 /* RIGHT CONTENT */
 .about-content {
   flex: 1;
-  max-width: 700px;
-}
-
-.about-content h1 {
-  margin-bottom: 30px;
+  max-width: 750px;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
   .about-wrapper {
     flex-direction: column;
-    text-align: center;
     padding: 40px 20px;
+    gap: 40px;
   }
 
-  .about-content {
-    max-width: 100%;
+  .about-image img {
+    transform: none;
   }
 }
     /* ================= Professional Highlights Block ================= */
