@@ -195,23 +195,17 @@
   }
     
 /* ================== About Split Layout ================== */
-/* ================== About Layout – Top Aligned / Diagonal Left ================== */
-
 .about-wrapper {
-  display: flex;
-  align-items: flex-start;   /* ⬅ aligns image to TOP */
-  justify-content: center;
-  gap: 100px;
-  padding: 80px 100px;
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 80px 60px;
 }
 
-/* LEFT IMAGE */
+/* Float Image */
 .about-image {
-  flex: 0 0 360px;
-  display: flex;
-  justify-content: flex-start;  /* push more left */
+  float: left;
+  margin-right: 60px;
+  margin-bottom: 30px;
 }
 
 .about-image img {
@@ -219,29 +213,23 @@
   height: 360px;
   object-fit: cover;
   border-radius: 50%;
-  border: 8px solid #ffffff;
   box-shadow: 0 25px 60px rgba(0,0,0,0.12);
-
-  /* 🔥 Diagonal movement */
-  transform: translate(-40px, 0px);
 }
 
-/* RIGHT CONTENT */
-.about-content {
-  flex: 1;
-  max-width: 750px;
+/* Clear after content */
+.about-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .about-wrapper {
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 40px;
-  }
-
-  .about-image img {
-    transform: none;
+  .about-image {
+    float: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 40px auto;
   }
 }
     /* ================= Professional Highlights Block ================= */
