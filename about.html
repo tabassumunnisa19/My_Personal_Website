@@ -235,30 +235,43 @@
     /* ================= Professional Highlights Block ================= */
 
 .professional-block {
-  padding: 100px 0;
-  background: #f3f4f6;  /* light grey like achievements */
+  padding: 70px 0;
+  background: #f3f4f6;  /* same as achievement */
 }
 
-.professional-card {
+.professional-compact {
   background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-  max-width: 950px;
-  margin: 40px auto 0;
-  padding: 10px 0;
+  max-width: 750px;
+  margin: 30px auto 0;
+  padding: 40px 45px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
 }
 
-/* Each Row */
-.highlight-row {
-  padding: 30px 50px;
-  border-bottom: 1px solid #e5e7eb;
-  position: relative;
+.professional-compact ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
 }
 
-.highlight-row:last-child {
-  border-bottom: none;
+.professional-compact li {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: #475569;
+  font-size: 0.98rem;
 }
 
+.pro-title {
+  font-weight: 600;
+}
+
+/* Soft professional accent colors matching your theme */
+.academic     { color: #6366f1; }   /* indigo */
+.teaching     { color: #0ea5e9; }   /* blue */
+.project      { color: #10b981; }   /* green */
+.training     { color: #8b5cf6; }   /* violet */
+.internship   { color: #f59e0b; }   /* amber */
+.certification{ color: #ef4444; }   /* soft red */
 /* Accent Top Line */
 .highlight-row::before {
   content: "";
@@ -384,41 +397,45 @@
 
 <section class="professional-block">
   <div class="site-container">
+
     <h2 class="section-title">Professional Highlights</h2>
 
-    <div class="professional-card">
+    <div class="professional-compact">
 
-      <div class="highlight-row academic">
-        <h3>Academic Foundation</h3>
-        <p>B.Tech in Electronics & Communication Engineering and M.Tech in Digital Communication Engineering.</p>
-      </div>
+      <ul>
+        <li>
+          <span class="pro-title academic">Academic Foundation:</span>
+          B.Tech in Electronics & Communication Engineering and M.Tech in Digital Communication Engineering.
+        </li>
 
-      <div class="highlight-row teaching">
-        <h3>Teaching Experience</h3>
-        <p>Over 3 years of engineering teaching experience.</p>
-      </div>
+        <li>
+          <span class="pro-title teaching">Teaching Experience:</span>
+          Over 3 years of engineering teaching experience.
+        </li>
 
-      <div class="highlight-row project">
-        <h3>Project & HR Experience</h3>
-        <p>Professional experience in Project Coordination and Human Resources operations.</p>
-      </div>
+        <li>
+          <span class="pro-title project">Project & HR Experience:</span>
+          Professional experience in Project Coordination and HR operations.
+        </li>
 
-      <div class="highlight-row training">
-        <h3>Data Science Training</h3>
-        <p>6-Month Offline Diploma in Data Science with ML, DL & Python exposure.</p>
-      </div>
+        <li>
+          <span class="pro-title training">Data Science Training:</span>
+          6-Month Offline Diploma in Data Science with ML, DL & Python exposure.
+        </li>
 
-      <div class="highlight-row internship">
-        <h3>International Internship</h3>
-        <p>1-Month International Internship in Power BI.</p>
-      </div>
+        <li>
+          <span class="pro-title internship">International Internship:</span>
+          1-Month International Internship in Power BI.
+        </li>
 
-      <div class="highlight-row certification">
-        <h3>Certifications</h3>
-        <p>IBM Data Science Professional Certificate, Generative AI & Google Prompt Engineering.</p>
-      </div>
+        <li>
+          <span class="pro-title certification">Certifications:</span>
+          IBM Data Science Professional Certificate, Generative AI & Google Prompt Engineering.
+        </li>
+      </ul>
 
     </div>
+
   </div>
 </section>
     <!-- ===================== Achievement Highlights Section ===================== -->
