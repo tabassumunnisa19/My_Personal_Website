@@ -193,6 +193,27 @@
       gap: 8px;
     }
   }
+    .about-section {
+    display: flex;
+    align-items: stretch;     /* makes both sides equal height */
+    min-height: 100vh;        /* full vertical screen height */
+}
+
+.about-content {
+    flex: 1;
+    padding: 60px;
+}
+
+.profile {
+    flex: 0 0 35%;            /* image takes 35% width */
+    display: flex;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* makes image fill space properly */
+}
   </style>
 </head>
 
@@ -288,11 +309,19 @@ Because whether it’s classrooms, boardrooms, households, or high-dimensional d
 
       </div>
 
-      <!-- Right: Profile Image -->
-      <div class="profile" style="flex:0 0 250px;">
-        <img src="assets/images/about.png" alt="Profile">
-      </div>
-    </section>
+     <section class="about-section">
+
+  <!-- Left: About Content -->
+  <div class="about-content">
+      <!-- Your <p class="lead"> content here -->
+  </div>
+
+  <!-- Right: Profile Image -->
+  <div class="profile">
+      <img src="about.png" alt="Tabassum Unnisa">
+  </div>
+
+</section>
 
     <!-- ===================== Achievement Highlights Section ===================== -->
     <section class="section professional-highlights">
