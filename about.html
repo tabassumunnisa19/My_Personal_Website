@@ -234,57 +234,61 @@
 }
     /* ================= Professional Highlights Block ================= */
 
-/* Professional Section Background (Same as Achievement style) */
 .professional-block {
   padding: 100px 0;
-  background: #f3f4f6;   /* soft grey */
+  background: #f3f4f6;  /* light grey like achievements */
 }
 
-/* White Wide Card */
 .professional-card {
   background: #ffffff;
-  padding: 50px 60px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-  max-width: 900px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+  max-width: 950px;
   margin: 40px auto 0;
+  padding: 10px 0;
 }
 
-/* List Styling */
-.professional-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.professional-list li {
-  margin-bottom: 22px;
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #334155;
+/* Each Row */
+.highlight-row {
+  padding: 30px 50px;
+  border-bottom: 1px solid #e5e7eb;
   position: relative;
-  padding-left: 28px;
 }
 
-/* Custom Bullet */
-.professional-list li::before {
-  content: "•";
+.highlight-row:last-child {
+  border-bottom: none;
+}
+
+/* Accent Top Line */
+.highlight-row::before {
+  content: "";
   position: absolute;
-  left: 0;
   top: 0;
-  color: #6366f1;   /* subtle purple-blue accent */
-  font-size: 1.4rem;
+  left: 50px;
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
 }
 
-/* Strong title color */
-.professional-list strong {
+/* Soft Professional Accent Colors */
+.academic::before { background: #6366f1; }     /* indigo */
+.teaching::before { background: #0ea5e9; }     /* blue */
+.project::before { background: #10b981; }      /* green */
+.training::before { background: #8b5cf6; }     /* violet */
+.internship::before { background: #f59e0b; }   /* amber */
+.certification::before { background: #ef4444; }/* soft red */
+
+/* Typography */
+.highlight-row h3 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
   color: #1e293b;
 }
-/* Responsive */
-@media (max-width: 900px) {
-  .highlights-grid {
-    grid-template-columns: 1fr;
-  }
+
+.highlight-row p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
 }
   </style>
 </head>
@@ -380,43 +384,39 @@
 
 <section class="professional-block">
   <div class="site-container">
-
     <h2 class="section-title">Professional Highlights</h2>
 
     <div class="professional-card">
 
-      <ul class="professional-list">
-        <li>
-          <strong>Academic Foundation:</strong>
-          B.Tech in Electronics & Communication Engineering and 
-          M.Tech in Digital Communication Engineering.
-        </li>
+      <div class="highlight-row academic">
+        <h3>Academic Foundation</h3>
+        <p>B.Tech in Electronics & Communication Engineering and M.Tech in Digital Communication Engineering.</p>
+      </div>
 
-        <li>
-          <strong>Teaching Experience:</strong>
-          Over 3 years of engineering teaching experience.
-        </li>
+      <div class="highlight-row teaching">
+        <h3>Teaching Experience</h3>
+        <p>Over 3 years of engineering teaching experience.</p>
+      </div>
 
-        <li>
-          <strong>Project & HR Experience:</strong>
-          Professional experience in Project Coordination and Human Resources operations.
-        </li>
+      <div class="highlight-row project">
+        <h3>Project & HR Experience</h3>
+        <p>Professional experience in Project Coordination and Human Resources operations.</p>
+      </div>
 
-        <li>
-          <strong>Data Science Training:</strong>
-          6-Month Offline Diploma in Data Science with ML, DL & Python exposure.
-        </li>
+      <div class="highlight-row training">
+        <h3>Data Science Training</h3>
+        <p>6-Month Offline Diploma in Data Science with ML, DL & Python exposure.</p>
+      </div>
 
-        <li>
-          <strong>International Internship:</strong>
-          1-Month International Internship in Power BI.
-        </li>
+      <div class="highlight-row internship">
+        <h3>International Internship</h3>
+        <p>1-Month International Internship in Power BI.</p>
+      </div>
 
-        <li>
-          <strong>Certifications:</strong>
-          IBM Data Science Professional Certificate, Generative AI & Google Prompt Engineering.
-        </li>
-      </ul>
+      <div class="highlight-row certification">
+        <h3>Certifications</h3>
+        <p>IBM Data Science Professional Certificate, Generative AI & Google Prompt Engineering.</p>
+      </div>
 
     </div>
   </div>
