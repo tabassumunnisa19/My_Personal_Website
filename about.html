@@ -216,6 +216,41 @@
     object-fit: cover;       /* fills entire vertical space */
 }
 }
+    .about-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.about-image {
+  width: 45%;
+  height: 100vh;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content {
+  width: 55%;
+  padding: 60px 80px;
+  overflow-y: auto;
+}
+    @media (max-width: 900px) {
+  .about-wrapper {
+    flex-direction: column;
+  }
+
+  .about-image {
+    width: 100%;
+    height: 400px;
+  }
+
+  .about-content {
+    width: 100%;
+  }
+}
   </style>
 </head>
 
@@ -243,63 +278,71 @@
 <main>
   <div class="site-container">
 
-    <!-- Hero Section: About Me + Profile -->
-    <section class="hero" style="display:flex; gap:40px; flex-wrap:wrap; margin-bottom:50px;">
-      <!-- Left: Introduction -->
-      <div class="intro" style="flex:1; min-width:280px;">
-        <h1 class="page-title"><span class="gradient-text-light">About Me</span></h1>
+    <!-- About Section Split Layout -->
+    <section class="about-wrapper">
+
+      <!-- LEFT SIDE IMAGE -->
+      <div class="about-image">
+        <img src="about.png" alt="Tabassum Unnisa">
+      </div>
+
+      <!-- RIGHT SIDE CONTENT -->
+      <div class="about-content">
+
+        <h1 class="page-title">
+          <span class="gradient-text-light">About Me</span>
+        </h1>
 
         <p class="lead">
-My journey to becoming a Data Scientist wasn’t linear — it looked more like a beautifully complex neural network that finally converged.
-</p>
+          My journey to becoming a Data Scientist wasn’t linear — it looked more like a beautifully complex neural network that finally converged.
+        </p>
 
-<p class="lead">
-With a B.Tech in Electronics & Communication and a Master’s in Digital Communication, I had the technical foundation. But instead of diving straight into code, I began by analyzing a far more unpredictable dataset: people.
-</p>
+        <p class="lead">
+          With a B.Tech in Electronics & Communication and a Master’s in Digital Communication, I had the technical foundation. But instead of diving straight into code, I began by analyzing a far more unpredictable dataset: people.
+        </p>
 
-<p class="lead">
-As a lecturer, I ran daily exploratory data analysis on student performance, engineered behavioral features, and identified hidden variables affecting outcomes — long before I knew those terms formally.
-</p>
+        <p class="lead">
+          As a lecturer, I ran daily exploratory data analysis on student performance, engineered behavioral features, and identified hidden variables affecting outcomes — long before I knew those terms formally.
+        </p>
 
-<p class="lead">
-In project coordination and HR, I optimized workflows, debugged communication gaps, and performed root-cause analysis on team dynamics — essentially running real-time process mining without Power BI.
-</p>
+        <p class="lead">
+          In project coordination and HR, I optimized workflows, debugged communication gaps, and performed root-cause analysis on team dynamics — essentially running real-time process mining without Power BI.
+        </p>
 
-<p class="lead">
-Then came motherhood — my most demanding longitudinal research project. Two children, infinite variables, continuous A/B testing on routines, and advanced resilience modeling under extreme sleep deprivation conditions.
-</p>
+        <p class="lead">
+          Then came motherhood — my most demanding longitudinal research project. Two children, infinite variables, continuous A/B testing on routines, and advanced resilience modeling under extreme sleep deprivation conditions.
+        </p>
 
-<p class="lead">
-That “career break” wasn’t a gap. It was model refinement — strengthening emotional intelligence, long-term forecasting, and decision-making under uncertainty.
-</p>
+        <p class="lead">
+          That “career break” wasn’t a gap. It was model refinement — strengthening emotional intelligence, long-term forecasting, and decision-making under uncertainty.
+        </p>
 
-<p class="lead">
-And then the insight emerged — clean and unmistakable: I wasn’t changing careers. I was formalizing what I had always been doing.
-</p>
+        <p class="lead">
+          And then the insight emerged — clean and unmistakable: I wasn’t changing careers. I was formalizing what I had always been doing.
+        </p>
 
-<p class="lead">
-So I built the technical stack intentionally. I completed the IBM Data Science Professional Certificate, earned an offline Diploma in Data Science, and strengthened my statistical foundation through the Introduction to R Programming course.
-</p>
+        <p class="lead">
+          So I built the technical stack intentionally. I completed the IBM Data Science Professional Certificate, earned an offline Diploma in Data Science, and strengthened my statistical foundation through the Introduction to R Programming course.
+        </p>
 
-<p class="lead">
-I expanded into AI through Generative AI for Data Science, Google Prompt Essentials, and Prompt Engineering certifications from Google and Microsoft via Coursera — integrating machine learning, deep learning, Python, SQL, and applied AI into real-world projects.
-</p>
+        <p class="lead">
+          I expanded into AI through Generative AI for Data Science, Google Prompt Essentials, and Prompt Engineering certifications from Google and Microsoft via Coursera — integrating machine learning, deep learning, Python, SQL, and applied AI into real-world projects.
+        </p>
 
-<p class="lead">
-Today, I translate complex datasets into actionable intelligence using Power BI and advanced analytics — turning numbers into narratives that drive decisions.
-</p>
+        <p class="lead">
+          Today, I translate complex datasets into actionable intelligence using Power BI and advanced analytics — turning numbers into narratives that drive decisions.
+        </p>
 
-<p class="lead">
-Because whether it’s classrooms, boardrooms, households, or high-dimensional datasets, my mission remains constant:
-</p>
+        <p class="lead">
+          Because whether it’s classrooms, boardrooms, households, or high-dimensional datasets, my mission remains constant:
+        </p>
 
-<!-- Signature Statement -->
-<p style="margin-top:20px; font-style:italic;">
-“Transforming thoughts, experiences, and data into knowledge, solutions, and inspiration for the world.”
-</p>
+        <p style="margin-top:20px; font-style:italic;">
+          “Transforming thoughts, experiences, and data into knowledge, solutions, and inspiration for the world.”
+        </p>
 
         <!-- Professional Highlights -->
-        <section class="section professional-highlights">
+        <section class="professional-highlights">
           <h2 class="section-title">Professional Highlights</h2>
           <ul>
             <li>~3 years of teaching experience, mentoring students and fostering critical thinking</li>
@@ -311,23 +354,10 @@ Because whether it’s classrooms, boardrooms, households, or high-dimensional d
 
       </div>
 
+    </section>
 
-  <section class="about-section">
-
-    <!-- Left Side Content -->
-    <div class="about-content">
-        <!-- All your <p class="lead"> paragraphs here -->
-    </div>
-
-    <!-- Right Side Image -->
-    <div class="about-image">
-        <img src="about.png" alt="Tabassum Unnisa">
-    </div>
-
-</section>
-
-</section>
-
+  </div>
+</main>
     <!-- ===================== Achievement Highlights Section ===================== -->
     <section class="section professional-highlights">
       <h2 class="section-title">Achievement Highlights</h2>
