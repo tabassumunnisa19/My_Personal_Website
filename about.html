@@ -234,42 +234,52 @@
 }
     /* ================= Professional Highlights Block ================= */
 
+/* Professional Section Background (Same as Achievement style) */
 .professional-block {
-  padding: 80px 0;
-  background: #f3f4f6;   /* light grey */
+  padding: 100px 0;
+  background: #f3f4f6;   /* soft grey */
 }
 
-.highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.highlight-card {
+/* White Wide Card */
+.professional-card {
   background: #ffffff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
+  padding: 50px 60px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  max-width: 900px;
+  margin: 40px auto 0;
 }
 
-.highlight-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+/* List Styling */
+.professional-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.highlight-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  color: #6366f1;
+.professional-list li {
+  margin-bottom: 22px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #334155;
+  position: relative;
+  padding-left: 28px;
 }
 
-.highlight-card p {
-  font-size: 0.95rem;
-  color: #475569;
+/* Custom Bullet */
+.professional-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6366f1;   /* subtle purple-blue accent */
+  font-size: 1.4rem;
 }
 
+/* Strong title color */
+.professional-list strong {
+  color: #1e293b;
+}
 /* Responsive */
 @media (max-width: 900px) {
   .highlights-grid {
@@ -373,43 +383,44 @@
 
     <h2 class="section-title">Professional Highlights</h2>
 
-    <div class="professional-container">
+    <div class="professional-card">
+
       <ul class="professional-list">
         <li>
-          <span class="dot"></span>
-          <strong>Academic Foundation:</strong> B.Tech in Electronics & Communication Engineering and M.Tech in Digital Communication Engineering.
+          <strong>Academic Foundation:</strong>
+          B.Tech in Electronics & Communication Engineering and 
+          M.Tech in Digital Communication Engineering.
         </li>
 
         <li>
-          <span class="dot"></span>
-          <strong>Teaching Experience:</strong> Over 3 years of engineering teaching experience.
+          <strong>Teaching Experience:</strong>
+          Over 3 years of engineering teaching experience.
         </li>
 
         <li>
-          <span class="dot"></span>
-          <strong>Project & HR Experience:</strong> Professional experience in Project Coordination and Human Resources operations.
+          <strong>Project & HR Experience:</strong>
+          Professional experience in Project Coordination and Human Resources operations.
         </li>
 
         <li>
-          <span class="dot"></span>
-          <strong>Data Science Training:</strong> 6-Month Offline Diploma in Data Science with ML, DL & Python exposure.
+          <strong>Data Science Training:</strong>
+          6-Month Offline Diploma in Data Science with ML, DL & Python exposure.
         </li>
 
         <li>
-          <span class="dot"></span>
-          <strong>International Internship:</strong> 1-Month International Internship in Power BI.
+          <strong>International Internship:</strong>
+          1-Month International Internship in Power BI.
         </li>
 
         <li>
-          <span class="dot"></span>
-          <strong>Certifications:</strong> IBM Data Science Professional Certificate, Generative AI & Google Prompt Engineering.
+          <strong>Certifications:</strong>
+          IBM Data Science Professional Certificate, Generative AI & Google Prompt Engineering.
         </li>
       </ul>
-    </div>
 
+    </div>
   </div>
 </section>
-
     <!-- ===================== Achievement Highlights Section ===================== -->
     <section class="section professional-highlights">
       <h2 class="section-title">Achievement Highlights</h2>
