@@ -194,67 +194,57 @@
     }
   }
     
-/* ================== About Split Layout — Premium Refined ================== */
+/* ================== About Split Layout ================== */
 
 .about-wrapper {
   display: flex;
-  align-items: center;           /* vertically balanced */
-  justify-content: center;
-  gap: 80px;                     /* elegant spacing between image & text */
-  padding: 80px 100px;           /* breathing space from left & right */
-  background: #f9fafc;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh; /* Full screen minimum */
 }
 
 /* LEFT IMAGE */
 .about-image {
-  flex: 0 0 45%;
-  max-height: 80vh;              /* reduced vertical dominance */
+  width: 48%;
+  padding-left: 40px; /* gap from extreme left */
+  display: flex;
+  align-items: center;
 }
 
 .about-image img {
   width: 100%;
-  height: auto;                  /* natural proportion */
-  border-radius: 16px;           /* premium soft edges */
+  max-height: 90vh;  /* Slightly smaller than full screen */
   object-fit: cover;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);  /* soft depth */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 /* RIGHT CONTENT */
 .about-content {
-  flex: 0 0 50%;
-  max-height: 80vh;
-  overflow-y: auto;              /* scroll only if needed */
-  padding-right: 20px;
+  width: 52%;
+  padding: 80px 80px 80px 60px;
+  background: #f9fafc;
 }
 
-/* Subtle scrollbar refinement (optional premium touch) */
-.about-content::-webkit-scrollbar {
-  width: 6px;
-}
-
-.about-content::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.15);
-  border-radius: 10px;
-}
-
-/* ================== Responsive ================== */
+/* Mobile */
 @media (max-width: 900px) {
-
   .about-wrapper {
     flex-direction: column;
-    padding: 50px 25px;
-    gap: 40px;
   }
 
   .about-image {
     width: 100%;
-    max-height: none;
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .about-image img {
+    max-height: 400px;
   }
 
   .about-content {
     width: 100%;
-    max-height: none;
-    overflow: visible;
+    padding: 40px 20px;
   }
 } 
   </style>
