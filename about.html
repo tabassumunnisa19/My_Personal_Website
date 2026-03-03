@@ -320,6 +320,22 @@
     .cert-card p {
   flex-grow: 1;
 }
+    .btn-group {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.review-btn {
+  background-color: #fb8c00; /* Orange */
+  cursor: default;
+}
+
+.abstract-btn {
+  background-color: #1e88e5; /* Blue */
+}
   </style>
 </head>
 
@@ -494,9 +510,17 @@
         performance, ecosystem libraries, execution efficiency, and
         suitability for real-world data science workflows.
       </p>
-      <a class="cert-btn review-btn" href="#" target="_blank">
-        Under Review
-      </a>
+      <div class="btn-group">
+  <a class="cert-btn review-btn">
+    Under Review (Journal Submission)
+  </a>
+
+  <a class="cert-btn abstract-btn" 
+     href="python-r-abstract.html" 
+     target="_blank">
+    View Abstract
+  </a>
+</div>
     </div>
 
   </div>
