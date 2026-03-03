@@ -9,117 +9,114 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    /* ================= Layout ================= */
+    .section {
+      margin: 60px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+      text-align: center;
+    }
 
-/* =================== General Section & Grid Styles =================== */
-.section {
-  margin: 60px auto;
-  max-width: 1200px;
-  padding: 0 20px;
-  text-align: center;
-}
+    h2.section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      display: inline-block;
+      color: #111827;
+      position: relative;
+    }
 
-h2.section-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 25px;
-  display: inline-block;
-  position: relative;
-  color: #111827;
-}
+    .cert-section .section-title::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+    }
 
-.cert-section .section-title::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 4px;
-  margin: 8px auto 0;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-}
+    /* ================= Grid ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
 
-/* ================= Grid ================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
+    /* ================= Cards ================= */
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 22px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      text-align: left;
+      transition: 0.3s ease;
+    }
 
-/* ================= Card ================= */
-.card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 22px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  text-align: left;
-  transition: 0.3s ease;
-}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-}
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
 
-.card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
+    .card p {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
 
-.card p {
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
+    /* ===== Distinct Title Colors ===== */
+    .cert-section .card:nth-child(8n+1) h3 { color: #2563eb; }
+    .cert-section .card:nth-child(8n+2) h3 { color: #9333ea; }
+    .cert-section .card:nth-child(8n+3) h3 { color: #db2777; }
+    .cert-section .card:nth-child(8n+4) h3 { color: #0ea5e9; }
+    .cert-section .card:nth-child(8n+5) h3 { color: #f59e0b; }
+    .cert-section .card:nth-child(8n+6) h3 { color: #10b981; }
+    .cert-section .card:nth-child(8n+7) h3 { color: #ef4444; }
+    .cert-section .card:nth-child(8n+8) h3 { color: #6366f1; }
 
-/* ================= Distinct Title Colors ================= */
-.cert-section .card:nth-child(8n+1) h3 { color: #2563eb; }  /* Blue */
-.cert-section .card:nth-child(8n+2) h3 { color: #9333ea; }  /* Purple */
-.cert-section .card:nth-child(8n+3) h3 { color: #db2777; }  /* Pink */
-.cert-section .card:nth-child(8n+4) h3 { color: #0ea5e9; }  /* Teal */
-.cert-section .card:nth-child(8n+5) h3 { color: #f59e0b; }  /* Amber */
-.cert-section .card:nth-child(8n+6) h3 { color: #10b981; }  /* Green */
-.cert-section .card:nth-child(8n+7) h3 { color: #ef4444; }  /* Red */
-.cert-section .card:nth-child(8n+8) h3 { color: #6366f1; }  /* Indigo */
+    /* ================= Tech Stack ================= */
+    .tech-stack span {
+      display: inline-block;
+      background: #f3f4f6;
+      padding: 4px 10px;
+      margin: 4px 6px 0 0;
+      font-size: 0.8rem;
+      border-radius: 20px;
+      color: #475569;
+    }
 
-/* ================= Tech Stack ================= */
-.tech-stack span {
-  display: inline-block;
-  background: #f3f4f6;
-  padding: 4px 10px;
-  margin: 4px 6px 0 0;
-  font-size: 0.8rem;
-  border-radius: 20px;
-  color: #475569;
-}
+    /* ================= Button ================= */
+    .cert-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-size: 0.9rem;
+      transition: 0.3s ease;
+    }
 
-/* ================= Button ================= */
-.cert-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  background-color: #2563eb;
-  color: #ffffff;
-  font-size: 0.9rem;
-  transition: 0.3s ease;
-}
+    .cert-btn:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-2px);
+    }
 
-.cert-btn:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-}
-
-/* ================= Responsive ================= */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -149,276 +146,118 @@ h2.section-title {
     </nav>
   </div>
 </header>
-  <main>
-<!-- ===== Certifications & Professional Development ===== -->
+
+<!-- ===== Main Section ===== -->
+<main>
 <section class="section cert-section">
-  <h2 class="section-title">Professional Certifications & Training</h2>
+  <h2 class="section-title">Professional Certifications</h2>
 
   <div class="grid">
 
-    <!-- International Internship -->
-    <div class="card cert-card">
+    <div class="card">
       <h3>International Internship – Power BI (1 Month)</h3>
-
-      <p>
-        Completed a one-month international internship focused on business intelligence
-        and dashboard engineering using Microsoft Power BI.
-      </p>
-
+      <p>Focused on business intelligence, KPI analytics, and professional dashboard reporting.</p>
       <div class="tech-stack">
         <span>Power BI</span>
         <span>DAX</span>
-        <span>Power Query</span>
         <span>Data Modeling</span>
-        <span>Dashboard Design</span>
       </div>
-
-      <div class="metrics">
-        <p><strong>Focus Area:</strong> Business Intelligence & Data Visualization</p>
-        <p><strong>Practical Exposure:</strong> Interactive dashboards & KPI analytics</p>
-        <p><strong>Outcome:</strong> Industry-level reporting & storytelling skills</p>
-      </div>
-
-      <a class="cert-btn" href="#" target="_blank">View Certificate</a>
+      <a class="cert-btn" href="#">View Certificate</a>
     </div>
 
-    <!-- Diploma in Data Science -->
-    <div class="card cert-card">
+    <div class="card">
       <h3>Diploma in Data Science</h3>
-
-      <p>
-        Comprehensive offline diploma covering core data science principles,
-        applied machine learning, and real-world analytics projects.
-      </p>
-
+      <p>Covered statistics, machine learning, exploratory data analysis, and predictive modeling.</p>
       <div class="tech-stack">
         <span>Python</span>
         <span>Machine Learning</span>
         <span>Statistics</span>
-        <span>EDA</span>
-        <span>Model Deployment</span>
       </div>
-
-      <div class="metrics">
-        <p><strong>Focus Area:</strong> End-to-End Data Science Workflow</p>
-        <p><strong>Projects:</strong> ML Modeling & Predictive Analytics</p>
-        <p><strong>Outcome:</strong> Practical industry-ready experience</p>
-      </div>
-
       <a class="cert-btn" href="#">View Certificate</a>
     </div>
 
-    <!-- IBM Data Science -->
-    <div class="card cert-card">
+    <div class="card">
       <h3>IBM Data Science Professional Certificate</h3>
-
-      <p>
-        A 12-course professional specialization covering Python programming,
-        SQL, data analysis, visualization, and applied machine learning.
-      </p>
-
+      <p>12-course specialization covering Python, SQL, data analysis, and ML implementation.</p>
       <div class="tech-stack">
         <span>Python</span>
         <span>SQL</span>
-        <span>Pandas</span>
         <span>Scikit-learn</span>
-        <span>Data Visualization</span>
       </div>
-
-      <div class="metrics">
-        <p><strong>Focus Area:</strong> Applied Data Science</p>
-        <p><strong>Projects:</strong> Capstone ML implementation</p>
-        <p><strong>Outcome:</strong> Strong foundation in DS fundamentals</p>
-      </div>
-
       <a class="cert-btn" href="#">View Certificate</a>
     </div>
 
-    <!-- Generative AI -->
-    <div class="card cert-card">
-      <h3>Generative AI for Data Science – Microsoft</h3>
-
-      <p>
-        Advanced certification exploring generative AI applications for
-        data augmentation, anomaly detection, and AI-assisted analytics.
-      </p>
-
+    <div class="card">
+      <h3>Generative AI for Data Science</h3>
+      <p>Explored AI-driven analytics, prompt engineering, and LLM-based workflows.</p>
       <div class="tech-stack">
         <span>GenAI</span>
-        <span>Prompt Engineering</span>
         <span>LLMs</span>
-        <span>AI Workflows</span>
+        <span>Prompt Engineering</span>
       </div>
-
-      <div class="metrics">
-        <p><strong>Focus Area:</strong> Generative AI Applications</p>
-        <p><strong>Exposure:</strong> AI-driven analytics use cases</p>
-        <p><strong>Outcome:</strong> Practical understanding of AI integration</p>
-      </div>
-
-      <a class="cert-btn" 
-         href="https://coursera.org/share/623ea4dfd7d8e56417c61ab8f8289ec2" 
-         target="_blank">
-         View Certificate
-      </a>
+      <a class="cert-btn" href="#">View Certificate</a>
     </div>
 
-    <!-- Responsive Web Design -->
-    <div class="card cert-card">
+    <div class="card">
       <h3>Responsive Web Design – freeCodeCamp</h3>
-
-      <p>
-        Practical certification covering HTML, CSS, responsive layouts,
-        and modern UI fundamentals.
-      </p>
-
+      <p>Covered HTML, CSS, layout systems, and responsive UI development.</p>
       <div class="tech-stack">
         <span>HTML</span>
         <span>CSS</span>
-        <span>Responsive Design</span>
-        <span>Flexbox</span>
+        <span>Responsive UI</span>
       </div>
+      <a class="cert-btn" href="#">View Certificate</a>
+    </div>
 
-     
-
-    <!-- Introduction to R -->
-    <div class="card cert-card">
-      <h3>Introduction to R Programming – IBM</h3>
-
-      <p>
-        Certification focused on statistical computing and analytics using R,
-        including data manipulation and visualization.
-      </p>
-
+    <div class="card">
+      <h3>Introduction to R Programming</h3>
+      <p>Focused on statistical computing, visualization, and analytical workflows.</p>
       <div class="tech-stack">
         <span>R</span>
-        <span>Data Manipulation</span>
-        <span>Visualization</span>
         <span>Statistical Analysis</span>
       </div>
-
-      <div class="metrics">
-        <p><strong>Focus Area:</strong> Statistical Programming</p>
-        <p><strong>Application:</strong> Analytical research workflows</p>
-        <p><strong>Outcome:</strong> Strong dual-language capability (Python & R)</p>
-      </div>
-
       <a class="cert-btn" href="#">View Certificate</a>
     </div>
 
-    <!-- Prompt Engineering (Moved to End) -->
-    <div class="card cert-card">
+    <div class="card">
       <h3>Google Prompt Essentials</h3>
-      <p>Certification on structured prompt design for AI productivity.</p>
+      <p>Focused on structured prompt creation for AI productivity systems.</p>
       <a class="cert-btn" href="#">View Certificate</a>
     </div>
 
-    <div class="card cert-card">
+    <div class="card">
       <h3>Prompt Engineering Basics – Microsoft</h3>
-      <p>Focused on crafting effective prompts for LLM-based systems.</p>
+      <p>Covered prompt structuring for large language models and AI applications.</p>
+      <a class="cert-btn" href="#">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <h3>Storytelling – IESE Business School</h3>
+      <p>Explored narrative communication, emotional connection, and business storytelling.</p>
+      <div class="tech-stack">
+        <span>Communication</span>
+        <span>Leadership</span>
+        <span>Business Storytelling</span>
+      </div>
       <a class="cert-btn" href="#">View Certificate</a>
     </div>
 
   </div>
-     <div class="metrics">
-        <p><strong>Focus Area:</strong> Front-End Development</p>
-        <p><strong>Application:</strong> Personal website development</p>
-        <p><strong>Outcome:</strong> Self-built responsive portfolio site</p>
-      </div>
-
-      <a class="cert-btn" 
-         href="https://freecodecamp.org/certification/tabassumunnisa/responsive-web-design" 
-         target="_blank">
-         View Certificate
-      </a>
-    </div>
-  <div class="card">
-  <h3>Storytelling</h3>
-  <p>
-    Certification by IESE Business School exploring narrative communication,
-    emotional connection, and impactful storytelling for business and leadership.
-  </p>
-
-  <div class="tech-stack">
-    <span>Communication</span>
-    <span>Narrative Design</span>
-    <span>Leadership</span>
-    <span>Business Storytelling</span>
-  </div>
-
-  <a class="cert-btn" href="#">View Certificate</a>
-</div>
 </section>
 </main>
 
-  <footer class="site-footer">
-    <div class="site-container footer-inner">
-      <p class="copyright">© 2025 Nisa — Built with <span class="heart">❤️</span> by Nisa</p>
-      <div class="socials" aria-label="social links">
-        <!-- Social Links -->
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p>© 2025 Nisa — Built with ❤️ by Nisa</p>
+  </div>
+</footer>
 
-
-  <a href="https://www.linkedin.com/in/tabassum-unnisa-6a365228/" 
-     target="_blank" 
-     class="social linkedin" 
-     title="LinkedIn">
-     <i class="fab fa-linkedin"></i>
-  </a>
-
-  <a href="https://github.com/tabassumunnisa19" 
-     target="_blank" 
-     class="social github" 
-     title="GitHub">
-     <i class="fab fa-github"></i>
-  </a>
-
-  <a href="https://www.kaggle.com/nisaaas" 
-     target="_blank" 
-     class="social kaggle" 
-     title="Kaggle">
-     <i class="fab fa-kaggle"></i>
-  </a>
-
-  <a href="https://medium.com/@nisashabeerk" 
-     target="_blank" 
-     class="social medium" 
-     title="Medium">
-     <i class="fab fa-medium"></i>
-  </a>
-
-  <!-- YouTube Placeholder -->
-  <a href="#" 
-     class="social youtube" 
-     title="YouTube (Coming Soon)">
-     <i class="fab fa-youtube"></i>
-  </a>
-
-</div>
-    </div>
-  </footer>
-
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.getElementById('main-nav');
-    menuToggle.addEventListener('click', () => mainNav.classList.toggle('show'));
-  </script>
 <script>
-  const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  cards.forEach(card => observer.observe(card));
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+  menuToggle.addEventListener('click', () => mainNav.classList.toggle('show'));
 </script>
 
 </body>
 </html>
-
-
-
-
-
