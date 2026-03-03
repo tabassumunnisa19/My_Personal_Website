@@ -1,18 +1,156 @@
-<!-- ===== Research Portfolio Section ===== -->
-<section class="section project-section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Portfolio — Nisa</title>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    .section {
+      margin: 60px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      margin: 8px auto 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 25px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      text-align: left;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card p {
+      color: #334155;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .tech-stack span {
+      display: inline-block;
+      background: #f3f4f6;
+      padding: 5px 12px;
+      margin: 4px 6px 0 0;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      color: #475569;
+    }
+
+    .metrics {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .card-buttons {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background-color: #2563eb;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="../index.html" class="logo">
+      <img src="../logo.jpg" alt="Nisa logo" />
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="main-nav" class="navbar">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../portfolio.html" class="active">Portfolio</a>
+      <a href="../learn.html">Learn</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../books.html">Books</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="section">
   <h2 class="section-title">Research Portfolio</h2>
 
   <div class="grid">
 
-    <!-- ===== Aviation Statistical Study ===== -->
-    <div class="card project-card">
+    <!-- Aviation Paper -->
+    <div class="card">
 
-      <h3>An Applied Statistical Study of Commercial Aircraft Safety</h3>
+      <h3>Commercial Aircraft Safety Statistical Analysis</h3>
 
       <p>
-        Conducted a hypothesis-driven comparative safety analysis of Boeing and Airbus
-        aircraft using exposure-adjusted statistical normalization, chi-square testing,
-        and Poisson regression modeling to evaluate incident frequency and severity.
+        Conducted an exposure-adjusted statistical comparison of Boeing and Airbus
+        aircraft using chi-square hypothesis testing and Poisson modeling to evaluate
+        incident frequency and severity patterns.
       </p>
 
       <div class="tech-stack">
@@ -25,16 +163,70 @@
       </div>
 
       <div class="metrics">
-        <p><strong>Research Type:</strong> Applied Statistical Analysis</p>
-        <p><strong>Data Scope:</strong> Commercial Aviation Incident Records</p>
+        <p><strong>Research Type:</strong> Applied Statistical Study</p>
         <p><strong>Methodology:</strong> Exposure Normalization + Hypothesis Testing</p>
-        <p><strong>Key Insight:</strong> Statistical comparison beyond raw incident counts</p>
+        <p><strong>Contribution:</strong> Data-driven safety comparison beyond raw counts</p>
       </div>
 
       <div class="card-buttons">
-        <a class="btn" href="#" target="_blank">
-          Preprint Available
-        </a>
+        <a class="btn" href="#">Preprint Available</a>
+        <a class="btn" href="#">View Abstract</a>
+      </div>
+
+    </div>
+
+    <!-- Python vs R Paper -->
+    <div class="card">
+
+      <h3>Efficiency & Applicability of Python vs R</h3>
+
+      <p>
+        Comparative analytical research evaluating Python and R ecosystems
+        across performance benchmarking, modeling efficiency, visualization,
+        and domain-specific applications.
+      </p>
+
+      <div class="tech-stack">
+        <span>Python</span>
+        <span>R</span>
+        <span>Benchmarking</span>
+        <span>Performance Testing</span>
+        <span>Statistical Analysis</span>
+        <span>Comparative Research</span>
+      </div>
+
+      <div class="metrics">
+        <p><strong>Literature Base:</strong> 25 Research Studies</p>
+        <p><strong>Datasets:</strong> Iris, Titanic, COVID-19</p>
+        <p><strong>Key Finding:</strong> Python → Scalability | R → Statistical Depth</p>
+      </div>
+
+      <div class="card-buttons">
+        <a class="btn">Under Review (Journal Submission)</a>
+        <a class="btn" href="../python-r-abstract.html">View Abstract</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-container footer-inner">
+    <p class="copyright">© 2025 Nisa — Built with ❤️ by Nisa</p>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+  menuToggle.addEventListener('click', () => mainNav.classList.toggle('show'));
+</script>
+
+</body>
+</html>        </a>
         <a class="btn" href="#" target="_blank">
           View Abstract
         </a>
