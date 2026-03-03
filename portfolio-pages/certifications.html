@@ -1,3 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications — Nisa</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+
+/* =================== General Section & Grid Styles =================== */
+.section {
+  margin: 60px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+h2.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  display: inline-block;
+  position: relative;
+  color: #111827;
+}
+
+.cert-section .section-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+/* ================= Grid ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* ================= Card ================= */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* ================= Distinct Title Colors ================= */
+.cert-section .card:nth-child(8n+1) h3 { color: #2563eb; }  /* Blue */
+.cert-section .card:nth-child(8n+2) h3 { color: #9333ea; }  /* Purple */
+.cert-section .card:nth-child(8n+3) h3 { color: #db2777; }  /* Pink */
+.cert-section .card:nth-child(8n+4) h3 { color: #0ea5e9; }  /* Teal */
+.cert-section .card:nth-child(8n+5) h3 { color: #f59e0b; }  /* Amber */
+.cert-section .card:nth-child(8n+6) h3 { color: #10b981; }  /* Green */
+.cert-section .card:nth-child(8n+7) h3 { color: #ef4444; }  /* Red */
+.cert-section .card:nth-child(8n+8) h3 { color: #6366f1; }  /* Indigo */
+
+/* ================= Tech Stack ================= */
+.tech-stack span {
+  display: inline-block;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  margin: 4px 6px 0 0;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  color: #475569;
+}
+
+/* ================= Button ================= */
+.cert-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+}
+
+.cert-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="Nisa logo">
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="main-nav" class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="learn.html">Learn</a>
+      <a href="blog.html">Blog</a>
+      <a href="books.html">Books</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+  <main>
 <!-- ===== Certifications & Professional Development ===== -->
 <section class="section cert-section">
   <h2 class="section-title">Professional Certifications & Training</h2>
