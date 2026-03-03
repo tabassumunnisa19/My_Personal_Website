@@ -305,6 +305,21 @@
   color: #475569;
   line-height: 1.7;
 }
+    .grid-inner {
+  display: flex;
+  gap: 30px;
+  align-items: stretch;   /* Makes all cards equal height */
+}
+
+.cert-card {
+  flex: 1;                /* Both take equal width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Keeps button aligned at bottom */
+}
+    .cert-card p {
+  flex-grow: 1;
+}
   </style>
 </head>
 
