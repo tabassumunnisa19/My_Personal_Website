@@ -193,15 +193,63 @@
       gap: 8px;
     }
   }
-    .about-skills{
+    /* Skills container */
+.about-skills{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
 margin-top:30px;
-font-size:15px;
+}
+
+/* General skill style */
+
+.skill{
+padding:8px 16px;
+border-radius:20px;
+font-size:14px;
 font-weight:600;
-color:#555;
-background:#f4f6ff;
-display:inline-block;
-padding:10px 18px;
-border-radius:30px;
+}
+
+/* Individual professional colors */
+
+.python{
+background:#3776AB;
+color:white;
+}
+
+.ml{
+background:#ff6f00;
+color:white;
+}
+
+.sql{
+background:#336791;
+color:white;
+}
+
+.powerbi{
+background:#f2c811;
+color:black;
+}
+
+.r{
+background:#276DC3;
+color:white;
+}
+
+.viz{
+background:#6f42c1;
+color:white;
+}
+
+.dl{
+background:#00a67d;
+color:white;
+}
+    .skill:hover{
+transform:translateY(-3px);
+transition:0.3s;
 }
 /* ================== About Split Layout ================== */
 .about-wrapper {
@@ -433,9 +481,17 @@ border-radius:30px;
       <p style="margin-top:20px; font-style:italic;">
         “Transforming thoughts, experiences, and data into knowledge, solutions, and inspiration for the world.”
       </p>
-<p class="about-skills">
-Python • Machine Learning • SQL • Power BI • R • Data Visualization • Deep Learning
-</p>
+<div class="about-skills">
+
+<span class="skill python">Python</span>
+<span class="skill ml">Machine Learning</span>
+<span class="skill sql">SQL</span>
+<span class="skill powerbi">Power BI</span>
+<span class="skill r">R</span>
+<span class="skill viz">Data Visualization</span>
+<span class="skill dl">Deep Learning</span>
+
+</div>
   </div>
 
 <section class="professional-block">
